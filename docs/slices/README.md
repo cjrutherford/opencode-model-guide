@@ -23,7 +23,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | ID | Slice | Depends on | Status | Owner | Branch | PR | Notes |
 |---|---|---|---|---|---|---|---|
 | S00 | [Repository foundation and CI](./S00-repo-foundation.md) | — | `done` | CJ Rutherford | `slice/S00-repo-foundation` | [#1](https://github.com/cjrutherford/opencode-model-guide/pull/1) | Merged 2026-10-19; CI green |
-| S01 | [Shared contracts and fixtures](./S01-shared-contracts.md) | S00 | `todo` | — | — | — | Schema freeze after merge |
+| S01 | [Shared contracts and fixtures](./S01-shared-contracts.md) | S00 | `in-progress` | CJ Rutherford | `slice/S01-shared-contracts` | — | Schema freeze after merge; started 2026-10-19 |
 | S02 | [Catalog ingest](./S02-catalog-ingest.md) | S01 | `todo` | — | — | — | Owns `data/snapshot.json` |
 | S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `todo` | — | — | — | Touches `run.ts`; coordinate with S02/S04 |
 | S04 | [Change detection and event log](./S04-change-detection.md) | S02, S03 | `todo` | — | — | — | Bootstraps without notifications |
@@ -90,7 +90,10 @@ minimal and note it in the PR.
 
 ## Schema freeze
 
-After S01 merges, `packages/shared/src/schema.ts` is frozen for v1. A change requires:
+**Frozen when S01 merges.** `packages/shared/src/schema.ts` is v1, `SCHEMA_VERSION = 1`. The design
+did not define `SourceStatus`; S01 fixes it as
+`{ id, url, ok, status: "ok"|"failed"|"skipped", fetchedAt, durationMs?, itemCount?, error?, reason?, required? }`
+with `ok === (status === "ok")`. A change requires:
 
 1. A note in this tracker under "Schema changes".
 2. A `SCHEMA_VERSION` bump if the change is breaking.
@@ -142,6 +145,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-19 | S01 | Claimed; branch `slice/S01-shared-contracts` based on `main` (S00 merged). |
 | 2026-10-19 | S00 | Merged to `main`. CI green after the GitHub Actions incident. S01 starts from this commit. |
 | 2026-10-19 | S00 | Workspace, Astro shell, Vitest, and CI scaffolded; `.secrets` ignored and loaded by CLI scripts. PR [#1](https://github.com/cjrutherford/opencode-model-guide/pull/1). |
 | 2026-10-19 | — | Public repo created; Pages enabled with GitHub Actions; workflow default permissions set to write. Secrets not set yet. |
@@ -152,4 +156,4 @@ Append newest first. Keep it short.
 
 | Date | Version | Change | PR |
 |---|---|---|---|
-| — | 1 | Initial schema | — |
+| 2026-10-19 | 1 | Initial v1 schema: `Snapshot`, `BenchmarksFile`, `ScoresFile`, `ChangeEvent`, and `SourceStatus` (`id`, `url`, `ok`, `status`, `fetchedAt`, `durationMs?`, `itemCount?`, `error?`, `reason?`, `required?`) | [#2](https://github.com/cjrutherford/opencode-model-guide/pull/2) |

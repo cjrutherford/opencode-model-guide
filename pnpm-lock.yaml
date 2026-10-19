@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@omg/shared':
+        specifier: workspace:*
+        version: link:packages/shared
       '@types/node':
         specifier: ^22.20.5
         version: 22.20.5
@@ -67,7 +70,11 @@ importers:
 
   packages/scoring: {}
 
-  packages/shared: {}
+  packages/shared:
+    dependencies:
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
 
 packages:
 

@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "pnpm --filter @omg/web dev",
     "build": "pnpm --filter @omg/web build",
-    "typecheck": "pnpm -r typecheck",
+    "typecheck": "pnpm -r typecheck && tsc -p tsconfig.scripts.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "ingest": "node --env-file-if-exists=.secrets --import tsx packages/ingest/src/run.ts",
@@ -19,6 +19,7 @@
     "validate:data": "node --env-file-if-exists=.secrets --import tsx scripts/validate-data.ts"
   },
   "devDependencies": {
+    "@omg/shared": "workspace:*",
     "@types/node": "^22.20.5",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",

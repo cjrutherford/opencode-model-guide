@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T13:00:00.000Z",
+  "models": [
+    {
+      "key": "opencode/deepseek-v4.1-flash-free",
+      "provider": "opencode",
+      "id": "deepseek-v4.1-flash-free",
+      "name": "DeepSeek V4.1 Flash Free",
+      "family": "deepseek",
+      "releaseDate": "2026-09-01",
+      "modalities": { "input": ["text"], "output": ["text"] },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": { "context": 200000, "output": 8192 },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0
+      },
+      "free": {
+        "kind": "open-free",
+        "flags": ["zero-retention"],
+        "since": "2026-09-01",
+        "status": "confirmed"
+      },
+      "availability": "live",
+      "privacy": { "training": "none", "retentionDays": 0 },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z",
+          "fields": ["id", "name", "pricing"]
+        },
+        {
+          "id": "opencode.models",
+          "url": "https://opencode.ai/inference/v1/models",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-09-01T00:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/kimi-k3",
+      "provider": "opencode",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "family": "kimi",
+      "releaseDate": "2026-08-15",
+      "modalities": { "input": ["text", "image"], "output": ["text"] },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": true,
+        "structuredOutput": true,
+        "temperature": false
+      },
+      "limits": { "context": 256000, "output": 16384 },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 3,
+        "output": 15,
+        "cacheRead": 0.3
+      },
+      "free": { "kind": "paid", "flags": [] },
+      "availability": "live",
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-08-15T00:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode-go/glm-5.3",
+      "provider": "opencode-go",
+      "id": "glm-5.3",
+      "name": "GLM 5.3",
+      "family": "glm",
+      "releaseDate": "2026-07-20",
+      "modalities": { "input": ["text"], "output": ["text"] },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": { "context": 200000, "output": 8192 },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 1.4,
+        "output": 4.4,
+        "cacheRead": 0.26
+      },
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      },
+      "free": { "kind": "subscription-included", "flags": [] },
+      "availability": "live",
+      "sources": [
+        {
+          "id": "opencode-go.models",
+          "url": "https://opencode.ai/inference/go/v1/models",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-07-20T00:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "models.dev",
+      "url": "https://models.dev/api.json",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "durationMs": 420,
+      "itemCount": 161,
+      "required": true
+    },
+    {
+      "id": "opencode.models",
+      "url": "https://opencode.ai/inference/v1/models",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "durationMs": 180,
+      "itemCount": 128,
+      "required": true
+    },
+    {
+      "id": "opencode-go.models",
+      "url": "https://opencode.ai/inference/go/v1/models",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "durationMs": 160,
+      "itemCount": 33,
+      "required": true
+    }
+  ]
+}
