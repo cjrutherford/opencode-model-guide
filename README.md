@@ -12,7 +12,7 @@ Astro site, deploys to GitHub Pages, publishes an RSS feed, and sends an ntfy su
 
 ## Status
 
-Planning is complete. Implementation has not started.
+Implementation is underway. S00 provides the pnpm workspace, Astro shell, Vitest, and the CI gate.
 
 - [Design](docs/plans/2026-10-19-opencode-model-guide-design.md)
 - [Implementation plan](docs/plans/2026-10-19-opencode-model-guide-implementation.md)
@@ -29,7 +29,7 @@ Planning is complete. Implementation has not started.
 
 ## Local development
 
-Node 22 and pnpm 10 are required. In the T3 sandbox, pnpm is installed but not on `PATH`:
+Node 22.22+ and pnpm 10 are required. In the T3 sandbox, pnpm is installed but not on `PATH`:
 
 ```bash
 export PATH="$HOME/.local/share/pnpm:$PATH"
@@ -37,15 +37,35 @@ pnpm install
 pnpm dev
 ```
 
-Scripts will be available after S00 lands:
+Common commands:
 
 ```bash
+pnpm typecheck       # TypeScript and Astro checks
+pnpm test            # unit tests
+pnpm test:watch      # tests in watch mode
+pnpm build           # static site
+pnpm validate:data   # validate committed data
 pnpm ingest          # fetch and normalize sources
 pnpm score           # compute costs and quality scores
-pnpm validate:data   # validate committed data
-pnpm test            # unit tests
-pnpm build           # static site
+pnpm notify          # send the ntfy summary
 ```
+
+`ingest`, `score`, `notify`, and `validate:data` fail until their slices land. That is intentional.
+
+### Local secrets
+
+Copy the example and fill in the two values:
+
+```bash
+cp .secrets.example .secrets
+```
+
+`.secrets` is gitignored and must never be committed. The CLI scripts above load it
+automatically with Node's `--env-file-if-exists=.secrets`; GitHub Actions supplies the same values
+as repository secrets instead. See [setup and secret rotation](docs/setup-secrets.md).
+
+Tests do not read `.secrets`; adapters use fixtures and `vi.stubEnv` when they need an environment
+value.
 
 ## Disclaimer
 
