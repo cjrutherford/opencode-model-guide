@@ -64,7 +64,11 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  packages/ingest: {}
+  packages/ingest:
+    dependencies:
+      '@omg/shared':
+        specifier: workspace:*
+        version: link:../shared
 
   packages/notify: {}
 
