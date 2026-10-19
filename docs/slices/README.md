@@ -142,6 +142,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-19 | — | Public repo created; Pages enabled with GitHub Actions; workflow default permissions set to write. Secrets not set yet. |
 | 2026-10-19 | — | Repo/owner, Pages URL, ntfy server, and AA key process decided. Setup instructions added. |
 | 2026-10-19 | — | Design, plan, tracker, and slice files created. No implementation started. |
 
