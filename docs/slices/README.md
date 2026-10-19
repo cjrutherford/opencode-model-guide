@@ -22,7 +22,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 
 | ID | Slice | Depends on | Status | Owner | Branch | PR | Notes |
 |---|---|---|---|---|---|---|---|
-| S00 | [Repository foundation and CI](./S00-repo-foundation.md) | — | `todo` | — | — | — | Critical path |
+| S00 | [Repository foundation and CI](./S00-repo-foundation.md) | — | `in-progress` | CJ Rutherford | `slice/S00-repo-foundation` | — | Critical path; started 2026-10-19 |
 | S01 | [Shared contracts and fixtures](./S01-shared-contracts.md) | S00 | `todo` | — | — | — | Schema freeze after merge |
 | S02 | [Catalog ingest](./S02-catalog-ingest.md) | S01 | `todo` | — | — | — | Owns `data/snapshot.json` |
 | S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `todo` | — | — | — | Touches `run.ts`; coordinate with S02/S04 |
