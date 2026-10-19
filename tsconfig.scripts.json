@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@omg/shared": ["packages/shared/src/index.ts"],
+      "@omg/shared/*": ["packages/shared/src/*"],
+      "@omg/ingest": ["packages/ingest/src/index.ts"],
+      "@omg/ingest/*": ["packages/ingest/src/*"],
+      "@omg/scoring": ["packages/scoring/src/index.ts"],
+      "@omg/scoring/*": ["packages/scoring/src/*"],
+      "@omg/notify": ["packages/notify/src/index.ts"],
+      "@omg/notify/*": ["packages/notify/src/*"]
+    },
+    "types": ["node"]
+  },
+  "include": ["scripts/**/*.ts"]
+}

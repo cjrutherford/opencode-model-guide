@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T13:05:00.000Z",
+  "results": [
+    {
+      "benchmark": "swe-bench-verified",
+      "metric": "percent",
+      "value": 62.3,
+      "modelNameRaw": "DeepSeek V4.1 Flash Free",
+      "modelKey": "opencode/deepseek-v4.1-flash-free",
+      "match": "exact",
+      "matchConfidence": 1,
+      "date": "2026-10-01",
+      "sourceUrl": "https://www.swebench.com/",
+      "harness": "mini-SWE-agent",
+      "costPerTaskUsd": 0.02,
+      "tokensPerTask": 12000
+    },
+    {
+      "benchmark": "lmarena-webdev",
+      "metric": "elo",
+      "value": 1310,
+      "modelNameRaw": "Kimi K3",
+      "modelKey": "opencode/kimi-k3",
+      "match": "exact",
+      "matchConfidence": 1,
+      "date": "2026-10-05",
+      "sourceUrl": "https://lmarena.ai/"
+    },
+    {
+      "benchmark": "aider-polyglot",
+      "metric": "percent",
+      "value": 55.1,
+      "modelNameRaw": "Mystery Model 2026-09",
+      "match": "unmatched",
+      "matchConfidence": 0,
+      "date": "2026-10-03",
+      "sourceUrl": "https://aider.chat/docs/leaderboards/"
+    }
+  ],
+  "unmatched": ["Mystery Model 2026-09"],
+  "sources": [
+    {
+      "id": "swe-bench",
+      "url": "https://www.swebench.com/",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:05:00.000Z",
+      "durationMs": 640,
+      "itemCount": 42,
+      "required": false
+    },
+    {
+      "id": "lmarena",
+      "url": "https://lmarena.ai/",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:05:00.000Z",
+      "durationMs": 510,
+      "itemCount": 100,
+      "required": false
+    },
+    {
+      "id": "aider-polyglot",
+      "url": "https://aider.chat/docs/leaderboards/",
+      "ok": false,
+      "status": "failed",
+      "fetchedAt": "2026-10-19T13:05:00.000Z",
+      "durationMs": 20000,
+      "error": "timeout",
+      "required": false
+    }
+  ]
+}
