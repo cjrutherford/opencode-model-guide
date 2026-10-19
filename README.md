@@ -17,6 +17,7 @@ Planning is complete. Implementation has not started.
 - [Design](docs/plans/2026-10-19-opencode-model-guide-design.md)
 - [Implementation plan](docs/plans/2026-10-19-opencode-model-guide-implementation.md)
 - [Slice tracker](docs/slices/README.md)
+- [Repository, Pages, and secret setup](docs/setup-secrets.md)
 
 ## Planned sources
 

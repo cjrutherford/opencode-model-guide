@@ -51,6 +51,8 @@ Important invariants:
 - `ChangeEvent.id === `${type}:${modelKey}:${at.slice(0, 10)}``.
 - `BenchmarkResult.modelKey` is optional; unresolved results are allowed but must have
   `match: "unmatched"`.
+- `BenchmarkResult.meta` is optional and only for supplemental source fields; the primary metric
+  stays in `value`.
 - `ScoreRecord.useCases` keys are the four use cases, but may be missing for unrated models.
 
 ## Files

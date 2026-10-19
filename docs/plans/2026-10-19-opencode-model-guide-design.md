@@ -121,7 +121,7 @@ The home page defaults to `freeNow`. The Go subscription value is a separate vie
 | LMArena | HF datasets-server, `lmarena-ai/leaderboard-dataset` | Elo/score for text, webdev, agent, document | High for human preference | Weekly |
 | Aider polyglot | `aider/website/_data/polyglot_leaderboard.yml` | pass rate, seconds per case, cost | Medium (single harness) | Weekly |
 | Terminal-Bench | `https://www.tbench.ai/leaderboard` | agentic terminal score | Medium; optional in v1 | Weekly |
-| Artificial Analysis | `https://artificialanalysis.ai/api/v2/data/llms/models` | intelligence/coding index, output tokens, speed | High; requires API key | Weekly |
+| Artificial Analysis | `https://artificialanalysis.ai/api/v2/language/models/free` | intelligence, coding, agentic indices; pricing; speed | High; free API key required; attribution required | Weekly |
 
 Source priority when fields overlap:
 
@@ -140,7 +140,10 @@ Every model carries `sources[]`. Every conflict is recorded, not silently overwr
 - SWE-bench publishes multiple leaderboards and harnesses. Compare `mini-SWE-agent` runs only.
 - LMArena does not have a config named `coding`. Use `webdev`, `agent`, `text`, and `document`.
 - Aider's YAML is a list of historical runs. Take the latest run per model, not every row.
-- Artificial Analysis requires a key. If absent, skip it and lower confidence; do not fail the build.
+- Artificial Analysis: use the free-tier `/api/v2/language/models/free` endpoint, not the Pro
+  `/api/v2/language/models` endpoint. The free tier is rate-limited (currently 100 requests/day;
+  the daily job uses 1–2) and requires attribution. If `AA_API_KEY` is absent, skip it and lower
+  confidence; do not fail the build. See [`docs/setup-secrets.md`](../setup-secrets.md).
 
 ## 6. Architecture
 
@@ -319,6 +322,7 @@ interface BenchmarkResult {
   harness?: string;
   costPerTaskUsd?: number;           // when the source publishes it
   tokensPerTask?: number;            // when the source publishes it
+  meta?: Record<string, number | string | null>;
 }
 
 interface ScoreRecord {
@@ -434,6 +438,10 @@ Weights are versioned in `packages/shared/src/constants.ts`.
 
 Long-context ranking also requires `limits.context >= 200_000`. Context is a gate, not a score.
 
+Artificial Analysis coding, agentic, and intelligence indices are **supplemental in v1**: ingested
+and displayed on model pages when `AA_API_KEY` is present, but not part of the composite until the
+weights are calibrated. This keeps the composite reproducible when the optional key is absent.
+
 ### Normalization
 
 - Convert each benchmark's raw value to a percentile within the set of models present in that
@@ -528,6 +536,8 @@ notifications. Write a baseline history file and set `notify: false` on bootstra
 - Mobile-first tables: horizontal scroll with sticky first column; cards below 640 px.
 - Accessibility: semantic landmarks, visible focus, 4.5:1 contrast, table captions, reduced motion.
 - Minimal client JS: only the model table and compare view are islands.
+- Footer credits every data source and includes the required Artificial Analysis attribution link
+  whenever its data is displayed.
 
 ### URL state
 
@@ -561,7 +571,10 @@ internal links. The deploy workflow uses `actions/configure-pages` outputs for `
 4. `pnpm validate:data`.
 5. Commit changed `data/` files with `[skip ci]`.
 6. Configure Pages, build, upload artifact, deploy.
-7. `pnpm notify` with `NTFY_TOPIC`.
+7. `pnpm notify` with `NTFY_TOPIC`, then commit `data/notify-state.json`.
+
+Secrets: `NTFY_TOPIC` and optional `AA_API_KEY`. Setup, rotation, and troubleshooting are in
+[`docs/setup-secrets.md`](../setup-secrets.md).
 
 Permissions: `contents: write`, `pages: write`, `id-token: write`.
 Concurrency: one `pages` group, no cancel-in-progress.
@@ -604,6 +617,7 @@ and the slice file's acceptance checklist is complete.
 | GitHub Actions schedule disabled | Daily data commits keep the repo active |
 | GitHub Pages base path breaks links | `url()` helper, `configure-pages` outputs, link test |
 | Rate limits or source downtime | Timeouts, retry, optional-source policy, source health |
+| Artificial Analysis quota exhausted | 1–2 requests/day, cache in `benchmarks.json`, skip on 429, `/health` |
 | Price tiers modeled incorrectly | One documented convention, unit tests, methodology page |
 | Notifications become noise | One summary per run, free events only by default, dedupe |
 
@@ -638,19 +652,18 @@ S00 foundation
 - Terminal-Bench and LiveBench adapters.
 - Per-model "last verified" checks against the live endpoint.
 
-## 16. Defaults and open decisions
+## 16. Decisions and defaults
 
-These are assumed unless changed:
+These are settled:
 
+- GitHub repository: **`cjrutherford/opencode-model-guide`** (public).
+- Pages URL: **`https://cjrutherford.github.io/opencode-model-guide/`**.
 - Daily run at **13:00 UTC**.
-- ntfy.sh with the topic in the `NTFY_TOPIC` GitHub secret.
-- Artificial Analysis is optional; if `AA_API_KEY` is absent, skip and lower confidence.
-- GitHub repository is public (required for free Pages).
+- ntfy.sh with a random, unguessable topic stored in the `NTFY_TOPIC` GitHub secret.
+- Artificial Analysis uses the free-tier API with `AA_API_KEY` stored as a GitHub secret. It is
+  optional: if absent, skip and lower confidence.
 - No custom domain in v1.
 - Editorial reviews are out of scope; LMArena is the human-preference signal.
 
-Open items to resolve during implementation:
-
-- Repository owner/name and Pages URL (needed for `SITE_URL`).
-- Whether to self-host ntfy or use ntfy.sh.
-- Whether an Artificial Analysis key is available.
+Setup instructions live in [`docs/setup-secrets.md`](../setup-secrets.md). The only remaining owner
+actions are creating the remote repository, enabling Pages, and entering the two secrets.

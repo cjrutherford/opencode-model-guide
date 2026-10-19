@@ -209,7 +209,8 @@ Design rules:
 - Skip link: `<a href="#main" class="skip">Skip to content</a>`.
 - Header with links: Models, Changes, Compare, Methodology.
 - Active link styling based on `Astro.url.pathname`.
-- Footer: data sources, "not affiliated with OpenCode", GitHub link, last updated.
+- Footer: data sources, **required Artificial Analysis attribution link** when its data is used,
+  "not affiliated with OpenCode", GitHub link, last updated.
 - `<main id="main">` slot.
 - No client JS.
 

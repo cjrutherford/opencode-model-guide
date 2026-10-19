@@ -134,7 +134,8 @@ Sections:
 8. **Name matching:** exact/alias/fuzzy and the 0.85 threshold.
 9. **What we do not measure:** token efficiency from real runs, subjective quality, gateway
    differences, regional latency.
-10. **Sources:** URLs, cadence, last successful fetch.
+10. **Sources:** URLs, cadence, last successful fetch. Include the required Artificial Analysis
+    attribution link when its data is displayed.
 11. **Version:** `METHODOLOGY_VERSION = "1.0"` and a short change log.
 
 Every formula should be copy-pasteable and match the code. Add a test that imports the constants

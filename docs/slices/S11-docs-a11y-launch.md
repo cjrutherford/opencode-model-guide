@@ -98,7 +98,8 @@ Owner actions:
 - [ ] Create public GitHub repo, push `main`.
 - [ ] Enable Pages with source "GitHub Actions".
 - [ ] Set `NTFY_TOPIC` secret (random, not guessable).
-- [ ] Optional: set `AA_API_KEY`.
+- [ ] Optional: set `AA_API_KEY` (free-tier key).
+- [ ] Follow [`docs/setup-secrets.md`](../setup-secrets.md) for generation, verification, and rotation.
 - [ ] Run the workflow manually once.
 - [ ] Confirm the live URL, `/feed.xml`, `/health`, `/methodology`.
 - [ ] Subscribe to the feed and confirm one ntfy message on a simulated change.

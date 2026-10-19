@@ -62,6 +62,7 @@ interface BenchmarksFile {
 | Create | `packages/scoring/test/fixtures/swebench.html` | Trimmed real page |
 | Create | `packages/scoring/test/fixtures/lmarena-webdev.json` | One page of rows |
 | Create | `packages/scoring/test/fixtures/aider.yml` | 3 runs, 2 models |
+| Create | `packages/scoring/test/fixtures/aa-free.json` | One page of free-tier rows |
 | Create | `data/aliases.json` | Start with `{}` |
 | Create | `data/benchmarks.json` | Generated |
 
@@ -159,11 +160,24 @@ https://datasets-server.huggingface.co/rows
 ### 5. Optional adapters
 
 - `terminalBench.ts`: return `{ results: [], status: "skipped", reason: "no stable machine-readable leaderboard in v1" }`.
-- `aa.ts`: if `process.env.AA_API_KEY` is absent, return skipped. If present, fetch
-  `https://artificialanalysis.ai/api/v2/data/llms/models` with header `x-api-key`, map
-  `coding_index`/`intelligence_index` to `artificial-analysis`. Add a fixture when a real response is
-  available; until then, keep the adapter defensive and excluded from acceptance.
+- `aa.ts`: if `process.env.AA_API_KEY` is absent, return skipped. If present, fetch the **free-tier**
+  endpoint `https://artificialanalysis.ai/api/v2/language/models/free` with header
+  `x-api-key: $AA_API_KEY`. Do not call the Pro endpoint `/api/v2/language/models`; a free key gets
+  a `403` there.
+  - Paginate with `?page=N` while `pagination.has_more` is true. The page size is 200, so a normal
+    run is 1–2 requests. The free tier is rate-limited (currently 100 requests/day).
+  - For each model, emit one result with `benchmark: "artificial-analysis"`, `metric: "score"`,
+    `value: evaluations.artificial_analysis_coding_index`, `harness: "AA Coding Index"`,
+    `date: <fetch date>` (the API does not publish a per-row date), and `sourceUrl:
+    "https://artificialanalysis.ai/"`.
+  - Put the other free-tier indices in `meta`: `intelligence`, `agentic`, `coding`,
+    `intelligenceIndexVersion`, and `tier`. These are supplemental and are not part of the v1
+    composite.
+  - Skip rows where the coding index is `null`; do not coerce null to zero.
+  - Add a fixture from a real free-tier response (`aa-free.json`) so the adapter is tested.
 - Both adapters must return a `SourceStatus`, never throw into the orchestrator.
+- Artificial Analysis requires attribution. The site footer and `/methodology` must link to
+  `https://artificialanalysis.ai/` whenever its data is displayed.
 
 ### 6. Implement `aliases.ts` and `resolve.ts`
 
@@ -255,6 +269,9 @@ Do not add an alias unless you are confident. A wrong alias is worse than an unm
 - [ ] LMArena pagination works and all four configs map correctly.
 - [ ] Aider keeps the latest run per model.
 - [ ] Optional adapters return `skipped`, never throw.
+- [ ] Artificial Analysis uses the free-tier `/language/models/free` endpoint, paginates, and maps
+      the coding index with the other indices in `meta`; a missing key yields `skipped`.
+- [ ] Artificial Analysis attribution is present in the footer/methodology when data is shown.
 - [ ] Resolution covers exact, alias, fuzzy, and unmatched with tests.
 - [ ] At least 25 native models resolve to one or more benchmarks.
 - [ ] `unmatched` is non-empty on a real run and visible to S09.

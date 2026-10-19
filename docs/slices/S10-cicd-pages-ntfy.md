@@ -47,6 +47,7 @@ the data, deploys the site, and pushes one summary when something changes.
 | Create | `data/notify-state.json` | `{ "sent": [] }` |
 | Modify | `.github/workflows/ci.yml` | Add `astro check` |
 | Modify | `README.md` | Secrets + Pages setup |
+| Modify | `docs/setup-secrets.md` | Keep setup instructions in sync |
 
 ## Implementation steps
 
@@ -282,17 +283,21 @@ keep it; correctness matters more than a minute.
 
 ```bash
 gh repo view --json nameWithOwner
-gh api -X PUT "repos/{owner}/{repo}/pages" -f build_type=workflow
-gh secret set NTFY_TOPIC --body "your-topic"
-# optional
-gh secret set AA_API_KEY --body "your-key"
+gh api -X PUT "repos/cjrutherford/opencode-model-guide/pages" -f build_type=workflow
+gh secret set NTFY_TOPIC        # paste a random topic when prompted
+gh secret set AA_API_KEY        # optional; paste the free-tier key when prompted
+gh secret list
 ```
 
 - Generate a long random ntfy topic, e.g. `openssl rand -hex 16`. Anyone who knows it can read the
   notifications; treat it as a shared secret.
 - Do not use a guessable topic.
+- Do not use `--body` for secrets; it can land in shell history. Use the interactive prompt or the
+  GitHub UI.
 - The workflow uses `ntfy.sh` by default. If self-hosting later, add `NTFY_SERVER` env and pass it
   through.
+- Full instructions, including how to obtain the Artificial Analysis key, rotate both secrets, and
+  troubleshoot `401`/`403`/`429`: [`docs/setup-secrets.md`](../setup-secrets.md).
 
 ### 8. Test
 

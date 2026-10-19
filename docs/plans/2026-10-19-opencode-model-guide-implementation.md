@@ -435,6 +435,7 @@ write atomically. Never rewrite historical events.
 - Create: `packages/scoring/test/fixtures/swebench.html`
 - Create: `packages/scoring/test/fixtures/lmarena-webdev.json`
 - Create: `packages/scoring/test/fixtures/aider.yml`
+- Create: `packages/scoring/test/fixtures/aa-free.json`
 - Create: `data/aliases.json` (start with `{}`)
 
 **Step 1: Write the failing SWE-bench parser test.**
@@ -461,8 +462,11 @@ it("parses the embedded leaderboard JSON and keeps mini-SWE-agent runs", () => {
 - **Aider:** fetch the YAML URL, parse with `yaml`, take the latest run per `model`, metric
   `pass_rate_2`.
 - **Terminal-Bench:** return `[]` with a `skipped` source status in v1. Do not scrape.
-- **Artificial Analysis:** if `AA_API_KEY` is set, fetch and map; otherwise return `[]` with
-  `skipped`. Never fail the run.
+- **Artificial Analysis:** if `AA_API_KEY` is set, fetch the free-tier
+  `https://artificialanalysis.ai/api/v2/language/models/free` endpoint with `x-api-key`, paginate
+  with `?page=N`, and map the coding index plus `meta` indices; otherwise return `[]` with
+  `skipped`. Never call the Pro endpoint with a free key, and never fail the run. Setup:
+  [`docs/setup-secrets.md`](../setup-secrets.md).
 
 **Step 3: Implement `aliases.ts` and `resolve.ts`.**
 
@@ -722,8 +726,10 @@ prints the payload.
 - Concurrency: `pages`, `cancel-in-progress: false`.
 - Steps: checkout, setup node/pnpm, install, ingest, score, validate, commit data if changed,
   configure pages, build with `SITE_URL`/`BASE_PATH`, upload artifact, deploy, notify.
-- `NTFY_TOPIC` secret; optional `AA_API_KEY`.
+- `NTFY_TOPIC` secret; optional `AA_API_KEY`. Setup and rotation:
+  [`docs/setup-secrets.md`](../setup-secrets.md).
 - Commit message includes `[skip ci]`.
+- Commit `data/notify-state.json` after notify so reruns do not resend.
 
 **Step 6: Test with `act` or a manual dispatch.** Verify the Pages URL, the feed, and one ntfy
 message. Verify a no-change run sends nothing.
