@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 
 import { describe, expect, it } from "vitest";
 
-import { fetchSources, parseArgs } from "../src/run";
+import { fetchDocs, fetchSources, parseArgs } from "../src/run";
 import { parseModelsDev } from "../src/sources/modelsDev";
 import { parseLiveIds } from "../src/sources/opencodeModels";
 import rawModelsDev from "./fixtures/models-dev.sample.json";
@@ -63,6 +63,24 @@ describe("fetchSources (fixtures)", () => {
     ]);
     expect(fetched.sources.every((source) => source.ok)).toBe(true);
     expect(fetched.sources[0]!.itemCount).toBe(6);
+  });
+});
+
+describe("fetchDocs (fixtures)", () => {
+  it("reads both docs pages without the network", async () => {
+    const docs = await fetchDocs(fixturesDir);
+    expect(docs.available).toEqual({ console: true, go: true });
+    expect(docs.evidence.freeModels).toHaveLength(17);
+    expect(docs.evidence.planPrices).toEqual({ go: 10, goPlus: 40 });
+    expect(docs.sources.map((source) => source.id)).toEqual([
+      "opencode.console-docs",
+      "opencode.go-docs",
+    ]);
+    expect(docs.refs.map((ref) => ref.id)).toEqual([
+      "opencode.console-docs",
+      "opencode.go-docs",
+    ]);
+    expect(docs.sources.every((source) => source.ok)).toBe(true);
   });
 });
 

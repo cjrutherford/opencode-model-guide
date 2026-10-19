@@ -10,6 +10,16 @@ import {
 
 import { normalizeCatalog } from "./normalize";
 import { readSnapshot, writeSnapshotAtomic } from "./snapshot";
+import { classifyFreeResult } from "./freeClassify";
+import { fetchText } from "./http";
+import {
+  CONSOLE_DOCS_URL,
+  GO_DOCS_URL,
+  mergeDocsEvidence,
+  parseConsoleDocs,
+  parseGoDocs,
+  type DocsEvidence,
+} from "./sources/opencodeDocs";
 import {
   MODELS_DEV_URL,
   fetchModelsDev,
@@ -133,12 +143,107 @@ export async function fetchSources(fixtures: string | null): Promise<FetchedCata
   };
 }
 
+type DocsSourceId = "opencode.console-docs" | "opencode.go-docs";
+
+interface FetchedDoc {
+  evidence: DocsEvidence;
+  status: SourceStatus;
+  ref?: SourceRef;
+  ok: boolean;
+}
+
+export interface DocsFetchResult {
+  evidence: DocsEvidence;
+  sources: SourceStatus[];
+  refs: SourceRef[];
+  available: { console: boolean; go: boolean };
+}
+
+async function fetchDoc(
+  id: DocsSourceId,
+  url: string,
+  file: string,
+  fixtures: string | null,
+  parser: (html: string, source: SourceRef) => DocsEvidence,
+): Promise<FetchedDoc> {
+  const started = Date.now();
+  const fetchedAt = new Date().toISOString();
+
+  try {
+    const html = fixtures
+      ? await readFile(join(fixtures, file), "utf8")
+      : await fetchText(id, url);
+    const ref: SourceRef = { id, url, fetchedAt };
+    const evidence = parser(html, ref);
+    const status: SourceStatus = {
+      id,
+      url,
+      ok: true,
+      status: "ok",
+      fetchedAt,
+      durationMs: Date.now() - started,
+      itemCount: evidence.freeModels.length + evidence.prices.length,
+      required: true,
+    };
+    return { evidence, status, ref, ok: true };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const evidence = mergeDocsEvidence();
+    evidence.warnings.push(`${id} failed: ${message}`);
+    const status: SourceStatus = {
+      id,
+      url,
+      ok: false,
+      status: "failed",
+      fetchedAt,
+      durationMs: Date.now() - started,
+      error: message,
+      required: true,
+    };
+    return { evidence, status, ok: false };
+  }
+}
+
+export async function fetchDocs(fixtures: string | null): Promise<DocsFetchResult> {
+  const [consoleDoc, goDoc] = await Promise.all([
+    fetchDoc(
+      "opencode.console-docs",
+      CONSOLE_DOCS_URL,
+      "console-docs.html",
+      fixtures,
+      parseConsoleDocs,
+    ),
+    fetchDoc(
+      "opencode.go-docs",
+      GO_DOCS_URL,
+      "go-docs.html",
+      fixtures,
+      parseGoDocs,
+    ),
+  ]);
+
+  const evidence = mergeDocsEvidence(consoleDoc.evidence, goDoc.evidence);
+  const refs = [consoleDoc.ref, goDoc.ref].filter(
+    (ref): ref is SourceRef => ref !== undefined,
+  );
+
+  return {
+    evidence,
+    sources: [consoleDoc.status, goDoc.status],
+    refs,
+    available: { console: consoleDoc.ok, go: goDoc.ok },
+  };
+}
+
 export async function runIngest(args: IngestArgs): Promise<Snapshot> {
   const previous = args.dryRun ? null : await readSnapshot();
-  const fetched = await fetchSources(args.fixtures);
+  const [fetched, docs] = await Promise.all([
+    fetchSources(args.fixtures),
+    fetchDocs(args.fixtures),
+  ]);
   const now = new Date().toISOString();
 
-  const models = normalizeCatalog(fetched.providers, {
+  const normalized = normalizeCatalog(fetched.providers, {
     now,
     previous,
     live: fetched.live,
@@ -146,11 +251,25 @@ export async function runIngest(args: IngestArgs): Promise<Snapshot> {
     sourceRefs: toRefs(fetched.sources),
   });
 
+  const classified = classifyFreeResult(normalized, docs.evidence, {
+    now,
+    previous,
+    planPrices: docs.evidence.planPrices,
+    live: fetched.live,
+    goLive: fetched.goLive,
+    sourceRefs: [...toRefs(fetched.sources), ...docs.refs],
+    docsAvailable: docs.available,
+  });
+
+  for (const warning of classified.warnings) {
+    console.warn(`warning: ${warning}`);
+  }
+
   const snapshot: Snapshot = {
     schemaVersion: 1,
     generatedAt: now,
-    models,
-    sources: fetched.sources,
+    models: classified.models,
+    sources: [...fetched.sources, ...docs.sources],
   };
 
   SnapshotSchema.parse(snapshot);
@@ -158,7 +277,7 @@ export async function runIngest(args: IngestArgs): Promise<Snapshot> {
   if (!args.dryRun) await writeSnapshotAtomic(snapshot);
 
   console.log(
-    `${args.dryRun ? "dry-run: would ingest" : "ingested"} ${models.length} models from ${snapshot.sources.length} sources`,
+    `${args.dryRun ? "dry-run: would ingest" : "ingested"} ${classified.models.length} models from ${snapshot.sources.length} sources (console docs: ${docs.available.console ? "ok" : "failed"}, go docs: ${docs.available.go ? "ok" : "failed"})`,
   );
 
   return snapshot;

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T16:54:34.652Z",
+  "generatedAt": "2026-10-19T17:16:22.236Z",
   "models": [
     {
       "key": "opencode-go/beam-free",
@@ -37,29 +37,39 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "unlimited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode-go/cat-jam-free",
@@ -97,7 +107,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -107,17 +119,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode-go/claude-haiku-5-5",
@@ -167,28 +179,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/deepseek-v4-pro",
@@ -226,28 +252,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/deepseek-v4.1-flash",
@@ -286,28 +326,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 80
+      }
     },
     {
       "key": "opencode-go/gemini-4-argon-contributor",
@@ -349,28 +403,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train",
+        "notes": "Not ZDR"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/glm-5.2",
@@ -408,28 +476,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/glm-5.3",
@@ -467,28 +549,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/glm-5.3-flash",
@@ -529,28 +625,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/gpt-5.6-luna",
@@ -607,28 +717,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/gpt-6-luna",
@@ -685,28 +809,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/grok-4.7",
@@ -759,28 +897,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/hy3",
@@ -819,28 +971,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/hy4-preview",
@@ -878,28 +1044,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 30
+      }
     },
     {
       "key": "opencode-go/kimi-k2.7-code",
@@ -939,28 +1119,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/kimi-k3",
@@ -1000,28 +1194,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/longcat-2.0",
@@ -1059,28 +1267,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/longcat-2.5-preview-free",
@@ -1118,29 +1340,40 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "zero-retention",
+          "unlimited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode-go/mimo-v2.5",
@@ -1181,28 +1414,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/mimo-v2.5-pro",
@@ -1240,28 +1487,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/mimo-v2.6-flash",
@@ -1302,28 +1563,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/mimo-v2.6-pro",
@@ -1364,28 +1639,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/minimax-m2.7",
@@ -1424,8 +1713,12 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "uncertain",
+        "note": "Go docs do not list this model; plan inclusion and monthly limit are unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
@@ -1435,12 +1728,12 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
         }
       ],
       "conflicts": [
@@ -1461,7 +1754,7 @@
         }
       ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode-go/minimax-m3",
@@ -1514,28 +1807,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/minimax-m3.1-flash-free",
@@ -1574,29 +1881,40 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "zero-retention",
+          "unlimited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode-go/muse-spark-1.2-contributor",
@@ -1638,28 +1956,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train",
+        "notes": "Not ZDR"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/muse-spark-1.3-contributor",
@@ -1701,28 +2033,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train",
+        "notes": "Not ZDR"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/qwen3.7-plus",
@@ -1778,28 +2124,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/qwen3.8-flash",
@@ -1840,28 +2200,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 30
+      }
     },
     {
       "key": "opencode-go/qwen3.8-max",
@@ -1902,28 +2276,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 15
+      }
     },
     {
       "key": "opencode-go/space-bunny",
@@ -1964,8 +2352,12 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "uncertain"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "uncertain",
+        "note": "Go docs do not list this model; plan inclusion and monthly limit are unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -1975,17 +2367,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode-go/step-5-preview",
@@ -2025,28 +2417,42 @@
       },
       "free": {
         "kind": "subscription-included",
-        "flags": [],
-        "status": "confirmed"
+        "flags": [
+          "usage-limited"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
+        },
+        {
+          "id": "opencode.go-docs",
+          "url": "https://opencode.ai/v2/docs/console/go/",
+          "fetchedAt": "2026-10-19T17:16:21.336Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z",
+      "subscription": {
+        "plan": "go",
+        "monthlyUsd": 10,
+        "includedUsageUsd": 60
+      }
     },
     {
       "key": "opencode-go/step-5-preview-free",
@@ -2087,7 +2493,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -2097,17 +2505,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode-go.models",
           "url": "https://opencode.ai/inference/go/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.408Z"
+          "fetchedAt": "2026-10-19T17:16:21.842Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/beam-free",
@@ -2144,29 +2552,63 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "region-restricted"
+        ],
+        "regionsExcluded": [
+          "Angola",
+          "Belarus",
+          "Cambodia",
+          "China (including Hong Kong and Macau)",
+          "Cuba",
+          "the Democratic Republic of the Congo",
+          "Equatorial Guinea",
+          "Iran",
+          "Iraq",
+          "Laos",
+          "Libya",
+          "Nigeria",
+          "North Korea",
+          "Russia",
+          "Syria",
+          "Turkmenistan",
+          "Uzbekistan",
+          "Venezuela",
+          "the Crimea",
+          "Donetsk",
+          "Luhansk regions of Ukraine"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/big-pickle",
@@ -2205,29 +2647,41 @@
         "cacheWrite": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "stealth",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/cat-jam-free",
@@ -2265,7 +2719,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -2275,17 +2731,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-3-5-haiku",
@@ -2336,17 +2792,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-fable-5",
@@ -2397,17 +2853,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-fable-5-1",
@@ -2458,17 +2919,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-haiku-4-5",
@@ -2519,17 +2985,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-haiku-5-5",
@@ -2589,17 +3060,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-4-1",
@@ -2650,17 +3126,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-4-5",
@@ -2711,17 +3187,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-4-6",
@@ -2772,17 +3253,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-4-7",
@@ -2833,17 +3319,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-4-8",
@@ -2894,17 +3385,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-5",
@@ -2955,17 +3451,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-opus-5-5",
@@ -3016,17 +3517,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-sonnet-4",
@@ -3092,17 +3598,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-sonnet-4-5",
@@ -3168,17 +3674,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-sonnet-4-6",
@@ -3229,17 +3740,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-sonnet-5",
@@ -3290,17 +3806,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/claude-sonnet-5-5",
@@ -3351,17 +3872,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/deepseek-v4-flash",
@@ -3409,17 +3935,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/deepseek-v4-flash-free",
@@ -3458,7 +3984,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -3468,17 +3996,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/deepseek-v4-flash-vision-exp",
@@ -3527,17 +4055,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/deepseek-v4-pro",
@@ -3585,17 +4113,46 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "pricing",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": {
+                "input": 1.74,
+                "output": 3.48,
+                "cacheRead": 0.145
+              }
+            },
+            {
+              "source": "models.dev",
+              "value": {
+                "input": 1.74,
+                "output": 3.84,
+                "cacheRead": 0.145
+              }
+            }
+          ],
+          "resolution": "preferred",
+          "note": "Docs and models.dev differ on output; models.dev wins."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/deepseek-v4.1-flash",
@@ -3644,17 +4201,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/deepseek-v4.1-flash-free",
@@ -3692,29 +4254,39 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "zero-retention"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/exo-free",
@@ -3750,29 +4322,56 @@
         "output": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "uncertain"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "uncertain",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "free.kind",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": "limited-time"
+            },
+            {
+              "source": "availability",
+              "value": "deprecated"
+            }
+          ],
+          "resolution": "unresolved",
+          "note": "Docs list the model as free while the model is deprecated."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/fledge-alpha-free",
@@ -3810,7 +4409,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -3820,17 +4421,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3-flash",
@@ -3882,17 +4483,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3-pro",
@@ -3957,17 +4563,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3.1-pro",
@@ -4032,17 +4638,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3.5-flash",
@@ -4094,17 +4705,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3.5-flash-lite",
@@ -4156,17 +4772,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3.6-flash",
@@ -4218,17 +4839,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3.7-flash",
@@ -4280,17 +4906,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-3.8-flash",
@@ -4342,17 +4973,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gemini-4-argon",
@@ -4404,17 +5040,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-4.6",
@@ -4462,17 +5103,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-4.7",
@@ -4520,17 +5161,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-4.7-free",
@@ -4569,7 +5210,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -4579,17 +5222,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5",
@@ -4637,17 +5280,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5-free",
@@ -4686,7 +5334,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -4696,17 +5346,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5.1",
@@ -4754,17 +5404,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5.2",
@@ -4812,17 +5467,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5.3",
@@ -4870,17 +5530,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5.3-flash",
@@ -4931,17 +5596,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/glm-5.3-flash-free",
@@ -4981,29 +5651,39 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "zero-retention"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5",
@@ -5053,17 +5733,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5-codex",
@@ -5113,17 +5798,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5-nano",
@@ -5173,17 +5863,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.1",
@@ -5233,17 +5928,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.1-codex",
@@ -5293,17 +5993,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.1-codex-max",
@@ -5353,17 +6058,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.1-codex-mini",
@@ -5413,17 +6123,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.2",
@@ -5473,17 +6188,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.2-codex",
@@ -5534,17 +6254,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.3-codex",
@@ -5595,17 +6320,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.3-codex-spark",
@@ -5654,17 +6384,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.4",
@@ -5728,17 +6463,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.4-mini",
@@ -5789,17 +6529,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.4-nano",
@@ -5850,17 +6595,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.4-pro",
@@ -5911,17 +6661,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.5",
@@ -5985,17 +6740,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.5-pro",
@@ -6046,17 +6806,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.6-luna",
@@ -6123,17 +6888,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.6-sol",
@@ -6200,17 +6970,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-5.6-terra",
@@ -6277,17 +7052,48 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "pricing",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": {
+                "input": 2,
+                "output": 12,
+                "cacheRead": 0.2,
+                "cacheWrite": 2.5
+              }
+            },
+            {
+              "source": "models.dev",
+              "value": {
+                "input": 2.5,
+                "output": 15,
+                "cacheRead": 0.25,
+                "cacheWrite": 3.125
+              }
+            }
+          ],
+          "resolution": "preferred",
+          "note": "Docs and models.dev differ on input, output, cacheRead, cacheWrite; models.dev wins."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-6-astra",
@@ -6354,17 +7160,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-6-luna",
@@ -6431,17 +7242,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-6-sol",
@@ -6508,17 +7324,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/gpt-6.1-sol",
@@ -6585,17 +7406,48 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "pricing",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": {
+                "input": 2,
+                "output": 10,
+                "cacheRead": 0.2,
+                "cacheWrite": 2.5
+              }
+            },
+            {
+              "source": "models.dev",
+              "value": {
+                "input": 2,
+                "output": 10,
+                "cacheRead": 0.1,
+                "cacheWrite": 2.5
+              }
+            }
+          ],
+          "resolution": "preferred",
+          "note": "Docs and models.dev differ on cacheRead; models.dev wins."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/grok-4.5",
@@ -6657,17 +7509,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/grok-4.6",
@@ -6729,17 +7586,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/grok-4.7",
@@ -6802,17 +7664,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/grok-build-0.1",
@@ -6862,17 +7729,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/grok-code",
@@ -6912,7 +7784,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -6922,17 +7796,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/hy3-free",
@@ -6972,7 +7846,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -6982,17 +7858,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/hy3-preview-free",
@@ -7031,7 +7907,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7041,17 +7919,132 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
+    },
+    {
+      "key": "opencode/jev-1.13",
+      "provider": "opencode",
+      "id": "jev-1.13",
+      "name": "Jev 1.13",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": false,
+        "reasoning": false,
+        "attachment": false,
+        "structuredOutput": false,
+        "temperature": false
+      },
+      "limits": {
+        "context": 0,
+        "output": 0
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 0.042,
+        "output": 0
+      },
+      "free": {
+        "kind": "paid",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "unknown"
+      },
+      "sources": [
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
+        },
+        {
+          "id": "opencode.models",
+          "url": "https://opencode.ai/inference/v1/models",
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T17:16:22.236Z",
+      "lastSeen": "2026-10-19T17:16:22.236Z"
+    },
+    {
+      "key": "opencode/jev-1.13-free",
+      "provider": "opencode",
+      "id": "jev-1.13-free",
+      "name": "Jev 1.13 Free",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": false,
+        "reasoning": false,
+        "attachment": false,
+        "structuredOutput": false,
+        "temperature": false
+      },
+      "limits": {
+        "context": 0,
+        "output": 0
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0
+      },
+      "free": {
+        "kind": "limited-time",
+        "flags": [
+          "limited-time"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "unknown"
+      },
+      "sources": [
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
+        },
+        {
+          "id": "opencode.models",
+          "url": "https://opencode.ai/inference/v1/models",
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T17:16:22.236Z",
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k2",
@@ -7099,17 +8092,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k2-thinking",
@@ -7157,17 +8150,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k2.5",
@@ -7217,17 +8210,46 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "pricing",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": {
+                "input": 0.6,
+                "output": 3,
+                "cacheRead": 0.1
+              }
+            },
+            {
+              "source": "models.dev",
+              "value": {
+                "input": 0.6,
+                "output": 3,
+                "cacheRead": 0.08
+              }
+            }
+          ],
+          "resolution": "preferred",
+          "note": "Docs and models.dev differ on cacheRead; models.dev wins."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k2.5-free",
@@ -7268,7 +8290,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7278,17 +8302,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k2.6",
@@ -7338,17 +8362,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k2.7-code",
@@ -7398,17 +8427,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/kimi-k3",
@@ -7458,17 +8492,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/laguna-s-2.1-free",
@@ -7507,7 +8546,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7517,17 +8558,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ling-2.6-flash-free",
@@ -7565,7 +8606,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7575,17 +8618,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ling-3.0-flash-fin-free",
@@ -7624,7 +8667,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7634,17 +8679,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ling-3.0-flash-free",
@@ -7683,7 +8728,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7693,17 +8740,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ling-3.0-tiny-free",
@@ -7741,7 +8788,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7751,17 +8800,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ling-3.1-flash-free",
@@ -7800,7 +8849,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7810,17 +8861,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ll-alpha-free",
@@ -7856,29 +8907,58 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "uncertain"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "stealth",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "uncertain",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train",
+        "retentionDays": 30
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "free.kind",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": "limited-time"
+            },
+            {
+              "source": "availability",
+              "value": "deprecated"
+            }
+          ],
+          "resolution": "unresolved",
+          "note": "Docs list the model as free while the model is deprecated."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/longcat-2.0-free",
@@ -7917,7 +8997,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -7927,17 +9009,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/longcat-2.5-preview-free",
@@ -7975,29 +9057,39 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "zero-retention"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/mimo-v2-flash-free",
@@ -8036,7 +9128,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8046,17 +9140,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/mimo-v2-omni-free",
@@ -8098,7 +9192,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8108,17 +9204,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/mimo-v2-pro-free",
@@ -8157,7 +9253,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8167,17 +9265,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/mimo-v2.5-free",
@@ -8217,29 +9315,56 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "uncertain"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "uncertain",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "field": "free.kind",
+          "values": [
+            {
+              "source": "opencode.console-docs",
+              "value": "limited-time"
+            },
+            {
+              "source": "availability",
+              "value": "deprecated"
+            }
+          ],
+          "resolution": "unresolved",
+          "note": "Docs list the model as free while the model is deprecated."
+        }
+      ],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/mimo-v2.6-flash-free",
@@ -8279,29 +9404,40 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m2.1",
@@ -8349,17 +9485,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m2.1-free",
@@ -8398,7 +9534,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8408,17 +9546,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m2.5",
@@ -8466,17 +9604,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m2.5-free",
@@ -8515,7 +9658,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8525,17 +9670,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m2.7",
@@ -8583,17 +9728,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m3",
@@ -8643,17 +9793,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m3-free",
@@ -8694,7 +9849,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8704,17 +9861,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/minimax-m3.1-flash-free",
@@ -8753,29 +9910,39 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "zero-retention"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "none",
+        "retentionDays": 0
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/mistral-large-4",
@@ -8824,17 +9991,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/muse-spark-1.2",
@@ -8886,17 +10058,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/muse-spark-1.2-contributor-free",
@@ -8939,7 +10116,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -8949,17 +10128,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/muse-spark-1.3",
@@ -9011,17 +10190,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/muse-spark-1.3-contributor-free",
@@ -9064,7 +10248,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9074,17 +10260,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/nemotron-3-super-free",
@@ -9123,7 +10309,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9133,17 +10321,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/nemotron-3-ultra-free",
@@ -9180,29 +10368,40 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "uncertain"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "uncertain",
+        "since": "2026-10-19"
       },
       "availability": "unlisted",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/nemotron-3.5-lightning-free",
@@ -9239,29 +10438,40 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/nemotron-3.5-super-vl-free",
@@ -9300,29 +10510,40 @@
         "cacheRead": 0
       },
       "free": {
-        "kind": "open-free",
-        "flags": [],
-        "status": "confirmed"
+        "kind": "limited-time",
+        "flags": [
+          "limited-time",
+          "trial",
+          "trains-on-data",
+          "feedback-program"
+        ],
+        "status": "confirmed",
+        "since": "2026-10-19"
       },
       "availability": "live",
       "privacy": {
-        "training": "unknown"
+        "training": "may-train"
       },
       "sources": [
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/north-mini-code-free",
@@ -9360,7 +10581,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9370,17 +10593,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/qwen3-coder",
@@ -9427,17 +10650,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/qwen3.5-plus",
@@ -9488,17 +10711,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/qwen3.6-plus",
@@ -9549,17 +10777,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/qwen3.6-plus-free",
@@ -9600,7 +10833,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9610,17 +10845,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/qwen3.8-flash",
@@ -9671,17 +10906,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/qwen3.8-max",
@@ -9731,17 +10971,22 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
+        },
+        {
+          "id": "opencode.console-docs",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "fetchedAt": "2026-10-19T17:16:21.335Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/ring-2.6-1t-free",
@@ -9779,7 +11024,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9789,17 +11036,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/space-bunny-free",
@@ -9841,7 +11088,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9851,17 +11100,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/step-5-preview-free",
@@ -9902,7 +11151,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9912,17 +11163,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/trinity-large-preview-free",
@@ -9960,7 +11211,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -9970,17 +11223,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     },
     {
       "key": "opencode/x-preview-f-free",
@@ -10020,7 +11273,9 @@
       "free": {
         "kind": "open-free",
         "flags": [],
-        "status": "uncertain"
+        "status": "uncertain",
+        "note": "Not in the official docs free list; free status is unconfirmed.",
+        "since": "2026-10-19"
       },
       "availability": "deprecated",
       "privacy": {
@@ -10030,17 +11285,17 @@
         {
           "id": "models.dev",
           "url": "https://models.dev/api.json",
-          "fetchedAt": "2026-10-19T16:54:34.652Z"
+          "fetchedAt": "2026-10-19T17:16:22.236Z"
         },
         {
           "id": "opencode.models",
           "url": "https://opencode.ai/inference/v1/models",
-          "fetchedAt": "2026-10-19T16:54:34.419Z"
+          "fetchedAt": "2026-10-19T17:16:22.061Z"
         }
       ],
       "conflicts": [],
       "firstSeen": "2026-10-19T16:54:05.465Z",
-      "lastSeen": "2026-10-19T16:54:34.652Z"
+      "lastSeen": "2026-10-19T17:16:22.236Z"
     }
   ],
   "sources": [
@@ -10049,8 +11304,8 @@
       "url": "https://models.dev/api.json",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-19T16:54:34.652Z",
-      "durationMs": 690,
+      "fetchedAt": "2026-10-19T17:16:22.236Z",
+      "durationMs": 917,
       "itemCount": 161,
       "required": true
     },
@@ -10059,8 +11314,8 @@
       "url": "https://opencode.ai/inference/v1/models",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-19T16:54:34.419Z",
-      "durationMs": 416,
+      "fetchedAt": "2026-10-19T17:16:22.061Z",
+      "durationMs": 728,
       "itemCount": 85,
       "required": true
     },
@@ -10069,9 +11324,29 @@
       "url": "https://opencode.ai/inference/go/v1/models",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-19T16:54:34.408Z",
-      "durationMs": 404,
+      "fetchedAt": "2026-10-19T17:16:21.842Z",
+      "durationMs": 508,
       "itemCount": 37,
+      "required": true
+    },
+    {
+      "id": "opencode.console-docs",
+      "url": "https://opencode.ai/v2/docs/console/models/",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T17:16:21.335Z",
+      "durationMs": 504,
+      "itemCount": 117,
+      "required": true
+    },
+    {
+      "id": "opencode.go-docs",
+      "url": "https://opencode.ai/v2/docs/console/go/",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T17:16:21.336Z",
+      "durationMs": 476,
+      "itemCount": 39,
       "required": true
     }
   ]
