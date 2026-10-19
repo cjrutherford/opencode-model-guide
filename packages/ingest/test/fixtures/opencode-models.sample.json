@@ -1,0 +1,8 @@
+{
+  "object": "list",
+  "data": [
+    { "id": "deepseek-v4.1-flash-free", "object": "model", "owned_by": "opencode" },
+    { "id": "kimi-k3", "object": "model", "owned_by": "opencode" },
+    { "id": "old-model", "object": "model", "owned_by": "opencode" }
+  ]
+}
