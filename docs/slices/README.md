@@ -22,7 +22,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 
 | ID | Slice | Depends on | Status | Owner | Branch | PR | Notes |
 |---|---|---|---|---|---|---|---|
-| S00 | [Repository foundation and CI](./S00-repo-foundation.md) | — | `todo` | — | — | — | Critical path |
+| S00 | [Repository foundation and CI](./S00-repo-foundation.md) | — | `review` | CJ Rutherford | `slice/S00-repo-foundation` | [#1](https://github.com/cjrutherford/opencode-model-guide/pull/1) | Critical path; started 2026-10-19 |
 | S01 | [Shared contracts and fixtures](./S01-shared-contracts.md) | S00 | `todo` | — | — | — | Schema freeze after merge |
 | S02 | [Catalog ingest](./S02-catalog-ingest.md) | S01 | `todo` | — | — | — | Owns `data/snapshot.json` |
 | S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `todo` | — | — | — | Touches `run.ts`; coordinate with S02/S04 |
@@ -142,6 +142,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-19 | S00 | Workspace, Astro shell, Vitest, and CI scaffolded; `.secrets` ignored and loaded by CLI scripts. PR [#1](https://github.com/cjrutherford/opencode-model-guide/pull/1). |
 | 2026-10-19 | — | Public repo created; Pages enabled with GitHub Actions; workflow default permissions set to write. Secrets not set yet. |
 | 2026-10-19 | — | Repo/owner, Pages URL, ntfy server, and AA key process decided. Setup instructions added. |
 | 2026-10-19 | — | Design, plan, tracker, and slice files created. No implementation started. |

@@ -14,6 +14,22 @@ Everything else is derived at runtime: `SITE_URL` and `BASE_PATH` come from
 > **Never commit either secret.** Use GitHub repository secrets, not repository variables.
 > Variables are not masked and can be exposed in logs; secrets are masked.
 
+## Local `.secrets` file
+
+For local runs, copy the tracked example and fill in the same two values:
+
+```bash
+cp .secrets.example .secrets
+```
+
+`.secrets` is gitignored. The CLI scripts (`pnpm ingest`, `pnpm score`, `pnpm notify`, and
+`pnpm validate:data`) load it automatically with Node's `--env-file-if-exists=.secrets`, then fall
+back to the process environment. GitHub Actions never has the file; it supplies the same values as
+repository secrets.
+
+Do not add the file to git, even temporarily. Tests do not read `.secrets`; they use fixtures and
+`vi.stubEnv`.
+
 ## 1. Create the repository
 
 From the project root:
@@ -220,5 +236,6 @@ Then check:
 - Do not use repository variables for secrets.
 - Do not print the key in a debug step; mask it if you must reference it (`::add-mask::`).
 - Do not call the Artificial Analysis API from client-side code.
-- Do not commit a `.env` file. `.gitignore` excludes `.env*`; use shell exports for local runs.
+- Do not commit a `.env` or `.secrets` file. `.gitignore` excludes both; use the local `.secrets`
+  file for local runs and repository secrets in Actions.
 - Do not use a guessable ntfy topic such as `opencode-model-guide`.
