@@ -46,9 +46,9 @@ evidence for each claim.
 | Feed | https://cjrutherford.github.io/opencode-model-guide/feed.xml |
 | First workflow dispatch | `39499478587`, success, 7 minutes |
 | First data commit | `257c815`, message includes `[skip ci]` |
-| Build | 169 pages, 163 model detail pages |
-| Data validation | `snapshot.json` 163 models, `benchmarks.json` 1,041 results, `scores.json` 163 records |
-| Link check | 3,048 internal links in 169 files, 0 broken |
+| Build | 170 pages, 164 model detail pages |
+| Data validation | `snapshot.json` 164 models, `benchmarks.json` 1,041 results, `scores.json` 164 records |
+| Link check | 3,068 internal links in 170 files, 0 broken |
 | Lighthouse, home mobile | 100 performance, 100 accessibility, 100 best practices, 100 SEO |
 | Lighthouse, models mobile | 99–100 performance, 100 accessibility, 100 best practices, 100 SEO |
 | Lighthouse, home desktop | 100 / 100 / 100 / 100 |
