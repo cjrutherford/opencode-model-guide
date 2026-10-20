@@ -1,0 +1,407 @@
+---
+import { COST_PROFILE_IDS, COST_PROFILES, USE_CASE_IDS } from "@omg/shared";
+import type { Capabilities } from "@omg/shared";
+
+import Base from "../../layouts/Base.astro";
+import FreeBadge from "../../components/FreeBadge.astro";
+import FreeTimeline from "../../components/FreeTimeline.astro";
+import PriceTable from "../../components/PriceTable.astro";
+import Provenance from "../../components/Provenance.astro";
+import ScoreBar from "../../components/ScoreBar.astro";
+import { loadData } from "../../lib/data";
+import {
+  BENCHMARK_LABELS,
+  USE_CASE_LABELS,
+  formatAvailability,
+  formatBenchmarkValue,
+  formatCapability,
+  formatDate,
+  formatModality,
+  formatProvider,
+  formatScore,
+  formatTokens,
+  formatUsd,
+} from "../../lib/format";
+import { latestUpdatedAt } from "../../lib/home";
+import {
+  benchmarkRowsForModel,
+  bestRatedUseCase,
+  buildModelIndexes,
+  modelHref,
+  profileCost,
+  relatedModels,
+  slugify,
+  sweBenchMeasuredCost,
+} from "../../lib/models";
+import { url } from "../../lib/url";
+
+export function getStaticPaths() {
+  const { snapshot } = loadData();
+  return snapshot.models.map((model) => ({
+    params: { id: slugify(model.key) },
+    props: { key: model.key },
+  }));
+}
+
+const { key } = Astro.props;
+const data = loadData();
+const model = data.snapshot.models.find((candidate) => candidate.key === key);
+if (!model) throw new Error(`Unknown model key: ${key}`);
+
+const indexes = buildModelIndexes(data);
+const score = indexes.scoreByKey.get(model.key);
+const benchmarkRows = benchmarkRowsForModel(
+  score,
+  indexes.benchmarksByKey,
+);
+const measuredCost = sweBenchMeasuredCost(score, indexes.benchmarksByKey);
+const events = indexes.eventsByKey.get(model.key) ?? [];
+const best = bestRatedUseCase(score);
+const related = relatedModels(model, data.snapshot.models);
+const updatedAt = latestUpdatedAt(data.snapshot, data.scores, data.benchmarks);
+const canonical = new URL(
+  Astro.url.pathname,
+  Astro.site ?? Astro.url,
+).toString();
+const title = `${model.name} — pricing, benchmarks, and free terms`;
+const description = `${model.name} from ${formatProvider(model.provider)}: context, list prices, modeled task costs, benchmark evidence, free terms, and source provenance.`;
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description,
+  url: canonical,
+  dateModified: updatedAt,
+  isPartOf: {
+    "@type": "WebSite",
+    name: "OpenCode Model Guide",
+    url: new URL(url("/"), Astro.site ?? Astro.url).toString(),
+  },
+});
+const capabilityEntries = Object.entries(model.capabilities) as Array<
+  [keyof Capabilities, boolean]
+>;
+const inputModalities = model.modalities.input.map(formatModality).join(", ");
+const outputModalities = model.modalities.output.map(formatModality).join(", ");
+---
+
+<Base title={title} description={description} updatedAt={updatedAt}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    is:inline
+    set:html={jsonLd}
+  ></script>
+
+  <div class="mx-auto max-w-[1120px] px-5 py-10 sm:px-8 sm:py-12">
+    <nav class="text-xs text-muted" aria-label="Breadcrumb">
+      <a href={url("/models")}>Models</a>
+      <span aria-hidden="true"> / </span>
+      <span>{model.name}</span>
+    </nav>
+
+    <header class="mt-6 max-w-3xl">
+      <div class="flex flex-wrap items-center gap-2">
+        <p class="eyebrow">{formatProvider(model.provider)}</p>
+        <span class="badge badge--paid">{formatAvailability(model.availability)}</span>
+        <FreeBadge
+          kind={model.free.kind}
+          uncertain={model.free.status === "uncertain"}
+        />
+      </div>
+      <h1 class="mt-3 break-words font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl">
+        {model.name}
+      </h1>
+      <p class="mt-4 text-sm leading-6 text-muted">
+        {model.family ? `${model.family} family` : "Model"}
+        {
+          model.releaseDate
+            ? ` · released ${formatDate(model.releaseDate)}`
+            : " · release date not recorded"
+        }
+        {model.free.since ? ` · free since ${formatDate(model.free.since)}` : ""}
+      </p>
+      {
+        best && (best.tier === "S" || best.tier === "A") && (
+          <p class="mt-4 text-sm font-semibold">
+            Best for {USE_CASE_LABELS[best.useCase].toLowerCase()} · {best.tier}{" "}
+            tier, {formatScore(best.score)} composite percentile
+          </p>
+        )
+      }
+    </header>
+
+    <section class="mt-10 border-y border-line py-8" aria-labelledby="facts-title">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <h2 id="facts-title" class="font-display text-2xl tracking-tight">
+          Facts
+        </h2>
+        <p class="text-xs text-muted">
+          Last seen <time datetime={model.lastSeen}>{formatDate(model.lastSeen)}</time>
+        </p>
+      </div>
+      <dl class="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3 lg:grid-cols-4">
+        <div>
+          <dt class="eyebrow">Context</dt>
+          <dd class="num mt-1 text-lg">{formatTokens(model.limits.context)}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow">Max output</dt>
+          <dd class="num mt-1 text-lg">{formatTokens(model.limits.output)}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow">Released</dt>
+          <dd class="mt-1 text-sm">
+            {model.releaseDate ? formatDate(model.releaseDate) : "—"}
+          </dd>
+        </div>
+        <div>
+          <dt class="eyebrow">Provider</dt>
+          <dd class="mt-1 text-sm">{formatProvider(model.provider)}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow">Input modalities</dt>
+          <dd class="mt-1 text-sm">{inputModalities}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow">Output modalities</dt>
+          <dd class="mt-1 text-sm">{outputModalities}</dd>
+        </div>
+        {
+          model.subscription && (
+            <div>
+              <dt class="eyebrow">Subscription</dt>
+              <dd class="mt-1 text-sm">
+                {model.subscription.plan === "go" ? "Go" : "Go Plus"} ·{" "}
+                {`$${model.subscription.monthlyUsd}/mo`}
+              </dd>
+            </div>
+          )
+        }
+        <div class="col-span-2 sm:col-span-3 lg:col-span-4">
+          <dt class="eyebrow">Capabilities</dt>
+          <dd class="mt-2 flex flex-wrap gap-1.5">
+            {
+              capabilityEntries.map(([capability, available]) => (
+                <span
+                  class:list={[
+                    "badge",
+                    available ? "badge--open-free" : "badge--paid",
+                  ]}
+                >
+                  {available ? "✓" : "—"} {formatCapability(capability)}
+                </span>
+              ))
+            }
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="mt-16" aria-labelledby="pricing-title">
+      <h2 id="pricing-title" class="font-display text-3xl tracking-tight">
+        Pricing
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+        List prices from the source snapshot. These are inputs to the modeled
+        task costs, not a quote for your workload.
+      </p>
+      <div class="mt-6">
+        <PriceTable model={model} />
+      </div>
+    </section>
+
+    <section class="mt-16" aria-labelledby="cost-title">
+      <h2 id="cost-title" class="font-display text-3xl tracking-tight">
+        Cost per task
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+        Modeled from each profile’s input, cached input, and output token counts.
+        A free model can show $0 even when its list price is not zero.
+      </p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-3">
+        {
+          COST_PROFILE_IDS.map((profile) => {
+            const listCost = profileCost(score, profile);
+            const goCost = score?.cost.goEffective?.[profile] ?? null;
+            const definition = COST_PROFILES[profile];
+            return (
+              <div class="card p-5">
+                <h3 class="font-display text-xl tracking-tight">
+                  {definition.label}
+                </h3>
+                <p class="num mt-3 font-display text-3xl tracking-tight">
+                  {formatUsd(listCost)}
+                </p>
+                <p class="mt-2 text-xs text-muted">
+                  {formatTokens(definition.inputTokens)} input ·{" "}
+                  {formatTokens(definition.cachedInputTokens)} cached ·{" "}
+                  {formatTokens(definition.outputTokens)} output
+                </p>
+                {goCost !== null && (
+                  <p class="mt-3 border-t border-line pt-2 text-xs text-muted">
+                    With Go: <span class="num text-ink">{formatUsd(goCost)}</span>
+                  </p>
+                )}
+              </div>
+            );
+          })
+        }
+      </div>
+      {
+        measuredCost && (
+          <div class="mt-6 border-l-2 border-good bg-[color-mix(in_srgb,var(--color-good)_7%,transparent)] p-5">
+            <p class="eyebrow text-good">Measured cost</p>
+            <div class="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+              <p class="num font-display text-3xl tracking-tight">
+                {formatUsd(measuredCost.costPerTaskUsd ?? null)}
+              </p>
+              <p class="text-sm">
+                {measuredCost.harness ?? "SWE-bench"}
+                {measuredCost.tokensPerTask !== undefined
+                  ? ` · ${formatTokens(measuredCost.tokensPerTask)} tokens/task`
+                  : ""}
+              </p>
+            </div>
+            <p class="mt-2 text-xs leading-5 text-muted">
+              Measured on {BENCHMARK_LABELS[measuredCost.benchmark]} ·{" "}
+              <time datetime={measuredCost.date}>{formatDate(measuredCost.date)}</time>.{" "}
+              <a href={measuredCost.sourceUrl} rel="noreferrer">
+                Source
+              </a>
+              . This is separate from the modeled costs above.
+            </p>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="mt-16" aria-labelledby="quality-title">
+      <h2 id="quality-title" class="font-display text-3xl tracking-tight">
+        Quality evidence
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+        Raw benchmark values, the percentile used in the composite, and the
+        source date. A score without a row here is not used.
+      </p>
+      {
+        benchmarkRows.length === 0 ? (
+          <p class="mt-6 border border-dashed border-line p-5 text-sm text-muted">
+            No benchmark rows match this model yet. Its use-case scores are
+            marked insufficient rather than guessed.
+          </p>
+        ) : (
+          <div class="mt-6 overflow-x-auto">
+            <table class="data-table min-w-[720px]">
+              <caption class="sr-only">
+                Benchmark evidence for {model.name}, including raw value,
+                percentile, date, source, and harness.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Benchmark</th>
+                  <th scope="col">Raw value</th>
+                  <th scope="col">Percentile</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Harness</th>
+                  <th scope="col">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {benchmarkRows.map((row) => (
+                  <tr>
+                    <th scope="row">{row.label}</th>
+                    <td class="num">
+                      {formatBenchmarkValue(row.value, row.metric)}
+                    </td>
+                    <td class="num">{formatScore(row.percentile)}</td>
+                    <td>
+                      <time datetime={row.date}>{formatDate(row.date)}</time>
+                    </td>
+                    <td>{row.harness ?? "—"}</td>
+                    <td>
+                      <a class="text-xs" href={row.sourceUrl} rel="noreferrer">
+                        Source
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        {
+          USE_CASE_IDS.map((useCase) => (
+            <ScoreBar
+              label={USE_CASE_LABELS[useCase]}
+              score={score?.useCases[useCase]}
+            />
+          ))
+        }
+      </div>
+      <p class="mt-4 max-w-2xl text-xs leading-5 text-muted">
+        Composite percentiles are relative to the scored set; they are not
+        probabilities. Confidence combines benchmark coverage and freshness.
+      </p>
+    </section>
+
+    <section class="mt-16" aria-labelledby="free-title">
+      <h2 id="free-title" class="font-display text-3xl tracking-tight">
+        Free terms and timeline
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+        Free labels are separate. This section shows the current term, its
+        caveats, and every recorded change for this model.
+      </p>
+      <div class="mt-6">
+        <FreeTimeline model={model} events={events} />
+      </div>
+    </section>
+
+    <section class="mt-16" aria-labelledby="provenance-title">
+      <h2 id="provenance-title" class="font-display text-3xl tracking-tight">
+        Provenance
+      </h2>
+      <div class="mt-6">
+        <Provenance model={model} />
+      </div>
+    </section>
+
+    {
+      related.length > 0 && (
+        <section class="mt-16" aria-labelledby="related-title">
+          <h2 id="related-title" class="font-display text-3xl tracking-tight">
+            Related models
+          </h2>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-3">
+            {related.map((candidate) => (
+              <li>
+                <a
+                  class="card block p-4 no-underline hover:border-accent"
+                  href={modelHref(candidate)}
+                >
+                  <span class="eyebrow">{formatProvider(candidate.provider)}</span>
+                  <span class="mt-1 block font-display text-xl tracking-tight">
+                    {candidate.name}
+                  </span>
+                  <span class="mt-2 flex flex-wrap items-center gap-2">
+                    <FreeBadge
+                      kind={candidate.free.kind}
+                      uncertain={candidate.free.status === "uncertain"}
+                    />
+                    <span class="text-xs text-muted">
+                      {formatTokens(candidate.limits.context)} context
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</Base>

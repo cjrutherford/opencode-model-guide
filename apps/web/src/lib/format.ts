@@ -1,7 +1,13 @@
 import type {
+  Availability,
+  BenchmarkId,
+  Capabilities,
   EventType,
   FreeKind,
+  MetricType,
   ProviderId,
+  SourceRefId,
+  Tier,
   UseCaseId,
 } from "@omg/shared";
 
@@ -33,6 +39,69 @@ export const EVENT_LABELS: Record<EventType, string> = {
   deprecated: "Deprecated",
   source_failed: "Source issue",
 };
+
+export const BENCHMARK_LABELS: Record<BenchmarkId, string> = {
+  "swe-bench-verified": "SWE-bench Verified",
+  "swe-bench-multilingual": "SWE-bench Multilingual",
+  "lmarena-webdev": "LMArena WebDev",
+  "lmarena-agent": "LMArena Agent",
+  "lmarena-text": "LMArena Text",
+  "lmarena-document": "LMArena Document",
+  "aider-polyglot": "Aider Polyglot",
+  "terminal-bench": "Terminal-Bench",
+  "artificial-analysis": "Artificial Analysis Coding Index",
+};
+
+const SOURCE_LABELS: Record<SourceRefId, string> = {
+  "models.dev": "models.dev",
+  "opencode.models": "OpenCode models endpoint",
+  "opencode-go.models": "OpenCode Go models endpoint",
+  "opencode.console-docs": "OpenCode Console docs",
+  "opencode.go-docs": "OpenCode Go docs",
+};
+
+const AVAILABILITY_LABELS: Record<Availability, string> = {
+  live: "Live",
+  deprecated: "Deprecated",
+  unlisted: "Unlisted",
+  unknown: "Unknown",
+};
+
+const TRAINING_LABELS = {
+  none: "No training on inputs",
+  "may-train": "May train on inputs",
+  unknown: "Training policy unknown",
+} as const;
+
+const CAPABILITY_LABELS: Record<keyof Capabilities, string> = {
+  toolCall: "Tool calling",
+  reasoning: "Reasoning",
+  attachment: "Attachments",
+  structuredOutput: "Structured output",
+  temperature: "Temperature",
+};
+
+const FLAG_LABELS: Record<string, string> = {
+  "usage-limited": "Usage limited",
+  "limited-time": "Limited time",
+  trial: "Trial",
+  "trains-on-data": "Trains on data",
+  "feedback-program": "Feedback program",
+  "zero-retention": "Zero retention",
+  unlimited: "Unlimited",
+  stealth: "Stealth",
+  "region-restricted": "Region restricted",
+};
+
+const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZone: "UTC",
+  timeZoneName: "short",
+});
 
 const compactTokens = new Intl.NumberFormat("en-US", {
   notation: "compact",
@@ -85,4 +154,66 @@ export function formatProvider(provider: ProviderId): string {
 
 export function formatEventType(type: EventType): string {
   return EVENT_LABELS[type];
+}
+
+export function formatDateTime(value: string): string {
+  const parsed = Date.parse(value);
+  if (!Number.isFinite(parsed)) return value;
+  return dateTimeFormatter.format(parsed);
+}
+
+export function formatBenchmarkValue(
+  value: number,
+  metric: MetricType,
+): string {
+  if (!Number.isFinite(value)) return "—";
+  if (metric === "percent") return `${value.toFixed(1)}%`;
+  if (metric === "elo") return `${Math.round(value)}`;
+  return Math.abs(value) < 1 ? value.toFixed(3) : value.toFixed(1);
+}
+
+export function formatTier(tier: Tier): string {
+  return tier === "unrated" ? "Unrated" : tier;
+}
+
+export function formatAvailability(availability: Availability): string {
+  return AVAILABILITY_LABELS[availability];
+}
+
+export function formatTraining(
+  training: "none" | "may-train" | "unknown" | undefined,
+): string {
+  return training ? TRAINING_LABELS[training] : "Training policy unknown";
+}
+
+export function formatModality(value: string): string {
+  if (value.toLowerCase() === "pdf") return "PDF";
+  return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+}
+
+export function formatCapability(capability: keyof Capabilities): string {
+  return CAPABILITY_LABELS[capability];
+}
+
+export function formatSource(id: SourceRefId): string {
+  return SOURCE_LABELS[id];
+}
+
+export function formatFlag(flag: string): string {
+  if (FLAG_LABELS[flag]) return FLAG_LABELS[flag];
+  return flag
+    .split("-")
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join(" ");
+}
+
+export function formatConflictValue(value: unknown): string {
+  if (value === undefined) return "—";
+  if (value === null) return "null";
+  if (typeof value === "string") return value;
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return String(value);
+  }
 }

@@ -1,0 +1,119 @@
+---
+import type { ChangeEvent, ModelRecord } from "@omg/shared";
+
+import FreeBadge from "./FreeBadge.astro";
+import { formatDate, formatEventType, formatFlag, formatTraining } from "../lib/format";
+import { freeCaveat } from "../lib/home";
+
+interface Props {
+  model: ModelRecord;
+  events: ChangeEvent[];
+}
+
+const { model, events } = Astro.props;
+const timeline = [...events].sort((left, right) => right.at.localeCompare(left.at));
+---
+
+<div class="grid gap-8 lg:grid-cols-2">
+  <div>
+    <div class="flex flex-wrap items-center gap-3">
+      <FreeBadge
+        kind={model.free.kind}
+        uncertain={model.free.status === "uncertain"}
+      />
+      {model.free.kind !== "paid" && model.free.status === "confirmed" && (
+        <span class="text-xs font-semibold uppercase tracking-[0.1em] text-muted">
+          Confirmed
+        </span>
+      )}
+    </div>
+
+    <p class="mt-3 text-sm leading-6 text-muted">{freeCaveat(model)}</p>
+
+    <dl class="mt-5 grid gap-4 sm:grid-cols-2">
+      <div>
+        <dt class="eyebrow">Free since</dt>
+        <dd class="mt-1 text-sm">
+          {model.free.since ? formatDate(model.free.since) : "Not recorded"}
+        </dd>
+      </div>
+      <div>
+        <dt class="eyebrow">First seen</dt>
+        <dd class="mt-1 text-sm">
+          <time datetime={model.firstSeen}>{formatDate(model.firstSeen)}</time>
+        </dd>
+      </div>
+      <div class="sm:col-span-2">
+        <dt class="eyebrow">Flags</dt>
+        <dd class="mt-1.5 flex flex-wrap gap-1.5">
+          {
+            model.free.flags.length === 0 ? (
+              <span class="text-sm text-muted">None recorded</span>
+            ) : (
+              model.free.flags.map((flag) => (
+                <span class="badge badge--paid">{formatFlag(flag)}</span>
+              ))
+            )
+          }
+        </dd>
+      </div>
+      {
+        model.free.regionsExcluded && model.free.regionsExcluded.length > 0 && (
+          <div class="sm:col-span-2">
+            <dt class="eyebrow">Regions excluded</dt>
+            <dd class="mt-1 text-sm">
+              {model.free.regionsExcluded.join(", ")}
+            </dd>
+          </div>
+        )
+      }
+    </dl>
+
+    <div class="mt-5 border-t border-line pt-4">
+      <h3 class="eyebrow">Privacy</h3>
+      <p class="mt-1 text-sm">
+        {formatTraining(model.privacy?.training)}
+      </p>
+      <p class="mt-1 text-xs text-muted">
+        {
+          model.privacy?.retentionDays !== undefined
+            ? `Retention: ${model.privacy.retentionDays} days`
+            : "Retention: not stated"
+        }
+      </p>
+      {model.privacy?.notes && (
+        <p class="mt-2 text-xs leading-5 text-muted">{model.privacy.notes}</p>
+      )}
+    </div>
+  </div>
+
+  <div>
+    <h3 class="font-display text-xl tracking-tight">Change timeline</h3>
+    {
+      timeline.length === 0 ? (
+        <p class="mt-3 text-sm leading-6 text-muted">
+          No change events recorded for this model yet. The baseline snapshot is
+          the first observation.
+        </p>
+      ) : (
+        <ol class="mt-3 border-l border-line">
+          {timeline.map((event) => (
+            <li class="relative pb-5 pl-5 last:pb-0">
+              <span
+                class="absolute -left-[3px] top-2 h-1.5 w-1.5 rounded-full bg-accent"
+                aria-hidden="true"
+              ></span>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <span class="text-sm font-semibold">{formatEventType(event.type)}</span>
+                <time class="text-xs text-muted" datetime={event.at}>
+                  {formatDate(event.at)}
+                </time>
+              </div>
+              <p class="mt-1 text-sm leading-5 text-muted">{event.summary}</p>
+            </li>
+          ))}
+        </ol>
+      )
+    }
+  </div>
+</div>

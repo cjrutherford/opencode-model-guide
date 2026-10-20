@@ -1,13 +1,21 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  formatAvailability,
+  formatBenchmarkValue,
+  formatCapability,
   formatConfidence,
   formatDate,
+  formatDateTime,
   formatEventType,
+  formatFlag,
   formatFreeKind,
   formatProvider,
   formatScore,
+  formatSource,
+  formatTier,
   formatTokens,
+  formatTraining,
   formatUsd,
 } from "../src/lib/format";
 
@@ -47,5 +55,29 @@ describe("format helpers", () => {
     expect(formatProvider("opencode-go")).toBe("Go");
     expect(formatEventType("free_started")).toBe("Free now");
     expect(formatEventType("source_failed")).toBe("Source issue");
+  });
+
+  it("formats benchmark values by metric", () => {
+    expect(formatBenchmarkValue(74.56, "percent")).toBe("74.6%");
+    expect(formatBenchmarkValue(1659.4, "elo")).toBe("1659");
+    expect(formatBenchmarkValue(0.0814, "score")).toBe("0.081");
+    expect(formatBenchmarkValue(76.5, "score")).toBe("76.5");
+    expect(formatBenchmarkValue(Number.NaN, "percent")).toBe("—");
+  });
+
+  it("formats evidence labels and timestamps", () => {
+    expect(formatTier("unrated")).toBe("Unrated");
+    expect(formatTier("S")).toBe("S");
+    expect(formatAvailability("live")).toBe("Live");
+    expect(formatFlag("usage-limited")).toBe("Usage limited");
+    expect(formatTraining("may-train")).toBe("May train on inputs");
+    expect(formatCapability("toolCall")).toBe("Tool calling");
+    expect(formatSource("opencode-go.models")).toBe(
+      "OpenCode Go models endpoint",
+    );
+    expect(formatDateTime("2026-10-20T12:47:29.440Z")).toContain(
+      "Oct 20, 2026",
+    );
+    expect(formatDateTime("2026-10-20T12:47:29.440Z")).toContain("UTC");
   });
 });

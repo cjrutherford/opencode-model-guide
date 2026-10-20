@@ -77,7 +77,11 @@ function parseEvents(raw: string): ChangeEvent[] {
   return events.sort((left, right) => right.at.localeCompare(left.at));
 }
 
+let cachedData: SiteData | undefined;
+
 export function loadData(): SiteData {
+  if (cachedData) return cachedData;
+
   const snapshot = parseFile("snapshot.json", SnapshotSchema, snapshotJson);
   const scores = parseFile("scores.json", ScoresFileSchema, scoresJson);
   const benchmarks = parseFile(
@@ -87,5 +91,6 @@ export function loadData(): SiteData {
   );
   const events = parseEvents(eventsRaw);
 
-  return { snapshot, scores, benchmarks, events };
+  cachedData = { snapshot, scores, benchmarks, events };
+  return cachedData;
 }

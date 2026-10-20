@@ -34,3 +34,6 @@ Thumbs.db
 # Test artifacts
 playwright-report/
 test-results/
+
+# Agent checkpoints
+.agent/
