@@ -1,0 +1,430 @@
+---
+import type { BenchmarkId } from "@omg/shared";
+import { USE_CASE_IDS } from "@omg/shared";
+
+import Base from "../layouts/Base.astro";
+import Stat from "../components/Stat.astro";
+import { loadData } from "../lib/data";
+import { buildHealth, type UnmatchedBenchmarkRow } from "../lib/health";
+import {
+  BENCHMARK_LABELS,
+  USE_CASE_LABELS,
+  formatDate,
+  formatDateTime,
+  formatSource,
+} from "../lib/format";
+import { latestUpdatedAt } from "../lib/home";
+import { slugify } from "../lib/models";
+import { url } from "../lib/url";
+
+const data = loadData();
+const health = buildHealth(data);
+const updatedAt = latestUpdatedAt(data.snapshot, data.scores, data.benchmarks);
+const healthySources = health.sources.filter((source) => source.status === "ok").length;
+const failedSources = health.sources.filter((source) => source.status === "failed").length;
+const skippedSources = health.sources.filter(
+  (source) => source.status === "skipped",
+).length;
+
+function benchmarkLabel(benchmark: string): string {
+  return BENCHMARK_LABELS[benchmark as BenchmarkId] ?? benchmark;
+}
+
+function sourceHost(value: string): string {
+  try {
+    return new URL(value).hostname.replace(/^www\./, "");
+  } catch {
+    return value;
+  }
+}
+
+function ageLabel(hours: number | null): string {
+  if (hours === null || !Number.isFinite(hours)) return "—";
+  if (hours < 1) return "<1 h";
+  if (hours < 24) return `${Math.round(hours)} h`;
+  return `${Math.round(hours / 24)} d`;
+}
+
+function displayValue(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (typeof value === "number" || typeof value === "boolean") {
+    return String(value);
+  }
+  if (value === null) return "null";
+  if (value === undefined) return "undefined";
+  return JSON.stringify(value);
+}
+
+function conflictValues(row: (typeof health.conflicts)[number]): string {
+  return row.values
+    .map((entry) => `${sourceLabel(entry.source)}: ${displayValue(entry.value)}`)
+    .join(" · ");
+}
+
+function sourceLabel(source: string): string {
+  return formatSource(source as Parameters<typeof formatSource>[0]);
+}
+
+const coverageByUseCase = new Map(
+  health.useCases.map((row) => [row.useCase, row]),
+);
+const sourceWarningLabel: Record<string, string> = {
+  fresh: "Fresh",
+  warning: "Older than 48h",
+  error: "Older than 7d",
+  unknown: "Unknown",
+};
+---
+
+<Base
+  title="Data health — source status and coverage"
+  description="Source status, freshness, model coverage, unmatched benchmark names, and recorded conflicts for the OpenCode Model Guide."
+  updatedAt={updatedAt}
+>
+  <div class="mx-auto max-w-[1120px] px-5 py-12 sm:px-8">
+    <header class="max-w-3xl">
+      <p class="eyebrow">Operations</p>
+      <h1 class="mt-3 font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl">
+        Data health.
+      </h1>
+      <p class="mt-5 max-w-2xl text-base leading-7 text-muted">
+        The page shows what the last run actually collected: source status,
+        staleness, coverage, unmatched benchmark names, and conflicts that needed
+        a preferred value. Missing evidence is visible here instead of being
+        smoothed over.
+      </p>
+      <p class="mt-4 text-sm">
+        <a class="font-semibold underline decoration-line underline-offset-4 hover:decoration-accent" href={url("/methodology")}>
+          Read the methodology
+        </a>
+        <span class="mx-2 text-muted">·</span>
+        <a class="font-semibold underline decoration-line underline-offset-4 hover:decoration-accent" href={url("/changes")}>
+          Recent changes
+        </a>
+      </p>
+    </header>
+
+    <section class="mt-10 border-y border-line py-8" aria-label="Health summary">
+      <div class="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        <Stat value={health.counts.models} label="Models" hint="Committed snapshot" />
+        <Stat value={health.counts.freeNow} label="Free now" hint="Live, no subscription" tone="good" />
+        <Stat value={health.counts.ratedModels} label="Rated models" hint="At least one use case" />
+        <Stat value={health.counts.unmatchedNames} label="Unmatched names" hint={`${health.counts.unmatchedBenchmarks} results`} tone="accent" />
+        <Stat value={health.counts.conflicts} label="Conflicts" hint="Preferred value applied" />
+        <Stat value={`${healthySources}/${health.sources.length}`} label="Sources OK" hint={`${failedSources} failed · ${skippedSources} skipped`} tone={failedSources > 0 ? "accent" : "good"} />
+      </div>
+    </section>
+
+    <section class="mt-14" aria-labelledby="sources-title" id="sources">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="eyebrow">01 · Sources</p>
+          <h2 class="mt-2 font-display text-3xl tracking-tight" id="sources-title">
+            Last fetch and freshness
+          </h2>
+        </div>
+        <p class="max-w-md text-xs leading-5 text-muted">
+          Warning after 48 hours; error after 7 days. A skipped optional source is
+          not a failure, but its coverage is still excluded.
+        </p>
+      </div>
+      <div class="mt-6 overflow-x-auto border border-line">
+        <table class="data-table">
+          <caption>Catalog and benchmark sources recorded in the committed snapshots.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Source</th>
+              <th scope="col">Kind</th>
+              <th scope="col">Status</th>
+              <th scope="col">Fetched (UTC)</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Age</th>
+              <th scope="col">Freshness</th>
+              <th scope="col">Items</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {health.sources.map((source) => (
+              <tr>
+                <th scope="row">
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    {formatSource(source.id)}
+                  </a>
+                  {source.required && (
+                    <span class="ml-2 text-[0.6rem] uppercase tracking-[0.1em] text-muted">
+                      required
+                    </span>
+                  )}
+                </th>
+                <td class="whitespace-nowrap">{source.kind}</td>
+                <td
+                  class:list={[
+                    "whitespace-nowrap font-semibold",
+                    source.status === "ok"
+                      ? "text-good"
+                      : source.status === "failed"
+                        ? "text-warn"
+                        : "text-muted",
+                  ]}
+                >
+                  {source.status}
+                </td>
+                <td class="whitespace-nowrap">{formatDateTime(source.fetchedAt)}</td>
+                <td class="num whitespace-nowrap">
+                  {source.durationMs === undefined ? "—" : `${source.durationMs} ms`}
+                </td>
+                <td class="num whitespace-nowrap">{ageLabel(source.ageHours)}</td>
+                <td
+                  class:list={[
+                    "whitespace-nowrap",
+                    source.staleness.level === "fresh"
+                      ? "text-good"
+                      : source.staleness.level === "warning"
+                        ? "text-warn"
+                        : source.staleness.level === "error"
+                          ? "text-accent"
+                          : "text-muted",
+                  ]}
+                >
+                  {sourceWarningLabel[source.staleness.level]}
+                </td>
+                <td class="num">{source.itemCount ?? "—"}</td>
+                <td class="max-w-[18rem] text-xs">
+                  {source.error ?? source.reason ?? "—"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-14" aria-labelledby="coverage-title" id="coverage">
+      <p class="eyebrow">02 · Coverage</p>
+      <h2 class="mt-2 font-display text-3xl tracking-tight" id="coverage-title">
+        How much evidence is available
+      </h2>
+      <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
+        <div class="overflow-x-auto border border-line">
+          <table class="data-table">
+            <caption>Rated models by use case. Unrated is a withheld tier, not a zero score.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Use case</th>
+                <th scope="col">Rated</th>
+                <th scope="col">Total</th>
+                <th scope="col">Coverage</th>
+              </tr>
+            </thead>
+            <tbody>
+              {USE_CASE_IDS.map((useCase) => {
+                const row = coverageByUseCase.get(useCase);
+                return (
+                  <tr>
+                    <th scope="row">{USE_CASE_LABELS[useCase]}</th>
+                    <td class="num">{row?.rated ?? 0}</td>
+                    <td class="num">{row?.total ?? health.counts.scoreRecords}</td>
+                    <td class="num">{Math.round((row?.coverage ?? 0) * 100)}%</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div class="border border-line p-5">
+          <h3 class="font-display text-2xl tracking-tight">Counts at a glance</h3>
+          <dl class="mt-4 grid grid-cols-2 gap-x-5 gap-y-4 text-sm">
+            <div>
+              <dt class="text-muted">Models</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.models}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">Free now</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.freeNow}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">No-token-charge labels</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.zeroMarginal}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">Benchmark results</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.benchmarkResults}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">Resolved results</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.resolvedBenchmarks}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">Unmatched results</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.unmatchedBenchmarks}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">Score records</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.scoreRecords}</dd>
+            </div>
+            <div>
+              <dt class="text-muted">Rated models</dt>
+              <dd class="num mt-1 font-semibold">{health.counts.ratedModels}</dd>
+            </div>
+          </dl>
+          <p class="mt-5 text-xs leading-5 text-muted">
+            “Free now” requires a live availability flag and excludes
+            subscription-included models. “No-token-charge labels” includes all
+            open-free, limited-time, and trial records, even if not currently
+            live.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-14" aria-labelledby="unmatched-title" id="unmatched">
+      <p class="eyebrow">03 · Unmatched</p>
+      <h2 class="mt-2 font-display text-3xl tracking-tight" id="unmatched-title">
+        Benchmark names without a model
+      </h2>
+      <p class="mt-3 max-w-3xl text-sm leading-6 text-muted">
+        These results are excluded from scoring. The list includes the benchmark,
+        observation date, and source link so a missing alias can be checked
+        rather than guessed. Curated exceptions live in the{" "}
+        <a
+          href="https://github.com/cjrutherford/opencode-model-guide/blob/main/data/aliases.json"
+          target="_blank"
+          rel="noreferrer"
+        >
+          alias file on GitHub
+        </a>
+        .
+      </p>
+      {health.unmatched.length > 0 ? (
+        <details class="mt-6 border-y border-line">
+          <summary class="cursor-pointer py-4 font-semibold">
+            Show all {health.unmatched.length} unmatched results
+          </summary>
+          <div class="max-h-[34rem] overflow-auto border-t border-line">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Raw name</th>
+                  <th scope="col">Benchmark</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {health.unmatched.map((row: UnmatchedBenchmarkRow) => (
+                  <tr>
+                    <th scope="row" class="font-mono text-xs font-normal">{row.name}</th>
+                    <td class="whitespace-nowrap">{benchmarkLabel(row.benchmark)}</td>
+                    <td class="whitespace-nowrap">{formatDate(row.date)}</td>
+                    <td>
+                      <a href={row.sourceUrl} target="_blank" rel="noreferrer">
+                        {sourceHost(row.sourceUrl)}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      ) : (
+        <p class="mt-6 border-y border-line py-6 text-sm text-muted">
+          All benchmark names resolved.
+        </p>
+      )}
+    </section>
+
+    <section class="mt-14" aria-labelledby="conflicts-title" id="conflicts">
+      <p class="eyebrow">04 · Conflicts</p>
+      <h2 class="mt-2 font-display text-3xl tracking-tight" id="conflicts-title">
+        Source disagreements
+      </h2>
+      <p class="mt-3 max-w-3xl text-sm leading-6 text-muted">
+        When sources disagree, the snapshot records every value and the rule used
+        to choose one. A preferred value is not a claim that the other sources
+        were wrong.
+      </p>
+      {health.conflicts.length > 0 ? (
+        <div class="mt-6 overflow-x-auto border border-line">
+          <table class="data-table">
+            <caption>Recorded conflicts in the current model snapshot.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Field</th>
+                <th scope="col">Values</th>
+                <th scope="col">Resolution</th>
+                <th scope="col">Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {health.conflicts.map((row) => (
+                <tr>
+                  <th scope="row">
+                    <a href={url(`/models/${slugify(row.modelKey)}/`)}>
+                      {row.modelName}
+                    </a>
+                  </th>
+                  <td class="font-mono text-xs">{row.field}</td>
+                  <td class="max-w-[22rem] text-xs">{conflictValues(row)}</td>
+                  <td class="whitespace-nowrap">{row.resolution}</td>
+                  <td class="max-w-[16rem] text-xs">{row.note ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p class="mt-6 border-y border-line py-6 text-sm text-muted">
+          No conflicts recorded in the current snapshot.
+        </p>
+      )}
+    </section>
+
+    <section class="mt-14" aria-labelledby="files-title" id="files">
+      <p class="eyebrow">05 · Files</p>
+      <h2 class="mt-2 font-display text-3xl tracking-tight" id="files-title">
+        Committed data
+      </h2>
+      <div class="mt-6 overflow-x-auto border border-line">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">File</th>
+              <th scope="col">Generated (UTC)</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>data/snapshot.json</code></th>
+              <td>{formatDateTime(health.generatedAt.snapshot)}</td>
+              <td>Models, terms, prices, availability, source status, conflicts.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>data/benchmarks.json</code></th>
+              <td>{formatDateTime(health.generatedAt.benchmarks)}</td>
+              <td>Raw benchmark results and name-matching outcomes.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>data/scores.json</code></th>
+              <td>{formatDateTime(health.generatedAt.scores)}</td>
+              <td>Cost profiles and use-case percentiles/tiers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-muted">
+        Run history:{" "}
+        <a class="underline decoration-line underline-offset-4 hover:decoration-accent" href={url("/changes")}>
+          recent changes
+        </a>{" "}
+        ·{" "}
+        <a class="underline decoration-line underline-offset-4 hover:decoration-accent" href={url("/feed.xml")}>
+          RSS
+        </a>
+      </p>
+    </section>
+  </div>
+</Base>

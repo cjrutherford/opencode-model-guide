@@ -36,13 +36,33 @@ if (actual.size !== expected.size || missing.length > 0 || extra.length > 0) {
   process.exit(1);
 }
 
-for (const required of ["apps/web/dist/models/index.html", "apps/web/dist/compare/index.html"]) {
+for (const required of [
+  "apps/web/dist/models/index.html",
+  "apps/web/dist/compare/index.html",
+  "apps/web/dist/changes/index.html",
+  "apps/web/dist/methodology/index.html",
+  "apps/web/dist/health/index.html",
+  "apps/web/dist/feed.xml",
+  "apps/web/dist/robots.txt",
+]) {
   try {
     readFileSync(new URL(required, repoRoot));
   } catch {
     console.error(`missing required page: ${required}`);
     process.exit(1);
   }
+}
+
+const feed = readFileSync(new URL("apps/web/dist/feed.xml", repoRoot), "utf8");
+if (!feed.startsWith('<?xml version="1.0" encoding="UTF-8"?>') || !feed.includes("<rss ")) {
+  console.error("feed.xml is not an RSS document");
+  process.exit(1);
+}
+
+const robots = readFileSync(new URL("apps/web/dist/robots.txt", repoRoot), "utf8");
+if (!robots.includes("Sitemap:")) {
+  console.error("robots.txt has no sitemap");
+  process.exit(1);
 }
 
 const distRoot = new URL("apps/web/dist/", repoRoot);
@@ -58,5 +78,5 @@ for (const file of htmlFiles) {
 }
 
 console.log(
-  `model page check: ${actual.size} detail pages, ${htmlFiles.length} HTML files, compare and directory present`,
+  `model page check: ${actual.size} detail pages, ${htmlFiles.length} HTML files; directory, compare, changes, methodology, health, feed, and robots present`,
 );

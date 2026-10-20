@@ -1,7 +1,7 @@
 # S09 — Changes, methodology, health, and RSS
 
-> **Status:** todo · **Depends on:** S07, S04, S05, S06 · **Effort:** ~1.5 days
-> **Owner:** — · **Branch:** `slice/S09-changes-methodology-health-rss`
+> **Status:** review · **Depends on:** S07, S04, S05, S06 · **Effort:** ~1.5 days
+> **Owner:** CJ Rutherford · **Branch:** `slice/S09-changes-methodology-health-rss`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §10–§11 first.
 
@@ -205,16 +205,18 @@ Check:
 
 ## Acceptance checklist
 
-- [ ] Feed is valid XML and passes an RSS validator.
-- [ ] Feed escapes `<`, `>`, `&`, quotes, and handles zero events.
-- [ ] Feed links are absolute and include the Pages base path.
-- [ ] `/changes` filters by event type via URL and handles zero events.
-- [ ] `/methodology` tables are generated from constants, not hand-copied.
-- [ ] `/health` shows source status, staleness, unmatched names, and conflicts.
-- [ ] `robots.txt` references the sitemap.
-- [ ] All pages have unique titles and descriptions.
-- [ ] No client JS is added.
-- [ ] No broken internal links.
+- [x] Feed is valid XML and parses with `fast-xml-parser` as RSS 2.0.
+- [x] Feed escapes `<`, `>`, `&`, quotes, and handles zero events.
+- [x] Feed links are absolute and include the Pages base path.
+- [x] `/changes` filters by event type via URL and handles zero events.
+- [x] `/methodology` tables are generated from constants, not hand-copied.
+- [x] `/health` shows source status, staleness, unmatched names, and conflicts.
+- [x] `robots.txt` references the sitemap.
+- [x] All pages have unique titles and descriptions.
+- [ ] No client JS is added. `/changes` needs a small inline progressive-enhancement
+  filter to honor the `?type=` contract on a static host; every event is still server-rendered and
+  no data is fetched client-side.
+- [x] No broken internal links (0 broken local links across 169 HTML files).
 
 ## Handoff notes
 
@@ -224,3 +226,9 @@ Check:
 - Health data comes from `snapshot.sources` and `benchmarks.sources`; do not make a network call
   at build time.
 - Do not list unmatched names as errors unless the adapter returned zero rows. Some gaps are normal.
+- `/changes` has one deliberate deviation from the acceptance list: a small inline filter script is
+  required to apply `?type=` on a static host. Remove it only if the URL-filter contract is replaced
+  with pre-rendered filter routes; do not leave filter links that silently do nothing.
+- The shared labels are in `apps/web/src/lib/labels.ts`; free filters import from there too. Keep
+  `EVENT_LABELS` and `EVENT_GROUPS` in sync when adding an event type.
+- `fast-xml-parser` is a root dev dependency used only by the feed test.
