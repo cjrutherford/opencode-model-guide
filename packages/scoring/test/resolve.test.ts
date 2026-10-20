@@ -51,6 +51,7 @@ const models: ModelRecord[] = [
   model({ provider: "opencode-go", id: "glm-5.3", name: "GLM-5.3", free: "subscription-included" }),
   model({ id: "gpt-5", name: "GPT-5" }),
   model({ id: "gpt-5-codex-mini", name: "GPT-5 Codex Mini" }),
+  model({ id: "beam-free", name: "Beam Free", free: "limited-time" }),
   model({ id: "alpha-beta-gamma-delta", name: "Alpha Beta Gamma Delta" }),
   model({ id: "alpha-beta-gamma-epsilon", name: "Alpha Beta Gamma Epsilon" }),
   model({ id: "alpha-beta-gamma-delta-epsilon-zeta", name: "Alpha Beta Gamma Delta Epsilon Zeta" }),
@@ -106,6 +107,18 @@ describe("resolveModelName", () => {
       }),
     ).toEqual({
       modelKey: "opencode/claude-opus-4-6",
+      match: "alias",
+      confidence: 1,
+    });
+  });
+
+  it("resolves a stealth benchmark name to its human-readable model alias", () => {
+    expect(
+      resolveModelName("Beam 1.0 501B A23B", models, {
+        "beam 1 0 501b a23b": "opencode/beam-free",
+      }),
+    ).toEqual({
+      modelKey: "opencode/beam-free",
       match: "alias",
       confidence: 1,
     });

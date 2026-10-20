@@ -105,6 +105,24 @@ describe("model joins", () => {
     }
   });
 
+  it("shows shared benchmark rows on both provider listings", () => {
+    const data = loadData();
+    const indexes = buildModelIndexes(data);
+    const consoleScore = indexes.scoreByKey.get("opencode/beam-free");
+    const goScore = indexes.scoreByKey.get("opencode-go/beam-free");
+
+    expect(consoleScore).toBeDefined();
+    expect(goScore).toBeDefined();
+    const consoleRows = benchmarkRowsForModel(
+      consoleScore,
+      indexes.benchmarksByKey,
+    );
+    const goRows = benchmarkRowsForModel(goScore, indexes.benchmarksByKey);
+
+    expect(consoleRows.length).toBeGreaterThan(0);
+    expect(goRows).toEqual(consoleRows);
+  });
+
   it("keeps compare rows finite and complete", () => {
     const data = loadData();
     const rows = buildCompareRows(data);

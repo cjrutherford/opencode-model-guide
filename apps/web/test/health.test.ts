@@ -49,11 +49,11 @@ describe("buildHealth", () => {
     expect(health.counts.freeNow).toBe(13);
     expect(health.counts.zeroMarginal).toBe(79);
     expect(health.counts.benchmarkResults).toBe(1041);
-    expect(health.counts.resolvedBenchmarks).toBe(398);
-    expect(health.counts.unmatchedBenchmarks).toBe(643);
-    expect(health.counts.unmatchedNames).toBe(605);
+    expect(health.counts.resolvedBenchmarks).toBe(400);
+    expect(health.counts.unmatchedBenchmarks).toBe(641);
+    expect(health.counts.unmatchedNames).toBe(603);
     expect(health.counts.scoreRecords).toBe(163);
-    expect(health.counts.ratedModels).toBe(78);
+    expect(health.counts.ratedModels).toBe(96);
     expect(health.counts.conflicts).toBe(8);
     expect(health.sources).toHaveLength(10);
     expect(health.sources.find((source) => source.id === "terminal-bench")).toMatchObject({
@@ -72,7 +72,7 @@ describe("buildHealth", () => {
       resolution: expect.stringMatching(/preferred|unresolved/),
     });
     expect(health.useCases.find((row) => row.useCase === "frontend")).toMatchObject({
-      rated: 76,
+      rated: 94,
       total: 163,
     });
   });
