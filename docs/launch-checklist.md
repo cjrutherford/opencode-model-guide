@@ -17,7 +17,7 @@ evidence for each claim.
 - [ ] Subscribe to the feed and confirm one ntfy message on a simulated change. The summary and
   source-alert paths are covered by tests and the dry run; a real push still needs an event.
 - [x] Add the live URL and a real screenshot to the README.
-- [ ] Tag `v1.0.0` after this slice merges and the live checks pass.
+- [x] Tag `v1.0.0` after this slice merges and the live checks pass.
 
 ## Verification
 
@@ -70,14 +70,16 @@ Lighthouse was run with Chrome headless, Lighthouse 12, default mobile emulation
 
 1. Subscribe to the feed in a reader and trigger one real change (or use a temporary event in a test
    run) to verify the ntfy summary on a phone.
-2. Tag `v1.0.0` after the S11 PR is merged:
-   ```bash
-   git switch main
-   git pull --ff-only
-   git tag -a v1.0.0 -m "OpenCode Model Guide v1.0.0"
-   git push origin v1.0.0
-   ```
-3. Re-check free terms monthly. Docs wording changes more often than prices.
+2. Re-check free terms monthly. Docs wording changes more often than prices.
+
+The `v1.0.0` tag is created from the final `main` commit after the S11 deploy:
+
+```bash
+git switch main
+git pull --ff-only
+git tag -a v1.0.0 -m "OpenCode Model Guide v1.0.0"
+git push origin v1.0.0
+```
 
 ## Deferred to v2
 

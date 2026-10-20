@@ -104,7 +104,7 @@ Owner actions:
 - [x] Confirm the live URL, `/feed.xml`, `/health`, `/methodology`.
 - [ ] Subscribe to the feed and confirm one ntfy message on a simulated change.
 - [x] Add the live URL to the README.
-- [ ] Tag `v1.0.0`.
+- [x] Tag `v1.0.0`.
 
 Verification:
 
@@ -187,8 +187,8 @@ Test the parser with a small HTML fixture and a temp directory. Add to CI after 
 
 Merged in PR [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) (`0283123`) and
 deployed by run `39517351496`. The live site passes Lighthouse 100/100/100/100 on `/` and `/models`,
-the link check covers 3,068 internal links, and all tracker rows are current. `v1.0.0` tagging and a
-real ntfy delivery remain owner actions in the launch checklist.
+the link check covers 3,068 internal links, and all tracker rows are current. `v1.0.0` is tagged; a
+real ntfy delivery remains the only owner action in the launch checklist.
 
 ## Handoff notes
 
