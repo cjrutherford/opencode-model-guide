@@ -1,6 +1,6 @@
 # S08 — Models directory, detail, and compare
 
-> **Status:** review · **Depends on:** S07, S02, S06 · **Effort:** ~3 days
+> **Status:** done · **Depends on:** S07, S02, S06 · **Effort:** ~3 days
 > **Owner:** CJ Rutherford · **Branch:** `slice/S08-models-compare`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §7–§11 first.
