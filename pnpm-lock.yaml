@@ -75,7 +75,14 @@ importers:
 
   packages/notify: {}
 
-  packages/scoring: {}
+  packages/scoring:
+    dependencies:
+      '@omg/ingest':
+        specifier: workspace:*
+        version: link:../ingest
+      yaml:
+        specifier: ^2.9.1
+        version: 2.9.1
 
   packages/shared:
     dependencies:

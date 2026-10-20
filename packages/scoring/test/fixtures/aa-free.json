@@ -1,0 +1,44 @@
+{
+  "tier": "free",
+  "intelligence_index_version": 4.3,
+  "pagination": {
+    "page": 1,
+    "page_size": 200,
+    "total_pages": 1,
+    "has_more": false
+  },
+  "data": [
+    {
+      "name": "GLM-4.5V (Non-reasoning)",
+      "evaluations": {
+        "artificial_analysis_intelligence_index": 6.7,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null
+      }
+    },
+    {
+      "name": "Gemini 3.5 Flash (High)",
+      "evaluations": {
+        "artificial_analysis_intelligence_index": 32.6,
+        "artificial_analysis_coding_index": 70.1,
+        "artificial_analysis_agentic_index": 26
+      }
+    },
+    {
+      "name": "MiMo-V2.5-Pro (Reasoning)",
+      "evaluations": {
+        "artificial_analysis_intelligence_index": 26,
+        "artificial_analysis_coding_index": 60.2,
+        "artificial_analysis_agentic_index": 21.3
+      }
+    },
+    {
+      "name": "Mercury 2",
+      "evaluations": {
+        "artificial_analysis_intelligence_index": 10.8,
+        "artificial_analysis_coding_index": 31.1,
+        "artificial_analysis_agentic_index": 1.6
+      }
+    }
+  ]
+}
