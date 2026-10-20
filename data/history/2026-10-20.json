@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "generatedAt": "2026-10-20T21:20:19.557Z",
+  "generatedAt": "2026-10-20T23:29:40.094Z",
   "models": [
     {
       "key": "opencode-go/beam-free",
@@ -2550,6 +2550,21 @@
         "kind": "open-free"
       },
       "availability": "deprecated"
+    },
+    {
+      "key": "opencode/muse-wonder-1.0",
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 4,
+        "output": 20,
+        "cacheRead": 0.2
+      },
+      "free": {
+        "kind": "paid"
+      },
+      "availability": "live"
     },
     {
       "key": "opencode/nemotron-3-super-free",

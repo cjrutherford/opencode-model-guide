@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T23:11:30.156Z",
+  "generatedAt": "2026-10-20T23:29:40.966Z",
   "results": [
     {
       "benchmark": "aider-polyglot",
@@ -6040,8 +6040,9 @@
       "date": "2026-10-19",
       "sourceUrl": "https://lmarena.ai/leaderboard",
       "harness": "LMArena",
-      "match": "unmatched",
-      "matchConfidence": 0
+      "modelKey": "opencode/muse-wonder-1.0",
+      "match": "exact",
+      "matchConfidence": 1
     },
     {
       "benchmark": "lmarena-agent",
@@ -6900,8 +6901,9 @@
       "date": "2026-10-15",
       "sourceUrl": "https://lmarena.ai/leaderboard",
       "harness": "LMArena",
-      "match": "unmatched",
-      "matchConfidence": 0
+      "modelKey": "opencode/muse-wonder-1.0",
+      "match": "exact",
+      "matchConfidence": 1
     },
     {
       "benchmark": "lmarena-text",
@@ -12795,8 +12797,9 @@
       "date": "2026-10-19",
       "sourceUrl": "https://lmarena.ai/leaderboard",
       "harness": "LMArena",
-      "match": "unmatched",
-      "matchConfidence": 0
+      "modelKey": "opencode/muse-wonder-1.0",
+      "match": "exact",
+      "matchConfidence": 1
     },
     {
       "benchmark": "lmarena-webdev",
@@ -13865,7 +13868,6 @@
     "Muse Spark 1.1",
     "Muse Spark 1.1 (Xhigh)",
     "Muse Spark Open (Max)",
-    "Muse Wonder (Max)",
     "Muse Wonder Full (Max)",
     "NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)",
     "NVIDIA Nemotron 3 Nano 4B",
@@ -14324,8 +14326,8 @@
       "url": "https://www.swebench.com/",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T23:11:30.157Z",
-      "durationMs": 677,
+      "fetchedAt": "2026-10-20T23:29:40.966Z",
+      "durationMs": 371,
       "itemCount": 55,
       "required": true
     },
@@ -14334,8 +14336,8 @@
       "url": "https://lmarena.ai/leaderboard",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T23:11:30.171Z",
-      "durationMs": 380854,
+      "fetchedAt": "2026-10-20T23:29:40.979Z",
+      "durationMs": 411791,
       "itemCount": 661,
       "required": true
     },
@@ -14344,8 +14346,8 @@
       "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T23:11:30.173Z",
-      "durationMs": 327,
+      "fetchedAt": "2026-10-20T23:29:40.981Z",
+      "durationMs": 235,
       "itemCount": 68,
       "required": true
     },
@@ -14354,7 +14356,7 @@
       "url": "https://www.tbench.ai/leaderboard",
       "ok": false,
       "status": "skipped",
-      "fetchedAt": "2026-10-20T23:11:30.156Z",
+      "fetchedAt": "2026-10-20T23:29:40.966Z",
       "itemCount": 0,
       "reason": "no stable machine-readable leaderboard in v1",
       "required": false
@@ -14364,8 +14366,8 @@
       "url": "https://artificialanalysis.ai/api/v2/language/models/free",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T23:11:30.156Z",
-      "durationMs": 2371,
+      "fetchedAt": "2026-10-20T23:29:40.966Z",
+      "durationMs": 1166,
       "itemCount": 258,
       "required": false
     }
