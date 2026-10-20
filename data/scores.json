@@ -1,0 +1,7149 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T13:32:41.959Z",
+  "scores": [
+    {
+      "modelKey": "opencode-go/beam-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/cat-jam-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/claude-haiku-5-5",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00123,
+          "agentic-pr": 0.0395,
+          "long-context": 0.1025
+        },
+        "goEffective": {
+          "quick-edit": 0.00082,
+          "agentic-pr": 0.026333333333333334,
+          "long-context": 0.06833333333333333
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/deepseek-v4-pro",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.005786,
+          "agentic-pr": 0.03762,
+          "long-context": 0.11638
+        },
+        "goEffective": {
+          "quick-edit": 0.0038573333333333333,
+          "agentic-pr": 0.025079999999999998,
+          "long-context": 0.07758666666666666
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/deepseek-v4.1-flash",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.001524,
+          "agentic-pr": 0.00957,
+          "long-context": 0.02685
+        },
+        "goEffective": {
+          "quick-edit": 0.0001905,
+          "agentic-pr": 0.00119625,
+          "long-context": 0.0033562499999999994
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/gemini-4-argon-contributor",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0476,
+          "agentic-pr": 0.298,
+          "long-context": 0.77
+        },
+        "goEffective": {
+          "quick-edit": 0.007933333333333334,
+          "agentic-pr": 0.049666666666666665,
+          "long-context": 0.12833333333333333
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/glm-5.2",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01428,
+          "agentic-pr": 0.1006,
+          "long-context": 0.3014
+        },
+        "goEffective": {
+          "quick-edit": 0.0023799999999999997,
+          "agentic-pr": 0.016766666666666666,
+          "long-context": 0.05023333333333334
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/glm-5.3",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01428,
+          "agentic-pr": 0.1006,
+          "long-context": 0.3014
+        },
+        "goEffective": {
+          "quick-edit": 0.009519999999999999,
+          "agentic-pr": 0.06706666666666666,
+          "long-context": 0.20093333333333335
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/glm-5.3-flash",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00159,
+          "agentic-pr": 0.0112,
+          "long-context": 0.033
+        },
+        "goEffective": {
+          "quick-edit": 0.000265,
+          "agentic-pr": 0.0018666666666666666,
+          "long-context": 0.0055000000000000005
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/gpt-5.6-luna",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00276,
+          "agentic-pr": 0.0174,
+          "long-context": 0.0808
+        },
+        "goEffective": {
+          "quick-edit": 0.00184,
+          "agentic-pr": 0.0116,
+          "long-context": 0.05386666666666666
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/gpt-6-luna",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00123,
+          "agentic-pr": 0.0079,
+          "long-context": 0.0395
+        },
+        "goEffective": {
+          "quick-edit": 0.00082,
+          "agentic-pr": 0.005266666666666668,
+          "long-context": 0.026333333333333334
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/grok-4.7",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.021,
+          "agentic-pr": 0.153,
+          "long-context": 0.922
+        },
+        "goEffective": {
+          "quick-edit": 0.014000000000000002,
+          "agentic-pr": 0.10200000000000001,
+          "long-context": 0.6146666666666667
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/hy3",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 37.096774193548384,
+          "value": 1438.0013487945234,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 37.096774193548384,
+          "tier": "unrated",
+          "confidence": 0.15
+        },
+        "frontend": {
+          "score": 37.096774193548384,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": 37.096774193548384,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00171,
+          "agentic-pr": 0.01199,
+          "long-context": 0.03323
+        },
+        "goEffective": {
+          "quick-edit": 0.000285,
+          "agentic-pr": 0.0019983333333333333,
+          "long-context": 0.005538333333333334
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/hy4-preview",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 57.49999999999999,
+          "value": 0.024694250671418234,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 83.11688311688312,
+          "value": 1630.9748559738932,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 57.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 83.11688311688312,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 83.11688311688312,
+          "tier": "A",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0074235,
+          "agentic-pr": 0.048808,
+          "long-context": 0.150606
+        },
+        "goEffective": {
+          "quick-edit": 0.0024745,
+          "agentic-pr": 0.016269333333333334,
+          "long-context": 0.050202
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/kimi-k2.7-code",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01132,
+          "agentic-pr": 0.0776,
+          "long-context": 0.214
+        },
+        "goEffective": {
+          "quick-edit": 0.0018866666666666665,
+          "agentic-pr": 0.012933333333333333,
+          "long-context": 0.035666666666666666
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/kimi-k3",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0369,
+          "agentic-pr": 0.237,
+          "long-context": 0.615
+        },
+        "goEffective": {
+          "quick-edit": 0.0246,
+          "agentic-pr": 0.158,
+          "long-context": 0.41000000000000003
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/longcat-2.0",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.003048,
+          "agentic-pr": 0.01914,
+          "long-context": 0.0537
+        },
+        "goEffective": {
+          "quick-edit": 0.000508,
+          "agentic-pr": 0.00319,
+          "long-context": 0.008949999999999998
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/longcat-2.5-preview-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/mimo-v2.5",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 20.967741935483872,
+          "value": 1427.728299546782,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 20.967741935483872,
+          "tier": "unrated",
+          "confidence": 0.15
+        },
+        "frontend": {
+          "score": 20.967741935483872,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": 20.967741935483872,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0010024,
+          "agentic-pr": 0.006692,
+          "long-context": 0.023380000000000005
+        },
+        "goEffective": {
+          "quick-edit": 0.0001670666666666667,
+          "agentic-pr": 0.0011153333333333334,
+          "long-context": 0.0038966666666666676
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/mimo-v2.5-pro",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 50.847457627118644,
+          "value": 60.2,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 5,
+          "value": -0.08211202411154934,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 67.74193548387096,
+          "value": 1464.885970353601,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 41.55844155844156,
+          "value": 1480.2625371937938,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 51.37725178047758,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 48.1043150397989,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 67.74193548387096,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.003074,
+          "agentic-pr": 0.02033625,
+          "long-context": 0.07137625
+        },
+        "goEffective": {
+          "quick-edit": 0.002049333333333333,
+          "agentic-pr": 0.0135575,
+          "long-context": 0.04758416666666667
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/mimo-v2.6-flash",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 59.67741935483871,
+          "value": 1455.2141256062962,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 59.67741935483871,
+          "tier": "unrated",
+          "confidence": 0.15
+        },
+        "frontend": {
+          "score": 59.67741935483872,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": 59.67741935483871,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0010024,
+          "agentic-pr": 0.006692,
+          "long-context": 0.023380000000000005
+        },
+        "goEffective": {
+          "quick-edit": 0.0001670666666666667,
+          "agentic-pr": 0.0011153333333333334,
+          "long-context": 0.0038966666666666676
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/mimo-v2.6-pro",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 72.5,
+          "value": 0.03738390121089941,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 88.70967741935483,
+          "value": 1490.6785014821505,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 81.81818181818183,
+          "value": 1624.9872074037098,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 72.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 84.4024926686217,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 83.54105571847508,
+          "tier": "A",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 88.70967741935483,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.003074,
+          "agentic-pr": 0.02033625,
+          "long-context": 0.07137625
+        },
+        "goEffective": {
+          "quick-edit": 0.002049333333333333,
+          "agentic-pr": 0.0135575,
+          "long-context": 0.04758416666666667
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/minimax-m2.7",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00348,
+          "agentic-pr": 0.024,
+          "long-context": 0.0672
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/minimax-m3",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00348,
+          "agentic-pr": 0.024,
+          "long-context": 0.1344
+        },
+        "goEffective": {
+          "quick-edit": 0.00058,
+          "agentic-pr": 0.004,
+          "long-context": 0.022399999999999996
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/minimax-m3.1-flash-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/muse-spark-1.2-contributor",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.000716,
+          "agentic-pr": 0.00478,
+          "long-context": 0.0167
+        },
+        "goEffective": {
+          "quick-edit": 0.00011933333333333332,
+          "agentic-pr": 0.0007966666666666667,
+          "long-context": 0.002783333333333333
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/muse-spark-1.3-contributor",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.000716,
+          "agentic-pr": 0.00478,
+          "long-context": 0.0167
+        },
+        "goEffective": {
+          "quick-edit": 0.00011933333333333332,
+          "agentic-pr": 0.0007966666666666667,
+          "long-context": 0.002783333333333333
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/qwen3.7-plus",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 38.983050847457626,
+          "value": 55.9,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 10,
+          "value": -0.06686138094842177,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 27.586206896551722,
+          "value": 1444.1444013632026,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 58.06451612903226,
+          "value": 1454.5821410752708,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 10,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 58.06451612903227,
+          "tier": "unrated",
+          "confidence": 0.15
+        },
+        "frontend": {
+          "score": 58.06451612903226,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": 40.64833942475767,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00432,
+          "agentic-pr": 0.0284,
+          "long-context": 0.2388
+        },
+        "goEffective": {
+          "quick-edit": 0.00072,
+          "agentic-pr": 0.004733333333333334,
+          "long-context": 0.039799999999999995
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/qwen3.8-flash",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.001433,
+          "agentic-pr": 0.0097,
+          "long-context": 0.02932
+        },
+        "goEffective": {
+          "quick-edit": 0.0004776666666666667,
+          "agentic-pr": 0.0032333333333333333,
+          "long-context": 0.009773333333333334
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/qwen3.8-max",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.019,
+          "agentic-pr": 0.1305,
+          "long-context": 0.3985
+        },
+        "goEffective": {
+          "quick-edit": 0.012666666666666666,
+          "agentic-pr": 0.08700000000000001,
+          "long-context": 0.26566666666666666
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/space-bunny",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00174,
+          "agentic-pr": 0.012,
+          "long-context": 0.0336
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/step-5-preview",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00885,
+          "agentic-pr": 0.0606,
+          "long-context": 0.1912
+        },
+        "goEffective": {
+          "quick-edit": 0.001475,
+          "agentic-pr": 0.0101,
+          "long-context": 0.03186666666666667
+        }
+      }
+    },
+    {
+      "modelKey": "opencode-go/step-5-preview-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/beam-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/big-pickle",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/cat-jam-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-3-5-haiku",
+      "benchmarks": {
+        "aider-polyglot": {
+          "percentile": 0,
+          "value": 28,
+          "date": "2024-12-21"
+        },
+        "artificial-analysis": {
+          "percentile": 0,
+          "value": 15.9,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 0,
+          "value": 1255.3789083678766,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.03
+        },
+        "everyday-edits": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.11000000000000001
+        },
+        "frontend": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.08000000000000002
+        },
+        "long-context": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00984,
+          "agentic-pr": 0.0632,
+          "long-context": 0.164
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-fable-5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 92.37288135593221,
+          "value": 76.5,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 82.5,
+          "value": 0.08371488440417793,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 89.65517241379311,
+          "value": 1496.0822362465265,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 90.32258064516128,
+          "value": 1491.2265859286508,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 80.51948051948052,
+          "value": 1624.279905339254,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 82.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 84.1956430666108,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 82.9702555509007,
+          "tier": "A",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 89.9412045129509,
+          "tier": "A",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.123,
+          "agentic-pr": 0.79,
+          "long-context": 2.05
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-fable-5-1",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 100,
+          "value": 79.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 95,
+          "value": 0.14325933961455264,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 96.55172413793103,
+          "value": 1512.5843185623094,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 96.7741935483871,
+          "value": 1511.5534589044762,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 96.1038961038961,
+          "value": 1742.7041711201678,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 95,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 96.35525764558021,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 96.27147046501885,
+          "tier": "S",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 96.64706817098363,
+          "tier": "S",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.117,
+          "agentic-pr": 0.7225,
+          "long-context": 1.8625
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-haiku-4-5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 13.559322033898304,
+          "value": 43.9,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 10.344827586206897,
+          "value": 1419.965425258912,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 8.064516129032258,
+          "value": 1396.6445118945935,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 3.896103896103896,
+          "value": 1330.3686171459108,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 0,
+          "value": 64.7,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 44.44444444444444,
+          "value": 66.6,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 44.44444444444444,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 18.454320470449503,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 4.938206954335986,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 19.89061920652577,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0123,
+          "agentic-pr": 0.079,
+          "long-context": 0.205
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-haiku-5-5",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 47.5,
+          "value": 0.014896148698015145,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 68.83116883116884,
+          "value": 1586.154813685055,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 47.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 68.83116883116884,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 68.83116883116884,
+          "tier": "B",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00123,
+          "agentic-pr": 0.0395,
+          "long-context": 0.1025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-4-1",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 16.129032258064516,
+          "value": 1418.6469693382608,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 14.285714285714285,
+          "value": 1390.2901744440605,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 14.976958525345623,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 14.746543778801843,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 16.129032258064516,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.1845,
+          "agentic-pr": 1.185,
+          "long-context": 3.075
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-4-5",
+      "benchmarks": {
+        "lmarena-document": {
+          "percentile": 51.724137931034484,
+          "value": 1462.1982192559744,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 53.2258064516129,
+          "value": 1450.8764850286768,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 38.961038961038966,
+          "value": 1469.3501356948414,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 80,
+          "value": 70.7,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 100,
+          "value": 76.8,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 100,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 62.87355118000279,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 42.52723083368245,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 66.65739710789767,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0615,
+          "agentic-pr": 0.395,
+          "long-context": 1.025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-4-6",
+      "benchmarks": {
+        "lmarena-document": {
+          "percentile": 93.10344827586206,
+          "value": 1507.0536318152122,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 91.93548387096774,
+          "value": 1497.546140958647,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 55.84415584415584,
+          "value": 1537.4047118703759,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 90,
+          "value": 72,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 83.33333333333334,
+          "value": 75.6,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 83.33333333333334,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 74.030047013918,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 64.8669878508588,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 89.82202447163516,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0615,
+          "agentic-pr": 0.395,
+          "long-context": 1.025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-4-7",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 81.35593220338984,
+          "value": 73.6,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 86.20689655172413,
+          "value": 1495.0390463625913,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 82.25806451612904,
+          "value": 1482.8907708137071,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 62.33766233766234,
+          "value": 1555.6674213307126,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 69.80781315458735,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 67.31776288227901,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 84.51453996504053,
+          "tier": "A",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0615,
+          "agentic-pr": 0.395,
+          "long-context": 1.025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-4-8",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 83.05084745762711,
+          "value": 74.3,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 55.172413793103445,
+          "value": 1464.0676818215188,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 56.451612903225815,
+          "value": 1453.9014471545838,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 54.54545454545454,
+          "value": 1535.802064512159,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 55.26026392961876,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 55.021994134897355,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 55.72064198315589,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0615,
+          "agentic-pr": 0.395,
+          "long-context": 1.025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 92.37288135593221,
+          "value": 76.5,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 80,
+          "value": 0.08080780643125521,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 100,
+          "value": 1516.2663910026604,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 95.16129032258065,
+          "value": 1502.538234627805,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 88.31168831168831,
+          "value": 1658.5734663043627,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 80,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 90.88028906577294,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 90.02408881441139,
+          "tier": "S",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 97.92626728110599,
+          "tier": "S",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0615,
+          "agentic-pr": 0.395,
+          "long-context": 1.025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-opus-5-5",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 100,
+          "value": 0.20352027699041078,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 98.38709677419355,
+          "value": 1515.7614452392686,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 100,
+          "value": 1807.3060564856307,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 100,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 99.39516129032258,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 99.5967741935484,
+          "tier": "S",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 98.38709677419355,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0476,
+          "agentic-pr": 0.298,
+          "long-context": 0.77
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-sonnet-4",
+      "benchmarks": {
+        "aider-polyglot": {
+          "percentile": 75,
+          "value": 61.3,
+          "date": "2025-05-24"
+        },
+        "artificial-analysis": {
+          "percentile": 8.47457627118644,
+          "value": 37.6,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 3.225806451612903,
+          "value": 1339.2467765697188,
+          "date": "2026-10-15"
+        },
+        "swe-bench-verified": {
+          "percentile": 22.22222222222222,
+          "value": 64.93,
+          "date": "2025-07-26"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 35.41666666666667,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "everyday-edits": {
+          "score": 46.57108721624851,
+          "tier": "unrated",
+          "confidence": 0.15000000000000002
+        },
+        "frontend": {
+          "score": 39.11290322580645,
+          "tier": "unrated",
+          "confidence": 0.08000000000000002
+        },
+        "long-context": {
+          "score": 12.724014336917563,
+          "tier": "unrated",
+          "confidence": 0.12
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0369,
+          "agentic-pr": 0.237,
+          "long-context": 1.185
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-sonnet-4-5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 30.508474576271187,
+          "value": 52.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 31.03448275862069,
+          "value": 1449.8080646641465,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 38.70967741935484,
+          "value": 1438.4246824831582,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 11.688311688311687,
+          "value": 1385.1301321565793,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 30,
+          "value": 67,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 61.111111111111114,
+          "value": 71.4,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 61.111111111111114,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 34.91791959533895,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 18.443653121072472,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 42.36002966258806,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0369,
+          "agentic-pr": 0.237,
+          "long-context": 1.185
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-sonnet-4-6",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 55.932203389830505,
+          "value": 63,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 75.86206896551724,
+          "value": 1482.23522561877,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 64.51612903225806,
+          "value": 1457.8672969763822,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 51.94805194805194,
+          "value": 1522.960680340417,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 56.66108085462923,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 55.09007121910347,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 70.99952327983473,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0369,
+          "agentic-pr": 0.237,
+          "long-context": 0.615
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-sonnet-5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 70.33898305084746,
+          "value": 71.5,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 75,
+          "value": 0.04060191083161933,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 58.620689655172406,
+          "value": 1466.136518831971,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 43.54838709677419,
+          "value": 1442.12148050211,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 58.44155844155844,
+          "value": 1540.4088721789353,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 75,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 52.85661918726434,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 54.718265605362376,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 52.1611314158589,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0246,
+          "agentic-pr": 0.158,
+          "long-context": 0.41
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/claude-sonnet-5-5",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 90,
+          "value": 0.12751713373132958,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 94.8051948051948,
+          "value": 1709.9863830846468,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 90,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 94.8051948051948,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 94.8051948051948,
+          "tier": "S",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0246,
+          "agentic-pr": 0.158,
+          "long-context": 0.41
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/deepseek-v4-flash",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 28.8135593220339,
+          "value": 52,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 27.419354838709676,
+          "value": 1431.8376632131556,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 66.23376623376623,
+          "value": 1582.0962867572077,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 51.67836196062002,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 56.53016338500209,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 27.419354838709676,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.001204,
+          "agentic-pr": 0.00896,
+          "long-context": 0.029680000000000005
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/deepseek-v4-flash-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/deepseek-v4-flash-vision-exp",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.001204,
+          "agentic-pr": 0.00896,
+          "long-context": 0.029680000000000005
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/deepseek-v4-pro",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 47.45762711864407,
+          "value": 58.7,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 35,
+          "value": -0.00040380963744199647,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 54.83870967741935,
+          "value": 1451.1584212632322,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 35.064935064935064,
+          "value": 1447.3420829340432,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 35,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 42.48010054461667,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 40.00837871805613,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 54.83870967741935,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01388,
+          "agentic-pr": 0.09597,
+          "long-context": 0.32029
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/deepseek-v4.1-flash",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 62.5,
+          "value": 0.02561172539208356,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 77.92207792207793,
+          "value": 1618.3443578289887,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 62.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 77.92207792207793,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 77.92207792207793,
+          "tier": "A",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.003048,
+          "agentic-pr": 0.01914,
+          "long-context": 0.0537
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/deepseek-v4.1-flash-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/exo-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/fledge-alpha-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3-flash",
+      "benchmarks": {
+        "lmarena-document": {
+          "percentile": 6.896551724137931,
+          "value": 1412.994825179088,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 69.35483870967742,
+          "value": 1465.7119518094687,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 31.16883116883117,
+          "value": 1440.0064982989315,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 100,
+          "value": 72.7,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 91.66666666666666,
+          "value": 75.8,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 91.66666666666667,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 60.881278219987905,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 40.71533305404273,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 51.0650723025584,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0069,
+          "agentic-pr": 0.0435,
+          "long-context": 0.1055
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3-pro",
+      "benchmarks": {
+        "lmarena-document": {
+          "percentile": 17.24137931034483,
+          "value": 1434.086676148642,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 75.80645161290323,
+          "value": 1479.4272470568092,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 32.467532467532465,
+          "value": 1440.279950966003,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 60,
+          "value": 68.7,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 50,
+          "value": 69.6,
+          "date": "2026-02-26"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 50,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 49.146418098031,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 43.30226225387516,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 44.6384872080089,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0276,
+          "agentic-pr": 0.174,
+          "long-context": 0.808
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3.1-pro",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 61.86440677966102,
+          "value": 68.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 20,
+          "value": -0.03895532972367305,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 24.137931034482758,
+          "value": 1443.9187054358893,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 77.41935483870968,
+          "value": 1480.1516865475448,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 33.76623376623377,
+          "value": 1446.920737117052,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 20,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 50.13615416841223,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 44.679514034352735,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 46.972826950580014,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0276,
+          "agentic-pr": 0.174,
+          "long-context": 0.808
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3.5-flash",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 66.10169491525424,
+          "value": 70.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 48.275862068965516,
+          "value": 1461.403811789994,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 79.03225806451613,
+          "value": 1482.0166701667843,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 44.15584415584416,
+          "value": 1499.4324574654108,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 57.234499371596144,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 52.87494763301215,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 61.4571746384872,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0207,
+          "agentic-pr": 0.1305,
+          "long-context": 0.3165
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3.5-flash-lite",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 22.033898305084744,
+          "value": 49.3,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 30.64516129032258,
+          "value": 1434.5162611299957,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 25.97402597402597,
+          "value": 1434.9148600466806,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 27.725701717637197,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 27.14180980310012,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 30.64516129032258,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00519,
+          "agentic-pr": 0.0317,
+          "long-context": 0.0675
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3.6-flash",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 64.40677966101694,
+          "value": 69.2,
+          "date": "2026-10-20"
+        },
+        "lmarena-webdev": {
+          "percentile": 57.14285714285714,
+          "value": 1538.0531671297133,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 57.14285714285714,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 57.142857142857146,
+          "tier": "B",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01845,
+          "agentic-pr": 0.1185,
+          "long-context": 0.3075
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3.7-flash",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 88.13559322033898,
+          "value": 76.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 30,
+          "value": -0.010592739444460863,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 85.48387096774194,
+          "value": 1487.3039513740575,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 71.42857142857143,
+          "value": 1590.77741388594,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 30,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 76.69930875576037,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 74.94239631336406,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 85.48387096774194,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01845,
+          "agentic-pr": 0.1185,
+          "long-context": 0.3075
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-3.8-flash",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 89.83050847457628,
+          "value": 76.3,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 70,
+          "value": 0.03689319198131275,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 93.54838709677419,
+          "value": 1498.8823435102179,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 67.53246753246754,
+          "value": 1584.6956846722271,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 70,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 77.28843736908253,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 74.03644742354419,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 93.54838709677419,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01845,
+          "agentic-pr": 0.1185,
+          "long-context": 0.3075
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gemini-4-argon",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 87.5,
+          "value": 0.12122835715651165,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 100,
+          "value": 1532.3375436695164,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 92.20779220779221,
+          "value": 1678.2591858987212,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 87.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 95.12987012987013,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 94.15584415584415,
+          "tier": "S",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 100,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0238,
+          "agentic-pr": 0.149,
+          "long-context": 0.385
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-4.6",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 18.64406779661017,
+          "value": 45.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 40.32258064516129,
+          "value": 1439.9166325391427,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 7.792207792207792,
+          "value": 1341.1434412091148,
+          "date": "2026-10-19"
+        },
+        "swe-bench-verified": {
+          "percentile": 11.11111111111111,
+          "value": 55.4,
+          "date": "2025-12-01"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 11.11111111111111,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 17.031102111747277,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 15.924801005446167,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 25.7168458781362,
+          "tier": "unrated",
+          "confidence": 0.12
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0065,
+          "agentic-pr": 0.0446,
+          "long-context": 0.1282
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-4.7",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 16.101694915254235,
+          "value": 45.3,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 32.25806451612903,
+          "value": 1435.4043769505327,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 27.27272727272727,
+          "value": 1435.3365216838056,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 29.14222873900293,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 28.51906158357771,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 32.25806451612903,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0065,
+          "agentic-pr": 0.0446,
+          "long-context": 0.1282
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-4.7-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 48.38709677419355,
+          "value": 1445.9283654823557,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 28.57142857142857,
+          "value": 1435.3879694650066,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 70,
+          "value": 69.7,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 72.22222222222221,
+          "value": 72.8,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 72.22222222222221,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 48.075610172384366,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 33.525345622119815,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 60.30465949820788,
+          "tier": "unrated",
+          "confidence": 0.12
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0104,
+          "agentic-pr": 0.0736,
+          "long-context": 0.2192
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5.1",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 37.28813559322034,
+          "value": 55.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 66.12903225806451,
+          "value": 1462.4039016755132,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 46.75324675324675,
+          "value": 1508.1375693591506,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 54.01916631755341,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 51.59719312945119,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 66.12903225806451,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01428,
+          "agentic-pr": 0.1006,
+          "long-context": 0.3014
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5.2",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 61.86440677966102,
+          "value": 68.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 55.00000000000001,
+          "value": 0.02131556893203753,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 72.72727272727273,
+          "value": 1604.2162197370149,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 55.00000000000001,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 72.72727272727273,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 72.72727272727273,
+          "tier": "B",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01428,
+          "agentic-pr": 0.1006,
+          "long-context": 0.3014
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5.3",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 84.7457627118644,
+          "value": 74.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 45,
+          "value": 0.013121506624966382,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 79.22077922077922,
+          "value": 1621.1900952671192,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 45,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 79.22077922077922,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 79.22077922077922,
+          "tier": "A",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01428,
+          "agentic-pr": 0.1006,
+          "long-context": 0.3014
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5.3-flash",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 70.33898305084746,
+          "value": 71.5,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 27.500000000000004,
+          "value": -0.015404132709249854,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 72.58064516129032,
+          "value": 1470.5296626495826,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 74.02597402597402,
+          "value": 1606.8312617682348,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 27.500000000000004,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 73.48397570171763,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 73.66464180980309,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 72.58064516129032,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00159,
+          "agentic-pr": 0.0112,
+          "long-context": 0.033
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/glm-5.3-flash-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5",
+      "benchmarks": {
+        "aider-polyglot": {
+          "percentile": 100,
+          "value": 81.3,
+          "date": "2025-08-25"
+        },
+        "artificial-analysis": {
+          "percentile": 10.16949152542373,
+          "value": 37.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-webdev": {
+          "percentile": 23.376623376623375,
+          "value": 1417.5545917447607,
+          "date": "2026-10-19"
+        },
+        "swe-bench-verified": {
+          "percentile": 27.77777777777778,
+          "value": 65,
+          "date": "2025-08-07"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 45.833333333333336,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "everyday-edits": {
+          "score": 60.470248705542815,
+          "tier": "unrated",
+          "confidence": 0.17000000000000004
+        },
+        "frontend": {
+          "score": 42.53246753246753,
+          "tier": "unrated",
+          "confidence": 0.16000000000000003
+        },
+        "long-context": {
+          "score": 27.777777777777782,
+          "tier": "unrated",
+          "confidence": 0.06
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.017886,
+          "agentic-pr": 0.10973,
+          "long-context": 0.23825
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5-codex",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.017886,
+          "agentic-pr": 0.10973,
+          "long-context": 0.23825
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5-nano",
+      "benchmarks": {
+        "swe-bench-verified": {
+          "percentile": 0,
+          "value": 34.8,
+          "date": "2025-08-07"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.04000000000000001
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.06
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00084,
+          "agentic-pr": 0.00515,
+          "long-context": 0.01115
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.1",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 23.728813559322035,
+          "value": 49.4,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 3.4482758620689653,
+          "value": 1403.1671458960845,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 17.741935483870968,
+          "value": 1422.278615791595,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 9.090909090909092,
+          "value": 1341.6667774163786,
+          "date": "2026-10-19"
+        },
+        "swe-bench-verified": {
+          "percentile": 36.11111111111111,
+          "value": 66,
+          "date": "2025-11-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 36.11111111111111,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 20.260399695883567,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 11.25366568914956,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 17.53522432332221,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.017886,
+          "agentic-pr": 0.10973,
+          "long-context": 0.23825
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.1-codex",
+      "benchmarks": {
+        "lmarena-webdev": {
+          "percentile": 5.194805194805195,
+          "value": 1337.239346206371,
+          "date": "2026-10-19"
+        },
+        "swe-bench-verified": {
+          "percentile": 36.11111111111111,
+          "value": 66,
+          "date": "2025-11-24"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 36.11111111111111,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 18.935385602052268,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "frontend": {
+          "score": 5.194805194805195,
+          "tier": "D",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": 36.11111111111111,
+          "tier": "unrated",
+          "confidence": 0.06
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.017886,
+          "agentic-pr": 0.10973,
+          "long-context": 0.23825
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.1-codex-max",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.021,
+          "agentic-pr": 0.12875,
+          "long-context": 0.27875
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.1-codex-mini",
+      "benchmarks": {
+        "lmarena-webdev": {
+          "percentile": 1.2987012987012987,
+          "value": 1243.6874600291878,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 1.2987012987012987,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 1.2987012987012987,
+          "tier": "D",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0042,
+          "agentic-pr": 0.02575,
+          "long-context": 0.05575
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.2",
+      "benchmarks": {
+        "lmarena-document": {
+          "percentile": 0,
+          "value": 1401.1156108695666,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 12.903225806451612,
+          "value": 1412.1424220440667,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 22.07792207792208,
+          "value": 1416.787778417848,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 20,
+          "value": 66.7,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 72.22222222222221,
+          "value": 72.8,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 72.22222222222221,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 36.49901472482117,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 19.784248010054462,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 25.53763440860215,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0294,
+          "agentic-pr": 0.18025,
+          "long-context": 0.39025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.2-codex",
+      "benchmarks": {
+        "lmarena-webdev": {
+          "percentile": 6.493506493506493,
+          "value": 1338.7964313466746,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 10,
+          "value": 66.3,
+          "date": "2026-02-20"
+        },
+        "swe-bench-verified": {
+          "percentile": 72.22222222222221,
+          "value": 72.8,
+          "date": "2026-02-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 72.22222222222221,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 35.70626903960237,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "frontend": {
+          "score": 6.493506493506493,
+          "tier": "D",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": 72.22222222222221,
+          "tier": "unrated",
+          "confidence": 0.06
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0294,
+          "agentic-pr": 0.18025,
+          "long-context": 0.39025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.3-codex",
+      "benchmarks": {
+        "lmarena-webdev": {
+          "percentile": 20.77922077922078,
+          "value": 1406.558302135507,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 20.77922077922078,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 20.77922077922078,
+          "tier": "D",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0294,
+          "agentic-pr": 0.18025,
+          "long-context": 0.39025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.3-codex-spark",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0294,
+          "agentic-pr": 0.18025,
+          "long-context": 0.39025
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.4",
+      "benchmarks": {
+        "aider-polyglot": {
+          "percentile": 25,
+          "value": 44.9,
+          "date": "2025-02-27"
+        },
+        "artificial-analysis": {
+          "percentile": 67.79661016949152,
+          "value": 71.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 42.5,
+          "value": 0.012517363878850902,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 68.96551724137932,
+          "value": 1471.0043734130195,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 14.516129032258066,
+          "value": 1417.3453188776168,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 18.181818181818183,
+          "value": 1400.5429943950562,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 35,
+          "tier": "unrated",
+          "confidence": 0.06999999999999999
+        },
+        "everyday-edits": {
+          "score": 20.903592375366568,
+          "tier": "unrated",
+          "confidence": 0.16000000000000003
+        },
+        "frontend": {
+          "score": 18.812316715542522,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": 45.63006515175593,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0345,
+          "agentic-pr": 0.2175,
+          "long-context": 1.01
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.4-mini",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 41.52542372881356,
+          "value": 56.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-webdev": {
+          "percentile": 15.584415584415584,
+          "value": 1397.4411041391807,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 15.584415584415584,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 15.584415584415584,
+          "tier": "D",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01035,
+          "agentic-pr": 0.06525,
+          "long-context": 0.15825
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.4-nano",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 41.52542372881356,
+          "value": 56.1,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.002835,
+          "agentic-pr": 0.0178,
+          "long-context": 0.0425
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.4-pro",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.63,
+          "agentic-pr": 5.04,
+          "long-context": 13.08
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 72.88135593220339,
+          "value": 71.6,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 32.5,
+          "value": -0.004046420414744665,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 82.75862068965517,
+          "value": 1485.7193136054452,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 70.96774193548387,
+          "value": 1466.8011531857173,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 36.36363636363637,
+          "value": 1456.0562887334363,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 32.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 49.340175953079175,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 45.01466275659824,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 77.70538693786747,
+          "tier": "A",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.069,
+          "agentic-pr": 0.435,
+          "long-context": 2.02
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.5-pro",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.63,
+          "agentic-pr": 5.04,
+          "long-context": 13.08
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.6-luna",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 57.6271186440678,
+          "value": 63.3,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 22.5,
+          "value": -0.022316366500655736,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 44.827586206896555,
+          "value": 1456.916653229613,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 25.806451612903224,
+          "value": 1430.6557406021043,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 49.35064935064935,
+          "value": 1518.2943646475646,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 22.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 40.52157519899455,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 43.46459991621281,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 36.675671380899416,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00276,
+          "agentic-pr": 0.0174,
+          "long-context": 0.0808
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.6-sol",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 98.30508474576271,
+          "value": 77.2,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 77.5,
+          "value": 0.06592673675081524,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 79.3103448275862,
+          "value": 1482.7123255544448,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 62.903225806451616,
+          "value": 1457.0630136388463,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 75.32467532467533,
+          "value": 1615.624243803082,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 77.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 70.66663175534143,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 72.2193129451194,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 72.2787223899571,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0492,
+          "agentic-pr": 0.316,
+          "long-context": 1.58
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-5.6-terra",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 59.32203389830508,
+          "value": 67.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 37.5,
+          "value": 0.0028361567129749606,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 72.41379310344827,
+          "value": 1471.5811447461108,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 50,
+          "value": 1447.3914205209428,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 50.649350649350644,
+          "value": 1521.692131356515,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 37.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 50.40584415584416,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 50.487012987012974,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 62.80788177339902,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0345,
+          "agentic-pr": 0.2175,
+          "long-context": 1.01
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-6-astra",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 96.61016949152543,
+          "value": 77.1,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 97.5,
+          "value": 0.15149788635710656,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 62.06896551724138,
+          "value": 1467.5231106903996,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 45.16129032258064,
+          "value": 1442.6942201249342,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 98.7012987012987,
+          "value": 1773.7830236243688,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 97.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 78.62379555927942,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 85.31629660661916,
+          "tier": "A",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 54.82281900524393,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.123,
+          "agentic-pr": 0.79,
+          "long-context": 3.95
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-6-luna",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 15,
+          "value": -0.04801033363373171,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 64.93506493506493,
+          "value": 1577.8007013739073,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 15,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 64.93506493506493,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 64.93506493506493,
+          "tier": "B",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00123,
+          "agentic-pr": 0.0079,
+          "long-context": 0.0395
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-6-sol",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 85,
+          "value": 0.09330596874143016,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 93.5064935064935,
+          "value": 1683.057865543263,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 85,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 93.5064935064935,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 93.5064935064935,
+          "tier": "S",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0246,
+          "agentic-pr": 0.158,
+          "long-context": 0.79
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-6.1-sol",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 92.5,
+          "value": 0.1372457940008474,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 97.40259740259741,
+          "value": 1753.0824878249728,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 92.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 97.40259740259741,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 97.40259740259741,
+          "tier": "S",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0238,
+          "agentic-pr": 0.149,
+          "long-context": 0.74
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/grok-4.5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 79.66101694915254,
+          "value": 72.4,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 37.93103448275862,
+          "value": 1451.9590443080492,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 51.61290322580645,
+          "value": 1447.9704091358738,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 61.038961038961034,
+          "value": 1552.968029443992,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 57.50418935902806,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 58.68244658567239,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 43.7946925154934,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0194,
+          "agentic-pr": 0.135,
+          "long-context": 0.822
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/grok-4.6",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 94.91525423728814,
+          "value": 76.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 40,
+          "value": 0.009056292245352149,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 41.37931034482759,
+          "value": 1452.3297871123095,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 22.58064516129032,
+          "value": 1427.7652036468833,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 76.62337662337663,
+          "value": 1616.6399253201955,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 40,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 56.35735232509426,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 63.11269375785505,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 33.322739551883046,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.021,
+          "agentic-pr": 0.153,
+          "long-context": 0.922
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/grok-4.7",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 65,
+          "value": 0.033021715840900565,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 85.71428571428571,
+          "value": 1636.977595153854,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 65,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 85.71428571428571,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 85.71428571428571,
+          "tier": "A",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.021,
+          "agentic-pr": 0.153,
+          "long-context": 0.922
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/grok-build-0.1",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0086,
+          "agentic-pr": 0.064,
+          "long-context": 0.212
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/grok-code",
+      "benchmarks": {
+        "lmarena-webdev": {
+          "percentile": 0,
+          "value": 1166.391076447529,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 0,
+          "tier": "D",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/hy3-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 49.152542372881356,
+          "value": 58.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 12.5,
+          "value": -0.06271565932746859,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 45.45454545454545,
+          "value": 1507.103908462265,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 12.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 45.45454545454545,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 45.45454545454545,
+          "tier": "C",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/hy3-preview-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/jev-1.13",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.000504,
+          "agentic-pr": 0.00504,
+          "long-context": 0.0168
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/jev-1.13-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k2",
+      "benchmarks": {
+        "aider-polyglot": {
+          "percentile": 50,
+          "value": 59.1,
+          "date": "2025-07-17"
+        },
+        "swe-bench-verified": {
+          "percentile": 5.555555555555555,
+          "value": 43.8,
+          "date": "2025-08-07"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 16.666666666666668,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "everyday-edits": {
+          "score": 35.185185185185176,
+          "tier": "unrated",
+          "confidence": 0.12000000000000002
+        },
+        "frontend": {
+          "score": 50,
+          "tier": "unrated",
+          "confidence": 0.04000000000000001
+        },
+        "long-context": {
+          "score": 5.555555555555555,
+          "tier": "unrated",
+          "confidence": 0.06
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00855,
+          "agentic-pr": 0.068,
+          "long-context": 0.175
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k2-thinking",
+      "benchmarks": {
+        "swe-bench-verified": {
+          "percentile": 16.666666666666664,
+          "value": 63.4,
+          "date": "2025-12-10"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 16.666666666666664,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 16.666666666666664,
+          "tier": "unrated",
+          "confidence": 0.04000000000000001
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": 16.666666666666664,
+          "tier": "unrated",
+          "confidence": 0.06
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00855,
+          "agentic-pr": 0.068,
+          "long-context": 0.175
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k2.5",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 20.33898305084746,
+          "value": 46.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 13.793103448275861,
+          "value": 1430.0950562216417,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 46.774193548387096,
+          "value": 1445.0155279264052,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 19.480519480519483,
+          "value": 1405.4891632952813,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 40,
+          "value": 67.3,
+          "date": "2026-02-13"
+        },
+        "swe-bench-verified": {
+          "percentile": 55.55555555555556,
+          "value": 70.8,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 55.55555555555556,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 38.32895002249841,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 26.303937997486386,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 36.21616611049314,
+          "tier": "unrated",
+          "confidence": 0.2
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00754,
+          "agentic-pr": 0.0492,
+          "long-context": 0.128
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k2.5-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k2.6",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 54.23728813559322,
+          "value": 61.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-document": {
+          "percentile": 34.48275862068966,
+          "value": 1450.7397099818368,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 61.29032258064516,
+          "value": 1455.42205541913,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 48.05194805194805,
+          "value": 1509.4775951461934,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 53.016338500209464,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 51.36154168412233,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 45.97171460352773,
+          "tier": "C",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01108,
+          "agentic-pr": 0.0749,
+          "long-context": 0.2065
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k2.7-code",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 52.54237288135594,
+          "value": 60.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-webdev": {
+          "percentile": 40.25974025974026,
+          "value": 1473.6297416239759,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 40.25974025974026,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 40.25974025974026,
+          "tier": "C",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.01132,
+          "agentic-pr": 0.0776,
+          "long-context": 0.214
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/kimi-k3",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 76.27118644067797,
+          "value": 72,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 52.5,
+          "value": 0.018872832067527066,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 74.19354838709677,
+          "value": 1474.6645918511683,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 87.01298701298701,
+          "value": 1655.2872133251974,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 52.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 82.20569752827817,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 83.80812735651443,
+          "tier": "A",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 74.19354838709677,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0369,
+          "agentic-pr": 0.237,
+          "long-context": 0.615
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/laguna-s-2.1-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ling-2.6-flash-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 1.694915254237288,
+          "value": 25.3,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ling-3.0-flash-fin-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 35.59322033898305,
+          "value": 55.6,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ling-3.0-flash-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 27.11864406779661,
+          "value": 50.6,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ling-3.0-tiny-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 3.389830508474576,
+          "value": 26.5,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ling-3.1-flash-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ll-alpha-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/longcat-2.0-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 16.101694915254235,
+          "value": 45.3,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/longcat-2.5-preview-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/mimo-v2-flash-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 25.423728813559322,
+          "value": 49.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 11.29032258064516,
+          "value": 1410.9853460654392,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 2.5974025974025974,
+          "value": 1330.3187736846924,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 5.857247591118558,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 4.770632593213238,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 11.29032258064516,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/mimo-v2-omni-free",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 19.35483870967742,
+          "value": 1423.2771219229405,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 19.35483870967742,
+          "tier": "unrated",
+          "confidence": 0.15
+        },
+        "frontend": {
+          "score": 19.35483870967742,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": 19.35483870967742,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/mimo-v2-pro-free",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 33.87096774193548,
+          "value": 1436.1246360357568,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 24.675324675324674,
+          "value": 1433.971337328821,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 28.123690825303726,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 26.97423544197737,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 33.87096774193548,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/mimo-v2.5-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 44.06779661016949,
+          "value": 56.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-webdev": {
+          "percentile": 29.87012987012987,
+          "value": 1438.3183333245383,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 29.87012987012987,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 29.87012987012987,
+          "tier": "C",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/mimo-v2.6-flash-free",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 60,
+          "value": 0.02543602811889009,
+          "date": "2026-10-19"
+        },
+        "lmarena-webdev": {
+          "percentile": 84.4155844155844,
+          "value": 1633.6320142222642,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 60,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 84.4155844155844,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 84.4155844155844,
+          "tier": "A",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m2.1",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 6.451612903225806,
+          "value": 1391.904129402532,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 10.38961038961039,
+          "value": 1384.3004246561486,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 8.91286133221617,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 9.405111018014242,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 6.451612903225806,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0038,
+          "agentic-pr": 0.0276,
+          "long-context": 0.0772
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m2.1-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m2.5",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 4.838709677419355,
+          "value": 1359.1239335465827,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 12.987012987012985,
+          "value": 1386.3359205106904,
+          "date": "2026-10-19"
+        },
+        "swe-bench-multilingual": {
+          "percentile": 50,
+          "value": 68.3,
+          "date": "2026-02-16"
+        },
+        "swe-bench-verified": {
+          "percentile": 91.66666666666666,
+          "value": 75.8,
+          "date": "2026-02-17"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 91.66666666666667,
+          "tier": "unrated",
+          "confidence": 0.09000000000000001
+        },
+        "everyday-edits": {
+          "score": 37.17648838616581,
+          "tier": "unrated",
+          "confidence": 0.12
+        },
+        "frontend": {
+          "score": 10.949937159614578,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 48.25268817204301,
+          "tier": "unrated",
+          "confidence": 0.12
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00348,
+          "agentic-pr": 0.024,
+          "long-context": 0.0672
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m2.5-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m2.7",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 32.20338983050847,
+          "value": 52.6,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 9.67741935483871,
+          "value": 1404.8321223235982,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 16.883116883116884,
+          "value": 1398.5399632894942,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 14.180980310012567,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 15.081692501047339,
+          "tier": "D",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 9.67741935483871,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00348,
+          "agentic-pr": 0.024,
+          "long-context": 0.0672
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m3",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 45.76271186440678,
+          "value": 58.6,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 2.5,
+          "value": -0.09491071150273762,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 20.689655172413794,
+          "value": 1434.7938037275746,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 29.03225806451613,
+          "value": 1433.3266154552236,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 42.857142857142854,
+          "value": 1482.367033184203,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 2.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 37.67281105990783,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 39.40092165898617,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 24.265056411886224,
+          "tier": "D",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00348,
+          "agentic-pr": 0.024,
+          "long-context": 0.0672
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m3-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/minimax-m3.1-flash-free",
+      "benchmarks": {
+        "lmarena-webdev": {
+          "percentile": 70.12987012987013,
+          "value": 1587.4766779108527,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 70.12987012987013,
+          "tier": "unrated",
+          "confidence": 0.25
+        },
+        "frontend": {
+          "score": 70.12987012987013,
+          "tier": "B",
+          "confidence": 0.6
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/mistral-large-4",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 17.5,
+          "value": -0.04455983506137758,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 24.193548387096776,
+          "value": 1429.9946133933556,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 59.74025974025974,
+          "value": 1542.5238969181014,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 17.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 46.41024298282362,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 50.853581901968994,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 24.193548387096776,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.006415,
+          "agentic-pr": 0.04342,
+          "long-context": 0.13204
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/muse-spark-1.2",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 77.96610169491525,
+          "value": 72.2,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 7.5,
+          "value": -0.06734265730958347,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 83.87096774193549,
+          "value": 1483.6337562562753,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 53.246753246753244,
+          "value": 1533.8389450167274,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 7.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 64.73083368244659,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 60.9028068705488,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 83.87096774193549,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.012575,
+          "agentic-pr": 0.085,
+          "long-context": 0.2505
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/muse-spark-1.2-contributor-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/muse-spark-1.3",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 86.4406779661017,
+          "value": 75.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 67.5,
+          "value": 0.03327017894944396,
+          "date": "2026-10-19"
+        },
+        "lmarena-document": {
+          "percentile": 65.51724137931035,
+          "value": 1470.6564935613937,
+          "date": "2026-09-13"
+        },
+        "lmarena-text": {
+          "percentile": 87.09677419354838,
+          "value": 1489.9962469201294,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 89.6103896103896,
+          "value": 1659.2578923655815,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 67.5,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 88.66778382907414,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 88.98198575617928,
+          "tier": "A",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 74.76561258541237,
+          "tier": "B",
+          "confidence": 0.5599999999999999
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.012575,
+          "agentic-pr": 0.085,
+          "long-context": 0.2505
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/muse-spark-1.3-contributor-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/nemotron-3-super-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/nemotron-3-ultra-free",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 0,
+          "value": -0.10825980354346064,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 0,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/nemotron-3.5-lightning-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 5.084745762711865,
+          "value": 26.8,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/nemotron-3.5-super-vl-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/north-mini-code-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 6.779661016949152,
+          "value": 36.5,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/qwen3-coder",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0081,
+          "agentic-pr": 0.0684,
+          "long-context": 0.1908
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/qwen3.5-plus",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.00276,
+          "agentic-pr": 0.0174,
+          "long-context": 0.0422
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/qwen3.6-plus",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 33.89830508474576,
+          "value": 54.5,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 35.483870967741936,
+          "value": 1436.363981628608,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 37.66233766233766,
+          "value": 1461.4885361118818,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 36.845412651864265,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 37.117720988688724,
+          "tier": "C",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 35.483870967741936,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0069,
+          "agentic-pr": 0.0435,
+          "long-context": 0.1055
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/qwen3.6-plus-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/qwen3.8-flash",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.001433,
+          "agentic-pr": 0.0097,
+          "long-context": 0.02932
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/qwen3.8-max",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 74.57627118644068,
+          "value": 71.8,
+          "date": "2026-10-20"
+        },
+        "lmarena-agent": {
+          "percentile": 50,
+          "value": 0.01627611687268126,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 80.64516129032258,
+          "value": 1482.8772252478664,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 90.9090909090909,
+          "value": 1672.2227269273787,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 50,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 87.06011730205277,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 88.34310850439881,
+          "tier": "A",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 80.64516129032258,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.019,
+          "agentic-pr": 0.1305,
+          "long-context": 0.3985
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/ring-2.6-1t-free",
+      "benchmarks": {
+        "artificial-analysis": {
+          "percentile": 11.864406779661017,
+          "value": 42.8,
+          "date": "2026-10-20"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/space-bunny-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/step-5-preview-free",
+      "benchmarks": {
+        "lmarena-agent": {
+          "percentile": 25,
+          "value": -0.018389835030261585,
+          "date": "2026-10-19"
+        },
+        "lmarena-text": {
+          "percentile": 41.935483870967744,
+          "value": 1441.3906418931479,
+          "date": "2026-10-15"
+        },
+        "lmarena-webdev": {
+          "percentile": 63.63636363636363,
+          "value": 1566.830161228134,
+          "date": "2026-10-19"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": 25,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "everyday-edits": {
+          "score": 55.49853372434017,
+          "tier": "unrated",
+          "confidence": 0.4
+        },
+        "frontend": {
+          "score": 58.21114369501466,
+          "tier": "B",
+          "confidence": 0.8
+        },
+        "long-context": {
+          "score": 41.935483870967744,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/trinity-large-preview-free",
+      "benchmarks": {
+        "lmarena-text": {
+          "percentile": 1.6129032258064515,
+          "value": 1338.7745014227426,
+          "date": "2026-10-15"
+        }
+      },
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": 1.6129032258064515,
+          "tier": "unrated",
+          "confidence": 0.15
+        },
+        "frontend": {
+          "score": 1.6129032258064515,
+          "tier": "unrated",
+          "confidence": 0.2
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/x-preview-f-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    }
+  ]
+}

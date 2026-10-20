@@ -7,5 +7,8 @@ export * from "./benchmarks/lmarena";
 export * from "./benchmarks/sweBench";
 export * from "./benchmarks/terminalBench";
 export * from "./benchmarks/types";
+export * from "./cost";
+export * from "./percentile";
 export * from "./resolve";
 export * from "./runBenchmarks";
+export * from "./score";
