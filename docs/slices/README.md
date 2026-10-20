@@ -33,7 +33,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `done` | CJ Rutherford | `slice/S08-models-compare` | [#9](https://github.com/cjrutherford/opencode-model-guide/pull/9) | Merged in `25cc387`; 163 detail pages; URL filters; 4-model compare; 233 tests |
 | S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `done` | CJ Rutherford | `slice/S09-changes-methodology-health-rss` | [#10](https://github.com/cjrutherford/opencode-model-guide/pull/10) | 169 pages; 247 tests; feed, health, methodology, changes |
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `done` | CJ Rutherford | `slice/S10-cicd-pages-ntfy` | [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) | Pages live; daily ingest; 267 tests; ntfy state |
-| S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `todo` | — | — | — | Final gate |
+| S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `in-progress` | CJ Rutherford | `slice/S11-docs-a11y-launch` | — | Claimed 2026-10-20; docs, a11y, launch |
 
 ## Critical path
 
@@ -145,6 +145,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S11 | Claimed; branch `slice/S11-docs-a11y-launch` based on `main` (S10 merged). |
 | 2026-10-20 | S10 | Merged via PR [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) (`8e6eb3e`); CI green. First dispatch (run 39499478587) succeeded; Pages live; data commit `257c815` `[skip ci]`; 0 events, no notification. |
 | 2026-10-20 | S10 | PR [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11); CI green. 267 tests; typecheck, data validation, build, base-path build, and ntfy dry-run pass. First live dispatch pending. |
 | 2026-10-20 | S10 | Implementation complete; 267 tests; typecheck, data validation, build, base-path build, and ntfy dry-run pass. PR and first live dispatch pending. |

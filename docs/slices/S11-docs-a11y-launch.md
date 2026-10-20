@@ -1,7 +1,7 @@
 # S11 — Docs, accessibility, and launch
 
-> **Status:** todo · **Depends on:** all · **Effort:** ~1 day
-> **Owner:** — · **Branch:** `slice/S11-docs-a11y-launch`
+> **Status:** in-progress · **Depends on:** all · **Effort:** ~1 day
+> **Owner:** CJ Rutherford · **Branch:** `slice/S11-docs-a11y-launch`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §11–§13 first.
 
