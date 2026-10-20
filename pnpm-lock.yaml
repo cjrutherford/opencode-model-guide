@@ -32,6 +32,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.4
         version: 3.7.4
+      '@omg/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@8.3.4(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))

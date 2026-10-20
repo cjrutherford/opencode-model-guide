@@ -1,24 +1,379 @@
 ---
-import "../styles/global.css";
+import FreeBadge from "../components/FreeBadge.astro";
+import Section from "../components/Section.astro";
+import Stat from "../components/Stat.astro";
+import Base from "../layouts/Base.astro";
+import { loadData } from "../lib/data";
+import {
+  formatConfidence,
+  formatDate,
+  formatEventType,
+  formatProvider,
+  formatScore,
+  formatTokens,
+  formatUsd,
+} from "../lib/format";
+import {
+  bestValueByUseCase,
+  freeCaveat,
+  freeNowModels,
+  latestEvents,
+  latestUpdatedAt,
+} from "../lib/home";
+import { url } from "../lib/url";
+
+const data = loadData();
+const freeModels = freeNowModels(data.snapshot);
+const freeCards = freeModels.slice(0, 6);
+const changes = latestEvents(data.events, 5);
+const bestValues = bestValueByUseCase(data.snapshot, data.scores);
+const updatedAt = latestUpdatedAt(data.snapshot, data.scores, data.benchmarks);
+
+const eventTone: Record<string, string> = {
+  model_added: "text-info",
+  free_started: "text-good",
+  free_ended: "text-muted",
+  price_changed: "text-muted",
+  deprecated: "text-warn",
+  source_failed: "text-warn",
+};
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="A public tracker and buyer's guide for free OpenCode models."
-    />
-    <title>OpenCode Model Guide</title>
-  </head>
-  <body>
-    <main class="mx-auto max-w-3xl p-8">
-      <h1 class="text-4xl font-bold">OpenCode Model Guide</h1>
-      <p class="mt-4 text-lg">
-        Free models, real costs, and change notifications. Coming soon.
+<Base
+  title="OpenCode Model Guide — free models, modeled costs"
+  description="Track live free OpenCode models, compare modeled task costs, and see per-use-case quality with provenance and confidence."
+  updatedAt={updatedAt}
+>
+  <section class="border-b border-line">
+    <div
+      class="mx-auto grid max-w-[1120px] gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:grid-cols-[1.35fr_0.9fr] lg:items-end"
+    >
+      <div>
+        <p class="eyebrow flex items-center gap-3">
+          <span class="h-px w-8 bg-accent" aria-hidden="true"></span>
+          OpenCode-native models · updated daily
+        </p>
+        <h1
+          class="mt-5 max-w-3xl break-words font-display text-5xl leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl"
+        >
+          Which model should you run in OpenCode?
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-8 text-muted">
+          Free-model tracker and buyer’s guide. Compare modeled costs, see
+          per-use-case quality, and know which free label you are actually
+          getting.
+        </p>
+
+        <div class="mt-7 flex flex-wrap gap-2" aria-label="Free labels stay separate">
+          <FreeBadge kind="open-free" />
+          <FreeBadge kind="limited-time" />
+          <FreeBadge kind="trial" />
+          <FreeBadge kind="subscription-included" />
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            class="inline-flex items-center gap-2 border border-ink bg-ink px-4 py-2.5 text-sm font-semibold text-paper no-underline hover:border-accent hover:bg-accent hover:text-paper"
+            href={url("/models")}
+          >
+            Browse models <span aria-hidden="true">→</span>
+          </a>
+          <a
+            class="inline-flex items-center gap-2 border border-line px-4 py-2.5 text-sm font-semibold no-underline hover:border-accent hover:text-accent"
+            href={url("/methodology")}
+          >
+            How scoring works
+          </a>
+        </div>
+
+        <p class="mt-6 max-w-xl text-sm leading-6 text-muted">
+          Free is not one thing: open free, limited-time free, trial, and
+          subscription included stay separate. We never collapse them into a
+          single “free” badge.
+        </p>
+      </div>
+
+      <aside class="border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <div class="grid grid-cols-2 gap-x-6 gap-y-8">
+          <Stat
+            value={freeModels.length}
+            label="Free right now"
+            hint="Live, no subscription"
+            tone="accent"
+          />
+          <Stat
+            value={data.snapshot.models.length}
+            label="Models tracked"
+            hint="Console and Go"
+          />
+          <div class="col-span-2 border-t border-line pt-5">
+            <Stat
+              value={formatDate(updatedAt)}
+              label="Last updated"
+              hint="UTC"
+            />
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-[1120px] px-5 sm:px-8">
+    <Section
+      id="free"
+      eyebrow="No subscription"
+      title="Free right now"
+      description="Live models with a no-subscription free label. Each card keeps the exact label and the main caveat."
+    >
+      <a
+        slot="action"
+        class="text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
+        href={url("/models")}
+      >
+        All models →
+      </a>
+
+      {
+        freeCards.length > 0 ? (
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {freeCards.map((model) => (
+              <a
+                class="card group flex min-w-0 flex-col p-5 no-underline transition-colors hover:border-accent"
+                href={url(`/models?q=${encodeURIComponent(model.key)}`)}
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <FreeBadge
+                    kind={model.free.kind}
+                    uncertain={model.free.status === "uncertain"}
+                  />
+                  <span class="eyebrow shrink-0">
+                    {formatProvider(model.provider)}
+                  </span>
+                </div>
+                <h3 class="mt-5 break-words font-display text-2xl leading-tight tracking-tight group-hover:text-accent">
+                  {model.name}
+                </h3>
+                <p class="mt-2 text-sm leading-6 text-muted">
+                  {freeCaveat(model)}
+                </p>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-2 pt-5 text-xs text-muted">
+                  <span class="num">
+                    {formatTokens(model.limits.context)} context
+                  </span>
+                  <span>
+                    <span class="num text-ink">$0</span> modeled per task
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="card p-6 text-sm text-muted">
+            No live no-subscription free models in the current snapshot.
+          </div>
+        )
+      }
+
+      <p class="mt-4 text-xs leading-5 text-muted">
+        Counts include live open-free, limited-time, and trial models.
+        Subscription-included Go models are tracked separately.
       </p>
-    </main>
-  </body>
-</html>
+    </Section>
+
+    <Section
+      id="changes"
+      eyebrow="Changelog"
+      title="Latest changes"
+      description="Model additions, free offers starting or ending, and source issues. One daily run, one deterministic event log."
+    >
+      <a
+        slot="action"
+        class="text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
+        href={url("/changes")}
+      >
+        Full change log →
+      </a>
+
+      {
+        changes.length > 0 ? (
+          <ol class="divide-y divide-line border-y border-line">
+            {changes.map((event) => (
+              <li class="grid gap-2 py-4 sm:grid-cols-[7.5rem_1fr_auto] sm:items-baseline sm:gap-5">
+                <time class="num text-xs text-muted" datetime={event.at}>
+                  {formatDate(event.at)}
+                </time>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold">{event.summary}</p>
+                  <p class="mt-1 text-xs text-muted">
+                    <span
+                      class={`text-[0.67rem] font-bold uppercase tracking-[0.16em] ${eventTone[event.type] ?? "text-muted"}`}
+                    >
+                      {formatEventType(event.type)}
+                    </span>
+                    <span aria-hidden="true"> · </span>
+                    {event.modelKey}
+                  </p>
+                </div>
+                <a
+                  class="text-xs font-semibold no-underline hover:text-accent"
+                  href={url(`/models?q=${encodeURIComponent(event.modelKey)}`)}
+                >
+                  Model →
+                </a>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <div class="border-y border-line py-6 text-sm leading-6 text-muted">
+            No changes recorded yet. The baseline was captured on{" "}
+            {formatDate(data.snapshot.generatedAt)}; the first daily run will add
+            events here.
+          </div>
+        )
+      }
+    </Section>
+
+    <Section
+      id="top-picks"
+      eyebrow="Per use case"
+      title="Top picks right now"
+      description="Top rated model in each use case by composite percentile. Cost is the modeled agentic-PR profile, not a bill."
+    >
+      <a
+        slot="action"
+        class="text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
+        href={url("/compare")}
+      >
+        Compare all →
+      </a>
+
+      <div class="grid gap-3 md:grid-cols-2">
+        {
+          bestValues.map(({ label, pick }) => (
+            <article class="card flex min-w-0 flex-col p-5 sm:p-6">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <p class="eyebrow">{label}</p>
+                  <h3 class="mt-2 break-words font-display text-2xl leading-tight tracking-tight">
+                    {pick ? (
+                      <a
+                        class="no-underline hover:text-accent"
+                        href={url(`/models?q=${encodeURIComponent(pick.model.key)}`)}
+                      >
+                        {pick.model.name}
+                      </a>
+                    ) : (
+                      "Insufficient data"
+                    )}
+                  </h3>
+                </div>
+                {pick && (
+                  <span
+                    class={`tier tier--${pick.tier}`}
+                    aria-label={`Tier ${pick.tier}`}
+                  >
+                    {pick.tier}
+                  </span>
+                )}
+              </div>
+
+              {pick ? (
+                <>
+                  <div class="mt-6 flex items-end gap-4">
+                    <div class="font-display text-4xl leading-none tracking-tight num">
+                      {formatScore(pick.score)}
+                    </div>
+                    <p class="pb-0.5 text-xs leading-5 text-muted">
+                      composite percentile
+                      <br />
+                      {formatConfidence(pick.confidence)} confidence
+                    </p>
+                  </div>
+                  <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 text-xs text-muted">
+                    <span>
+                      {formatProvider(pick.model.provider)} ·{" "}
+                      {formatTokens(pick.model.limits.context)} context
+                    </span>
+                    <span>
+                      <span class="num text-ink">
+                        {formatUsd(pick.agenticCost)}
+                      </span>{" "}
+                      agentic PR
+                    </span>
+                  </div>
+                </>
+              ) : (
+                <div class="mt-6">
+                  <p class="text-sm leading-6 text-muted">
+                    The current benchmark set is too thin or stale to rate this
+                    use case. The gap stays visible instead of being filled with
+                    a guess.
+                  </p>
+                  <a
+                    class="mt-4 inline-block text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
+                    href={url("/methodology")}
+                  >
+                    See the confidence rule →
+                  </a>
+                </div>
+              )}
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="mt-4 text-xs leading-5 text-muted">
+        Composites renormalize by available benchmarks. Confidence combines
+        coverage and freshness.{" "}
+        <a href={url("/methodology")}>Read the methodology →</a>
+      </p>
+    </Section>
+
+    <section
+      class="mt-20 grid gap-8 border-y border-line py-10 sm:mt-28 md:grid-cols-3"
+      aria-label="How we score"
+    >
+      <div>
+        <p class="eyebrow">Free labels</p>
+        <h2 class="mt-2 font-display text-2xl tracking-tight">
+          Four labels, never collapsed.
+        </h2>
+        <p class="mt-3 text-sm leading-6 text-muted">
+          Open free, limited-time, trial, and subscription included mean
+          different things. We show the label and the caveat together.
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow">Cost</p>
+        <h2 class="mt-2 font-display text-2xl tracking-tight">
+          Modeled, not measured.
+        </h2>
+        <p class="mt-3 text-sm leading-6 text-muted">
+          Three token profiles turn list prices into per-task estimates. Go
+          plans add an effective cost at full utilization.
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow">Quality</p>
+        <h2 class="mt-2 font-display text-2xl tracking-tight">
+          Confidence is visible.
+        </h2>
+        <p class="mt-3 text-sm leading-6 text-muted">
+          Per-use-case composites renormalize by available benchmarks. Stale or
+          thin data lowers confidence instead of raising it.
+        </p>
+      </div>
+    </section>
+
+    <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+      <a href={url("/methodology")}>Read the methodology →</a>
+      <a href={url("/health")}>Check data health →</a>
+    </div>
+
+    <p class="mt-10 max-w-3xl text-xs leading-6 text-muted">
+      Built from models.dev, OpenCode documentation, and public benchmark
+      leaderboards. Artificial Analysis indices are supplemental. Every number
+      is an estimate with provenance; see the footer for sources.
+    </p>
+  </div>
+</Base>

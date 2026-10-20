@@ -1,0 +1,18 @@
+---
+interface Props {
+  value: string | number;
+  label: string;
+  hint?: string;
+  tone?: "ink" | "accent" | "good";
+}
+
+const { value, label, hint, tone = "ink" } = Astro.props;
+const toneClass =
+  tone === "accent" ? "text-accent" : tone === "good" ? "text-good" : "text-ink";
+---
+
+<div class="min-w-0">
+  <div class:list={["stat-value", toneClass]}>{value}</div>
+  <div class="eyebrow mt-2">{label}</div>
+  {hint && <p class="mt-1 text-xs leading-5 text-muted">{hint}</p>}
+</div>

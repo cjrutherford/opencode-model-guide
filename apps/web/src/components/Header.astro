@@ -1,0 +1,43 @@
+---
+import { url } from "../lib/url";
+
+const links = [
+  { href: url("/models"), label: "Models", match: "/models" },
+  { href: url("/changes"), label: "Changes", match: "/changes" },
+  { href: url("/compare"), label: "Compare", match: "/compare" },
+  { href: url("/methodology"), label: "Methodology", match: "/methodology" },
+];
+
+const path = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/+$/, "");
+
+function isActive(match: string): boolean {
+  const target = `${base}${match}`;
+  return path === target || path.startsWith(`${target}/`);
+}
+---
+
+<header class="site-header">
+  <div
+    class="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-4 sm:px-8"
+  >
+    <a class="brand" href={url("/")} aria-label="OpenCode Model Guide home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Model Guide</span>
+    </a>
+
+    <nav aria-label="Primary" class="flex flex-wrap items-center gap-x-3 gap-y-2">
+      {
+        links.map((link) => (
+          <a
+            class:list={["nav-link", { "is-active": isActive(link.match) }]}
+            href={link.href}
+            aria-current={isActive(link.match) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

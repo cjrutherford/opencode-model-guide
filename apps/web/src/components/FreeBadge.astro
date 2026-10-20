@@ -1,0 +1,21 @@
+---
+import type { FreeKind } from "@omg/shared";
+
+import { formatFreeKind } from "../lib/format";
+
+interface Props {
+  kind: FreeKind;
+  uncertain?: boolean;
+}
+
+const { kind, uncertain = false } = Astro.props;
+---
+
+<span
+  class:list={["badge", `badge--${kind}`, uncertain && "badge--uncertain"]}
+  title={uncertain ? `${formatFreeKind(kind)} — terms uncertain` : formatFreeKind(kind)}
+>
+  <span class="badge-dot" aria-hidden="true"></span>
+  {formatFreeKind(kind)}
+  {uncertain && <span class="badge-uncertain">uncertain</span>}
+</span>

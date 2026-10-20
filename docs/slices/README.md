@@ -29,7 +29,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S04 | [Change detection and event log](./S04-change-detection.md) | S02, S03 | `done` | CJ Rutherford | `slice/S04-change-detection` | [#5](https://github.com/cjrutherford/opencode-model-guide/pull/5) | Merged in `1b8f9d5`; CI green; 138 tests |
 | S05 | [Benchmarks and name resolution](./S05-benchmarks.md) | S01 | `review` | CJ Rutherford | `slice/S05-benchmarks` | — | 99 model keys resolved; 1,041 results |
 | S06 | [Cost model and scoring](./S06-cost-and-scoring.md) | S01, S05 | `review` | CJ Rutherford | `slice/S06-cost-and-scoring` | — | 163 scores; 51 free; 26 Go |
-| S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `todo` | — | — | — | Can start against fixtures |
+| S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `review` | CJ Rutherford | `slice/S07-web-shell` | — | Shell + home; 13 live free |
 | S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `todo` | — | — | — | Largest UI slice |
 | S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `todo` | — | — | — | Feed depends on events |
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `todo` | — | — | — | Needs repo + secret |
@@ -145,6 +145,8 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S07 | Web shell and data-driven home implemented: 13 live no-subscription free models, 163 models tracked, light/dark editorial layout, base-path-safe links, validated data layer. 215 tests pass; typecheck, validate, and build pass. |
+| 2026-10-20 | S07 | Claimed; branch `slice/S07-web-shell` based on `main` (S06 merged). |
 | 2026-10-20 | S06 | Cost and scoring implemented: 163 score records, 51 free models at $0, 26 Go models with effective cost, no NaN/Infinity. 194 tests pass; validate and build pass. |
 | 2026-10-20 | S06 | Claimed; branch `slice/S06-cost-and-scoring` based on `main` (S05 merged). |
 | 2026-10-20 | S05 | Benchmarks ingested: 1,041 results, 605 unmatched names, 99 model keys resolved. 161 tests pass; validate and build pass. |
