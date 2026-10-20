@@ -303,6 +303,32 @@
     background: color-mix(in srgb, var(--color-raised) 82%, transparent);
   }
 
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .filter-chip:hover {
+    border-color: color-mix(in srgb, var(--color-ink) 35%, var(--color-line));
+    color: var(--color-ink);
+  }
+
+  .filter-chip[aria-current="page"] {
+    border-color: var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
   .control {
     width: 100%;
     min-height: 2.55rem;

@@ -168,7 +168,7 @@ describe("freeCaveat", () => {
       training: "may-train",
     });
     const caveat = freeCaveat(model);
-    expect(caveat).toContain("Limited-time free");
+    expect(caveat).toContain("Limited-time");
     expect(caveat).toContain("Terms uncertain");
     expect(caveat).toContain("May train on inputs");
   });

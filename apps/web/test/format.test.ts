@@ -43,17 +43,17 @@ describe("format helpers", () => {
   });
 
   it("uses explicit free-kind labels", () => {
-    expect(formatFreeKind("open-free")).toBe("Open free");
-    expect(formatFreeKind("limited-time")).toBe("Limited-time free");
-    expect(formatFreeKind("subscription-included")).toBe("Subscription included");
-    expect(formatFreeKind("trial")).toBe("Trial");
+    expect(formatFreeKind("open-free")).toBe("Free");
+    expect(formatFreeKind("limited-time")).toBe("Free · limited time");
+    expect(formatFreeKind("subscription-included")).toBe("Included with Go");
+    expect(formatFreeKind("trial")).toBe("Free · trial terms");
     expect(formatFreeKind("paid")).toBe("Paid");
   });
 
   it("formats provider and event labels", () => {
     expect(formatProvider("opencode")).toBe("Console");
     expect(formatProvider("opencode-go")).toBe("Go");
-    expect(formatEventType("free_started")).toBe("Free now");
+    expect(formatEventType("free_started")).toBe("Free");
     expect(formatEventType("source_failed")).toBe("Source issue");
   });
 

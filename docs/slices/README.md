@@ -31,7 +31,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S06 | [Cost model and scoring](./S06-cost-and-scoring.md) | S01, S05 | `done` | CJ Rutherford | `slice/S06-cost-and-scoring` | [#7](https://github.com/cjrutherford/opencode-model-guide/pull/7) | Merged in `225e491`; 163 scores; 51 free; 26 Go |
 | S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `done` | CJ Rutherford | `slice/S07-web-shell` | [#8](https://github.com/cjrutherford/opencode-model-guide/pull/8) | Merged in `9f751a5`; shell + home; 13 live free |
 | S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `done` | CJ Rutherford | `slice/S08-models-compare` | [#9](https://github.com/cjrutherford/opencode-model-guide/pull/9) | Merged in `25cc387`; 163 detail pages; URL filters; 4-model compare; 233 tests |
-| S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `in-progress` | CJ Rutherford | `slice/S09-changes-methodology-health-rss` | — | Claimed 2026-10-20; changes/methodology/health/feed |
+| S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `review` | CJ Rutherford | `slice/S09-changes-methodology-health-rss` | — | 169 pages; 247 tests; feed, health, methodology, changes |
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `todo` | — | — | — | Needs repo + secret |
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `todo` | — | — | — | Final gate |
 
@@ -145,6 +145,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S09 | Implementation complete; 247 tests; typecheck, data validation, build, base-path build, and browser checks pass. Pending PR. |
 | 2026-10-20 | S09 | Claimed; branch `slice/S09-changes-methodology-health-rss` based on `main` (S08 merged). |
 | 2026-10-20 | S08 | Merged to `main` (`25cc387`) after PR [#9](https://github.com/cjrutherford/opencode-model-guide/pull/9); CI green; 233 tests; 163 detail pages. |
 | 2026-10-20 | S08 | Models directory, 163 static detail pages, and four-model compare implemented. URL-backed filters/sort, explicit unknown states, postbuild page assertions. 233 tests pass; typecheck, validate, and build pass. PR [#9](https://github.com/cjrutherford/opencode-model-guide/pull/9). |

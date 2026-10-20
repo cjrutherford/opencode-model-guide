@@ -5,6 +5,8 @@ import type {
   Tier,
 } from "@omg/shared";
 
+import { FREE_KIND_LABELS, TIER_LABELS } from "./labels";
+
 export type Sort =
   | "name"
   | "context"
@@ -42,20 +44,20 @@ export const FREE_FILTER_OPTIONS: ReadonlyArray<{
 }> = [
   { value: "free-now", label: "Free right now" },
   { value: "zero-marginal", label: "No token charge" },
-  { value: "open-free", label: "Open free" },
-  { value: "limited-time", label: "Limited-time free" },
-  { value: "trial", label: "Trial" },
-  { value: "subscription-included", label: "Subscription included" },
-  { value: "paid", label: "Paid" },
+  { value: "open-free", label: FREE_KIND_LABELS["open-free"] },
+  { value: "limited-time", label: FREE_KIND_LABELS["limited-time"] },
+  { value: "trial", label: FREE_KIND_LABELS.trial },
+  { value: "subscription-included", label: FREE_KIND_LABELS["subscription-included"] },
+  { value: "paid", label: FREE_KIND_LABELS.paid },
 ];
 
 export const TIER_OPTIONS: ReadonlyArray<{ value: Tier; label: string }> = [
-  { value: "S", label: "S" },
-  { value: "A", label: "A" },
-  { value: "B", label: "B" },
-  { value: "C", label: "C" },
-  { value: "D", label: "D" },
-  { value: "unrated", label: "Unrated" },
+  { value: "S", label: TIER_LABELS.S },
+  { value: "A", label: TIER_LABELS.A },
+  { value: "B", label: TIER_LABELS.B },
+  { value: "C", label: TIER_LABELS.C },
+  { value: "D", label: TIER_LABELS.D },
+  { value: "unrated", label: TIER_LABELS.unrated },
 ];
 
 const SORTS = new Set<Sort>(SORT_OPTIONS.map((option) => option.value));

@@ -28,6 +28,12 @@ const canonical = new URL(
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="OpenCode Model Guide changes"
+      href={url("/feed.xml")}
+    />
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
     <meta
       name="theme-color"

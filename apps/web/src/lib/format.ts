@@ -6,18 +6,24 @@ import type {
   FreeKind,
   MetricType,
   ProviderId,
-  SourceRefId,
+  SourceStatusId,
   Tier,
   UseCaseId,
 } from "@omg/shared";
 
-export const FREE_KIND_LABELS: Record<FreeKind, string> = {
-  paid: "Paid",
-  "open-free": "Open free",
-  "limited-time": "Limited-time free",
-  "subscription-included": "Subscription included",
-  trial: "Trial",
-};
+import {
+  EVENT_LABELS,
+  FREE_KIND_LABELS,
+  TIER_LABELS,
+  sourceLabel,
+} from "./labels";
+
+export {
+  CONFIDENCE_LABELS,
+  EVENT_LABELS,
+  FREE_KIND_LABELS,
+  TIER_LABELS,
+} from "./labels";
 
 export const USE_CASE_LABELS: Record<UseCaseId, string> = {
   "agentic-coding": "Agentic coding",
@@ -31,15 +37,6 @@ export const PROVIDER_LABELS: Record<ProviderId, string> = {
   "opencode-go": "Go",
 };
 
-export const EVENT_LABELS: Record<EventType, string> = {
-  model_added: "New model",
-  free_started: "Free now",
-  free_ended: "Free ended",
-  price_changed: "Price change",
-  deprecated: "Deprecated",
-  source_failed: "Source issue",
-};
-
 export const BENCHMARK_LABELS: Record<BenchmarkId, string> = {
   "swe-bench-verified": "SWE-bench Verified",
   "swe-bench-multilingual": "SWE-bench Multilingual",
@@ -50,14 +47,6 @@ export const BENCHMARK_LABELS: Record<BenchmarkId, string> = {
   "aider-polyglot": "Aider Polyglot",
   "terminal-bench": "Terminal-Bench",
   "artificial-analysis": "Artificial Analysis Coding Index",
-};
-
-const SOURCE_LABELS: Record<SourceRefId, string> = {
-  "models.dev": "models.dev",
-  "opencode.models": "OpenCode models endpoint",
-  "opencode-go.models": "OpenCode Go models endpoint",
-  "opencode.console-docs": "OpenCode Console docs",
-  "opencode.go-docs": "OpenCode Go docs",
 };
 
 const AVAILABILITY_LABELS: Record<Availability, string> = {
@@ -173,7 +162,7 @@ export function formatBenchmarkValue(
 }
 
 export function formatTier(tier: Tier): string {
-  return tier === "unrated" ? "Unrated" : tier;
+  return TIER_LABELS[tier];
 }
 
 export function formatAvailability(availability: Availability): string {
@@ -195,8 +184,8 @@ export function formatCapability(capability: keyof Capabilities): string {
   return CAPABILITY_LABELS[capability];
 }
 
-export function formatSource(id: SourceRefId): string {
-  return SOURCE_LABELS[id];
+export function formatSource(id: SourceStatusId): string {
+  return sourceLabel(id);
 }
 
 export function formatFlag(flag: string): string {
