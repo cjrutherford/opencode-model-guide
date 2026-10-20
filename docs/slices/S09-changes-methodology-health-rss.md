@@ -1,6 +1,6 @@
 # S09 — Changes, methodology, health, and RSS
 
-> **Status:** review · **Depends on:** S07, S04, S05, S06 · **Effort:** ~1.5 days
+> **Status:** done · **Depends on:** S07, S04, S05, S06 · **Effort:** ~1.5 days
 > **Owner:** CJ Rutherford · **Branch:** `slice/S09-changes-methodology-health-rss`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §10–§11 first.
@@ -213,9 +213,9 @@ Check:
 - [x] `/health` shows source status, staleness, unmatched names, and conflicts.
 - [x] `robots.txt` references the sitemap.
 - [x] All pages have unique titles and descriptions.
-- [ ] No client JS is added. `/changes` needs a small inline progressive-enhancement
-  filter to honor the `?type=` contract on a static host; every event is still server-rendered and
-  no data is fetched client-side.
+- [x] Client JS is limited to the small inline `/changes` filter needed for the `?type=` contract on
+  a static host. Every event remains server-rendered and no data is fetched client-side. This
+  exception to the original “No client JS” wording was accepted at merge.
 - [x] No broken internal links (0 broken local links across 169 HTML files).
 
 ## Handoff notes
