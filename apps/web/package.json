@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^7.1.0",
     "@astrojs/sitemap": "^3.7.4",
+    "@omg/shared": "workspace:*",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.4.1",
     "react": "^19.3.1",

@@ -1,0 +1,83 @@
+---
+import { formatDate } from "../lib/format";
+import { url } from "../lib/url";
+
+interface Props {
+  updatedAt?: string;
+}
+
+const { updatedAt } = Astro.props;
+
+const sources = [
+  { label: "models.dev", href: "https://models.dev" },
+  { label: "OpenCode docs", href: "https://opencode.ai/docs/" },
+  { label: "LMArena", href: "https://lmarena.ai/leaderboard" },
+  { label: "SWE-bench", href: "https://www.swebench.com/" },
+  { label: "Aider", href: "https://aider.chat/docs/leaderboards/" },
+  {
+    label: "Artificial Analysis (coding indices)",
+    href: "https://artificialanalysis.ai/",
+  },
+];
+---
+
+<footer class="mt-24 border-t border-line">
+  <div
+    class="mx-auto grid max-w-[1120px] gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr]"
+  >
+    <div>
+      <a class="brand" href={url("/")}>
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Model Guide</span>
+      </a>
+      <p class="mt-4 max-w-sm text-sm leading-6 text-muted">
+        A public tracker and buyer’s guide for OpenCode-native models. Free
+        labels stay separate; costs are modeled, not billed.
+      </p>
+      <p class="mt-3 text-xs text-muted">Not affiliated with OpenCode.</p>
+    </div>
+
+    <div>
+      <h2 class="eyebrow">Data sources</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          sources.map((source) => (
+            <li>
+              <a href={source.href}>{source.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="eyebrow">About</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a href={url("/methodology")}>Methodology</a></li>
+        <li><a href={url("/health")}>Data health</a></li>
+        <li><a href={url("/changes")}>Change log</a></li>
+        <li>
+          <a href="https://github.com/cjrutherford/opencode-model-guide">
+            GitHub repository
+          </a>
+        </li>
+      </ul>
+      {
+        updatedAt && (
+          <p class="mt-6 text-xs text-muted">
+            Last updated <time datetime={updatedAt}>{formatDate(updatedAt)}</time>
+          </p>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="border-t border-line">
+    <div
+      class="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-muted sm:px-8"
+    >
+      <p>OpenCode Model Guide</p>
+      <p>Prices in USD. Modeled costs are estimates, not invoices.</p>
+    </div>
+  </div>
+</footer>
