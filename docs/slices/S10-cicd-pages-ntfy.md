@@ -1,6 +1,6 @@
 # S10 — CI/CD, GitHub Pages, and ntfy
 
-> **Status:** review · **Depends on:** S02–S06, S09 · **Blocks:** S11 · **Effort:** ~1 day
+> **Status:** done · **Depends on:** S02–S06, S09 · **Blocks:** S11 · **Effort:** ~1 day
 > **Owner:** CJ Rutherford · **Branch:** `slice/S10-cicd-pages-ntfy`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §10 and §12 first.
@@ -322,11 +322,14 @@ Verify:
 
 ## Acceptance checklist
 
-- [ ] `ci.yml` is green on `main` (PR CI runs first; check `main` after merge).
-- [ ] `ingest.yml` is valid and manual dispatch works (first live dispatch after merge).
-- [ ] Pages deploys at the expected URL with correct assets (no 404s under the base path).
-- [ ] Data commits happen only when data changes and include `[skip ci]` (verify on dispatch).
+- [x] `ci.yml` is green on `main` (run 39499394173).
+- [x] `ingest.yml` is valid and manual dispatch works (run 39499478587).
+- [x] Pages deploys at the expected URL with correct assets; `/`, `/models`, `/changes`, `/methodology`,
+  `/health`, `/feed.xml`, `/robots.txt`, and a model detail page return 200.
+- [x] Data commits happen only when data changes and include `[skip ci]` (commit `257c815`).
 - [x] ntfy sends exactly one summary per run; source failures use separate high-priority alerts.
+  The first live run had 0 events, so it correctly sent nothing; the summary and source-alert paths
+  are covered by tests and the sample-event dry run.
 - [x] No events → no notification.
 - [x] Rerunning the same events does not resend them; state caps at the newest 500 IDs.
 - [x] Required-source failure aborts before the snapshot write and deploy; the workflow failure step
@@ -335,6 +338,20 @@ Verify:
   degrade to existing data.
 - [x] `NTFY_TOPIC` and `AA_API_KEY` are secrets, never committed.
 - [x] `pnpm notify --dry-run` prints the payload without sending.
+
+## Result
+
+Merged in PR [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) at `8e6eb3e`.
+The first manual dispatch (run 39499478587) completed successfully in 7 minutes:
+
+- live site: https://cjrutherford.github.io/opencode-model-guide/
+- RSS: https://cjrutherford.github.io/opencode-model-guide/feed.xml
+- data commit: `257c815 chore(data): daily ingest [skip ci]`
+- events: 0, so no ntfy message was sent
+- notify state unchanged: `{ "sent": [] }`
+
+The run logs show the Node 20 action deprecation warning only; all actions completed. The
+`deploy-pages` input `error_count: 10` is its built-in reporting threshold, not a deployment failure.
 
 ## Handoff notes
 
