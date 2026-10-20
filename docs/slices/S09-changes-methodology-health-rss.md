@@ -1,7 +1,7 @@
 # S09 — Changes, methodology, health, and RSS
 
-> **Status:** todo · **Depends on:** S07, S04, S05, S06 · **Effort:** ~1.5 days
-> **Owner:** — · **Branch:** `slice/S09-changes-methodology-health-rss`
+> **Status:** in-progress · **Depends on:** S07, S04, S05, S06 · **Effort:** ~1.5 days
+> **Owner:** CJ Rutherford · **Branch:** `slice/S09-changes-methodology-health-rss`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §10–§11 first.
 
