@@ -84,7 +84,7 @@ function SortButton({
       onClick={() => onSort(column)}
     >
       {label}
-      <span aria-hidden="true" className="text-[0.7em]">
+      <span aria-hidden="true" className="text-[1em]">
         {state === "ascending" ? "↑" : state === "descending" ? "↓" : "↕"}
       </span>
     </button>
@@ -359,7 +359,7 @@ export default function ModelTable({ rows }: Props) {
                     <a className="font-semibold" href={row.href}>
                       {row.name}
                     </a>
-                    <span className="mt-0.5 block text-[0.68rem] font-normal text-muted">
+                    <span className="mt-0.5 block text-[0.75rem] font-normal text-muted">
                       {formatProvider(row.provider)}
                       {row.availability !== "live"
                         ? ` · ${formatAvailability(row.availability)}`

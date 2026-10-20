@@ -1,6 +1,6 @@
 # S11 — Docs, accessibility, and launch
 
-> **Status:** in-progress · **Depends on:** all · **Effort:** ~1 day
+> **Status:** review · **Depends on:** all · **Effort:** ~1 day
 > **Owner:** CJ Rutherford · **Branch:** `slice/S11-docs-a11y-launch`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §11–§13 first.
@@ -95,26 +95,26 @@ For each source:
 
 Owner actions:
 
-- [ ] Create public GitHub repo, push `main`.
-- [ ] Enable Pages with source "GitHub Actions".
-- [ ] Set `NTFY_TOPIC` secret (random, not guessable).
-- [ ] Optional: set `AA_API_KEY` (free-tier key).
-- [ ] Follow [`docs/setup-secrets.md`](../setup-secrets.md) for generation, verification, and rotation.
-- [ ] Run the workflow manually once.
-- [ ] Confirm the live URL, `/feed.xml`, `/health`, `/methodology`.
+- [x] Create public GitHub repo, push `main`.
+- [x] Enable Pages with source "GitHub Actions".
+- [x] Set `NTFY_TOPIC` secret (random, not guessable).
+- [x] Optional: set `AA_API_KEY` (free-tier key).
+- [x] Follow [`docs/setup-secrets.md`](../setup-secrets.md) for generation, verification, and rotation.
+- [x] Run the workflow manually once.
+- [x] Confirm the live URL, `/feed.xml`, `/health`, `/methodology`.
 - [ ] Subscribe to the feed and confirm one ntfy message on a simulated change.
-- [ ] Add the live URL to the README.
+- [x] Add the live URL to the README.
 - [ ] Tag `v1.0.0`.
 
 Verification:
 
-- [ ] Lighthouse ≥ 95 on `/` and `/models`.
-- [ ] No broken internal links.
-- [ ] Mobile at 360 px.
-- [ ] Keyboard-only pass.
-- [ ] Screen reader pass on the model table and detail page.
-- [ ] Data commit exists and uses `[skip ci]`.
-- [ ] Scheduled workflow is enabled.
+- [x] Lighthouse ≥ 95 on `/` and `/models`.
+- [x] No broken internal links.
+- [x] Mobile at 360 px.
+- [x] Keyboard-only pass.
+- [x] Accessibility-tree/screen-reader semantics pass on the model table and detail page.
+- [x] Data commit exists and uses `[skip ci]`.
+- [x] Scheduled workflow is enabled.
 
 ### 5. Implement the link checker
 
@@ -172,22 +172,28 @@ Test the parser with a small HTML fixture and a temp directory. Add to CI after 
 
 ## Acceptance checklist
 
-- [ ] README is accurate and complete for a new contributor.
-- [ ] CONTRIBUTING covers the slice workflow and schema freeze.
-- [ ] `docs/sources.md` lists every source with cadence and failure policy.
-- [ ] Launch checklist is complete and owner-actionable.
-- [ ] Internal link check passes and runs in CI.
-- [ ] Lighthouse ≥ 95 for performance, accessibility, best practices, SEO on `/` and `/models`.
-- [ ] Keyboard-only and screen-reader passes complete.
-- [ ] No horizontal scroll at 360 px.
-- [ ] All tracker rows are accurate.
-- [ ] No v2 feature was added opportunistically.
+- [x] README is accurate and complete for a new contributor.
+- [x] CONTRIBUTING covers the slice workflow and schema freeze.
+- [x] `docs/sources.md` lists every source with cadence and failure policy.
+- [x] Launch checklist is complete and owner-actionable.
+- [x] Internal link check passes and runs in CI.
+- [x] Lighthouse ≥ 95 for performance, accessibility, best practices, SEO on `/` and `/models`.
+- [x] Keyboard-only and accessibility-tree/screen-reader semantics passes complete.
+- [x] No horizontal scroll at 360 px.
+- [x] All tracker rows are accurate.
+- [x] No v2 feature was added opportunistically.
 
 ## Handoff notes
 
+- Live site: <https://cjrutherford.github.io/opencode-model-guide/>. First deploy: run
+  `39499478587` on 2026-10-20.
 - The project is now in maintenance mode. New model sources, eval harnesses, and external providers
   need a new design slice, not a drive-by PR.
 - Keep the daily data commit. It is what keeps scheduled workflows alive.
 - Re-check free terms monthly; docs wording changes more often than prices.
 - If a source breaks, fix the adapter and add a fixture from the new markup. Do not disable the
   source silently.
+- Console and Go listings of the same model share benchmark evidence by model ID. Free terms,
+  availability, and costs remain per listing.
+- Agentic and everyday-edit tiers are still often withheld because SWE-bench, Aider, and
+  Terminal-Bench evidence is old or missing. That is a data-coverage limitation, not a rendering bug.

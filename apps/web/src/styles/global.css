@@ -160,7 +160,7 @@
   .nav-link {
     border-bottom: 1px solid transparent;
     color: var(--color-muted);
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     padding-bottom: 0.2rem;
@@ -179,7 +179,7 @@
 
   .eyebrow {
     color: var(--color-muted);
-    font-size: 0.67rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -204,7 +204,7 @@
     border: 1px solid var(--color-line);
     border-radius: 999px;
     padding: 0.28rem 0.55rem;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.07em;
     line-height: 1;
@@ -253,7 +253,7 @@
   }
 
   .badge-uncertain {
-    font-size: 0.58rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     opacity: 0.8;
@@ -311,7 +311,7 @@
     border-radius: 999px;
     padding: 0.3rem 0.7rem;
     color: var(--color-muted);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     line-height: 1;
     text-decoration: none;
@@ -349,7 +349,7 @@
     display: block;
     margin-bottom: 0.35rem;
     color: var(--color-muted);
-    font-size: 0.64rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -365,7 +365,7 @@
   .data-table caption {
     padding: 0 0.75rem 0.75rem;
     color: var(--color-muted);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     text-align: left;
   }
 
@@ -380,7 +380,7 @@
   .data-table thead th {
     background: color-mix(in srgb, var(--color-raised) 88%, transparent);
     color: var(--color-muted);
-    font-size: 0.62rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;

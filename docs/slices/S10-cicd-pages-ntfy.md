@@ -335,7 +335,7 @@ Verify:
 - [x] Required-source failure aborts before the snapshot write and deploy; the workflow failure step
   sends a high-priority alert.
 - [x] Optional-source failure does not block deploy; Go docs are optional and benchmark adapters
-  degrade to existing data.
+  continue with the rows they can fetch, recording the failed source.
 - [x] `NTFY_TOPIC` and `AA_API_KEY` are secrets, never committed.
 - [x] `pnpm notify --dry-run` prints the payload without sending.
 
