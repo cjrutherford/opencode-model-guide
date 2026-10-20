@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T13:00:00.000Z",
+  "models": [
+    {
+      "key": "opencode/example-model",
+      "provider": "opencode",
+      "id": "example-model",
+      "name": "Example Model",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 1,
+        "output": 2
+      },
+      "free": {
+        "kind": "paid",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/old-free",
+      "provider": "opencode",
+      "id": "old-free",
+      "name": "Old Free",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 0,
+        "output": 0
+      },
+      "free": {
+        "kind": "open-free",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/pricey",
+      "provider": "opencode",
+      "id": "pricey",
+      "name": "Pricey",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 1,
+        "output": 2
+      },
+      "free": {
+        "kind": "paid",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/deprecating",
+      "provider": "opencode",
+      "id": "deprecating",
+      "name": "Deprecating",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 0,
+        "output": 0
+      },
+      "free": {
+        "kind": "open-free",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/stable",
+      "provider": "opencode",
+      "id": "stable",
+      "name": "Stable",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 1,
+        "output": 2
+      },
+      "free": {
+        "kind": "paid",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/removed",
+      "provider": "opencode",
+      "id": "removed",
+      "name": "Removed",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 1,
+        "output": 1
+      },
+      "free": {
+        "kind": "paid",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode/free-to-free",
+      "provider": "opencode",
+      "id": "free-to-free",
+      "name": "Free To Free",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 0,
+        "output": 0
+      },
+      "free": {
+        "kind": "open-free",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode-go/plan-model",
+      "provider": "opencode-go",
+      "id": "plan-model",
+      "name": "Plan Model",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 3,
+        "output": 4
+      },
+      "free": {
+        "kind": "paid",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    },
+    {
+      "key": "opencode-go/sub-model",
+      "provider": "opencode-go",
+      "id": "sub-model",
+      "name": "Sub Model",
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "toolCall": true,
+        "reasoning": true,
+        "attachment": false,
+        "structuredOutput": true,
+        "temperature": true
+      },
+      "limits": {
+        "context": 200000,
+        "output": 64000
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "pricingKnown": true,
+        "input": 5,
+        "output": 6
+      },
+      "free": {
+        "kind": "subscription-included",
+        "flags": []
+      },
+      "availability": "live",
+      "privacy": {
+        "training": "none"
+      },
+      "sources": [
+        {
+          "id": "models.dev",
+          "url": "https://models.dev/api.json",
+          "fetchedAt": "2026-10-19T13:00:00.000Z"
+        }
+      ],
+      "conflicts": [],
+      "firstSeen": "2026-10-19T13:00:00.000Z",
+      "lastSeen": "2026-10-19T13:00:00.000Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "models.dev",
+      "url": "https://models.dev/api.json",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "required": true
+    },
+    {
+      "id": "opencode.models",
+      "url": "https://opencode.ai/zen/v1/models",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "required": true
+    },
+    {
+      "id": "opencode-go.models",
+      "url": "https://opencode.ai/zen/go/v1/models",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "required": true
+    },
+    {
+      "id": "opencode.console-docs",
+      "url": "https://opencode.ai/docs/zen/",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "required": true
+    },
+    {
+      "id": "opencode.go-docs",
+      "url": "https://opencode.ai/docs/go/",
+      "ok": true,
+      "status": "ok",
+      "fetchedAt": "2026-10-19T13:00:00.000Z",
+      "required": true
+    }
+  ]
+}
