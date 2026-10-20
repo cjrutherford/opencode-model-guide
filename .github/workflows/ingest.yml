@@ -1,0 +1,93 @@
+name: ingest-and-deploy
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm ingest
+      - run: pnpm score
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
+      - run: pnpm validate:data
+      - name: Detect data changes
+        id: data
+        run: |
+          if [ -n "$(git status --porcelain data)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit data
+        if: steps.data.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "chore(data): daily ingest [skip ci]"
+          git push
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build site
+        if: steps.data.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        run: pnpm build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      - name: Upload Pages artifact
+        if: steps.data.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/dist
+      - name: Deploy to GitHub Pages
+        id: deploy
+        if: steps.data.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/deploy-pages@v4
+      - name: Send ntfy summary
+        run: pnpm notify
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SITE_URL: ${{ steps.pages.outputs.origin }}${{ steps.pages.outputs.base_path }}
+      - name: Commit notify state
+        run: |
+          if [ -n "$(git status --porcelain data/notify-state.json)" ]; then
+            git add data/notify-state.json
+            git commit -m "chore(data): notify state [skip ci]"
+            git push
+          fi
+      - name: Alert on pipeline failure
+        if: failure()
+        run: |
+          if [ -n "$NTFY_TOPIC" ]; then
+            curl -sS -f \
+              -H "Title: OpenCode Model Guide - pipeline failed" \
+              -H "Priority: high" \
+              -H "Tags: rotating_light" \
+              -d "The daily ingest failed. See $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+              "https://ntfy.sh/$NTFY_TOPIC"
+          fi
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}

@@ -12,7 +12,8 @@ Astro site, deploys to GitHub Pages, publishes an RSS feed, and sends an ntfy su
 
 ## Status
 
-Implementation is underway. S00 provides the pnpm workspace, Astro shell, Vitest, and the CI gate.
+The static site, daily data pipeline, GitHub Pages deployment, RSS feed, and ntfy notification path
+are implemented through S10. S11 covers launch documentation, accessibility, and final checks.
 
 - [Design](docs/plans/2026-10-19-opencode-model-guide-design.md)
 - [Implementation plan](docs/plans/2026-10-19-opencode-model-guide-implementation.md)
@@ -50,7 +51,8 @@ pnpm score           # compute costs and quality scores
 pnpm notify          # send the ntfy summary
 ```
 
-`ingest`, `score`, `notify`, and `validate:data` fail until their slices land. That is intentional.
+`notify` skips sending when `NTFY_TOPIC` is missing; the site can still build and deploy. Use
+`pnpm notify --dry-run` to print the payload without sending it.
 
 ### Local secrets
 
@@ -66,6 +68,31 @@ as repository secrets instead. See [setup and secret rotation](docs/setup-secret
 
 Tests do not read `.secrets`; adapters use fixtures and `vi.stubEnv` when they need an environment
 value.
+
+## Deployment
+
+The site is published at **https://cjrutherford.github.io/opencode-model-guide/** from GitHub Pages.
+The repository must use **Settings → Pages → Source: GitHub Actions**; there is no `gh-pages`
+branch.
+
+[`.github/workflows/ingest.yml`](.github/workflows/ingest.yml) runs daily at 13:00 UTC and on manual
+dispatch. It:
+
+1. ingests the catalog and benchmark sources;
+2. computes scores and validates the committed data;
+3. commits changed `data/` files with `[skip ci]`;
+4. builds with `actions/configure-pages` values for `SITE_URL` and `BASE_PATH`;
+5. deploys the artifact to Pages;
+6. sends one ntfy summary and commits `data/notify-state.json`.
+
+Scheduled runs skip the build and deploy when no data changed. A manual dispatch always deploys.
+If a required source fails, the run stops before deploy and the failure alert uses `NTFY_TOPIC`.
+If notification fails after deploy, the site remains live; the run fails visibly so the next run can
+retry.
+
+`NTFY_TOPIC` is required for notifications. `AA_API_KEY` is optional. Never commit either value;
+see [repository, Pages, and secret setup](docs/setup-secrets.md) for creation, rotation, and
+troubleshooting.
 
 ## Disclaimer
 

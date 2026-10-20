@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url";
 
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { runIngest } from "../src/run";
+import type { SourceStatus } from "@omg/shared";
+
+import { assertRequiredSourcesOk, runIngest } from "../src/run";
 
 const FIXTURES = fileURLToPath(new URL("./fixtures", import.meta.url));
 
@@ -24,6 +26,43 @@ afterEach(async () => {
   vi.restoreAllMocks();
   process.chdir(originalCwd);
   await rm(workDir, { recursive: true, force: true });
+});
+
+function source(overrides: Partial<SourceStatus> = {}): SourceStatus {
+  return {
+    id: "models.dev",
+    url: "https://models.dev/api.json",
+    ok: true,
+    status: "ok",
+    fetchedAt: "2026-10-20T13:00:00.000Z",
+    required: true,
+    ...overrides,
+  };
+}
+
+describe("required source guard", () => {
+  it("aborts when a required source is not ok", () => {
+    expect(() =>
+      assertRequiredSourcesOk([
+        source({ ok: false, status: "failed", error: "HTTP 503" }),
+      ]),
+    ).toThrow(/required source failed: models.dev/);
+  });
+
+  it("allows an optional source to fail", () => {
+    expect(() =>
+      assertRequiredSourcesOk([
+        source(),
+        source({
+          id: "opencode.go-docs",
+          url: "https://opencode.ai/docs/go",
+          ok: false,
+          status: "failed",
+          required: false,
+        }),
+      ]),
+    ).not.toThrow();
+  });
 });
 
 describe("ingest run", () => {

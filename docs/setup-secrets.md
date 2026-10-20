@@ -191,6 +191,10 @@ gh workflow run ingest-and-deploy.yml
 gh run watch
 ```
 
+A manual dispatch always builds and deploys. Scheduled runs skip the build and deploy when no data
+changed; they still run `pnpm notify`, which exits without sending when there are no unsent events.
+Sent event IDs are tracked in the committed `data/notify-state.json` file, not in Actions cache.
+
 Then check:
 
 - The run completes and the Pages URL loads.

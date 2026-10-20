@@ -56,6 +56,17 @@ export const REQUIRED_SOURCES = [
   "opencode.console-docs",
 ] as const;
 
+export function assertRequiredSourcesOk(sources: readonly SourceStatus[]): void {
+  const failed = sources.filter(
+    (source) => source.required === true && !source.ok,
+  );
+  if (failed.length > 0) {
+    throw new Error(
+      `required source failed: ${failed.map((source) => source.id).join(", ")}`,
+    );
+  }
+}
+
 export function parseArgs(argv: string[]): IngestArgs {
   let fixtures: string | null = null;
   let dryRun = false;
@@ -192,7 +203,7 @@ async function fetchDoc(
       fetchedAt,
       durationMs: Date.now() - started,
       itemCount: evidence.freeModels.length + evidence.prices.length,
-      required: true,
+      required: id === "opencode.console-docs",
     };
     return { evidence, status, ref, ok: true };
   } catch (error) {
@@ -207,7 +218,7 @@ async function fetchDoc(
       fetchedAt,
       durationMs: Date.now() - started,
       error: message,
-      required: true,
+      required: id === "opencode.console-docs",
     };
     return { evidence, status, ok: false };
   }
@@ -282,6 +293,8 @@ export async function runIngest(args: IngestArgs): Promise<Snapshot> {
   };
 
   SnapshotSchema.parse(snapshot);
+
+  assertRequiredSourcesOk(snapshot.sources);
 
   const events = diffSnapshots(previous, snapshot, {
     now,
