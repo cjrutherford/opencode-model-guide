@@ -33,7 +33,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `done` | CJ Rutherford | `slice/S08-models-compare` | [#9](https://github.com/cjrutherford/opencode-model-guide/pull/9) | Merged in `25cc387`; 163 detail pages; URL filters; 4-model compare; 233 tests |
 | S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `done` | CJ Rutherford | `slice/S09-changes-methodology-health-rss` | [#10](https://github.com/cjrutherford/opencode-model-guide/pull/10) | 169 pages; 247 tests; feed, health, methodology, changes |
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `done` | CJ Rutherford | `slice/S10-cicd-pages-ntfy` | [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) | Pages live; daily ingest; 267 tests; ntfy state |
-| S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `review` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Docs, link check, a11y; 280 tests; final live checks after merge |
+| S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `done` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Merged `0283123`; live Lighthouse 100/100/100/100; 280 tests; v1 complete |
 
 ## Critical path
 
@@ -145,6 +145,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S11 | Merged via PR [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) (`0283123`); deploy run 39517351496 succeeded. Live `/`, `/models`, `/feed.xml`, `/health`, `/methodology`, and detail return 200; live Lighthouse 100/100/100/100 on home and models. v1 complete. |
 | 2026-10-20 | S11 | Implementation complete; 280 tests; typecheck, data validation, default and production builds, link check, keyboard/360 px, and Lighthouse pass. PR [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13). |
 | 2026-10-20 | — | Fixed missing benchmark evidence for Go/Console twins and the Beam alias; PR [#12](https://github.com/cjrutherford/opencode-model-guide/pull/12) merged (`80ca7ae`). Rated models 78 → 96. |
 | 2026-10-20 | S11 | Claimed; branch `slice/S11-docs-a11y-launch` based on `main` (S10 merged). |

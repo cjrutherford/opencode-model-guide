@@ -1,6 +1,6 @@
 # S11 — Docs, accessibility, and launch
 
-> **Status:** review · **Depends on:** all · **Effort:** ~1 day
+> **Status:** done · **Depends on:** all · **Effort:** ~1 day
 > **Owner:** CJ Rutherford · **Branch:** `slice/S11-docs-a11y-launch`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §11–§13 first.
@@ -182,6 +182,13 @@ Test the parser with a small HTML fixture and a temp directory. Add to CI after 
 - [x] No horizontal scroll at 360 px.
 - [x] All tracker rows are accurate.
 - [x] No v2 feature was added opportunistically.
+
+## Result
+
+Merged in PR [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) (`0283123`) and
+deployed by run `39517351496`. The live site passes Lighthouse 100/100/100/100 on `/` and `/models`,
+the link check covers 3,068 internal links, and all tracker rows are current. `v1.0.0` tagging and a
+real ntfy delivery remain owner actions in the launch checklist.
 
 ## Handoff notes
 
