@@ -26,7 +26,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S01 | [Shared contracts and fixtures](./S01-shared-contracts.md) | S00 | `done` | CJ Rutherford | `slice/S01-shared-contracts` | [#2](https://github.com/cjrutherford/opencode-model-guide/pull/2) | Merged 2026-10-19; schema v1 frozen |
 | S02 | [Catalog ingest](./S02-catalog-ingest.md) | S01 | `done` | CJ Rutherford | `slice/S02-catalog-ingest` | [#3](https://github.com/cjrutherford/opencode-model-guide/pull/3) | Merged 2026-10-19; 161 models in `data/snapshot.json` |
 | S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `done` | CJ Rutherford | `slice/S03-free-classification` | [#4](https://github.com/cjrutherford/opencode-model-guide/pull/4) | Merged in `678684e`; local CI parity green |
-| S04 | [Change detection and event log](./S04-change-detection.md) | S02, S03 | `review` | CJ Rutherford | `slice/S04-change-detection` | [#5](https://github.com/cjrutherford/opencode-model-guide/pull/5) | 138 tests; real ingest 163 models, 0 events; history written |
+| S04 | [Change detection and event log](./S04-change-detection.md) | S02, S03 | `done` | CJ Rutherford | `slice/S04-change-detection` | [#5](https://github.com/cjrutherford/opencode-model-guide/pull/5) | Merged in `1b8f9d5`; CI green; 138 tests |
 | S05 | [Benchmarks and name resolution](./S05-benchmarks.md) | S01 | `todo` | — | — | — | Can run parallel with S02 |
 | S06 | [Cost model and scoring](./S06-cost-and-scoring.md) | S01, S05 | `todo` | — | — | — | Needs S02 for real prices |
 | S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `todo` | — | — | — | Can start against fixtures |
@@ -145,6 +145,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S04 | Merged to `main` (`1b8f9d5`). CI green; 138 tests; real ingest wrote the baseline history and zero events. |
 | 2026-10-20 | S04 | Implemented diff, append-only event log, daily history, and run integration. 138 tests pass; real ingest ran twice with 163 models and 0 events; `data/history/2026-10-20.json` written. PR [#5](https://github.com/cjrutherford/opencode-model-guide/pull/5). |
 | 2026-10-20 | S04 | Claimed; branch `slice/S04-change-detection` based on `main` (S03 merged). |
 | 2026-10-20 | S03 | Merged to `main` (`678684e`). GitHub Actions could not start due to an account billing lock; local install, typecheck, 101 tests, validate, and build passed. |
