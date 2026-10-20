@@ -261,7 +261,7 @@ export default function CompareTable({ rows }: Props) {
           >
             Clear all
           </button>
-          <p className="text-xs text-muted">
+          <p className="text-xs text-muted" aria-live="polite">
             {selected.length} of 4 selected
           </p>
         </div>

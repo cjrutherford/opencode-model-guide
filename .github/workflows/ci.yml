@@ -21,3 +21,9 @@ jobs:
       - run: pnpm test
       - run: pnpm validate:data
       - run: pnpm build
+        env:
+          SITE_URL: https://cjrutherford.github.io
+          BASE_PATH: /opencode-model-guide
+      - run: pnpm tsx scripts/check-links.ts
+        env:
+          BASE_PATH: /opencode-model-guide

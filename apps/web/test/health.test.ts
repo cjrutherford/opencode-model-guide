@@ -45,15 +45,15 @@ describe("buildHealth", () => {
     const data = loadData();
     const health = buildHealth(data, NOW);
 
-    expect(health.counts.models).toBe(163);
+    expect(health.counts.models).toBe(164);
     expect(health.counts.freeNow).toBe(13);
     expect(health.counts.zeroMarginal).toBe(79);
     expect(health.counts.benchmarkResults).toBe(1041);
-    expect(health.counts.resolvedBenchmarks).toBe(400);
-    expect(health.counts.unmatchedBenchmarks).toBe(641);
-    expect(health.counts.unmatchedNames).toBe(603);
-    expect(health.counts.scoreRecords).toBe(163);
-    expect(health.counts.ratedModels).toBe(96);
+    expect(health.counts.resolvedBenchmarks).toBe(403);
+    expect(health.counts.unmatchedBenchmarks).toBe(638);
+    expect(health.counts.unmatchedNames).toBe(602);
+    expect(health.counts.scoreRecords).toBe(164);
+    expect(health.counts.ratedModels).toBe(97);
     expect(health.counts.conflicts).toBe(8);
     expect(health.sources).toHaveLength(10);
     expect(health.sources.find((source) => source.id === "terminal-bench")).toMatchObject({
@@ -72,8 +72,8 @@ describe("buildHealth", () => {
       resolution: expect.stringMatching(/preferred|unresolved/),
     });
     expect(health.useCases.find((row) => row.useCase === "frontend")).toMatchObject({
-      rated: 94,
-      total: 163,
+      rated: 95,
+      total: 164,
     });
   });
 });
