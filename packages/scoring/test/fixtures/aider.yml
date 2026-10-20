@@ -1,0 +1,12 @@
+- model: gpt-5
+  date: 2025-01-10
+  pass_rate_2: 48.2
+  edit_format: diff
+- model: gpt-5
+  date: 2025-02-14
+  pass_rate_2: 57.6
+  edit_format: diff
+- model: claude-4-5-sonnet
+  date: 2025-02-01
+  pass_rate_2: 53.1
+  edit_format: diff
