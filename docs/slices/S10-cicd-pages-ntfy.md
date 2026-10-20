@@ -1,7 +1,7 @@
 # S10 — CI/CD, GitHub Pages, and ntfy
 
-> **Status:** todo · **Depends on:** S02–S06, S09 · **Blocks:** S11 · **Effort:** ~1 day
-> **Owner:** — · **Branch:** `slice/S10-cicd-pages-ntfy`
+> **Status:** in-progress · **Depends on:** S02–S06, S09 · **Blocks:** S11 · **Effort:** ~1 day
+> **Owner:** CJ Rutherford · **Branch:** `slice/S10-cicd-pages-ntfy`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §10 and §12 first.
 
