@@ -1,7 +1,7 @@
 # S10 — CI/CD, GitHub Pages, and ntfy
 
-> **Status:** todo · **Depends on:** S02–S06, S09 · **Blocks:** S11 · **Effort:** ~1 day
-> **Owner:** — · **Branch:** `slice/S10-cicd-pages-ntfy`
+> **Status:** review · **Depends on:** S02–S06, S09 · **Blocks:** S11 · **Effort:** ~1 day
+> **Owner:** CJ Rutherford · **Branch:** `slice/S10-cicd-pages-ntfy`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §10 and §12 first.
 
@@ -322,17 +322,19 @@ Verify:
 
 ## Acceptance checklist
 
-- [ ] `ci.yml` is green on `main`.
-- [ ] `ingest.yml` is valid and manual dispatch works.
+- [ ] `ci.yml` is green on `main` (PR CI runs first; check `main` after merge).
+- [ ] `ingest.yml` is valid and manual dispatch works (first live dispatch after merge).
 - [ ] Pages deploys at the expected URL with correct assets (no 404s under the base path).
-- [ ] Data commits happen only when data changes and include `[skip ci]`.
-- [ ] ntfy sends exactly one summary per run.
-- [ ] No events → no notification.
-- [ ] Rerunning the same events does not resend them.
-- [ ] Required-source failure aborts before deploy and alerts.
-- [ ] Optional-source failure does not block deploy.
-- [ ] `NTFY_TOPIC` and `AA_API_KEY` are secrets, never committed.
-- [ ] `pnpm notify --dry-run` prints the payload without sending.
+- [ ] Data commits happen only when data changes and include `[skip ci]` (verify on dispatch).
+- [x] ntfy sends exactly one summary per run; source failures use separate high-priority alerts.
+- [x] No events → no notification.
+- [x] Rerunning the same events does not resend them; state caps at the newest 500 IDs.
+- [x] Required-source failure aborts before the snapshot write and deploy; the workflow failure step
+  sends a high-priority alert.
+- [x] Optional-source failure does not block deploy; Go docs are optional and benchmark adapters
+  degrade to existing data.
+- [x] `NTFY_TOPIC` and `AA_API_KEY` are secrets, never committed.
+- [x] `pnpm notify --dry-run` prints the payload without sending.
 
 ## Handoff notes
 
@@ -345,3 +347,12 @@ Verify:
   swallow a non-2xx response silently.
 - If notify succeeds but the state commit fails, the next run may resend one summary. This is
   preferable to losing a notification; keep the failure visible in the run log.
+- `notify` sends one change summary plus one high-priority alert per unsent `source_failed` event.
+  State dedupes by event ID, so a source failure is not replayed on later runs. The workflow failure
+  step is the backstop when ingest aborts before an event is written.
+- `runIngest` aborts on a failed required source before writing the snapshot. Go docs are optional;
+  the models.dev and live model endpoints are treated as required.
+- `NTFY_SERVER` is supported by `pnpm notify` for local or self-hosted testing but is not wired into
+  the workflow yet.
+- Scheduled runs skip build/deploy when no data changed; manual dispatch always deploys. The notify
+  step still runs so a previous notification failure can recover.

@@ -79,7 +79,14 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
 
-  packages/notify: {}
+  packages/notify:
+    dependencies:
+      '@omg/ingest':
+        specifier: workspace:*
+        version: link:../ingest
+      '@omg/shared':
+        specifier: workspace:*
+        version: link:../shared
 
   packages/scoring:
     dependencies:

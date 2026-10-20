@@ -32,7 +32,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `done` | CJ Rutherford | `slice/S07-web-shell` | [#8](https://github.com/cjrutherford/opencode-model-guide/pull/8) | Merged in `9f751a5`; shell + home; 13 live free |
 | S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `done` | CJ Rutherford | `slice/S08-models-compare` | [#9](https://github.com/cjrutherford/opencode-model-guide/pull/9) | Merged in `25cc387`; 163 detail pages; URL filters; 4-model compare; 233 tests |
 | S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `done` | CJ Rutherford | `slice/S09-changes-methodology-health-rss` | [#10](https://github.com/cjrutherford/opencode-model-guide/pull/10) | 169 pages; 247 tests; feed, health, methodology, changes |
-| S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `todo` | — | — | — | Needs repo + secret |
+| S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `review` | CJ Rutherford | `slice/S10-cicd-pages-ntfy` | [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) | 267 tests; workflow, Pages, ntfy; live dispatch pending |
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `todo` | — | — | — | Final gate |
 
 ## Critical path
@@ -145,6 +145,9 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S10 | PR [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11); CI green. 267 tests; typecheck, data validation, build, base-path build, and ntfy dry-run pass. First live dispatch pending. |
+| 2026-10-20 | S10 | Implementation complete; 267 tests; typecheck, data validation, build, base-path build, and ntfy dry-run pass. PR and first live dispatch pending. |
+| 2026-10-20 | S10 | Claimed; branch `slice/S10-cicd-pages-ntfy` based on `main` (S09 merged). |
 | 2026-10-20 | S09 | Merged to `main` (`cef0519`) after PR [#10](https://github.com/cjrutherford/opencode-model-guide/pull/10); CI green. 247 tests; 169 pages; feed, health, methodology, and changes live. Documented exception: inline `/changes` filter script. |
 | 2026-10-20 | S09 | PR [#10](https://github.com/cjrutherford/opencode-model-guide/pull/10); CI green. 247 tests; typecheck, data validation, build, base-path build, and browser checks pass. Pending review. |
 | 2026-10-20 | S09 | Implementation complete; 247 tests; typecheck, data validation, build, base-path build, and browser checks pass. Pending PR. |

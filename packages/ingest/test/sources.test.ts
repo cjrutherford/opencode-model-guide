@@ -81,6 +81,12 @@ describe("fetchDocs (fixtures)", () => {
       "opencode.go-docs",
     ]);
     expect(docs.sources.every((source) => source.ok)).toBe(true);
+    expect(
+      docs.sources.find((source) => source.id === "opencode.console-docs")?.required,
+    ).toBe(true);
+    expect(
+      docs.sources.find((source) => source.id === "opencode.go-docs")?.required,
+    ).toBe(false);
   });
 });
 
