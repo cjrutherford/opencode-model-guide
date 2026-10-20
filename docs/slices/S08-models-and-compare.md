@@ -1,7 +1,7 @@
 # S08 — Models directory, detail, and compare
 
-> **Status:** todo · **Depends on:** S07, S02, S06 · **Effort:** ~3 days
-> **Owner:** — · **Branch:** `slice/S08-models-and-compare`
+> **Status:** review · **Depends on:** S07, S02, S06 · **Effort:** ~3 days
+> **Owner:** CJ Rutherford · **Branch:** `slice/S08-models-compare`
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §7–§11 first.
 
@@ -221,17 +221,17 @@ no benchmarks.
 
 ## Acceptance checklist
 
-- [ ] Every model has a static detail page at a stable slug.
-- [ ] Filters and sort survive reload via URL.
-- [ ] Compare handles 0–4 models and unknown slugs.
-- [ ] Missing prices show "not published"; missing scores show "insufficient data".
-- [ ] Free kind and `uncertain` status are visible on cards, table, and detail.
-- [ ] Measured and modeled costs are visually distinct.
-- [ ] Every benchmark row shows source and date.
-- [ ] Table is keyboard accessible and has `aria-sort`.
-- [ ] No `NaN`, `undefined`, or `Infinity` in rendered output.
-- [ ] Mobile layout works at 360 px.
-- [ ] No runtime data fetching.
+- [x] Every model has a static detail page at a stable slug.
+- [x] Filters and sort survive reload via URL.
+- [x] Compare handles 0–4 models and unknown slugs.
+- [x] Missing prices show "not published"; missing scores show "insufficient data".
+- [x] Free kind and `uncertain` status are visible on cards, table, and detail.
+- [x] Measured and modeled costs are visually distinct.
+- [x] Every benchmark row shows source and date.
+- [x] Table is keyboard accessible and has `aria-sort`.
+- [x] No `NaN`, `undefined`, or `Infinity` in rendered output.
+- [x] Mobile layout works at 360 px.
+- [x] No runtime data fetching.
 
 ## Handoff notes
 

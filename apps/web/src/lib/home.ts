@@ -12,6 +12,9 @@ import {
 } from "@omg/shared";
 
 import { USE_CASE_LABELS } from "./format";
+import { isFreeNow } from "./models";
+
+export { isFreeNow };
 
 export interface BestValuePick {
   model: ModelRecord;
@@ -25,19 +28,6 @@ export interface BestValue {
   useCase: UseCaseId;
   label: string;
   pick: BestValuePick | null;
-}
-
-function isLiveFree(model: ModelRecord): boolean {
-  return (
-    model.availability === "live" &&
-    (model.free.kind === "open-free" ||
-      model.free.kind === "limited-time" ||
-      model.free.kind === "trial")
-  );
-}
-
-export function isFreeNow(model: ModelRecord): boolean {
-  return isLiveFree(model);
 }
 
 const FREE_KIND_RANK = {
@@ -55,7 +45,7 @@ const PROVIDER_RANK = {
 
 export function freeNowModels(snapshot: Snapshot): ModelRecord[] {
   return snapshot.models
-    .filter(isLiveFree)
+    .filter(isFreeNow)
     .sort((left, right) => {
       const kind =
         FREE_KIND_RANK[left.free.kind] - FREE_KIND_RANK[right.free.kind];

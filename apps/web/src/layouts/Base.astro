@@ -49,6 +49,7 @@ const canonical = new URL(
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
+    <slot name="head" />
     <title>{title}</title>
   </head>
   <body>

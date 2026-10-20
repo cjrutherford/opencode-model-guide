@@ -1,0 +1,147 @@
+---
+import type { ModelRecord } from "@omg/shared";
+
+import { formatTokens, formatUsd } from "../lib/format";
+
+interface Props {
+  model: ModelRecord;
+}
+
+const { model } = Astro.props;
+const pricing = model.pricing;
+const baseRows = [
+  { label: "Input", value: pricing.input },
+  { label: "Output", value: pricing.output },
+  { label: "Cache read", value: pricing.cacheRead },
+  { label: "Cache write", value: pricing.cacheWrite },
+].filter((row) => row.value !== undefined);
+const overRows = pricing.contextOver200k
+  ? [
+      { label: "Input", value: pricing.contextOver200k.input },
+      { label: "Output", value: pricing.contextOver200k.output },
+      { label: "Cache read", value: pricing.contextOver200k.cacheRead },
+      { label: "Cache write", value: pricing.contextOver200k.cacheWrite },
+    ].filter((row) => row.value !== undefined)
+  : [];
+---
+
+{
+  !pricing.pricingKnown ? (
+    <div class="border border-dashed border-line p-4 text-sm">
+      <p class="font-semibold">Price not published.</p>
+      <p class="mt-1 text-muted">
+        No source publishes a list price for this model. Modeled task costs are
+        unavailable rather than guessed.
+      </p>
+    </div>
+  ) : (
+    <div class="space-y-6">
+      <div class="overflow-x-auto">
+        <table class="data-table">
+          <caption class="sr-only">
+            List prices for {model.name}, in USD per one million tokens.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Rate</th>
+              <th scope="col">USD / 1M tokens</th>
+            </tr>
+          </thead>
+          <tbody>
+            {baseRows.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td class="num">{formatUsd(row.value ?? null)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {
+        pricing.tiers && pricing.tiers.length > 0 && (
+          <div>
+            <h3 class="font-display text-xl tracking-tight">Input tiers</h3>
+            <p class="mt-1 text-xs text-muted">
+              Rates change once the input reaches the listed threshold.
+            </p>
+            <div class="mt-3 overflow-x-auto">
+              <table class="data-table">
+                <caption class="sr-only">
+                  Tiered list prices for {model.name}.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Input at least</th>
+                    <th scope="col">Input</th>
+                    <th scope="col">Output</th>
+                    <th scope="col">Cache read</th>
+                    <th scope="col">Cache write</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pricing.tiers.map((tier) => (
+                    <tr>
+                      <th scope="row" class="num">
+                        {formatTokens(tier.minInputTokens)}
+                      </th>
+                      <td class="num">{formatUsd(tier.input)}</td>
+                      <td class="num">{formatUsd(tier.output)}</td>
+                      <td class="num">
+                        {tier.cacheRead === undefined
+                          ? "—"
+                          : formatUsd(tier.cacheRead)}
+                      </td>
+                      <td class="num">
+                        {tier.cacheWrite === undefined
+                          ? "—"
+                          : formatUsd(tier.cacheWrite)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+      }
+
+      {
+        overRows.length > 0 && (
+          <div>
+            <h3 class="font-display text-xl tracking-tight">
+              Context over 200k
+            </h3>
+            <div class="mt-3 overflow-x-auto">
+              <table class="data-table">
+                <caption class="sr-only">
+                  Long-context list prices for {model.name}.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Rate</th>
+                    <th scope="col">USD / 1M tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {overRows.map((row) => (
+                    <tr>
+                      <th scope="row">{row.label}</th>
+                      <td class="num">{formatUsd(row.value ?? null)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+      }
+
+      <p class="text-xs leading-5 text-muted">
+        List prices are per 1 million tokens. Cache reads and cache writes are
+        separate rates. Modeled task costs below use the profile token counts,
+        not these list rates alone.
+      </p>
+    </div>
+  )
+}

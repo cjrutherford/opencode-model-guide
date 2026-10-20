@@ -27,10 +27,10 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S02 | [Catalog ingest](./S02-catalog-ingest.md) | S01 | `done` | CJ Rutherford | `slice/S02-catalog-ingest` | [#3](https://github.com/cjrutherford/opencode-model-guide/pull/3) | Merged 2026-10-19; 161 models in `data/snapshot.json` |
 | S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `done` | CJ Rutherford | `slice/S03-free-classification` | [#4](https://github.com/cjrutherford/opencode-model-guide/pull/4) | Merged in `678684e`; local CI parity green |
 | S04 | [Change detection and event log](./S04-change-detection.md) | S02, S03 | `done` | CJ Rutherford | `slice/S04-change-detection` | [#5](https://github.com/cjrutherford/opencode-model-guide/pull/5) | Merged in `1b8f9d5`; CI green; 138 tests |
-| S05 | [Benchmarks and name resolution](./S05-benchmarks.md) | S01 | `review` | CJ Rutherford | `slice/S05-benchmarks` | — | 99 model keys resolved; 1,041 results |
-| S06 | [Cost model and scoring](./S06-cost-and-scoring.md) | S01, S05 | `review` | CJ Rutherford | `slice/S06-cost-and-scoring` | — | 163 scores; 51 free; 26 Go |
-| S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `review` | CJ Rutherford | `slice/S07-web-shell` | — | Shell + home; 13 live free |
-| S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `in-progress` | CJ Rutherford | `slice/S08-models-compare` | — | Largest UI slice |
+| S05 | [Benchmarks and name resolution](./S05-benchmarks.md) | S01 | `done` | CJ Rutherford | `slice/S05-benchmarks` | [#6](https://github.com/cjrutherford/opencode-model-guide/pull/6) | Merged in `38838ad`; 99 model keys resolved; 1,041 results |
+| S06 | [Cost model and scoring](./S06-cost-and-scoring.md) | S01, S05 | `done` | CJ Rutherford | `slice/S06-cost-and-scoring` | [#7](https://github.com/cjrutherford/opencode-model-guide/pull/7) | Merged in `225e491`; 163 scores; 51 free; 26 Go |
+| S07 | [Web shell and home](./S07-web-shell.md) | S00, S01 | `done` | CJ Rutherford | `slice/S07-web-shell` | [#8](https://github.com/cjrutherford/opencode-model-guide/pull/8) | Merged in `9f751a5`; shell + home; 13 live free |
+| S08 | [Models, detail, and compare](./S08-models-and-compare.md) | S07, S02, S06 | `review` | CJ Rutherford | `slice/S08-models-compare` | — | 163 detail pages; URL filters; 4-model compare; 233 tests |
 | S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `todo` | — | — | — | Feed depends on events |
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `todo` | — | — | — | Needs repo + secret |
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `todo` | — | — | — | Final gate |
@@ -145,9 +145,13 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S08 | Models directory, 163 static detail pages, and four-model compare implemented. URL-backed filters/sort, explicit unknown states, postbuild page assertions. 233 tests pass; typecheck, validate, and build pass. |
 | 2026-10-20 | S08 | Claimed; branch `slice/S08-models-compare` based on `main` (S07 merged). |
+| 2026-10-20 | S07 | Merged to `main` (`9f751a5`) after PR [#8](https://github.com/cjrutherford/opencode-model-guide/pull/8); 215 tests passed. |
 | 2026-10-20 | S07 | Web shell and data-driven home implemented: 13 live no-subscription free models, 163 models tracked, light/dark editorial layout, base-path-safe links, validated data layer. 215 tests pass; typecheck, validate, and build pass. |
 | 2026-10-20 | S07 | Claimed; branch `slice/S07-web-shell` based on `main` (S06 merged). |
+| 2026-10-20 | S06 | Merged to `main` (`225e491`) after PR [#7](https://github.com/cjrutherford/opencode-model-guide/pull/7); 194 tests passed. |
+| 2026-10-20 | S05 | Merged to `main` (`38838ad`) after PR [#6](https://github.com/cjrutherford/opencode-model-guide/pull/6); 161 tests passed. |
 | 2026-10-20 | S06 | Cost and scoring implemented: 163 score records, 51 free models at $0, 26 Go models with effective cost, no NaN/Infinity. 194 tests pass; validate and build pass. |
 | 2026-10-20 | S06 | Claimed; branch `slice/S06-cost-and-scoring` based on `main` (S05 merged). |
 | 2026-10-20 | S05 | Benchmarks ingested: 1,041 results, 605 unmatched names, 99 model keys resolved. 161 tests pass; validate and build pass. |
