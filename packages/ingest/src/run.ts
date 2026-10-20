@@ -8,6 +8,9 @@ import {
   type SourceStatus,
 } from "@omg/shared";
 
+import { diffSnapshots } from "./diff";
+import { appendEvents } from "./events";
+import { pruneHistory, writeHistory } from "./history";
 import { normalizeCatalog } from "./normalize";
 import { readSnapshot, writeSnapshotAtomic } from "./snapshot";
 import { classifyFreeResult } from "./freeClassify";
@@ -46,6 +49,12 @@ interface FetchedCatalog {
 }
 
 const MODEL_SOURCE_IDS = ["models.dev", "opencode.models", "opencode-go.models"] as const;
+
+export const REQUIRED_SOURCES = [
+  "models.dev",
+  "opencode.models",
+  "opencode.console-docs",
+] as const;
 
 export function parseArgs(argv: string[]): IngestArgs {
   let fixtures: string | null = null;
@@ -274,7 +283,29 @@ export async function runIngest(args: IngestArgs): Promise<Snapshot> {
 
   SnapshotSchema.parse(snapshot);
 
-  if (!args.dryRun) await writeSnapshotAtomic(snapshot);
+  const events = diffSnapshots(previous, snapshot, {
+    now,
+    requiredSources: REQUIRED_SOURCES,
+  });
+
+  if (!args.dryRun) {
+    // Append events before replacing the snapshot. Event IDs are deterministic per type,
+    // model, and day, so a failed snapshot write followed by a retry dedupes instead of
+    // losing the change that triggered it.
+    const merged = await appendEvents(events);
+    await writeSnapshotAtomic(snapshot);
+    const historyPath = await writeHistory(snapshot);
+    const pruned = await pruneHistory();
+
+    if (previous === null) {
+      console.log("bootstrap: baseline written, 0 events");
+    } else {
+      console.log(`events: ${events.length} new, ${merged.length} total`);
+    }
+    console.log(
+      `history: ${historyPath}${pruned.length > 0 ? ` (pruned ${pruned.length} old files)` : ""}`,
+    );
+  }
 
   console.log(
     `${args.dryRun ? "dry-run: would ingest" : "ingested"} ${classified.models.length} models from ${snapshot.sources.length} sources (console docs: ${docs.available.console ? "ok" : "failed"}, go docs: ${docs.available.go ? "ok" : "failed"})`,
