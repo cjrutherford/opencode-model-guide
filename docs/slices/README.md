@@ -25,7 +25,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S00 | [Repository foundation and CI](./S00-repo-foundation.md) | — | `done` | CJ Rutherford | `slice/S00-repo-foundation` | [#1](https://github.com/cjrutherford/opencode-model-guide/pull/1) | Merged 2026-10-19; CI green |
 | S01 | [Shared contracts and fixtures](./S01-shared-contracts.md) | S00 | `done` | CJ Rutherford | `slice/S01-shared-contracts` | [#2](https://github.com/cjrutherford/opencode-model-guide/pull/2) | Merged 2026-10-19; schema v1 frozen |
 | S02 | [Catalog ingest](./S02-catalog-ingest.md) | S01 | `done` | CJ Rutherford | `slice/S02-catalog-ingest` | [#3](https://github.com/cjrutherford/opencode-model-guide/pull/3) | Merged 2026-10-19; 161 models in `data/snapshot.json` |
-| S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `todo` | — | — | — | Touches `run.ts`; coordinate with S02/S04 |
+| S03 | [Free classification and docs parsing](./S03-free-classification.md) | S01, S02 | `review` | CJ Rutherford | `slice/S03-free-classification` | #4 | 163 models, 5 sources, 101 tests; 26/28 Go subscriptions parsed |
 | S04 | [Change detection and event log](./S04-change-detection.md) | S02, S03 | `todo` | — | — | — | Bootstraps without notifications |
 | S05 | [Benchmarks and name resolution](./S05-benchmarks.md) | S01 | `todo` | — | — | — | Can run parallel with S02 |
 | S06 | [Cost model and scoring](./S06-cost-and-scoring.md) | S01, S05 | `todo` | — | — | — | Needs S02 for real prices |
@@ -145,6 +145,8 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-19 | S03 | Implemented docs parsers and classifier. Real ingest: 163 models, 5 sources; 17 limited-time, 34 open-free uncertain, 28 subscription-included; 101 tests pass. PR #4. |
+| 2026-10-19 | S03 | Claimed; branch `slice/S03-free-classification` based on `main` (S02 merged). Added `cheerio` and trimmed real docs fixtures. |
 | 2026-10-19 | S02 | Merged to `main` (`e96c79a`). `data/snapshot.json` has 161 models; S03 starts from this commit. |
 | 2026-10-19 | S02 | Catalog ingest implemented; real snapshot has 161 models (128 + 33), 111 live, 50 zero-price, 23 tiered, 21 over-200k, 1 deprecated-but-live conflict. PR [#3](https://github.com/cjrutherford/opencode-model-guide/pull/3). |
 | 2026-10-19 | S02 | Claimed; branch `slice/S02-catalog-ingest` based on `main` (S01 merged). |
