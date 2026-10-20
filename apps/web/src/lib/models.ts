@@ -54,12 +54,25 @@ export function buildModelIndexes(data: SiteData): ModelIndexes {
   );
   const benchmarksByKey = new Map<string, BenchmarkResult[]>();
   const eventsByKey = new Map<string, ChangeEvent[]>();
+  const modelsById = new Map<string, ModelRecord[]>();
+  for (const model of data.snapshot.models) {
+    const group = modelsById.get(model.id) ?? [];
+    group.push(model);
+    modelsById.set(model.id, group);
+  }
 
   for (const result of data.benchmarks.results) {
     if (result.match === "unmatched" || !result.modelKey) continue;
-    const rows = benchmarksByKey.get(result.modelKey) ?? [];
-    rows.push(result);
-    benchmarksByKey.set(result.modelKey, rows);
+    const sourceModel = byKey.get(result.modelKey);
+    if (!sourceModel) continue;
+
+    // The same underlying model can be listed by Console and Go. Show the
+    // benchmark evidence on both listings while keeping the score/cost per key.
+    for (const target of modelsById.get(sourceModel.id) ?? [sourceModel]) {
+      const rows = benchmarksByKey.get(target.key) ?? [];
+      rows.push(result);
+      benchmarksByKey.set(target.key, rows);
+    }
   }
 
   for (const event of data.events) {

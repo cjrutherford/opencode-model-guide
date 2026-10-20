@@ -237,8 +237,29 @@ export function scoreModels(input: ScoreInput): ScoreRecord[] {
   const modelKeys = new Set(input.snapshot.models.map((model) => model.key));
   const benchmarksByModel = benchmarkScores(input.benchmarks, modelKeys);
 
+  // Console and Go list the same underlying model under different keys. Benchmark
+  // evidence belongs to the model, while free terms and costs belong to the listing.
+  // Share evidence by id so a Go listing is not unrated only because the benchmark
+  // name resolved to the Console key. Percentiles are computed before this merge, so
+  // a provider twin does not get counted twice in the ranking population.
+  const benchmarksById = new Map<
+    string,
+    Partial<Record<BenchmarkId, BenchmarkScore>>
+  >();
+  for (const model of input.snapshot.models) {
+    const own = benchmarksByModel.get(model.key);
+    if (!own) continue;
+    const shared = benchmarksById.get(model.id) ?? {};
+    for (const [benchmark, score] of Object.entries(own) as Array<
+      [BenchmarkId, BenchmarkScore]
+    >) {
+      if (!shared[benchmark]) shared[benchmark] = score;
+    }
+    benchmarksById.set(model.id, shared);
+  }
+
   const scores = input.snapshot.models.map((model): ScoreRecord => {
-    const benchmarks = benchmarksByModel.get(model.key) ?? {};
+    const benchmarks = benchmarksById.get(model.id) ?? {};
     const record: ScoreRecord = {
       modelKey: model.key,
       benchmarks,

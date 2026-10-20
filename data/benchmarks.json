@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T21:20:20.587Z",
+  "generatedAt": "2026-10-20T23:11:30.156Z",
   "results": [
     {
       "benchmark": "aider-polyglot",
@@ -5516,8 +5516,9 @@
       "date": "2026-10-19",
       "sourceUrl": "https://lmarena.ai/leaderboard",
       "harness": "LMArena",
-      "match": "unmatched",
-      "matchConfidence": 0
+      "modelKey": "opencode/beam-free",
+      "match": "alias",
+      "matchConfidence": 1
     },
     {
       "benchmark": "lmarena-agent",
@@ -13018,8 +13019,9 @@
       "date": "2026-10-19",
       "sourceUrl": "https://lmarena.ai/leaderboard",
       "harness": "LMArena",
-      "match": "unmatched",
-      "matchConfidence": 0
+      "modelKey": "opencode/beam-free",
+      "match": "alias",
+      "matchConfidence": 1
     },
     {
       "benchmark": "swe-bench-multilingual",
@@ -13715,7 +13717,6 @@
     "A.X-K2",
     "Agnes 2.5 Pro Beta",
     "Apodex 1.1",
-    "Beam 1.0 501B A23B",
     "Celeris-1",
     "Claude 2.0",
     "Claude 2.1",
@@ -13950,7 +13951,6 @@
     "amazon-nova-pro-v1.0",
     "athene-70b-0725",
     "athene-v2-chat",
-    "beam-1.0-501b-a23b",
     "c4ai-aya-expanse-32b",
     "c4ai-aya-expanse-8b",
     "chatglm-6b",
@@ -14324,8 +14324,8 @@
       "url": "https://www.swebench.com/",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T21:20:20.587Z",
-      "durationMs": 803,
+      "fetchedAt": "2026-10-20T23:11:30.157Z",
+      "durationMs": 677,
       "itemCount": 55,
       "required": true
     },
@@ -14334,8 +14334,8 @@
       "url": "https://lmarena.ai/leaderboard",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T21:20:20.600Z",
-      "durationMs": 372559,
+      "fetchedAt": "2026-10-20T23:11:30.171Z",
+      "durationMs": 380854,
       "itemCount": 661,
       "required": true
     },
@@ -14344,8 +14344,8 @@
       "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T21:20:20.602Z",
-      "durationMs": 249,
+      "fetchedAt": "2026-10-20T23:11:30.173Z",
+      "durationMs": 327,
       "itemCount": 68,
       "required": true
     },
@@ -14354,7 +14354,7 @@
       "url": "https://www.tbench.ai/leaderboard",
       "ok": false,
       "status": "skipped",
-      "fetchedAt": "2026-10-20T21:20:20.587Z",
+      "fetchedAt": "2026-10-20T23:11:30.156Z",
       "itemCount": 0,
       "reason": "no stable machine-readable leaderboard in v1",
       "required": false
@@ -14364,8 +14364,8 @@
       "url": "https://artificialanalysis.ai/api/v2/language/models/free",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-10-20T21:20:20.587Z",
-      "durationMs": 1489,
+      "fetchedAt": "2026-10-20T23:11:30.156Z",
+      "durationMs": 2371,
       "itemCount": 258,
       "required": false
     }

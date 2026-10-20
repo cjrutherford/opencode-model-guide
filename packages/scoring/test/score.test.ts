@@ -190,6 +190,38 @@ describe("scoreModels", () => {
     expect(useCase.confidence).toBeCloseTo(1, 10);
   });
 
+  it("shares benchmark evidence across Console and Go listings of the same model", () => {
+    const consoleModel = makeModel({ id: "shared", name: "Shared" });
+    const goModel = makeModel({
+      id: "shared",
+      name: "Shared",
+      provider: "opencode-go",
+    });
+    const results = (
+      [
+        "swe-bench-verified",
+        "terminal-bench",
+        "lmarena-agent",
+        "aider-polyglot",
+      ] as BenchmarkId[]
+    ).map((benchmark) => makeBenchmark(consoleModel.key, benchmark, 100));
+
+    const scores = scoreModels({
+      snapshot: makeSnapshot([consoleModel, goModel]),
+      benchmarks: makeBenchmarks(results),
+      now: NOW,
+    });
+
+    const consoleScore = scoreFor(scores, consoleModel.key);
+    const goScore = scoreFor(scores, goModel.key);
+    expect(goScore.benchmarks).toEqual(consoleScore.benchmarks);
+    expect(goScore.useCases["agentic-coding"]).toMatchObject({
+      score: 50,
+      tier: "B",
+      confidence: 1,
+    });
+  });
+
   it("gates long-context on a 200K context window", () => {
     const small = makeModel({ id: "small", context: 100_000 });
     const large = makeModel({ id: "large", context: 300_000 });
