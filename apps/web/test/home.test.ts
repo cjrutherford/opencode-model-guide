@@ -86,6 +86,7 @@ function scoreRecord(
   modelKey: string,
   useCases: Partial<Record<UseCaseId, { score: number | null; tier: string; confidence: number }>>,
   agenticCost = 0.5,
+  goEffective?: number,
 ): ScoresFile["scores"][number] {
   return {
     modelKey,
@@ -97,6 +98,15 @@ function scoreRecord(
         "agentic-pr": agenticCost,
         "long-context": agenticCost * 2,
       },
+      ...(goEffective === undefined
+        ? {}
+        : {
+            goEffective: {
+              "quick-edit": goEffective / 4,
+              "agentic-pr": goEffective,
+              "long-context": goEffective * 2,
+            },
+          }),
     },
   };
 }
@@ -231,20 +241,35 @@ describe("latestUpdatedAt", () => {
 });
 
 describe("bestValueByUseCase", () => {
-  it("picks the highest rated score and leaves gaps empty", () => {
-    const a = makeModel({ id: "a" });
-    const b = makeModel({ id: "b" });
-    const snapshot = makeSnapshot([a, b]);
+  it("picks the top rated model in each access group and preserves gaps", () => {
+    const freeHigh = makeModel({ id: "free-high", free: "open-free" });
+    const freeLow = makeModel({ id: "free-low", free: "limited-time" });
+    const go = makeModel({
+      id: "go",
+      free: "subscription-included",
+      provider: "opencode-go",
+    });
+    const paid = makeModel({ id: "paid", free: "paid" });
+    const snapshot = makeSnapshot([freeHigh, freeLow, go, paid]);
     const scores: ScoresFile = {
       schemaVersion: 1,
       generatedAt: NOW,
       scores: [
-        scoreRecord(a.key, {
+        scoreRecord(freeHigh.key, {
           frontend: { score: 80, tier: "A", confidence: 0.8 },
+        }, 0.4),
+        scoreRecord(freeLow.key, {
+          frontend: { score: 70, tier: "B", confidence: 0.7 },
         }),
-        scoreRecord(b.key, {
-          frontend: { score: 90, tier: "S", confidence: 0.9 },
-        }),
+        scoreRecord(
+          go.key,
+          { frontend: { score: 90, tier: "S", confidence: 0.9 } },
+          0.9,
+          0.6,
+        ),
+        scoreRecord(paid.key, {
+          frontend: { score: 85, tier: "S", confidence: 0.85 },
+        }, 0.7),
       ],
     };
 
@@ -252,18 +277,150 @@ describe("bestValueByUseCase", () => {
     const frontend = picks.find((pick) => pick.useCase === "frontend");
     const agentic = picks.find((pick) => pick.useCase === "agentic-coding");
 
-    expect(frontend?.pick).toMatchObject({
-      model: { key: b.key },
+    expect(frontend?.groups.map((group) => group.label)).toEqual([
+      "Free now",
+      "Included in Go",
+      "Pay as you go",
+    ]);
+    expect(frontend?.groups[0].pick).toMatchObject({
+      model: { key: freeHigh.key },
+      score: 80,
+      tier: "A",
+      confidence: 0.8,
+      agenticCost: 0.4,
+      costBasis: "list",
+    });
+    expect(frontend?.groups[1].pick).toMatchObject({
+      model: { key: go.key },
       score: 90,
       tier: "S",
       confidence: 0.9,
-      agenticCost: 0.5,
+      agenticCost: 0.6,
+      costBasis: "go-effective",
     });
-    expect(agentic?.pick).toBeNull();
+    expect(frontend?.groups[2].pick).toMatchObject({
+      model: { key: paid.key },
+      score: 85,
+      tier: "S",
+      confidence: 0.85,
+      agenticCost: 0.7,
+      costBasis: "list",
+    });
+    expect(agentic?.groups.every((group) => group.pick === null)).toBe(true);
+  });
+
+  it("keeps free, Go, and pay-as-you-go candidates separate and live-only", () => {
+    const free = makeModel({ id: "free", free: "trial" });
+    const go = makeModel({
+      id: "go",
+      free: "subscription-included",
+      provider: "opencode-go",
+    });
+    const paid = makeModel({ id: "paid", free: "paid" });
+    const deprecated = makeModel({
+      id: "deprecated",
+      free: "paid",
+      availability: "deprecated",
+    });
+    const unlisted = makeModel({
+      id: "unlisted",
+      free: "subscription-included",
+      provider: "opencode-go",
+      availability: "unlisted",
+    });
+    const snapshot = makeSnapshot([free, go, paid, deprecated, unlisted]);
+    const scores: ScoresFile = {
+      schemaVersion: 1,
+      generatedAt: NOW,
+      scores: [
+        scoreRecord(free.key, {
+          frontend: { score: 70, tier: "B", confidence: 0.7 },
+        }),
+        scoreRecord(go.key, {
+          frontend: { score: 80, tier: "A", confidence: 0.8 },
+        }),
+        scoreRecord(paid.key, {
+          frontend: { score: 90, tier: "S", confidence: 0.9 },
+        }),
+        scoreRecord(deprecated.key, {
+          frontend: { score: 100, tier: "S", confidence: 1 },
+        }),
+        scoreRecord(unlisted.key, {
+          frontend: { score: 100, tier: "S", confidence: 1 },
+        }),
+      ],
+    };
+
+    const frontend = bestValueByUseCase(snapshot, scores).find(
+      (pick) => pick.useCase === "frontend",
+    );
+
+    expect(frontend?.groups.map((group) => group.pick?.model.key)).toEqual([
+      free.key,
+      go.key,
+      paid.key,
+    ]);
+  });
+
+  it("includes limited-time and Go free listings in the free group", () => {
+    const limited = makeModel({ id: "limited", free: "limited-time" });
+    const goFree = makeModel({
+      id: "go-free",
+      free: "limited-time",
+      provider: "opencode-go",
+    });
+    const snapshot = makeSnapshot([limited, goFree]);
+    const scores: ScoresFile = {
+      schemaVersion: 1,
+      generatedAt: NOW,
+      scores: [
+        scoreRecord(limited.key, {
+          frontend: { score: 60, tier: "B", confidence: 0.6 },
+        }),
+        scoreRecord(goFree.key, {
+          frontend: { score: 75, tier: "A", confidence: 0.7 },
+        }),
+      ],
+    };
+
+    const free = bestValueByUseCase(snapshot, scores).find(
+      (pick) => pick.useCase === "frontend",
+    )?.groups[0];
+
+    expect(free?.pick?.model.key).toBe(goFree.key);
+  });
+
+  it("falls back to list cost when a Go pick has no effective cost", () => {
+    const go = makeModel({
+      id: "go",
+      free: "subscription-included",
+      provider: "opencode-go",
+    });
+    const snapshot = makeSnapshot([go]);
+    const scores: ScoresFile = {
+      schemaVersion: 1,
+      generatedAt: NOW,
+      scores: [
+        scoreRecord(
+          go.key,
+          { frontend: { score: 80, tier: "A", confidence: 0.8 } },
+          0.9,
+        ),
+      ],
+    };
+
+    const pick = bestValueByUseCase(snapshot, scores).find(
+      (item) => item.useCase === "frontend",
+    )?.groups[1].pick;
+
+    expect(pick).toMatchObject({
+      agenticCost: 0.9,
+      costBasis: "list",
+    });
   });
 
   it("ignores unrated scores and unknown models", () => {
-    const a = makeModel({ id: "a" });
+    const a = makeModel({ id: "a", free: "paid" });
     const snapshot = makeSnapshot([a]);
     const scores: ScoresFile = {
       schemaVersion: 1,
@@ -279,9 +436,9 @@ describe("bestValueByUseCase", () => {
     };
 
     expect(
-      bestValueByUseCase(snapshot, scores).find(
-        (pick) => pick.useCase === "frontend",
-      )?.pick,
-    ).toBeNull();
+      bestValueByUseCase(snapshot, scores)
+        .find((pick) => pick.useCase === "frontend")
+        ?.groups.every((group) => group.pick === null),
+    ).toBe(true);
   });
 });
