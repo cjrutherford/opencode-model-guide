@@ -141,8 +141,9 @@ export const COST_PROFILES = {
 export type CostProfileId = keyof typeof COST_PROFILES;
 
 export const USE_CASE_WEIGHTS = {
-  "agentic-coding": { "swe-bench-verified": 0.45, "terminal-bench": 0.2, "lmarena-agent": 0.2, "aider-polyglot": 0.15 },
-  "everyday-edits": { "swe-bench-verified": 0.2, "lmarena-webdev": 0.25, "lmarena-text": 0.15, "aider-polyglot": 0.4 },
+  // Post-v1 calibration (S12): AA Coding Index added; see S12-agentic-coverage.md.
+  "agentic-coding": { "swe-bench-verified": 0.3, "terminal-bench": 0.1, "lmarena-agent": 0.2, "aider-polyglot": 0.1, "artificial-analysis": 0.3 },
+  "everyday-edits": { "swe-bench-verified": 0.15, "lmarena-webdev": 0.25, "lmarena-text": 0.15, "aider-polyglot": 0.25, "artificial-analysis": 0.2 },
   "frontend": { "lmarena-webdev": 0.6, "lmarena-text": 0.2, "aider-polyglot": 0.2 },
   "long-context": { "swe-bench-verified": 0.3, "lmarena-text": 0.3, "lmarena-document": 0.4 },
 } as const;

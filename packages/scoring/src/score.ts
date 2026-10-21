@@ -165,8 +165,7 @@ function useCaseScores(
     >;
     let availableWeight = 0;
     let weighted = 0;
-    let oldestMs = Number.POSITIVE_INFINITY;
-    let invalidDate = false;
+    let confidence = 0;
 
     for (const [benchmark, weight] of Object.entries(weights) as Array<
       [BenchmarkId, number]
@@ -177,12 +176,14 @@ function useCaseScores(
       availableWeight += weight;
       weighted += score.percentile * weight;
 
+      // Each benchmark's freshness affects only its own contribution. A stale
+      // benchmark lowers confidence, but it does not veto fresh evidence in the
+      // same use case. Invalid dates are treated as fully stale.
       const parsed = Date.parse(score.date);
-      if (Number.isFinite(parsed)) {
-        oldestMs = Math.min(oldestMs, parsed);
-      } else {
-        invalidDate = true;
-      }
+      const ageDays = Number.isFinite(parsed)
+        ? Math.max(0, (nowMs - parsed) / DAY_MS)
+        : Number.POSITIVE_INFINITY;
+      confidence += weight * freshnessFor(ageDays);
     }
 
     if (availableWeight === 0) {
@@ -191,29 +192,25 @@ function useCaseScores(
     }
 
     const rawScore = weighted / availableWeight;
-    const ageDays =
-      invalidDate || oldestMs === Number.POSITIVE_INFINITY
-        ? Number.POSITIVE_INFINITY
-        : Math.max(0, (nowMs - oldestMs) / DAY_MS);
-    const confidence = clamp01(availableWeight * freshnessFor(ageDays));
+    const normalizedConfidence = clamp01(confidence);
 
     if (useCase === "long-context" && model.limits.context < LONG_CONTEXT_MIN) {
       useCases[useCase] = {
         score: null,
         tier: "unrated",
-        confidence,
+        confidence: normalizedConfidence,
       };
       continue;
     }
 
     if (
       availableWeight < MIN_RATED_COVERAGE ||
-      confidence < MIN_RATED_CONFIDENCE
+      normalizedConfidence < MIN_RATED_CONFIDENCE
     ) {
       useCases[useCase] = {
         score: rawScore,
         tier: "unrated",
-        confidence,
+        confidence: normalizedConfidence,
       };
       continue;
     }
@@ -221,7 +218,7 @@ function useCaseScores(
     useCases[useCase] = {
       score: rawScore,
       tier: tierFor(rawScore),
-      confidence,
+      confidence: normalizedConfidence,
     };
   }
 

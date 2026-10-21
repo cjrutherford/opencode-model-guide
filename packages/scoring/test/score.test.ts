@@ -162,10 +162,10 @@ describe("scoreModels", () => {
     const useCase = scoreFor(scores, target.key).useCases["agentic-coding"]!;
     expect(useCase.score).toBe(50);
     expect(useCase.tier).toBe("unrated");
-    expect(useCase.confidence).toBeCloseTo(0.45, 10);
+    expect(useCase.confidence).toBeCloseTo(0.3, 10);
   });
 
-  it("gives full coverage confidence when all four agentic benchmarks exist", () => {
+  it("gives full coverage confidence when all five agentic benchmarks exist", () => {
     const target = makeModel({ id: "all-agentic" });
     const results = (
       [
@@ -173,6 +173,7 @@ describe("scoreModels", () => {
         "terminal-bench",
         "lmarena-agent",
         "aider-polyglot",
+        "artificial-analysis",
       ] as BenchmarkId[]
     ).map((benchmark) => makeBenchmark(target.key, benchmark, 100));
 
@@ -203,6 +204,7 @@ describe("scoreModels", () => {
         "terminal-bench",
         "lmarena-agent",
         "aider-polyglot",
+        "artificial-analysis",
       ] as BenchmarkId[]
     ).map((benchmark) => makeBenchmark(consoleModel.key, benchmark, 100));
 
@@ -263,6 +265,7 @@ describe("scoreModels", () => {
         "terminal-bench",
         "lmarena-agent",
         "aider-polyglot",
+        "artificial-analysis",
       ] as BenchmarkId[]
     ).map((benchmark) => makeBenchmark(target.key, benchmark, 100, staleDate));
 
@@ -278,6 +281,49 @@ describe("scoreModels", () => {
     expect(useCase.score).toBe(50);
     expect(useCase.tier).toBe("unrated");
     expect(useCase.confidence).toBeCloseTo(0.2, 10);
+  });
+
+  it("does not let a stale benchmark veto fresh evidence", () => {
+    const target = makeModel({ id: "mixed-age" });
+    const staleDate = new Date(
+      Date.parse(NOW) - 200 * 86_400_000,
+    ).toISOString();
+
+    const useCase = scoreFor(
+      scoreModels({
+        snapshot: makeSnapshot([target]),
+        benchmarks: makeBenchmarks([
+          makeBenchmark(target.key, "swe-bench-verified", 100, staleDate),
+          makeBenchmark(target.key, "lmarena-agent", 100),
+          makeBenchmark(target.key, "artificial-analysis", 100),
+        ]),
+        now: NOW,
+      }),
+      target.key,
+    ).useCases["agentic-coding"]!;
+
+    // SWE 0.30 stale (0.06) + LMArena agent 0.20 fresh (0.20) + AA 0.30 fresh (0.30).
+    expect(useCase.score).toBe(50);
+    expect(useCase.tier).toBe("B");
+    expect(useCase.confidence).toBeCloseTo(0.56, 10);
+  });
+
+  it("keeps AA-only evidence below the coverage gate", () => {
+    const target = makeModel({ id: "aa-only" });
+    const useCase = scoreFor(
+      scoreModels({
+        snapshot: makeSnapshot([target]),
+        benchmarks: makeBenchmarks([
+          makeBenchmark(target.key, "artificial-analysis", 100),
+        ]),
+        now: NOW,
+      }),
+      target.key,
+    ).useCases["agentic-coding"]!;
+
+    expect(useCase.score).toBe(50);
+    expect(useCase.tier).toBe("unrated");
+    expect(useCase.confidence).toBeCloseTo(0.3, 10);
   });
 
   it("sets cost to zero for free models", () => {
