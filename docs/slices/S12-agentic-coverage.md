@@ -1,7 +1,8 @@
 # S12 — Agentic coverage calibration
 
-> **Status:** in-progress · **Depends on:** S06, S11 · **Effort:** ~0.5 day
+> **Status:** done · **Depends on:** S06, S11 · **Effort:** ~0.5 day
 > **Owner:** CJ Rutherford · **Branch:** `slice/S12-agentic-coverage`
+> **Merged:** `766803a` via [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14)
 >
 > Read the [design](../plans/2026-10-19-opencode-model-guide-design.md) §9 and the
 > [methodology page](../../apps/web/src/pages/methodology.astro) first.
