@@ -35,7 +35,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `done` | CJ Rutherford | `slice/S10-cicd-pages-ntfy` | [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) | Pages live; daily ingest; 267 tests; ntfy state |
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `done` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Merged `0283123`; live Lighthouse 100/100/100/100; 280 tests; v1 complete |
 | S12 | [Agentic coverage calibration](./S12-agentic-coverage.md) | S06, S11 | `done` | CJ Rutherford | `slice/S12-agentic-coverage` | [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14) | Merged `766803a`; agentic 41, everyday 57; 283 tests; post-v1 methodology 1.1 |
-| S13 | [Access-level top picks](./S13-access-level-top-picks.md) | S08, S12 | `in-progress` | CJ Rutherford | `slice/S13-access-picks` | — | Break each use-case pick into Free now, Included in Go, and Pay as you go |
+| S13 | [Access-level top picks](./S13-access-level-top-picks.md) | S08, S12 | `review` | CJ Rutherford | `slice/S13-access-picks` | [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) | Three access lanes per use case; 286 tests; 3,073 links, 0 broken |
 
 ## Critical path
 
@@ -147,6 +147,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S13 | PR [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15). Home top picks now split each use case into Free now, Included in Go, and Pay as you go; 286 tests; typecheck, data validation, build, and 3,073-link check pass. |
 | 2026-10-20 | S13 | Claimed; branch `slice/S13-access-picks`. Home top picks will show one rated model per use case for Free now, Included in Go, and Pay as you go; unrated access lanes stay explicit. |
 | 2026-10-20 | S12 | Merged via PR [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14) (`766803a`). Agentic 0 → 41 rated; everyday 0 → 57; frontend 95 → 97; long-context 23 → 36; 283 tests; typecheck, data validation, build, and 3,068-link check pass. |
 | 2026-10-20 | S12 | Claimed; branch `slice/S12-agentic-coverage`. Root cause: oldest-date confidence capped agentic at 0.16. Calibrating AA Coding Index into agentic/everyday and switching to per-benchmark freshness. |
