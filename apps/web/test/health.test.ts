@@ -53,7 +53,7 @@ describe("buildHealth", () => {
     expect(health.counts.unmatchedBenchmarks).toBe(638);
     expect(health.counts.unmatchedNames).toBe(602);
     expect(health.counts.scoreRecords).toBe(164);
-    expect(health.counts.ratedModels).toBe(97);
+    expect(health.counts.ratedModels).toBe(100);
     expect(health.counts.conflicts).toBe(8);
     expect(health.sources).toHaveLength(10);
     expect(health.sources.find((source) => source.id === "terminal-bench")).toMatchObject({
@@ -71,8 +71,20 @@ describe("buildHealth", () => {
       field: expect.any(String),
       resolution: expect.stringMatching(/preferred|unresolved/),
     });
+    expect(health.useCases.find((row) => row.useCase === "agentic-coding")).toMatchObject({
+      rated: 41,
+      total: 164,
+    });
+    expect(health.useCases.find((row) => row.useCase === "everyday-edits")).toMatchObject({
+      rated: 57,
+      total: 164,
+    });
     expect(health.useCases.find((row) => row.useCase === "frontend")).toMatchObject({
-      rated: 95,
+      rated: 97,
+      total: 164,
+    });
+    expect(health.useCases.find((row) => row.useCase === "long-context")).toMatchObject({
+      rated: 36,
       total: 164,
     });
   });

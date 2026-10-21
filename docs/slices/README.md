@@ -34,6 +34,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S09 | [Changes, methodology, health, RSS](./S09-changes-methodology-health-rss.md) | S07, S04, S05, S06 | `done` | CJ Rutherford | `slice/S09-changes-methodology-health-rss` | [#10](https://github.com/cjrutherford/opencode-model-guide/pull/10) | 169 pages; 247 tests; feed, health, methodology, changes |
 | S10 | [CI/CD, Pages, ntfy](./S10-cicd-pages-ntfy.md) | S02–S06, S08, S09 | `done` | CJ Rutherford | `slice/S10-cicd-pages-ntfy` | [#11](https://github.com/cjrutherford/opencode-model-guide/pull/11) | Pages live; daily ingest; 267 tests; ntfy state |
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `done` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Merged `0283123`; live Lighthouse 100/100/100/100; 280 tests; v1 complete |
+| S12 | [Agentic coverage calibration](./S12-agentic-coverage.md) | S06, S11 | `in-progress` | CJ Rutherford | `slice/S12-agentic-coverage` | — | Post-v1 methodology fix: AA Coding Index in agentic/everyday; per-benchmark freshness |
 
 ## Critical path
 
@@ -145,6 +146,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S12 | Claimed; branch `slice/S12-agentic-coverage`. Root cause: oldest-date confidence capped agentic at 0.16. Calibrating AA Coding Index into agentic/everyday and switching to per-benchmark freshness. |
 | 2026-10-20 | S11 | Merged via PR [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) (`0283123`); deploy run 39517351496 succeeded. Live `/`, `/models`, `/feed.xml`, `/health`, `/methodology`, and detail return 200; live Lighthouse 100/100/100/100 on home and models. v1 complete. |
 | 2026-10-20 | S11 | Implementation complete; 280 tests; typecheck, data validation, default and production builds, link check, keyboard/360 px, and Lighthouse pass. PR [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13). |
 | 2026-10-20 | — | Fixed missing benchmark evidence for Go/Console twins and the Beam alias; PR [#12](https://github.com/cjrutherford/opencode-model-guide/pull/12) merged (`80ca7ae`). Rated models 78 → 96. |

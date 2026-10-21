@@ -65,7 +65,7 @@ weekly or irregular cadence, so the committed result date is shown with every sc
 | SWE-bench | `https://www.swebench.com/` | Verified and Multilingual resolved %, instance cost, harness, date | High for agentic coding; compare `mini-SWE-agent` rows only | Optional adapter; failure records `failed` and other sources continue |
 | LMArena | `https://lmarena.ai/leaderboard`, dataset `lmarena-ai/leaderboard-dataset` | text, webdev, agent, document Elo/score | High for human preference | Optional; paginated per config, partial errors recorded, other configs continue |
 | Aider polyglot | [Aider leaderboard YAML](https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml) | pass rate, date, model name | Medium; a single harness | Optional; latest row per model, failure recorded |
-| Artificial Analysis | `https://artificialanalysis.ai/api/v2/language/models/free` | coding, intelligence, and agentic indices; tier; version | High, but free API key required | Optional; no key → `skipped`; HTTP/quota errors → `failed`; confidence is lowered |
+| Artificial Analysis | `https://artificialanalysis.ai/api/v2/language/models/free` | coding, intelligence, and agentic indices; tier; version | High, but free API key required | Optional; no key → `skipped`; HTTP/quota errors → `failed`; agentic/everyday confidence is lowered |
 | Terminal-Bench | `https://www.tbench.ai/leaderboard` | terminal-agent score | Medium; no stable machine-readable table in v1 | Listed but `skipped`, with a reason, until a stable adapter exists |
 
 If **every** benchmark adapter returns no rows, `pnpm score` fails and the workflow stops. If one or
@@ -97,9 +97,14 @@ not merged back automatically; the source status and date make the gap visible.
 
 ### Artificial Analysis
 
-- Optional. Requires `AA_API_KEY`; without it the source is `skipped` and confidence is lower.
+- Optional. Requires `AA_API_KEY`; without it the source is `skipped` and agentic/everyday confidence
+  is lower. Do not lower the confidence gate to compensate.
 - The free-tier endpoint is fetched once per run (with pagination) and the derived coding index is
   committed into `data/benchmarks.json`. Do not republish the full API payload.
+- The **AA Coding Index** is part of the agentic-coding and everyday-edits composites. The AA Agentic
+  and Intelligence indices are stored in `meta` and remain supplemental. Do not add both the coding
+  and agentic indices to one composite without a new calibration note; that would double-count the
+  same publisher.
 - Attribution is required. Check the current Artificial Analysis terms before adding fields or
   increasing request volume.
 - `429`/quota errors are recorded as failed for the run; the next daily run retries.

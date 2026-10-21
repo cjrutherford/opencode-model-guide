@@ -53,6 +53,8 @@ The full inventory — URLs, fields, cadence, authority, failure policy, and leg
 - OpenCode’s live Console and Go model endpoints for availability.
 - OpenCode Console and Go docs for free terms, privacy, and subscription limits.
 - SWE-bench, LMArena, Aider polyglot, and optional Artificial Analysis for quality.
+- The Artificial Analysis Coding Index contributes to the agentic and everyday composites; its
+  agentic and intelligence indices remain supplemental.
 - Terminal-Bench is listed but skipped in v1 because it has no stable machine-readable leaderboard.
 
 ## Local development
@@ -105,8 +107,9 @@ setup](docs/setup-secrets.md) for generation, verification, and rotation.
 | `pnpm tsx scripts/check-links.ts` | Check every internal link in `apps/web/dist`. |
 
 `pnpm notify` skips sending when `NTFY_TOPIC` is missing; the site can still build and deploy.
-`AA_API_KEY` is optional. If it is absent, Artificial Analysis is marked skipped and confidence is
-lower.
+`AA_API_KEY` is optional. If it is absent, Artificial Analysis is marked skipped, its rows are
+missing, and agentic/everyday confidence is lower. The affected models stay unrated rather than
+receiving substitute scores.
 
 The full quality gate:
 

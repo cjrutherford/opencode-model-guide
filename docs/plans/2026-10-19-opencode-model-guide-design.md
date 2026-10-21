@@ -429,18 +429,22 @@ docs is used as a cross-check.
 
 Weights are versioned in `packages/shared/src/constants.ts`.
 
-| Use case | SWE-bench | Terminal-Bench | LMArena agent | LMArena webdev | LMArena text | LMArena document | Aider |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Agentic coding | 0.45 | 0.20 | 0.20 | — | — | — | 0.15 |
-| Everyday edits | 0.20 | — | — | 0.25 | 0.15 | — | 0.40 |
-| Frontend | — | — | — | 0.60 | 0.20 | — | 0.20 |
-| Long context | 0.30 | — | — | — | 0.30 | 0.40 | — |
+| Use case | SWE-bench | Terminal-Bench | LMArena agent | LMArena webdev | LMArena text | LMArena document | Aider | AA Coding |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Agentic coding | 0.30 | 0.10 | 0.20 | — | — | — | 0.10 | 0.30 |
+| Everyday edits | 0.15 | — | — | 0.25 | 0.15 | — | 0.25 | 0.20 |
+| Frontend | — | — | — | 0.60 | 0.20 | — | 0.20 | — |
+| Long context | 0.30 | — | — | — | 0.30 | 0.40 | — | — |
 
 Long-context ranking also requires `limits.context >= 200_000`. Context is a gate, not a score.
 
-Artificial Analysis coding, agentic, and intelligence indices are **supplemental in v1**: ingested
-and displayed on model pages when `AA_API_KEY` is present, but not part of the composite until the
-weights are calibrated. This keeps the composite reproducible when the optional key is absent.
+**Post-v1 calibration (S12, 2026-10-20):** the Artificial Analysis Coding Index is now part of the
+agentic-coding and everyday-edits composites. The AA Agentic and Intelligence indices remain
+supplemental. This replaced the v1 weights above after the original composite could not rate any
+agentic model: every SWE-bench/Aider row was over 180 days old, and confidence used the oldest date.
+
+The AA key remains optional. Without it, the AA rows are absent and agentic/everyday confidence is
+lower; the affected models stay unrated rather than receiving substitute scores.
 
 ### Normalization
 
@@ -449,8 +453,9 @@ weights are calibrated. This keeps the composite reproducible when the optional 
 - Do not mix harnesses. SWE-bench uses `mini-SWE-agent` only.
 - A use-case score is the weighted average of available percentiles, renormalized by the sum of
   available weights.
-- Confidence = `availableWeight * freshness`, where freshness is 1.0 for ≤ 30 days, 0.8 for ≤ 90,
-  0.5 for ≤ 180, and 0.2 otherwise. Clamp to `[0, 1]`.
+- Confidence = `Σ(weight × freshness(benchmark date))`, where freshness is 1.0 for ≤ 30 days,
+  0.8 for ≤ 90, 0.5 for ≤ 180, and 0.2 otherwise. Clamp to `[0, 1]`. Each benchmark's freshness
+  affects only its own contribution; a stale result does not veto fresh evidence.
 - If available weight < 0.5 or confidence < 0.3, tier is `unrated` and the UI shows "insufficient data".
 
 ### Tiers

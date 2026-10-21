@@ -204,3 +204,5 @@ real ntfy delivery remains the only owner action in the launch checklist.
   availability, and costs remain per listing.
 - Agentic and everyday-edit tiers are still often withheld because SWE-bench, Aider, and
   Terminal-Bench evidence is old or missing. That is a data-coverage limitation, not a rendering bug.
+  S12 added the AA Coding Index and per-benchmark freshness; the remaining gaps are still data
+  limitations, not rendering bugs.

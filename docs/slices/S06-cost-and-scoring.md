@@ -1,5 +1,8 @@
 # S06 — Cost model and scoring
 
+> **Post-v1 update:** S12 recalibrated the agentic/everyday weights and changed confidence to
+> per-benchmark freshness. See [S12](./S12-agentic-coverage.md) for the current values.
+
 > **Status:** todo · **Depends on:** S01, S05 · **Blocks:** S08, S09 · **Effort:** ~2 days
 > **Owner:** — · **Branch:** `slice/S06-cost-and-scoring`
 >
@@ -212,7 +215,8 @@ console.log(`scored ${scores.length} models`);
 ### 6. Write scoring tests
 
 - A model with only SWE-bench gets an `agentic-coding` score but `unrated` confidence if coverage < 0.5.
-- A model with all four agentic benchmarks gets confidence near freshness.
+- A model with all agentic benchmarks gets confidence near freshness. (After S12 this is five
+  benchmarks, including the AA Coding Index.)
 - A model with a 100k context gets `long-context` tier `unrated`.
 - A model with a 300k context and strong document/text benchmarks gets a tier.
 - Stale benchmark dates lower confidence.

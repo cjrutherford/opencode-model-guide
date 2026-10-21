@@ -365,11 +365,13 @@ cost =
 
 rawScore = Σ(weight × percentile) / Σ(available weight)
 
-confidence = Σ(available weight) × freshnessFactor`}</code></pre>
+confidence = Σ(weight × freshness(benchmark date))`}</code></pre>
             <p class="mt-3">
               A missing benchmark is not filled with a zero. It reduces the
-              available weight and therefore lowers confidence. The score is
-              still shown alongside that confidence; the tier is withheld when
+              available weight and therefore lowers confidence. Freshness is
+              applied to each benchmark separately, so a stale result lowers only
+              its own contribution and does not erase fresher evidence. The score
+              is still shown alongside that confidence; the tier is withheld when
               coverage or confidence is too thin.
             </p>
           </div>
@@ -398,7 +400,7 @@ confidence = Σ(available weight) × freshnessFactor`}</code></pre>
 
           <div class="overflow-x-auto border border-line">
             <table class="data-table">
-              <caption>Freshness factors applied to the oldest benchmark date in a use case.</caption>
+              <caption>Freshness factors applied to each benchmark's own date.</caption>
               <thead>
                 <tr>
                   <th scope="col">Benchmark age</th>
@@ -422,9 +424,12 @@ confidence = Σ(available weight) × freshnessFactor`}</code></pre>
             </h3>
             <p class="mt-2">
               A tier is withheld when less than half of the use-case weight is
-              available or when confidence is below 30%. Long-context scoring also
-              requires a published context window of at least 200,000 tokens.
-              Missing scores are shown as “Insufficient data,” never as a zero.
+              available or when confidence is below 30%. Confidence is the sum of
+              each available benchmark's weight times its own freshness factor, so
+              fresh evidence is not vetoed by an unrelated stale result.
+              Long-context scoring also requires a published context window of at
+              least 200,000 tokens. Missing scores are shown as “Insufficient
+              data,” never as a zero.
             </p>
             <div class="mt-3 grid gap-3 sm:grid-cols-3">
               <div class="border border-line p-3">
@@ -532,10 +537,13 @@ confidence = Σ(available weight) × freshnessFactor`}</code></pre>
             </table>
           </div>
           <p class="text-xs">
-            Artificial Analysis is used as a supplemental signal and is
-            attributed here and on model pages. It is not a substitute for the
-            benchmark-specific sources. No private evaluations or local telemetry
-            are collected.
+            The Artificial Analysis Coding Index is one input to the agentic and
+            everyday composites; its agentic and intelligence indices remain
+            supplemental. It is attributed here and on model pages and is not a
+            substitute for the benchmark-specific sources. When the optional key
+            is absent, those rows are missing and the affected scores lose
+            confidence rather than being filled in. No private evaluations or
+            local telemetry are collected.
           </p>
           <dl class="grid gap-3 border-t border-line pt-4 text-xs sm:grid-cols-3">
             <div>

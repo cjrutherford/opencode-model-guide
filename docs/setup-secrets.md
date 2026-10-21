@@ -166,8 +166,9 @@ The adapter in `packages/scoring/src/benchmarks/aa.ts`:
 - stores intelligence, agentic, coding, and index-version values in `meta`;
 - returns `skipped` when `AA_API_KEY` is absent, and never fails the build.
 
-If the key is absent, the site still builds. Artificial Analysis rows are missing, the confidence
-on affected use cases is lower, and `/health` shows the source as skipped.
+If the key is absent, the site still builds. Artificial Analysis rows are missing, agentic and
+everyday confidence is lower, and `/health` shows the source as skipped. Models that no longer clear
+the coverage or confidence gate stay unrated; do not lower the gate to hide the missing source.
 
 ### 4.5 Rate limits and attribution
 

@@ -43,16 +43,18 @@ export const COST_PROFILE_IDS = [
 
 export const USE_CASE_WEIGHTS = {
   "agentic-coding": {
-    "swe-bench-verified": 0.45,
-    "terminal-bench": 0.2,
+    "swe-bench-verified": 0.3,
+    "terminal-bench": 0.1,
     "lmarena-agent": 0.2,
-    "aider-polyglot": 0.15,
+    "aider-polyglot": 0.1,
+    "artificial-analysis": 0.3,
   },
   "everyday-edits": {
-    "swe-bench-verified": 0.2,
+    "swe-bench-verified": 0.15,
     "lmarena-webdev": 0.25,
     "lmarena-text": 0.15,
-    "aider-polyglot": 0.4,
+    "aider-polyglot": 0.25,
+    "artificial-analysis": 0.2,
   },
   frontend: {
     "lmarena-webdev": 0.6,

@@ -51,6 +51,23 @@ describe("use-case weights", () => {
       }
     }
   });
+
+  it("locks the post-v1 calibration weights", () => {
+    expect(USE_CASE_WEIGHTS["agentic-coding"]).toEqual({
+      "swe-bench-verified": 0.3,
+      "terminal-bench": 0.1,
+      "lmarena-agent": 0.2,
+      "aider-polyglot": 0.1,
+      "artificial-analysis": 0.3,
+    });
+    expect(USE_CASE_WEIGHTS["everyday-edits"]).toEqual({
+      "swe-bench-verified": 0.15,
+      "lmarena-webdev": 0.25,
+      "lmarena-text": 0.15,
+      "aider-polyglot": 0.25,
+      "artificial-analysis": 0.2,
+    });
+  });
 });
 
 describe("tiers and freshness", () => {

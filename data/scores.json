@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T23:55:00.800Z",
+  "generatedAt": "2026-10-21T00:50:35.891Z",
   "scores": [
     {
       "modelKey": "opencode-go/beam-free",
@@ -154,14 +154,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 35.714285714285715,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 42.76029055690073,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 42.38999397227244,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 44.07920502106298,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 40.074341973076145,
@@ -295,14 +295,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 54.761904761904766,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 59.02340597255852,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 72.15189873417721,
+          "score": 67.57968008772556,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 72.15189873417721,
@@ -349,14 +349,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 45.23809523809524,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 68.94269572235673,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 78.48101265822784,
+          "score": 81.26534601539964,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 78.48101265822784,
@@ -408,14 +408,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 28.57142857142857,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 53.63196125907991,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 72.67179023508137,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 71.89418784033674,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 72.92043399638335,
@@ -472,14 +472,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 23.809523809523807,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 44.100080710250204,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 40.378239903556356,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 46.1278661503935,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 43.37452280490255,
@@ -489,7 +489,7 @@
         "long-context": {
           "score": 36.50011728829463,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -712,14 +712,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 52.54237288135594,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 40.50632911392405,
+          "score": 45.85568189944933,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 40.50632911392405,
@@ -771,14 +771,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 52.38095238095239,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 66.71509281678773,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 81.96955997588908,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 80.0701021308187,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 83.7602973678923,
@@ -945,14 +945,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 4.761904761904762,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 32.41323648103309,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 51.10759493670885,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 51.02088250017878,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 47.995780590717295,
@@ -1097,14 +1097,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 32.20338983050847,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 13.856238698010849,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 19.97195574217672,
+          "tier": "D",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 14.722724532851114,
@@ -1156,14 +1156,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 2.380952380952381,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 28.410008071025022,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 37.6130198915009,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 40.32958388246952,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 39.42133815551537,
@@ -1173,7 +1173,7 @@
         "long-context": {
           "score": 24.067558057705842,
           "tier": "D",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -1330,14 +1330,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 9.523809523809524,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 27.199354317998385,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 57.142857142857146,
+          "score": 46.76582497405743,
           "tier": "unrated",
-          "confidence": 0.15
+          "confidence": 0.35
         },
         "frontend": {
           "score": 57.14285714285714,
@@ -1347,7 +1347,7 @@
         "long-context": {
           "score": 40.25334271639691,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -1427,14 +1427,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 50,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 64.74576271186442,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 86.72393007836045,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 82.67471044772053,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 88.19570022101668,
@@ -1713,17 +1713,17 @@
         "agentic-coding": {
           "score": 0,
           "tier": "unrated",
-          "confidence": 0.03
+          "confidence": 0.32
         },
         "everyday-edits": {
           "score": 0,
-          "tier": "unrated",
-          "confidence": 0.11000000000000001
+          "tier": "D",
+          "confidence": 0.4
         },
         "frontend": {
           "score": 0,
           "tier": "unrated",
-          "confidence": 0.08000000000000002
+          "confidence": 0.24000000000000002
         },
         "long-context": {
           "score": 0,
@@ -1770,14 +1770,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 83.33333333333333,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 88.75706214689265,
+          "tier": "A",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 83.17510548523205,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 86.24103077546543,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 82.0323488045007,
@@ -1787,7 +1787,7 @@
         "long-context": {
           "score": 89.32676518883416,
           "tier": "A",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -1829,14 +1829,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 95.23809523809523,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 98.0952380952381,
+          "tier": "S",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 96.43610608800482,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 97.62407072533654,
+          "tier": "S",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 96.35824794052641,
@@ -1846,7 +1846,7 @@
         "long-context": {
           "score": 96.66901243255921,
           "tier": "S",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -1893,14 +1893,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 44.44444444444444,
-          "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "score": 29.001883239171374,
+          "tier": "C",
+          "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 18.38122027995446,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 15.35783247004015,
+          "tier": "D",
+          "confidence": 0.6300000000000001
         },
         "frontend": {
           "score": 4.832228249949769,
@@ -1909,8 +1909,8 @@
         },
         "long-context": {
           "score": 19.85221674876847,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "D",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -2042,12 +2042,12 @@
         "agentic-coding": {
           "score": 100,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 62.778782399035556,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 59.395035344402416,
+          "tier": "B",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 42.52561784207353,
@@ -2056,8 +2056,8 @@
         },
         "long-context": {
           "score": 66.4039408866995,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "B",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -2101,12 +2101,12 @@
         "agentic-coding": {
           "score": 83.33333333333334,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 73.60357645167772,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 72.71905309879993,
+          "tier": "B",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 64.39119951778179,
@@ -2115,8 +2115,8 @@
         },
         "long-context": {
           "score": 89.38423645320196,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "A",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -2153,14 +2153,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 81.35593220338984,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 69.12296564195297,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 73.20062116243191,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 66.75708257986739,
@@ -2170,7 +2170,7 @@
         "long-context": {
           "score": 83.95496129486277,
           "tier": "A",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -2207,14 +2207,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 83.05084745762711,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 54.85232067510548,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 64.25182960261269,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 54.71167369901547,
@@ -2224,7 +2224,7 @@
         "long-context": {
           "score": 55.336617405582935,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -2266,14 +2266,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 80.95238095238095,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 87.8046811945117,
+          "tier": "A",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 91.09403254972872,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 91.52031548512988,
+          "tier": "S",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 90.26522001205544,
@@ -2283,7 +2283,7 @@
         "long-context": {
           "score": 97.9591836734694,
           "tier": "S",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -2369,24 +2369,24 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 35.41666666666667,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 23.870056497175142,
+          "tier": "D",
+          "confidence": 0.38
         },
         "everyday-edits": {
-          "score": 46.560846560846564,
-          "tier": "unrated",
-          "confidence": 0.15000000000000002
+          "score": 32.3392520850148,
+          "tier": "C",
+          "confidence": 0.43
         },
         "frontend": {
           "score": 39.08730158730158,
           "tier": "unrated",
-          "confidence": 0.08000000000000002
+          "confidence": 0.24000000000000002
         },
         "long-context": {
           "score": 12.698412698412698,
-          "tier": "unrated",
-          "confidence": 0.12
+          "tier": "D",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -2433,14 +2433,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 61.111111111111114,
-          "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "score": 45.80979284369115,
+          "tier": "C",
+          "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 34.64101533721787,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 31.774331416039207,
+          "tier": "C",
+          "confidence": 0.6300000000000001
         },
         "frontend": {
           "score": 18.068113321277878,
@@ -2449,8 +2449,8 @@
         },
         "long-context": {
           "score": 42.17569786535304,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "C",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -2487,14 +2487,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 55.93220338983051,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 56.2462326702833,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 56.14155624346569,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 54.79706650592726,
@@ -2504,7 +2504,7 @@
         "long-context": {
           "score": 70.56063804832277,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -2546,14 +2546,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 76.19047619047619,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 72.67958030669895,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 52.463833634719705,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 58.42221677342895,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 54.38517179023507,
@@ -2563,7 +2563,7 @@
         "long-context": {
           "score": 51.86488388458832,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -2639,14 +2639,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 28.8135593220339,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 51.25828812537673,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 43.776711857595785,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 56.11312035362668,
@@ -2759,14 +2759,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 35.714285714285715,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 42.76029055690073,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 42.38999397227244,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 44.07920502106298,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 40.074341973076145,
@@ -2961,14 +2961,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 91.66666666666667,
+          "score": 91.66666666666666,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 60.804701627486445,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 57.999068442106406,
+          "tier": "B",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 40.79766927868194,
@@ -2977,8 +2977,8 @@
         },
         "long-context": {
           "score": 50.73481116584564,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "B",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -3022,12 +3022,12 @@
         "agentic-coding": {
           "score": 50,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 49.03054048623669,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 48.94240780316729,
+          "tier": "C",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 43.33433795459112,
@@ -3036,8 +3036,8 @@
         },
         "long-context": {
           "score": 44.277504105090316,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "C",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -3079,14 +3079,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 21.428571428571427,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 45.69007263922518,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 49.93218806509945,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 53.90959430328663,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 44.68053044002411,
@@ -3096,7 +3096,7 @@
         "long-context": {
           "score": 46.446164672765654,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -3133,14 +3133,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 66.10169491525424,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 56.856540084388186,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 59.938258361343536,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 52.672292545710256,
@@ -3150,7 +3150,7 @@
         "long-context": {
           "score": 60.919540229885065,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -3182,14 +3182,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 22.033898305084744,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 27.13230861965039,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 25.432838514795172,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 26.527024311834435,
@@ -3226,14 +3226,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 64.40677966101694,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 56.9620253164557,
+          "score": 60.270805025149585,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 56.96202531645571,
@@ -3280,14 +3280,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 30.952380952380953,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 65.26230831315577,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 75.85141651597347,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 79.94614208409529,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 74.19630299377134,
@@ -3334,14 +3334,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 69.04761904761905,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 81.51735270379339,
+          "tier": "A",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 76.45418927064497,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 80.91296233862205,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 73.33232871207554,
@@ -3437,14 +3437,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 11.11111111111111,
-          "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "score": 14.87758945386064,
+          "tier": "D",
+          "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 16.788895586363942,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 17.66212714077979,
+          "tier": "D",
+          "confidence": 0.6300000000000001
         },
         "frontend": {
           "score": 15.616837452280489,
@@ -3453,8 +3453,8 @@
         },
         "long-context": {
           "score": 25.396825396825395,
-          "tier": "unrated",
-          "confidence": 0.12
+          "tier": "C",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -3486,14 +3486,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 16.101694915254235,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 28.51868595539481,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 24.379688942014617,
+          "tier": "D",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 27.87321679726742,
@@ -3575,12 +3575,12 @@
         "agentic-coding": {
           "score": 72.22222222222221,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 47.582211506262134,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 45.342210532083946,
+          "tier": "C",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 32.79083785412899,
@@ -3589,8 +3589,8 @@
         },
         "long-context": {
           "score": 59.92063492063492,
-          "tier": "unrated",
-          "confidence": 0.12
+          "tier": "B",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -3655,14 +3655,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 37.28813559322034,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 53.676913803496085,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 48.21398773340417,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 51.396423548322275,
@@ -3704,14 +3704,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 54.761904761904766,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 59.02340597255852,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 72.15189873417721,
+          "score": 67.57968008772556,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 72.15189873417721,
@@ -3753,14 +3753,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 45.23809523809524,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 68.94269572235673,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 78.48101265822784,
+          "score": 81.26534601539964,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 78.48101265822784,
@@ -3807,14 +3807,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 28.57142857142857,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 53.63196125907991,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 72.67179023508137,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 71.89418784033674,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 72.92043399638335,
@@ -3894,19 +3894,19 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 45.833333333333336,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 30.548829701372078,
+          "tier": "C",
+          "confidence": 0.38
         },
         "everyday-edits": {
-          "score": 60.2961859849425,
-          "tier": "unrated",
-          "confidence": 0.17000000000000004
+          "score": 43.407961768702336,
+          "tier": "C",
+          "confidence": 0.53
         },
         "frontend": {
           "score": 42.08860759493671,
-          "tier": "unrated",
-          "confidence": 0.16000000000000003
+          "tier": "C",
+          "confidence": 0.64
         },
         "long-context": {
           "score": 27.777777777777782,
@@ -3968,12 +3968,12 @@
         "agentic-coding": {
           "score": 0,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
           "score": 0,
           "tier": "unrated",
-          "confidence": 0.04000000000000001
+          "confidence": 0.03
         },
         "frontend": {
           "score": null,
@@ -4025,14 +4025,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 36.11111111111111,
-          "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "score": 29.91996233521657,
+          "tier": "C",
+          "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 20.09409952447927,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 19.99555582799522,
+          "tier": "D",
+          "confidence": 0.6300000000000001
         },
         "frontend": {
           "score": 11.010648985332526,
@@ -4041,8 +4041,8 @@
         },
         "long-context": {
           "score": 17.450738916256157,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "D",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -4071,12 +4071,12 @@
         "agentic-coding": {
           "score": 36.11111111111111,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 18.86232223784966,
+          "score": 16.70622362869198,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.28
         },
         "frontend": {
           "score": 5.063291139240507,
@@ -4202,12 +4202,12 @@
         "agentic-coding": {
           "score": 72.22222222222221,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 36.214921974415645,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 32.94153104279687,
+          "tier": "C",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 19.313843680932287,
@@ -4216,8 +4216,8 @@
         },
         "long-context": {
           "score": 25.476190476190474,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "C",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -4251,12 +4251,12 @@
         "agentic-coding": {
           "score": 72.22222222222221,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 35.61493983434911,
+          "score": 31.039029535864973,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.28
         },
         "frontend": {
           "score": 6.329113924050633,
@@ -4385,24 +4385,24 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 35.204081632653065,
-          "tier": "unrated",
-          "confidence": 0.06999999999999999
+          "score": 52.3506860371267,
+          "tier": "B",
+          "confidence": 0.52
         },
         "everyday-edits": {
-          "score": 20.716546112115733,
-          "tier": "unrated",
-          "confidence": 0.16000000000000003
+          "score": 31.038304615989283,
+          "tier": "C",
+          "confidence": 0.65
         },
         "frontend": {
           "score": 18.490054249547917,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "D",
+          "confidence": 0.8400000000000001
         },
         "long-context": {
           "score": 45.53131597466574,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -4429,14 +4429,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 41.52542372881356,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 15.18987341772152,
+          "score": 26.894562444873536,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 15.18987341772152,
@@ -4468,14 +4468,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 41.52542372881356,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 41.52542372881355,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -4560,14 +4560,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 33.33333333333333,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 57.06214689265536,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 49.13351416515973,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 57.049461420840935,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 44.991963029937715,
@@ -4577,7 +4577,7 @@
         "long-context": {
           "score": 77.22261318320432,
           "tier": "A",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -4652,14 +4652,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 23.809523809523807,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 44.100080710250204,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 40.378239903556356,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 46.1278661503935,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 43.37452280490255,
@@ -4669,7 +4669,7 @@
         "long-context": {
           "score": 36.50011728829463,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -4711,14 +4711,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 78.57142857142857,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 90.41162227602905,
+          "tier": "S",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 69.89150090415912,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 79.36269551802698,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 71.48884870403857,
@@ -4728,7 +4728,7 @@
         "long-context": {
           "score": 71.85080928923294,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -4770,14 +4770,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 38.095238095238095,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 50.831315577078286,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 50.09795057263411,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 53.17264501452443,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 50.2762708458911,
@@ -4787,7 +4787,7 @@
         "long-context": {
           "score": 62.46774571897725,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -4829,14 +4829,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 97.61904761904762,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 97.0137207425343,
+          "tier": "S",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 78.37552742616033,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 84.45374144794869,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 85.16174402250351,
@@ -4846,7 +4846,7 @@
         "long-context": {
           "score": 54.51559934318555,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -5015,14 +5015,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 79.66101694915254,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 57.022302591922845,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 64.5685407109994,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 58.268032951577254,
@@ -5032,7 +5032,7 @@
         "long-context": {
           "score": 43.44358433028384,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -5074,14 +5074,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 40.476190476190474,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 73.13962873284908,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 55.801687763713076,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 68.83954325490475,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 62.51758087201125,
@@ -5091,7 +5091,7 @@
         "long-context": {
           "score": 33.16912972085387,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -5239,14 +5239,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 11.904761904761903,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 34.253430185633576,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 45.56962025316456,
+          "score": 47.162030084149805,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 45.56962025316456,
@@ -5382,14 +5382,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 16.666666666666668,
+          "score": 16.666666666666664,
           "tier": "unrated",
-          "confidence": 0.12
+          "confidence": 0.08
         },
         "everyday-edits": {
-          "score": 35.185185185185176,
+          "score": 33.333333333333336,
           "tier": "unrated",
-          "confidence": 0.12000000000000002
+          "confidence": 0.08
         },
         "frontend": {
           "score": 50,
@@ -5423,12 +5423,12 @@
         "agentic-coding": {
           "score": 16.666666666666664,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
           "score": 16.666666666666664,
           "tier": "unrated",
-          "confidence": 0.04000000000000001
+          "confidence": 0.03
         },
         "frontend": {
           "score": null,
@@ -5485,14 +5485,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 55.55555555555556,
-          "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "score": 37.947269303201516,
+          "tier": "C",
+          "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 37.93784743151832,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 32.070303055070276,
+          "tier": "C",
+          "confidence": 0.6300000000000001
         },
         "frontend": {
           "score": 25.74844283705043,
@@ -5501,8 +5501,8 @@
         },
         "long-context": {
           "score": 35.993431855500816,
-          "tier": "unrated",
-          "confidence": 0.2
+          "tier": "C",
+          "confidence": 0.68
         }
       },
       "cost": {
@@ -5572,14 +5572,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 54.23728813559322,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 52.682338758288125,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 53.200655217389816,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 51.15531444645368,
@@ -5589,7 +5589,7 @@
         "long-context": {
           "score": 45.554773633591374,
           "tier": "C",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -5616,14 +5616,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 52.54237288135594,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 40.50632911392405,
+          "score": 45.85568189944933,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 40.50632911392405,
@@ -5670,14 +5670,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 52.38095238095239,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 66.71509281678773,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 81.96955997588908,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 80.0701021308187,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 83.7602973678923,
@@ -5742,14 +5742,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 1.694915254237288,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 1.694915254237288,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -5781,14 +5781,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 35.59322033898305,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 35.59322033898305,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -5820,14 +5820,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 27.11864406779661,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 27.11864406779661,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -5859,14 +5859,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 3.389830508474576,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 3.389830508474576,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -5964,14 +5964,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 16.101694915254235,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 16.101694915254235,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -6046,14 +6046,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 25.423728813559322,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 5.748945147679325,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 12.307206369639323,
+          "tier": "D",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 4.676511954992968,
@@ -6173,14 +6173,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 44.06779661016949,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 30.37974683544304,
+          "score": 36.46332451309924,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.45
         },
         "frontend": {
           "score": 30.37974683544304,
@@ -6348,14 +6348,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 91.66666666666667,
+          "score": 91.66666666666666,
           "tier": "unrated",
-          "confidence": 0.09000000000000001
+          "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 37.020293349407275,
-          "tier": "unrated",
-          "confidence": 0.12
+          "score": 32.05244122965642,
+          "tier": "C",
+          "confidence": 0.43000000000000005
         },
         "frontend": {
           "score": 10.684147076552138,
@@ -6364,8 +6364,8 @@
         },
         "long-context": {
           "score": 48.21428571428571,
-          "tier": "unrated",
-          "confidence": 0.12
+          "tier": "C",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -6430,14 +6430,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 32.20338983050847,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 13.856238698010849,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 19.97195574217672,
+          "tier": "D",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 14.722724532851114,
@@ -6489,14 +6489,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 2.380952380952381,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 28.410008071025022,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 37.6130198915009,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 40.32958388246952,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 39.42133815551537,
@@ -6506,7 +6506,7 @@
         "long-context": {
           "score": 24.067558057705842,
           "tier": "D",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -6664,14 +6664,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 7.142857142857142,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 49.636803874092,
+          "tier": "C",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 64.18022905364676,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 68.77551993406958,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 60.50833835643961,
@@ -6756,14 +6756,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 66.66666666666666,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 78.53107344632768,
+          "tier": "A",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 88.3137432188065,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 87.68938813457156,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 88.83363471971067,
@@ -6773,7 +6773,7 @@
         "long-context": {
           "score": 74.17311752287122,
           "tier": "B",
-          "confidence": 0.5599999999999999
+          "confidence": 0.6200000000000001
         }
       },
       "cost": {
@@ -6949,14 +6949,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 5.084745762711865,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 5.084745762711865,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -7021,14 +7021,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 6.779661016949152,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 6.779661016949152,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,
@@ -7136,14 +7136,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 33.89830508474576,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 36.82941531042797,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 35.852378568533894,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 37.211171388386575,
@@ -7256,14 +7256,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 50,
-          "tier": "unrated",
-          "confidence": 0.2
+          "score": 64.74576271186442,
+          "tier": "B",
+          "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 86.72393007836045,
-          "tier": "unrated",
-          "confidence": 0.4
+          "score": 82.67471044772053,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
           "score": 88.19570022101668,
@@ -7295,14 +7295,14 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": null,
+          "score": 11.864406779661017,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         },
         "everyday-edits": {
-          "score": null,
+          "score": 11.864406779661017,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "frontend": {
           "score": null,

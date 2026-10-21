@@ -175,9 +175,10 @@ export const COST_PROFILES = {
   "long-context": { label: "Long-context task", inputTokens: 400_000, cachedInputTokens: 250_000, outputTokens: 6_000 },
 } as const;
 
+// Post-v1 calibration (S12): AA Coding Index added; see docs/slices/S12-agentic-coverage.md.
 export const USE_CASE_WEIGHTS = {
-  "agentic-coding": { "swe-bench-verified": 0.45, "terminal-bench": 0.20, "lmarena-agent": 0.20, "aider-polyglot": 0.15 },
-  "everyday-edits": { "swe-bench-verified": 0.20, "lmarena-webdev": 0.25, "lmarena-text": 0.15, "aider-polyglot": 0.40 },
+  "agentic-coding": { "swe-bench-verified": 0.30, "terminal-bench": 0.10, "lmarena-agent": 0.20, "aider-polyglot": 0.10, "artificial-analysis": 0.30 },
+  "everyday-edits": { "swe-bench-verified": 0.15, "lmarena-webdev": 0.25, "lmarena-text": 0.15, "aider-polyglot": 0.25, "artificial-analysis": 0.20 },
   "frontend": { "lmarena-webdev": 0.60, "lmarena-text": 0.20, "aider-polyglot": 0.20 },
   "long-context": { "swe-bench-verified": 0.30, "lmarena-text": 0.30, "lmarena-document": 0.40 },
 } as const;
