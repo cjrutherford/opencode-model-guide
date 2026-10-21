@@ -36,6 +36,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `done` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Merged `0283123`; live Lighthouse 100/100/100/100; 280 tests; v1 complete |
 | S12 | [Agentic coverage calibration](./S12-agentic-coverage.md) | S06, S11 | `done` | CJ Rutherford | `slice/S12-agentic-coverage` | [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14) | Merged `766803a`; agentic 41, everyday 57; 283 tests; post-v1 methodology 1.1 |
 | S13 | [Access-level top picks](./S13-access-level-top-picks.md) | S08, S12 | `done` | CJ Rutherford | `slice/S13-access-picks` | [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) | Merged `b2855e9`; three access lanes per use case; 286 tests; 3,073 links, 0 broken |
+| S14 | [Free-model eval harness](./S14-free-eval-harness.md) | S13 | `todo` | CJ Rutherford | `slice/S14-free-eval-harness` | — | Design + slice drafted 2026-10-21; awaiting approval; official runs need `OPENCODE_API_KEY` |
 
 ## Critical path
 
@@ -48,6 +49,9 @@ S00 → S01 → S07 ───────────────↗
 The fastest path to a usable site is **S00 → S01 → S02 → S07 → S08**, with the home and model
 pages reading real catalog data. Notifications require S03/S04/S09/S10.
 
+Post-v1: **S13 → S14 → S15**. S14 is the experimental free-model eval harness. S15 is the next
+public-benchmark adapter; it must not merge eval results into the composite.
+
 ## Parallel groups
 
 | Group | Slices | Notes |
@@ -59,6 +63,8 @@ pages reading real catalog data. Notifications require S03/S04/S09/S10.
 | E | S08, S09 | Both consume S07; different page files |
 | F | S10 | Wiring only; wait for data + feed |
 | G | S11 | Final pass |
+| H | S14 | Post-v1 eval harness; needs `OPENCODE_API_KEY` for official runs |
+| I | S15 | Post-S14 public-benchmark adapter; keep separate from eval |
 
 ## File ownership matrix
 
@@ -87,8 +93,11 @@ minimal and note it in the PR.
 | `apps/web/src/layouts/**`, `components/shell/**`, `styles/**`, `pages/index.astro` | S07 | — |
 | `apps/web/src/pages/models/**`, `pages/compare.astro`, `components/ModelTable.tsx` | S08 | — |
 | `apps/web/src/pages/changes.astro`, `methodology.astro`, `health.astro`, `pages/feed.xml.ts`, `lib/feed.ts` | S09 | — |
-| `README.md`, `CONTRIBUTING.md`, `docs/sources.md`, `docs/launch-checklist.md` | S11 | — |
-| `docs/setup-secrets.md` | S10 | Owner setup; update when secrets change |
+| `packages/shared/src/evals.ts`, `packages/eval/**`, `data/evals.json` | S14 | Eval contracts, harness, corpus, generated runs |
+| `apps/web/src/pages/evals.astro`, `lib/evals.ts`, `components/Eval*` | S14 | Experimental public surface |
+| `.github/workflows/eval.yml` | S14 | Manual eval only; no schedule |
+| `README.md`, `CONTRIBUTING.md`, `docs/sources.md`, `docs/launch-checklist.md` | S11 | S14 adds the eval link and source note |
+| `docs/setup-secrets.md` | S10 | Owner setup; S14 adds `OPENCODE_API_KEY` |
 
 ## Schema freeze
 
@@ -103,6 +112,9 @@ with `ok === (status === "ok")`. A change requires:
 4. Approval from the slice owner most affected.
 
 Rationale: S02–S09 all depend on the same shapes. Silent changes create broken builds and bad data.
+
+S14 adds `packages/shared/src/evals.ts` and `data/evals.json` as a separate v1 contract. It does not
+alter the frozen snapshot/benchmark/score/event shapes or their `SCHEMA_VERSION`.
 
 ## How to claim a slice
 
@@ -135,11 +147,13 @@ Every slice must satisfy all of these before `done`:
 | ntfy server | `https://ntfy.sh` | S10 | decided |
 | `NTFY_TOPIC` secret | Random, unguessable; generated at setup | S10 | process decided |
 | Artificial Analysis key | Free-tier API key; optional; stored as `AA_API_KEY` | S05 | process decided |
+| OpenCode eval key | Dedicated low-budget key; proxy-only; stored as `OPENCODE_API_KEY` | S14 | process decided; key not yet created |
 | Daily run time | 13:00 UTC | S10 | decided |
 | Custom domain | None | S11 | decided |
 
-See [`docs/setup-secrets.md`](../setup-secrets.md) for how to obtain the Artificial Analysis key,
-generate the ntfy topic, set both as GitHub repository secrets, verify them, and rotate them.
+See [`docs/setup-secrets.md`](../setup-secrets.md) for how to obtain the Artificial Analysis and
+OpenCode eval keys, generate the ntfy topic, set them as GitHub repository secrets, verify them,
+and rotate them.
 
 ## Progress log
 
@@ -147,6 +161,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-21 | S14 | Design and slice drafted: free-only 10-model/12-task harness, disposable agent container, egress proxy, `/evals` + model badges, direct-patch second. Awaiting approval. |
 | 2026-10-20 | S13 | Deployed via run 39530467953; live home returns 200 and shows all three access lanes. Tag `v1.2.0`. |
 | 2026-10-20 | S13 | Merged via PR [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) (`b2855e9`). Home top picks split each use case into Free now, Included in Go, and Pay as you go; 286 tests; typecheck, data validation, build, and 3,073-link check pass. |
 | 2026-10-20 | S13 | Claimed; branch `slice/S13-access-picks`. Home top picks will show one rated model per use case for Free now, Included in Go, and Pay as you go; unrated access lanes stay explicit. |
@@ -198,4 +213,5 @@ Append newest first. Keep it short.
 
 | Date | Version | Change | PR |
 |---|---|---|---|
+| 2026-10-21 | 1 (new `data/evals.json`) | Added separate `EvalsFile` v1 (`EvalRun`, `EvalAttempt`, `EvalModelSummary`); existing snapshot/benchmark/score/event schemas unchanged | pending |
 | 2026-10-19 | 1 | Initial v1 schema: `Snapshot`, `BenchmarksFile`, `ScoresFile`, `ChangeEvent`, and `SourceStatus` (`id`, `url`, `ok`, `status`, `fetchedAt`, `durationMs?`, `itemCount?`, `error?`, `reason?`, `required?`) | [#2](https://github.com/cjrutherford/opencode-model-guide/pull/2) |
