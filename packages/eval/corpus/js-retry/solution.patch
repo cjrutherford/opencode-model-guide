@@ -1,0 +1,37 @@
+diff --git a/src/retry.js b/src/retry.js
+--- a/src/retry.js
++++ b/src/retry.js
+@@ -1,14 +1,30 @@
++function abortError(signal) {
++  if (signal?.reason instanceof Error) return signal.reason;
++  return new DOMException("Aborted", "AbortError");
++}
++
+ export async function retry(fn, options = {}) {
+-  const attempts =
+-    typeof options === "number" ? options : (options.attempts ?? 3);
+-  let lastError;
++  const {
++    attempts = 3,
++    baseDelayMs = 0,
++    signal,
++    sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
++  } = options;
++
++  if (signal?.aborted) throw abortError(signal);
+ 
++  let lastError;
+   for (let attempt = 0; attempt < attempts; attempt += 1) {
++    if (signal?.aborted) throw abortError(signal);
+     try {
+       return await fn();
+     } catch (error) {
+       lastError = error;
+     }
++
++    if (attempt === attempts - 1) break;
++    if (signal?.aborted) throw abortError(signal);
++    if (baseDelayMs > 0) await sleep(baseDelayMs * 2 ** attempt);
+   }
+ 
+   throw lastError;

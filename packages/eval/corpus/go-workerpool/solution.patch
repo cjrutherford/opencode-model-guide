@@ -1,0 +1,92 @@
+diff --git a/workerpool.go b/workerpool.go
+--- a/workerpool.go
++++ b/workerpool.go
+@@ -1,6 +1,10 @@
+ package workerpool
+ 
+-import "context"
++import (
++	"context"
++	"fmt"
++	"sync"
++)
+ 
+ func Run(
+ 	ctx context.Context,
+@@ -8,13 +12,70 @@
+ 	workers int,
+ 	fn func(context.Context, int) (int, error),
+ ) ([]int, error) {
+-	results := make([]int, 0, len(jobs))
+-	for _, job := range jobs {
+-		value, err := fn(ctx, job)
+-		if err != nil {
+-			return nil, err
++	if workers <= 0 {
++		return nil, fmt.Errorf("workers must be positive")
++	}
++
++	ctx, cancel := context.WithCancel(ctx)
++	defer cancel()
++
++	results := make([]int, len(jobs))
++	jobChannel := make(chan int)
++
++	var waitGroup sync.WaitGroup
++	var mutex sync.Mutex
++	var firstError error
++
++	for worker := 0; worker < workers; worker++ {
++		waitGroup.Add(1)
++		go func() {
++			defer waitGroup.Done()
++			for index := range jobChannel {
++				if ctx.Err() != nil {
++					return
++				}
++				value, err := fn(ctx, jobs[index])
++				if err != nil {
++					mutex.Lock()
++					if firstError == nil {
++						firstError = err
++						cancel()
++					}
++					mutex.Unlock()
++					return
++				}
++				results[index] = value
++			}
++		}()
++	}
++
++	for index := range jobs {
++		select {
++		case <-ctx.Done():
++			close(jobChannel)
++			waitGroup.Wait()
++			mutex.Lock()
++			err := firstError
++			mutex.Unlock()
++			if err != nil {
++				return nil, err
++			}
++			return nil, ctx.Err()
++		case jobChannel <- index:
+ 		}
+-		results = append(results, value)
++	}
++
++	close(jobChannel)
++	waitGroup.Wait()
++
++	mutex.Lock()
++	err := firstError
++	mutex.Unlock()
++	if err != nil {
++		return nil, err
++	}
++	if err := ctx.Err(); err != nil {
++		return nil, err
+ 	}
+ 	return results, nil
+ }

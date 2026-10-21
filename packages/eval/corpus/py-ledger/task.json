@@ -1,0 +1,11 @@
+{
+  "id": "py-ledger",
+  "language": "python",
+  "version": 1,
+  "prompt": "Fix Ledger in ledger.py. Deposits and withdrawals must reject non-positive or non-numeric amounts with ValueError, withdrawals must not allow overdrafts, and the balance must stay unchanged when an operation is rejected.",
+  "publicTestCommand": "python3 -m unittest discover -s tests -p 'test_public.py'",
+  "hiddenTestCommand": "python3 -m unittest discover -s tests -p 'test_*.py'",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "ledger behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

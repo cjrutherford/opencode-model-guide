@@ -1,0 +1,27 @@
+diff --git a/ledger.py b/ledger.py
+--- a/ledger.py
++++ b/ledger.py
+@@ -1,11 +1,23 @@
++from numbers import Real
++
++
+ class Ledger:
+     def __init__(self):
+         self.balance = 0
+ 
++    @staticmethod
++    def _validate_amount(amount):
++        if isinstance(amount, bool) or not isinstance(amount, Real) or amount <= 0:
++            raise ValueError("amount must be a positive number")
++
+     def deposit(self, amount):
++        self._validate_amount(amount)
+         self.balance += amount
+         return self.balance
+ 
+     def withdraw(self, amount):
++        self._validate_amount(amount)
++        if amount > self.balance:
++            raise ValueError("insufficient funds")
+         self.balance -= amount
+         return self.balance

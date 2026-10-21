@@ -1,0 +1,93 @@
+diff --git a/ratelimit.go b/ratelimit.go
+--- a/ratelimit.go
++++ b/ratelimit.go
+@@ -2,10 +2,12 @@
+ 
+ import (
+ 	"context"
++	"sync"
+ 	"time"
+ )
+ 
+ type Bucket struct {
++	mutex    sync.Mutex
+ 	capacity float64
+ 	tokens   float64
+ 	rate     float64
+@@ -26,7 +28,23 @@
+ 	}
+ }
+ 
++func (bucket *Bucket) refillLocked() {
++	current := bucket.now()
++	elapsed := current.Sub(bucket.last).Seconds()
++	bucket.last = current
++	if elapsed <= 0 || bucket.rate <= 0 {
++		return
++	}
++	bucket.tokens += elapsed * bucket.rate
++	if bucket.tokens > bucket.capacity {
++		bucket.tokens = bucket.capacity
++	}
++}
++
+ func (bucket *Bucket) Allow() bool {
++	bucket.mutex.Lock()
++	defer bucket.mutex.Unlock()
++	bucket.refillLocked()
+ 	if bucket.tokens >= 1 {
+ 		bucket.tokens -= 1
+ 		return true
+@@ -35,6 +53,11 @@
+ }
+ 
+ func (bucket *Bucket) Refill(amount float64) {
++	if amount <= 0 {
++		return
++	}
++	bucket.mutex.Lock()
++	defer bucket.mutex.Unlock()
+ 	bucket.tokens += amount
+ 	if bucket.tokens > bucket.capacity {
+ 		bucket.tokens = bucket.capacity
+@@ -42,13 +65,36 @@
+ }
+ 
+ func (bucket *Bucket) Wait(ctx context.Context) error {
+-	for !bucket.Allow() {
++	for {
++		bucket.mutex.Lock()
++		bucket.refillLocked()
++		if bucket.tokens >= 1 {
++			bucket.tokens -= 1
++			bucket.mutex.Unlock()
++			return nil
++		}
++		tokens := bucket.tokens
++		rate := bucket.rate
++		bucket.mutex.Unlock()
++
++		if rate <= 0 {
++			select {
++			case <-ctx.Done():
++				return ctx.Err()
++			}
++		}
++
++		wait := time.Duration(((1 - tokens) / rate) * float64(time.Second))
++		if wait < time.Millisecond {
++			wait = time.Millisecond
++		}
++
++		timer := time.NewTimer(wait)
+ 		select {
+ 		case <-ctx.Done():
++			timer.Stop()
+ 			return ctx.Err()
+-		default:
+-			time.Sleep(10 * time.Millisecond)
++		case <-timer.C:
+ 		}
+ 	}
+-	return nil
+ }

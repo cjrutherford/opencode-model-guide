@@ -1,0 +1,11 @@
+{
+  "id": "py-intervals",
+  "language": "python",
+  "version": 1,
+  "prompt": "Fix merge in intervals.py. It must merge overlapping and adjacent intervals, sort unsorted input first, handle nested intervals and negative values, and return an empty list for empty input. Return tuples.",
+  "publicTestCommand": "python3 -m unittest discover -s tests -p 'test_public.py'",
+  "hiddenTestCommand": "python3 -m unittest discover -s tests -p 'test_*.py'",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "interval behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

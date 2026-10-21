@@ -36,7 +36,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `done` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Merged `0283123`; live Lighthouse 100/100/100/100; 280 tests; v1 complete |
 | S12 | [Agentic coverage calibration](./S12-agentic-coverage.md) | S06, S11 | `done` | CJ Rutherford | `slice/S12-agentic-coverage` | [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14) | Merged `766803a`; agentic 41, everyday 57; 283 tests; post-v1 methodology 1.1 |
 | S13 | [Access-level top picks](./S13-access-level-top-picks.md) | S08, S12 | `done` | CJ Rutherford | `slice/S13-access-picks` | [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) | Merged `b2855e9`; three access lanes per use case; 286 tests; 3,073 links, 0 broken |
-| S14 | [Free-model eval harness](./S14-free-eval-harness.md) | S13 | `todo` | CJ Rutherford | `slice/S14-free-eval-harness` | — | Design + slice drafted 2026-10-21; awaiting approval; official runs need `OPENCODE_API_KEY` |
+| S14 | [Free-model eval harness](./S14-free-eval-harness.md) | S13 | `in-progress` | CJ Rutherford | `slice/S14-free-eval-harness` | — | Approved 2026-10-21; 12-task corpus verified; official runs need `OPENCODE_API_KEY` |
 
 ## Critical path
 

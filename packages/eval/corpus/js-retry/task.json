@@ -1,0 +1,11 @@
+{
+  "id": "js-retry",
+  "language": "js",
+  "version": 1,
+  "prompt": "Fix retry in src/retry.js. It must accept { attempts, baseDelayMs, signal }, stop immediately when the signal is aborted (including before the first call), return the first successful value, use exponential backoff, and throw the last error after the attempts are exhausted.",
+  "publicTestCommand": "node --test test/public/*.test.js",
+  "hiddenTestCommand": "node --test hidden/*.test.js",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "retry behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

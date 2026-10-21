@@ -1,0 +1,11 @@
+{
+  "id": "ts-lru",
+  "language": "ts",
+  "version": 1,
+  "prompt": "Fix the LRU cache in src/lru.ts. get() must return the value and mark it most recently used. set() must update an existing key without growing, evict the least recently used entry when capacity is exceeded, and work for capacity 1. Keep the public API.",
+  "publicTestCommand": "tsx --test test/public/*.test.ts",
+  "hiddenTestCommand": "tsx --test test/hidden/*.test.ts",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "LRU behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

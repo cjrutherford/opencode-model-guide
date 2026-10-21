@@ -1,0 +1,11 @@
+{
+  "id": "go-ratelimit",
+  "language": "go",
+  "version": 1,
+  "prompt": "Fix the token bucket in ratelimit.go. Tokens must refill continuously from elapsed time at ratePerSecond and never exceed capacity. Allow consumes one token. Wait blocks until a token is available or the context is canceled. New accepts an injectable clock for tests.",
+  "publicTestCommand": "go test ./...",
+  "hiddenTestCommand": "go test ./...",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "rate limiter behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

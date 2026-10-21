@@ -1,0 +1,11 @@
+{
+  "id": "ts-router",
+  "language": "ts",
+  "version": 1,
+  "prompt": "Fix the router in src/router.ts. Static route segments must take precedence over dynamic segments, path parameters must be decoded, and multiple parameters must be collected. Keep the public API.",
+  "publicTestCommand": "tsx --test test/public/*.test.ts",
+  "hiddenTestCommand": "tsx --test test/hidden/*.test.ts",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "router behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

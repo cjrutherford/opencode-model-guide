@@ -1,0 +1,63 @@
+diff --git a/src/csv.js b/src/csv.js
+--- a/src/csv.js
++++ b/src/csv.js
+@@ -1,6 +1,55 @@
+ export function parseCsv(text) {
+-  return text
+-    .trim()
+-    .split(/\r?\n/)
+-    .map((line) => line.split(","));
++  if (text.length === 0) return [];
++
++  const rows = [];
++  let row = [];
++  let field = "";
++  let inQuotes = false;
++  let rowTouched = false;
++
++  const endRow = () => {
++    row.push(field);
++    rows.push(row);
++    row = [];
++    field = "";
++    rowTouched = false;
++  };
++
++  for (let index = 0; index < text.length; index += 1) {
++    const char = text[index];
++
++    if (inQuotes) {
++      if (char === '"') {
++        if (text[index + 1] === '"') {
++          field += '"';
++          index += 1;
++        } else {
++          inQuotes = false;
++        }
++      } else {
++        field += char;
++      }
++      rowTouched = true;
++      continue;
++    }
++
++    if (char === '"') {
++      inQuotes = true;
++      rowTouched = true;
++    } else if (char === ",") {
++      row.push(field);
++      field = "";
++      rowTouched = true;
++    } else if (char === "\n") {
++      endRow();
++    } else if (char === "\r") {
++      if (text[index + 1] !== "\n") endRow();
++    } else {
++      field += char;
++      rowTouched = true;
++    }
++  }
++
++  if (rowTouched || field.length > 0 || row.length > 0) endRow();
++  return rows;
+ }

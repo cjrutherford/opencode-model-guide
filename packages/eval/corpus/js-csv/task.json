@@ -1,0 +1,11 @@
+{
+  "id": "js-csv",
+  "language": "js",
+  "version": 1,
+  "prompt": "Fix parseCsv in src/csv.js to handle quoted fields, escaped double quotes, embedded newlines, CRLF, and trailing empty fields. Preserve field contents and return an empty array for empty input.",
+  "publicTestCommand": "node --test test/public/*.test.js",
+  "hiddenTestCommand": "node --test hidden/*.test.js",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "CSV behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

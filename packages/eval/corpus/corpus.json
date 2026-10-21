@@ -3,6 +3,17 @@
   "corpusVersion": "2026-10-21.1",
   "createdAt": "2026-10-21",
   "tasks": [
-    "ts-debounce"
+    "ts-debounce",
+    "ts-lru",
+    "ts-router",
+    "ts-semver",
+    "js-csv",
+    "js-retry",
+    "py-intervals",
+    "py-template",
+    "py-ledger",
+    "go-workerpool",
+    "go-jsonl",
+    "go-ratelimit"
   ]
 }

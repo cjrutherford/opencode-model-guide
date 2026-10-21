@@ -1,0 +1,11 @@
+{
+  "id": "go-workerpool",
+  "language": "go",
+  "version": 1,
+  "prompt": "Fix Run in workerpool.go. It must process jobs concurrently with at most the requested number of workers, preserve result order, stop when the context is canceled, propagate the first worker error, reject non-positive worker counts, and return an empty result for no jobs.",
+  "publicTestCommand": "go test ./...",
+  "hiddenTestCommand": "go test ./...",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "worker pool behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

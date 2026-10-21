@@ -1,0 +1,11 @@
+{
+  "id": "go-jsonl",
+  "language": "go",
+  "version": 1,
+  "prompt": "Fix Decode in jsonl.go. It must skip blank lines, report malformed lines with one-based line numbers, continue after malformed lines, preserve valid nested values, and return no errors for empty input.",
+  "publicTestCommand": "go test ./...",
+  "hiddenTestCommand": "go test ./...",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "JSONL behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

@@ -1,0 +1,49 @@
+diff --git a/src/router.ts b/src/router.ts
+--- a/src/router.ts
++++ b/src/router.ts
+@@ -3,6 +3,14 @@
+   params: Record<string, string>;
+ }
+ 
++function decode(value: string): string {
++  try {
++    return decodeURIComponent(value);
++  } catch {
++    return value;
++  }
++}
++
+ export function matchPath(
+   pattern: string,
+   path: string,
+@@ -16,7 +24,7 @@
+     const part = patternParts[index]!;
+     const value = pathParts[index]!;
+     if (part.startsWith(":")) {
+-      params[part.slice(1)] = value;
++      params[part.slice(1)] = decode(value);
+     } else if (part !== value) {
+       return null;
+     }
+@@ -24,11 +32,21 @@
+   return params;
+ }
+ 
++function staticScore(pattern: string): number {
++  return pattern
++    .split("/")
++    .filter(Boolean)
++    .filter((part) => !part.startsWith(":")).length;
++}
++
+ export class Router {
+   private readonly routes: Array<{ pattern: string; handler: string }> = [];
+ 
+   add(pattern: string, handler: string): void {
+     this.routes.push({ pattern, handler });
++    this.routes.sort(
++      (left, right) => staticScore(right.pattern) - staticScore(left.pattern),
++    );
+   }
+ 
+   match(path: string): RouteMatch | null {

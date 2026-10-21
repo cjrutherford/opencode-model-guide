@@ -1,0 +1,20 @@
+diff --git a/intervals.py b/intervals.py
+--- a/intervals.py
++++ b/intervals.py
+@@ -1,2 +1,15 @@
+ def merge(intervals):
+-    return list(intervals)
++    if not intervals:
++        return []
++
++    ordered = sorted(intervals, key=lambda pair: (pair[0], pair[1]))
++    merged = []
++    for start, end in ordered:
++        if end < start:
++            raise ValueError("interval end must not be before start")
++        if not merged or start > merged[-1][1]:
++            merged.append([start, end])
++        else:
++            merged[-1][1] = max(merged[-1][1], end)
++
++    return [tuple(pair) for pair in merged]

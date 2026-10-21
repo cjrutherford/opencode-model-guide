@@ -1,0 +1,11 @@
+{
+  "id": "py-template",
+  "language": "python",
+  "version": 1,
+  "prompt": "Fix render in template.py. It must replace {{ key }} placeholders, allow optional whitespace, reject missing keys with KeyError, reject malformed placeholders with ValueError, and leave values containing braces intact.",
+  "publicTestCommand": "python3 -m unittest discover -s tests -p 'test_public.py'",
+  "hiddenTestCommand": "python3 -m unittest discover -s tests -p 'test_*.py'",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "template behavior is incomplete",
+  "referenceSolution": "solution.patch"
+}

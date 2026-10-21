@@ -1,0 +1,39 @@
+diff --git a/jsonl.go b/jsonl.go
+--- a/jsonl.go
++++ b/jsonl.go
+@@ -1,6 +1,9 @@
+ package jsonl
+ 
+-import "encoding/json"
++import (
++	"encoding/json"
++	"strings"
++)
+ 
+ type LineError struct {
+ 	Line int
+@@ -8,13 +11,20 @@
+ }
+ 
+ func Decode(lines []string) ([]map[string]any, []LineError) {
+-	var values []map[string]any
+-	for _, line := range lines {
++	values := make([]map[string]any, 0)
++	errs := make([]LineError, 0)
++
++	for index, line := range lines {
++		if strings.TrimSpace(line) == "" {
++			continue
++		}
+ 		var value map[string]any
+ 		if err := json.Unmarshal([]byte(line), &value); err != nil {
+-			return nil, []LineError{{Line: 0, Err: err}}
++			errs = append(errs, LineError{Line: index + 1, Err: err})
++			continue
+ 		}
+ 		values = append(values, value)
+ 	}
+-	return values, nil
++
++	return values, errs
+ }
