@@ -1,7 +1,8 @@
 # S13 — Access-level top picks
 
-> **Status:** in-progress · **Depends on:** S08, S12 · **Effort:** ~0.5 day
+> **Status:** done · **Depends on:** S08, S12 · **Effort:** ~0.5 day
 > **Owner:** CJ Rutherford · **Branch:** `slice/S13-access-picks`
+> **Merged:** `b2855e9` via [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15)
 
 ## Why this slice exists
 
