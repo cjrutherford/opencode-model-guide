@@ -16,18 +16,37 @@ import { isFreeNow } from "./models";
 
 export { isFreeNow };
 
+export const ACCESS_GROUP_IDS = ["free", "go-included", "payg"] as const;
+
+export type AccessGroupId = (typeof ACCESS_GROUP_IDS)[number];
+
+export const ACCESS_GROUP_LABELS: Record<AccessGroupId, string> = {
+  free: "Free now",
+  "go-included": "Included in Go",
+  payg: "Pay as you go",
+};
+
+export type CostBasis = "list" | "go-effective";
+
 export interface BestValuePick {
   model: ModelRecord;
   score: number;
   tier: RatedTier;
   confidence: number;
   agenticCost: number | null;
+  costBasis: CostBasis;
+}
+
+export interface BestValueGroup {
+  id: AccessGroupId;
+  label: string;
+  pick: BestValuePick | null;
 }
 
 export interface BestValue {
   useCase: UseCaseId;
   label: string;
-  pick: BestValuePick | null;
+  groups: BestValueGroup[];
 }
 
 const FREE_KIND_RANK = {
@@ -125,6 +144,31 @@ function isRated(
   );
 }
 
+function accessGroupFor(model: ModelRecord): AccessGroupId | null {
+  if (model.availability !== "live") return null;
+  if (isFreeNow(model)) return "free";
+  if (model.free.kind === "subscription-included") return "go-included";
+  if (model.free.kind === "paid") return "payg";
+  return null;
+}
+
+function costForPick(
+  record: ScoreRecord,
+  group: AccessGroupId,
+): Pick<BestValuePick, "agenticCost" | "costBasis"> {
+  if (group === "go-included") {
+    const effective = record.cost.goEffective?.["agentic-pr"];
+    if (effective !== undefined && effective !== null) {
+      return { agenticCost: effective, costBasis: "go-effective" };
+    }
+  }
+
+  return {
+    agenticCost: record.cost.profiles["agentic-pr"],
+    costBasis: "list",
+  };
+}
+
 export function bestValueByUseCase(
   snapshot: Snapshot,
   scores: ScoresFile,
@@ -132,48 +176,60 @@ export function bestValueByUseCase(
   const models = new Map(snapshot.models.map((model) => [model.key, model]));
 
   return USE_CASE_IDS.map((useCase) => {
-    let best:
-      | {
-          record: ScoreRecord;
-          useCase: UseCaseScore & { score: number; tier: RatedTier };
-          model: ModelRecord;
+    const groups = ACCESS_GROUP_IDS.map((groupId): BestValueGroup => {
+      let best:
+        | {
+            record: ScoreRecord;
+            useCase: UseCaseScore & { score: number; tier: RatedTier };
+            model: ModelRecord;
+          }
+        | undefined;
+
+      for (const record of scores.scores) {
+        const score = record.useCases[useCase];
+        if (!isRated(score)) continue;
+
+        const model = models.get(record.modelKey);
+        if (!model || accessGroupFor(model) !== groupId) continue;
+
+        if (
+          !best ||
+          score.score > best.useCase.score ||
+          (score.score === best.useCase.score &&
+            score.confidence > best.useCase.confidence) ||
+          (score.score === best.useCase.score &&
+            score.confidence === best.useCase.confidence &&
+            record.modelKey < best.record.modelKey)
+        ) {
+          best = { record, useCase: score, model };
         }
-      | undefined;
-
-    for (const record of scores.scores) {
-      const score = record.useCases[useCase];
-      if (!isRated(score)) continue;
-
-      const model = models.get(record.modelKey);
-      if (!model) continue;
-
-      if (
-        !best ||
-        score.score > best.useCase.score ||
-        (score.score === best.useCase.score &&
-          score.confidence > best.useCase.confidence) ||
-        (score.score === best.useCase.score &&
-          score.confidence === best.useCase.confidence &&
-          record.modelKey < best.record.modelKey)
-      ) {
-        best = { record, useCase: score, model };
       }
-    }
 
-    if (!best) {
-      return { useCase, label: USE_CASE_LABELS[useCase], pick: null };
-    }
+      if (!best) {
+        return {
+          id: groupId,
+          label: ACCESS_GROUP_LABELS[groupId],
+          pick: null,
+        };
+      }
+
+      return {
+        id: groupId,
+        label: ACCESS_GROUP_LABELS[groupId],
+        pick: {
+          model: best.model,
+          score: best.useCase.score,
+          tier: best.useCase.tier,
+          confidence: best.useCase.confidence,
+          ...costForPick(best.record, groupId),
+        },
+      };
+    });
 
     return {
       useCase,
       label: USE_CASE_LABELS[useCase],
-      pick: {
-        model: best.model,
-        score: best.useCase.score,
-        tier: best.useCase.tier,
-        confidence: best.useCase.confidence,
-        agenticCost: best.record.cost.profiles["agentic-pr"],
-      },
+      groups,
     };
   });
 }

@@ -238,7 +238,7 @@ const eventTone: Record<string, string> = {
       id="top-picks"
       eyebrow="Per use case"
       title="Top picks right now"
-      description="Top rated model in each use case by composite percentile. Cost is the modeled agentic-PR profile, not a bill."
+      description="Top rated model in each use case for free access, Go-included access, and pay-as-you-go. Cost is the modeled agentic-PR profile, not a bill."
     >
       <a
         slot="action"
@@ -250,82 +250,98 @@ const eventTone: Record<string, string> = {
 
       <div class="grid gap-3 md:grid-cols-2">
         {
-          bestValues.map(({ label, pick }) => (
+          bestValues.map(({ label, groups }) => (
             <article class="card flex min-w-0 flex-col p-5 sm:p-6">
               <div class="flex items-start justify-between gap-3">
                 <div class="min-w-0">
-                  <p class="eyebrow">{label}</p>
+                  <p class="eyebrow">Use case</p>
                   <h3 class="mt-2 break-words font-display text-2xl leading-tight tracking-tight">
-                    {pick ? (
-                      <a
-                        class="no-underline hover:text-accent"
-                        href={modelHref(pick.model)}
-                      >
-                        {pick.model.name}
-                      </a>
-                    ) : (
-                      "Insufficient data"
-                    )}
+                    {label}
                   </h3>
                 </div>
-                {pick && (
-                  <span
-                    class={`tier tier--${pick.tier}`}
-                    aria-label={`Tier ${pick.tier}`}
-                  >
-                    {pick.tier}
-                  </span>
-                )}
+                <span class="pt-1 text-[11px] uppercase tracking-[0.14em] text-muted">
+                  By access
+                </span>
               </div>
 
-              {pick ? (
-                <>
-                  <div class="mt-6 flex items-end gap-4">
-                    <div class="font-display text-4xl leading-none tracking-tight num">
-                      {formatScore(pick.score)}
+              <div class="mt-5 divide-y divide-line border-y border-line">
+                {groups.map(({ id, label: groupLabel, pick }) => (
+                  <div class="py-4">
+                    <div class="flex items-center justify-between gap-3">
+                      <h4 class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                        {groupLabel}
+                      </h4>
+                      {pick && (
+                        <span
+                          class={`tier tier--${pick.tier}`}
+                          aria-label={`Tier ${pick.tier}`}
+                        >
+                          {pick.tier}
+                        </span>
+                      )}
                     </div>
-                    <p class="pb-0.5 text-xs leading-5 text-muted">
-                      composite percentile
-                      <br />
-                      {formatConfidence(pick.confidence)} confidence
-                    </p>
+
+                    {pick ? (
+                      <>
+                        <div class="mt-2 flex items-start justify-between gap-4">
+                          <div class="min-w-0">
+                            <a
+                              class="font-display text-xl leading-tight tracking-tight no-underline hover:text-accent"
+                              href={modelHref(pick.model)}
+                            >
+                              {pick.model.name}
+                            </a>
+                            <p class="mt-1 text-xs leading-5 text-muted">
+                              {formatProvider(pick.model.provider)} ·{" "}
+                              {formatTokens(pick.model.limits.context)} context
+                            </p>
+                          </div>
+                          <div class="shrink-0 text-right">
+                            <div class="font-display text-2xl leading-none tracking-tight num">
+                              {formatScore(pick.score)}
+                            </div>
+                            <p class="mt-1 text-[11px] leading-4 text-muted">
+                              percentile ·{" "}
+                              {formatConfidence(pick.confidence)} confidence
+                            </p>
+                          </div>
+                        </div>
+                        <p class="mt-2 flex items-center justify-between gap-3 text-[11px] leading-5 text-muted">
+                          <span>
+                            {pick.costBasis === "go-effective"
+                              ? "Go effective"
+                              : id === "go-included"
+                                ? "List price"
+                                : "Agentic PR"}
+                          </span>
+                          <span class="num text-ink">
+                            {formatUsd(pick.agenticCost)}
+                          </span>
+                        </p>
+                      </>
+                    ) : (
+                      <p class="mt-2 text-sm leading-6 text-muted">
+                        No rated model in this access lane yet. The evidence gap
+                        stays visible.
+                      </p>
+                    )}
                   </div>
-                  <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 text-xs text-muted">
-                    <span>
-                      {formatProvider(pick.model.provider)} ·{" "}
-                      {formatTokens(pick.model.limits.context)} context
-                    </span>
-                    <span>
-                      <span class="num text-ink">
-                        {formatUsd(pick.agenticCost)}
-                      </span>{" "}
-                      agentic PR
-                    </span>
-                  </div>
-                </>
-              ) : (
-                <div class="mt-6">
-                  <p class="text-sm leading-6 text-muted">
-                    The current benchmark set is too thin or stale to rate this
-                    use case. The gap stays visible instead of being filled with
-                    a guess.
-                  </p>
-                  <a
-                    class="mt-4 inline-block text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
-                    href={url("/methodology")}
-                  >
-                    See the confidence rule →
-                  </a>
-                </div>
-              )}
+                ))}
+              </div>
+
+              <p class="mt-4 text-xs leading-5 text-muted">
+                Same use-case score; access terms and costs stay separate.
+              </p>
             </article>
           ))
         }
       </div>
 
       <p class="mt-4 text-xs leading-5 text-muted">
-        Composites renormalize by available benchmarks. Confidence combines
-        coverage and freshness.{" "}
+        Free covers open-free, limited-time, and trial listings. Included in Go
+        covers subscription-included listings. Pay as you go covers paid list
+        pricing. Go picks show the effective plan cost at full utilization when
+        available; otherwise list price.{" "}
         <a href={url("/methodology")}>Read the methodology →</a>
       </p>
     </Section>

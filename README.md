@@ -38,6 +38,7 @@ costs, provenance, and confidence stay separate.
   `Paid`.
 - **Modeled task costs** from list prices and documented token profiles, not bills.
 - **Per-use-case quality tiers** from public benchmarks, with coverage and confidence.
+- **Access-level top picks** for free, Go-included, and pay-as-you-go models in each use case.
 - **Change events:** model additions, free offers starting or ending, price changes, deprecations,
   and required-source failures.
 
