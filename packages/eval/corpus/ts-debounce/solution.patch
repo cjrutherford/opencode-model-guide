@@ -1,0 +1,45 @@
+diff --git a/src/debounce.ts b/src/debounce.ts
+--- a/src/debounce.ts
++++ b/src/debounce.ts
+@@ -8,24 +8,32 @@
+   waitMs: number,
+ ): Debounced<T> {
+   let timer: ReturnType<typeof setTimeout> | undefined;
++  let pendingArgs: Parameters<T> | null = null;
++
++  const invoke = () => {
++    const args = pendingArgs;
++    pendingArgs = null;
++    timer = undefined;
++    if (args) fn(...args);
++  };
+ 
+   const debounced = ((...args: Parameters<T>) => {
++    pendingArgs = args;
+     if (timer) clearTimeout(timer);
+-    timer = setTimeout(() => {
+-      timer = undefined;
+-      fn(...args);
+-    }, waitMs);
++    timer = setTimeout(invoke, waitMs);
+   }) as Debounced<T>;
+ 
+   debounced.cancel = () => {
+-    if (timer) {
+-      clearTimeout(timer);
+-      timer = undefined;
+-    }
++    if (timer) clearTimeout(timer);
++    timer = undefined;
++    pendingArgs = null;
+   };
+ 
+   debounced.flush = () => {
+-    // TODO: a pending call should run immediately.
++    if (timer) {
++      clearTimeout(timer);
++      invoke();
++    }
+   };
+ 
+   return debounced;

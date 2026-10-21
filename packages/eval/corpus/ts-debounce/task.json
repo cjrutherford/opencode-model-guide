@@ -1,0 +1,11 @@
+{
+  "id": "ts-debounce",
+  "language": "ts",
+  "version": 1,
+  "prompt": "Fix the debounce utility in src/debounce.ts. The debounced function must wait until calls stop for waitMs, call the wrapped function with the latest arguments, and expose working cancel() and flush() methods. cancel() must drop any pending call; flush() must invoke a pending call immediately and clear it. Keep the exported API and types compatible.",
+  "publicTestCommand": "tsx --test test/public/*.test.ts",
+  "hiddenTestCommand": "tsx --test test/hidden/*.test.ts",
+  "timeoutMs": 480000,
+  "expectedBaselineFailure": "trailing call was not debounced",
+  "referenceSolution": "solution.patch"
+}

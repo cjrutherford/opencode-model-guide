@@ -16,6 +16,7 @@
     "ingest": "node --env-file-if-exists=.secrets --import tsx packages/ingest/src/run.ts",
     "score": "node --env-file-if-exists=.secrets --import tsx packages/scoring/src/run.ts",
     "notify": "node --env-file-if-exists=.secrets --import tsx packages/notify/src/run.ts",
+    "eval:verify-corpus": "node --import tsx packages/eval/src/verify.ts",
     "validate:data": "node --env-file-if-exists=.secrets --import tsx scripts/validate-data.ts"
   },
   "devDependencies": {
