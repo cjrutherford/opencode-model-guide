@@ -147,6 +147,7 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-20 | S13 | Deployed via run 39530467953; live home returns 200 and shows all three access lanes. Tag `v1.2.0`. |
 | 2026-10-20 | S13 | Merged via PR [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) (`b2855e9`). Home top picks split each use case into Free now, Included in Go, and Pay as you go; 286 tests; typecheck, data validation, build, and 3,073-link check pass. |
 | 2026-10-20 | S13 | Claimed; branch `slice/S13-access-picks`. Home top picks will show one rated model per use case for Free now, Included in Go, and Pay as you go; unrated access lanes stay explicit. |
 | 2026-10-20 | S12 | Merged via PR [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14) (`766803a`). Agentic 0 → 41 rated; everyday 0 → 57; frontend 95 → 97; long-context 23 → 36; 283 tests; typecheck, data validation, build, and 3,068-link check pass. |

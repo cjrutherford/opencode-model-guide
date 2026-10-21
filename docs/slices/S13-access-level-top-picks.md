@@ -3,6 +3,7 @@
 > **Status:** done · **Depends on:** S08, S12 · **Effort:** ~0.5 day
 > **Owner:** CJ Rutherford · **Branch:** `slice/S13-access-picks`
 > **Merged:** `b2855e9` via [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15)
+> **Deployed:** run 39530467953 · **Tag:** `v1.2.0`
 
 ## Why this slice exists
 
@@ -60,14 +61,14 @@ Go**.
 
 ## Acceptance checklist
 
-- [ ] Each use case renders Free now, Included in Go, and Pay as you go.
-- [ ] Free includes open-free, limited-time, and trial; excludes
+- [x] Each use case renders Free now, Included in Go, and Pay as you go.
+- [x] Free includes open-free, limited-time, and trial; excludes
       subscription-included and paid.
-- [ ] Included in Go and Pay as you go exclude the other access kinds.
-- [ ] Deprecated/unlisted models never win a lane.
-- [ ] Unrated evidence produces an explicit empty lane.
-- [ ] Go picks use `goEffective.agentic-pr` when present; others use
+- [x] Included in Go and Pay as you go exclude the other access kinds.
+- [x] Deprecated/unlisted models never win a lane.
+- [x] Unrated evidence produces an explicit empty lane.
+- [x] Go picks use `goEffective.agentic-pr` when present; others use
       `profiles.agentic-pr`.
-- [ ] Empty lanes do not borrow a score from another group.
-- [ ] `pnpm test`, `pnpm typecheck`, `pnpm validate:data`, `pnpm build`, and the
+- [x] Empty lanes do not borrow a score from another group.
+- [x] `pnpm test`, `pnpm typecheck`, `pnpm validate:data`, `pnpm build`, and the
       internal link check pass.
