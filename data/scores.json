@@ -1,14 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T02:06:14.102Z",
+  "generatedAt": "2026-10-21T13:21:12.109Z",
   "scores": [
     {
       "modelKey": "opencode-go/beam-free",
       "benchmarks": {
         "lmarena-agent": {
-          "percentile": 16.666666666666664,
-          "value": -0.04603955237534629,
-          "date": "2026-10-19"
+          "percentile": 19.047619047619047,
+          "value": -0.043544820090408935,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 28.205128205128204,
+          "value": 1425.3924995387245,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 29.11392405063291,
@@ -18,24 +23,24 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 16.666666666666664,
+          "score": 19.047619047619047,
           "tier": "unrated",
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 29.11392405063291,
+          "score": 28.773125608568648,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 29.113924050632907,
+          "score": 28.886725089256732,
           "tier": "C",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 28.205128205128208,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -84,8 +89,8 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 47.61904761904761,
-          "value": 0.014896148698015145,
-          "date": "2026-10-19"
+          "value": 0.014883960383813984,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 68.35443037974683,
@@ -138,13 +143,13 @@
         },
         "lmarena-agent": {
           "percentile": 35.714285714285715,
-          "value": -0.00040380963744199647,
-          "date": "2026-10-19"
+          "value": 0.000691158211285471,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 53.96825396825397,
-          "value": 1451.1584212632322,
-          "date": "2026-10-15"
+          "percentile": 56.41025641025641,
+          "value": 1451.3452341889415,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 35.44303797468354,
@@ -159,17 +164,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 44.07920502106298,
+          "score": 44.68970563156359,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 40.074341973076145,
+          "score": 40.68484258357675,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 53.96825396825397,
+          "score": 56.410256410256416,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -192,8 +197,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 61.904761904761905,
-          "value": 0.02561172539208356,
-          "date": "2026-10-19"
+          "value": 0.02573615533275527,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 66.66666666666666,
+          "value": 1463.5842079947408,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 77.21518987341773,
@@ -208,19 +218,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 77.21518987341773,
+          "score": 73.25949367088607,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 77.21518987341773,
-          "tier": "A",
-          "confidence": 0.6
+          "score": 74.57805907172997,
+          "tier": "B",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 66.66666666666666,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -284,8 +294,13 @@
         },
         "lmarena-agent": {
           "percentile": 54.761904761904766,
-          "value": 0.02131556893203753,
-          "date": "2026-10-19"
+          "value": 0.0211111360739428,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 71.7948717948718,
+          "value": 1470.3641370966138,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 72.15189873417721,
@@ -300,19 +315,19 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 67.57968008772556,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 68.63347801451211,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 72.15189873417721,
+          "score": 72.06264199935084,
           "tier": "B",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 71.7948717948718,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -338,8 +353,13 @@
         },
         "lmarena-agent": {
           "percentile": 45.23809523809524,
-          "value": 0.013121506624966382,
-          "date": "2026-10-19"
+          "value": 0.014138757122147471,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 75.64102564102564,
+          "value": 1473.6920460876765,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 78.48101265822784,
@@ -354,19 +374,19 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 81.26534601539964,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 79.85926592180613,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 78.48101265822784,
+          "score": 77.77101590392728,
           "tier": "A",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 75.64102564102564,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -391,14 +411,14 @@
           "date": "2026-10-21"
         },
         "lmarena-agent": {
-          "percentile": 28.57142857142857,
-          "value": -0.015404132709249854,
-          "date": "2026-10-19"
+          "percentile": 26.190476190476193,
+          "value": -0.015736131451080337,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 71.42857142857143,
-          "value": 1470.5296626495826,
-          "date": "2026-10-15"
+          "percentile": 73.07692307692307,
+          "value": 1471.3570741044848,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 73.41772151898735,
@@ -408,22 +428,22 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 53.63196125907991,
+          "score": 52.67958030669895,
           "tier": "B",
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 71.89418784033674,
+          "score": 72.30627575242464,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 72.92043399638335,
+          "score": 73.33252190847126,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 71.42857142857143,
+          "score": 73.07692307692307,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -451,8 +471,8 @@
         },
         "lmarena-agent": {
           "percentile": 23.809523809523807,
-          "value": -0.022316366500655736,
-          "date": "2026-10-19"
+          "value": -0.023322547362270542,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 44.827586206896555,
@@ -460,9 +480,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 25.396825396825395,
-          "value": 1430.6557406021043,
-          "date": "2026-10-15"
+          "percentile": 32.05128205128205,
+          "value": 1430.528898420856,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 49.36708860759494,
@@ -477,17 +497,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 46.1278661503935,
+          "score": 47.791480314007664,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 43.37452280490255,
+          "score": 45.03813696851671,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 36.50011728829463,
+          "score": 39.35202728306177,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -510,8 +530,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 14.285714285714285,
-          "value": -0.04801033363373171,
-          "date": "2026-10-19"
+          "value": -0.04592779459506731,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 8.974358974358974,
+          "value": 1389.3743969603784,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 64.55696202531645,
@@ -526,19 +551,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 64.55696202531645,
+          "score": 43.7134858812074,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 64.55696202531645,
+          "score": 50.66131126257707,
           "tier": "B",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 8.974358974358974,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -559,8 +584,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 64.28571428571429,
-          "value": 0.033021715840900565,
-          "date": "2026-10-19"
+          "value": 0.03177250366860225,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 14.102564102564102,
+          "value": 1399.0031143536319,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 84.81012658227847,
@@ -575,19 +605,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 84.81012658227847,
+          "score": 58.294790652385586,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 84.81012658227847,
-          "tier": "A",
-          "confidence": 0.6
+          "score": 67.13323596234987,
+          "tier": "B",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 14.102564102564104,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -605,13 +635,7 @@
     },
     {
       "modelKey": "opencode-go/hy3",
-      "benchmarks": {
-        "lmarena-text": {
-          "percentile": 36.507936507936506,
-          "value": 1438.0013487945234,
-          "date": "2026-10-15"
-        }
-      },
+      "benchmarks": {},
       "useCases": {
         "agentic-coding": {
           "score": null,
@@ -619,19 +643,19 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 36.507936507936506,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.15
+          "confidence": 0
         },
         "frontend": {
-          "score": 36.507936507936506,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.2
+          "confidence": 0
         },
         "long-context": {
-          "score": 36.507936507936506,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.3
+          "confidence": 0
         }
       },
       "cost": {
@@ -652,8 +676,8 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 57.14285714285714,
-          "value": 0.024694250671418234,
-          "date": "2026-10-19"
+          "value": 0.02412857344532544,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 82.27848101265823,
@@ -755,13 +779,13 @@
         },
         "lmarena-agent": {
           "percentile": 52.38095238095239,
-          "value": 0.018872832067527066,
-          "date": "2026-10-19"
+          "value": 0.01767081320690437,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 73.01587301587301,
-          "value": 1474.6645918511683,
-          "date": "2026-10-15"
+          "percentile": 76.92307692307693,
+          "value": 1475.7102938150656,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 87.34177215189874,
@@ -776,17 +800,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 80.0701021308187,
+          "score": 81.04690310761968,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 83.7602973678923,
+          "score": 84.73709834469328,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 73.01587301587301,
+          "score": 76.92307692307693,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -877,13 +901,7 @@
     },
     {
       "modelKey": "opencode-go/mimo-v2.5",
-      "benchmarks": {
-        "lmarena-text": {
-          "percentile": 20.634920634920633,
-          "value": 1427.728299546782,
-          "date": "2026-10-15"
-        }
-      },
+      "benchmarks": {},
       "useCases": {
         "agentic-coding": {
           "score": null,
@@ -891,19 +909,19 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 20.634920634920633,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.15
+          "confidence": 0
         },
         "frontend": {
-          "score": 20.634920634920633,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.2
+          "confidence": 0
         },
         "long-context": {
-          "score": 20.634920634920633,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.3
+          "confidence": 0
         }
       },
       "cost": {
@@ -929,13 +947,13 @@
         },
         "lmarena-agent": {
           "percentile": 4.761904761904762,
-          "value": -0.08211202411154934,
-          "date": "2026-10-19"
+          "value": -0.08196231441858429,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 66.66666666666666,
-          "value": 1464.885970353601,
-          "date": "2026-10-15"
+          "percentile": 67.94871794871796,
+          "value": 1464.0949137766659,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 41.77215189873418,
@@ -950,17 +968,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 51.02088250017878,
+          "score": 51.3413953206916,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 47.995780590717295,
+          "score": 48.31629341123012,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 66.66666666666666,
+          "score": 67.94871794871796,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -980,13 +998,7 @@
     },
     {
       "modelKey": "opencode-go/mimo-v2.6-flash",
-      "benchmarks": {
-        "lmarena-text": {
-          "percentile": 58.730158730158735,
-          "value": 1455.2141256062962,
-          "date": "2026-10-15"
-        }
-      },
+      "benchmarks": {},
       "useCases": {
         "agentic-coding": {
           "score": null,
@@ -994,19 +1006,19 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 58.730158730158735,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.15
+          "confidence": 0
         },
         "frontend": {
-          "score": 58.730158730158735,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.2
+          "confidence": 0
         },
         "long-context": {
-          "score": 58.730158730158735,
+          "score": null,
           "tier": "unrated",
-          "confidence": 0.3
+          "confidence": 0
         }
       },
       "cost": {
@@ -1027,13 +1039,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 71.42857142857143,
-          "value": 0.03738390121089941,
-          "date": "2026-10-19"
+          "value": 0.0368180657412052,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 87.3015873015873,
-          "value": 1490.6785014821505,
-          "date": "2026-10-15"
+          "percentile": 89.74358974358975,
+          "value": 1491.0799396993127,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 81.0126582278481,
@@ -1048,17 +1060,17 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 83.3710066305003,
+          "score": 84.28675754625121,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 82.58489049628291,
+          "score": 83.19539110678352,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 87.3015873015873,
+          "score": 89.74358974358975,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -1085,9 +1097,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 9.523809523809524,
-          "value": 1404.8321223235982,
-          "date": "2026-10-15"
+          "percentile": 15.384615384615385,
+          "value": 1404.6847290524665,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 16.455696202531644,
@@ -1102,17 +1114,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 19.97195574217672,
+          "score": 21.437157207378185,
           "tier": "D",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 14.722724532851114,
+          "score": 16.187925998052577,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 9.523809523809524,
+          "score": 15.384615384615383,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -1135,8 +1147,8 @@
         },
         "lmarena-agent": {
           "percentile": 2.380952380952381,
-          "value": -0.09491071150273762,
-          "date": "2026-10-19"
+          "value": -0.09631520210472189,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 20.689655172413794,
@@ -1144,9 +1156,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 28.57142857142857,
-          "value": 1433.3266154552236,
-          "date": "2026-10-15"
+          "percentile": 35.8974358974359,
+          "value": 1432.6284761390891,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 43.037974683544306,
@@ -1161,18 +1173,18 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 40.32958388246952,
+          "score": 42.16108571397135,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 39.42133815551537,
+          "score": 41.2528399870172,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 24.067558057705842,
-          "tier": "D",
+          "score": 27.207275483137554,
+          "tier": "C",
           "confidence": 0.6200000000000001
         }
       },
@@ -1314,8 +1326,8 @@
         },
         "lmarena-agent": {
           "percentile": 9.523809523809524,
-          "value": -0.06686138094842177,
-          "date": "2026-10-19"
+          "value": -0.06688623409135103,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 27.586206896551722,
@@ -1323,9 +1335,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 57.14285714285714,
-          "value": 1454.5821410752708,
-          "date": "2026-10-15"
+          "percentile": 60.256410256410255,
+          "value": 1454.499639660167,
+          "date": "2026-10-20"
         }
       },
       "useCases": {
@@ -1335,17 +1347,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 46.76582497405743,
+          "score": 48.1002048798659,
           "tier": "unrated",
           "confidence": 0.35
         },
         "frontend": {
-          "score": 57.14285714285714,
+          "score": 60.256410256410255,
           "tier": "unrated",
           "confidence": 0.2
         },
         "long-context": {
-          "score": 40.25334271639691,
+          "score": 41.58772262220538,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -1411,13 +1423,13 @@
         },
         "lmarena-agent": {
           "percentile": 50,
-          "value": 0.01627611687268126,
-          "date": "2026-10-19"
+          "value": 0.016143300343487665,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 79.36507936507937,
-          "value": 1482.8772252478664,
-          "date": "2026-10-15"
+          "percentile": 85.8974358974359,
+          "value": 1483.1832870808096,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 91.13924050632912,
@@ -1432,17 +1444,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 82.67471044772053,
+          "score": 84.30779958080966,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 88.19570022101668,
+          "score": 89.8287893541058,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 79.36507936507937,
+          "score": 85.8974358974359,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -1525,9 +1537,9 @@
           "long-context": 0.1912
         },
         "goEffective": {
-          "quick-edit": 0.001475,
-          "agentic-pr": 0.0101,
-          "long-context": 0.03186666666666667
+          "quick-edit": 0.0059,
+          "agentic-pr": 0.0404,
+          "long-context": 0.12746666666666667
         }
       }
     },
@@ -1535,14 +1547,14 @@
       "modelKey": "opencode-go/step-5-preview-free",
       "benchmarks": {
         "lmarena-agent": {
-          "percentile": 26.190476190476193,
-          "value": -0.018389835030261585,
-          "date": "2026-10-19"
+          "percentile": 28.57142857142857,
+          "value": -0.014717978422220678,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 41.269841269841265,
-          "value": 1441.3906418931479,
-          "date": "2026-10-15"
+          "percentile": 46.15384615384615,
+          "value": 1440.3232927002698,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 63.29113924050633,
@@ -1552,22 +1564,22 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 26.190476190476193,
+          "score": 28.57142857142857,
           "tier": "unrated",
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 55.03315250150693,
+          "score": 56.86465433300876,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 57.785814747840064,
+          "score": 59.00681596884129,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 41.269841269841265,
+          "score": 46.15384615384615,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -1584,9 +1596,14 @@
       "modelKey": "opencode/beam-free",
       "benchmarks": {
         "lmarena-agent": {
-          "percentile": 16.666666666666664,
-          "value": -0.04603955237534629,
-          "date": "2026-10-19"
+          "percentile": 19.047619047619047,
+          "value": -0.043544820090408935,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 28.205128205128204,
+          "value": 1425.3924995387245,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 29.11392405063291,
@@ -1596,24 +1613,24 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 16.666666666666664,
+          "score": 19.047619047619047,
           "tier": "unrated",
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 29.11392405063291,
+          "score": 28.773125608568648,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 29.113924050632907,
+          "score": 28.886725089256732,
           "tier": "C",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 28.205128205128208,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -1705,8 +1722,8 @@
         },
         "lmarena-text": {
           "percentile": 0,
-          "value": 1255.3789083678766,
-          "date": "2026-10-15"
+          "value": 1255.423355040781,
+          "date": "2026-10-20"
         }
       },
       "useCases": {
@@ -1749,8 +1766,8 @@
         },
         "lmarena-agent": {
           "percentile": 83.33333333333334,
-          "value": 0.08371488440417793,
-          "date": "2026-10-19"
+          "value": 0.08308625451189791,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 89.65517241379311,
@@ -1758,9 +1775,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 88.88888888888889,
-          "value": 1491.2265859286508,
-          "date": "2026-10-15"
+          "percentile": 91.02564102564102,
+          "value": 1491.2846003921193,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 79.74683544303798,
@@ -1775,18 +1792,18 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 86.24103077546543,
+          "score": 86.77521880965347,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 82.0323488045007,
+          "score": 82.56653683868872,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 89.32676518883416,
-          "tier": "A",
+          "score": 90.24251610458508,
+          "tier": "S",
           "confidence": 0.6200000000000001
         }
       },
@@ -1808,8 +1825,8 @@
         },
         "lmarena-agent": {
           "percentile": 95.23809523809523,
-          "value": 0.14325933961455264,
-          "date": "2026-10-19"
+          "value": 0.14170823395519294,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 96.55172413793103,
@@ -1817,9 +1834,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 96.82539682539682,
-          "value": 1511.5534589044762,
-          "date": "2026-10-15"
+          "percentile": 97.43589743589743,
+          "value": 1511.9418886616315,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 96.20253164556962,
@@ -1834,17 +1851,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 97.62407072533654,
+          "score": 97.77669587796169,
           "tier": "S",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 96.35824794052641,
+          "score": 96.51087309315156,
           "tier": "S",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 96.66901243255921,
+          "score": 96.93065555134521,
           "tier": "S",
           "confidence": 0.6200000000000001
         }
@@ -1871,9 +1888,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 7.936507936507936,
-          "value": 1396.6445118945935,
-          "date": "2026-10-15"
+          "percentile": 11.538461538461538,
+          "value": 1396.9803937795095,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 3.79746835443038,
@@ -1898,17 +1915,17 @@
           "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 15.35783247004015,
+          "score": 16.07822319043087,
           "tier": "D",
           "confidence": 0.6300000000000001
         },
         "frontend": {
-          "score": 4.832228249949769,
+          "score": 5.73271665043817,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 19.85221674876847,
+          "score": 20.93280282935455,
           "tier": "D",
           "confidence": 0.68
         }
@@ -1926,8 +1943,8 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 47.61904761904761,
-          "value": 0.014896148698015145,
-          "date": "2026-10-19"
+          "value": 0.014883960383813984,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 68.35443037974683,
@@ -1969,9 +1986,9 @@
       "modelKey": "opencode/claude-opus-4-1",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 15.873015873015872,
-          "value": 1418.6469693382608,
-          "date": "2026-10-15"
+          "percentile": 23.076923076923077,
+          "value": 1418.5939441681544,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 13.924050632911392,
@@ -1986,17 +2003,17 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 14.65491259795057,
+          "score": 17.35637779941577,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 14.411291942937511,
+          "score": 16.21226874391431,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 15.87301587301587,
+          "score": 23.076923076923077,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -2018,9 +2035,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 52.38095238095239,
-          "value": 1450.8764850286768,
-          "date": "2026-10-15"
+          "percentile": 55.12820512820513,
+          "value": 1450.9727066490896,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 39.24050632911392,
@@ -2045,17 +2062,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 59.395035344402416,
+          "score": 60.144286093653164,
           "tier": "B",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 42.52561784207353,
+          "score": 43.212431028886726,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 66.4039408866995,
+          "score": 67.22811671087533,
           "tier": "B",
           "confidence": 0.68
         }
@@ -2077,9 +2094,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 90.47619047619048,
-          "value": 1497.546140958647,
-          "date": "2026-10-15"
+          "percentile": 92.3076923076923,
+          "value": 1497.0163014341824,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 55.69620253164557,
@@ -2104,17 +2121,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 72.71905309879993,
+          "score": 73.21855359830043,
           "tier": "B",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 64.39119951778179,
+          "score": 64.84907497565725,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 89.38423645320196,
+          "score": 89.93368700265252,
           "tier": "A",
           "confidence": 0.68
         }
@@ -2141,9 +2158,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 80.95238095238095,
-          "value": 1482.8907708137071,
-          "date": "2026-10-15"
+          "percentile": 84.61538461538461,
+          "value": 1483.0326866879482,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 62.0253164556962,
@@ -2158,17 +2175,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 73.20062116243191,
+          "score": 74.11637207818285,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 66.75708257986739,
+          "score": 67.6728334956183,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 83.95496129486277,
+          "score": 85.52482000757863,
           "tier": "A",
           "confidence": 0.6200000000000001
         }
@@ -2195,9 +2212,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 55.55555555555556,
-          "value": 1453.9014471545838,
-          "date": "2026-10-15"
+          "percentile": 58.97435897435898,
+          "value": 1453.9078221894952,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 54.43037974683544,
@@ -2212,17 +2229,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 64.25182960261269,
+          "score": 65.10653045731354,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 54.71167369901547,
+          "score": 55.56637455371632,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 55.336617405582935,
+          "score": 56.801818870784395,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -2245,8 +2262,8 @@
         },
         "lmarena-agent": {
           "percentile": 80.95238095238095,
-          "value": 0.08080780643125521,
-          "date": "2026-10-19"
+          "value": 0.08093237935898312,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 100,
@@ -2254,9 +2271,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 95.23809523809523,
-          "value": 1502.538234627805,
-          "date": "2026-10-15"
+          "percentile": 96.15384615384616,
+          "value": 1502.7512109050856,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 88.60759493670885,
@@ -2271,17 +2288,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 91.52031548512988,
+          "score": 91.74925321406762,
           "tier": "S",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 90.26522001205544,
+          "score": 90.49415774099317,
           "tier": "S",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 97.9591836734694,
+          "score": 98.35164835164835,
           "tier": "S",
           "confidence": 0.6200000000000001
         }
@@ -2299,13 +2316,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 100,
-          "value": 0.20352027699041078,
-          "date": "2026-10-19"
+          "value": 0.2091822189574691,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 98.4126984126984,
-          "value": 1515.7614452392686,
-          "date": "2026-10-15"
+          "percentile": 98.71794871794873,
+          "value": 1516.214193109078,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 100,
@@ -2320,17 +2337,17 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 99.4047619047619,
+          "score": 99.51923076923076,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 99.6031746031746,
+          "score": 99.67948717948718,
           "tier": "S",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 98.4126984126984,
+          "score": 98.71794871794873,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -2357,9 +2374,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 3.1746031746031744,
-          "value": 1339.2467765697188,
-          "date": "2026-10-15"
+          "percentile": 3.8461538461538463,
+          "value": 1339.3062548694902,
+          "date": "2026-10-20"
         },
         "swe-bench-verified": {
           "percentile": 22.22222222222222,
@@ -2374,17 +2391,17 @@
           "confidence": 0.38
         },
         "everyday-edits": {
-          "score": 32.3392520850148,
+          "score": 32.473562219324926,
           "tier": "C",
           "confidence": 0.43
         },
         "frontend": {
-          "score": 39.08730158730158,
+          "score": 39.42307692307692,
           "tier": "unrated",
           "confidence": 0.24000000000000002
         },
         "long-context": {
-          "score": 12.698412698412698,
+          "score": 13.034188034188032,
           "tier": "D",
           "confidence": 0.36
         }
@@ -2411,9 +2428,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 38.095238095238095,
-          "value": 1438.4246824831582,
-          "date": "2026-10-15"
+          "percentile": 43.58974358974359,
+          "value": 1438.4915581165496,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 11.39240506329114,
@@ -2438,17 +2455,17 @@
           "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 31.774331416039207,
+          "score": 32.873232514940305,
           "tier": "C",
           "confidence": 0.6300000000000001
         },
         "frontend": {
-          "score": 18.068113321277878,
+          "score": 19.441739694904253,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 42.17569786535304,
+          "score": 43.824049513704686,
           "tier": "C",
           "confidence": 0.68
         }
@@ -2475,9 +2492,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 63.49206349206349,
-          "value": 1457.8672969763822,
-          "date": "2026-10-15"
+          "percentile": 64.1025641025641,
+          "value": 1457.747662688473,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 51.89873417721519,
@@ -2492,17 +2509,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 56.14155624346569,
+          "score": 56.294181396090856,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 54.79706650592726,
+          "score": 54.94969165855242,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 70.56063804832277,
+          "score": 70.82228116710876,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -2525,8 +2542,8 @@
         },
         "lmarena-agent": {
           "percentile": 76.19047619047619,
-          "value": 0.04060191083161933,
-          "date": "2026-10-19"
+          "value": 0.041528067419613734,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 58.620689655172406,
@@ -2534,9 +2551,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 42.857142857142854,
-          "value": 1442.12148050211,
-          "date": "2026-10-15"
+          "percentile": 48.717948717948715,
+          "value": 1441.8782563543814,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 58.22784810126582,
@@ -2551,17 +2568,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 58.42221677342895,
+          "score": 59.88741823863041,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 54.38517179023507,
+          "score": 55.85037325543654,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 51.86488388458832,
+          "score": 54.37665782493369,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -2579,8 +2596,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 90.47619047619048,
-          "value": 0.12751713373132958,
-          "date": "2026-10-19"
+          "value": 0.12668877920175825,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 74.35897435897436,
+          "value": 1472.633919472102,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 94.9367088607595,
@@ -2595,19 +2617,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 94.9367088607595,
+          "score": 87.22005842259006,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 94.9367088607595,
-          "tier": "S",
-          "confidence": 0.6
+          "score": 89.79227523531321,
+          "tier": "A",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 74.35897435897436,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -2627,9 +2649,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 26.984126984126984,
-          "value": 1431.8376632131556,
-          "date": "2026-10-15"
+          "percentile": 34.61538461538461,
+          "value": 1432.0007953071622,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 65.82278481012658,
@@ -2644,17 +2666,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 43.776711857595785,
+          "score": 45.684526265410184,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 56.11312035362668,
+          "score": 58.02093476144108,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 26.984126984126984,
+          "score": 34.61538461538461,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -2743,13 +2765,13 @@
         },
         "lmarena-agent": {
           "percentile": 35.714285714285715,
-          "value": -0.00040380963744199647,
-          "date": "2026-10-19"
+          "value": 0.000691158211285471,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 53.96825396825397,
-          "value": 1451.1584212632322,
-          "date": "2026-10-15"
+          "percentile": 56.41025641025641,
+          "value": 1451.3452341889415,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 35.44303797468354,
@@ -2764,17 +2786,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 44.07920502106298,
+          "score": 44.68970563156359,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 40.074341973076145,
+          "score": 40.68484258357675,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 53.96825396825397,
+          "score": 56.410256410256416,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -2792,8 +2814,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 61.904761904761905,
-          "value": 0.02561172539208356,
-          "date": "2026-10-19"
+          "value": 0.02573615533275527,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 66.66666666666666,
+          "value": 1463.5842079947408,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 77.21518987341773,
@@ -2808,19 +2835,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 77.21518987341773,
+          "score": 73.25949367088607,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 77.21518987341773,
-          "tier": "A",
-          "confidence": 0.6
+          "score": 74.57805907172997,
+          "tier": "B",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 66.66666666666666,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -2939,9 +2966,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 68.25396825396825,
-          "value": 1465.7119518094687,
-          "date": "2026-10-15"
+          "percentile": 69.23076923076923,
+          "value": 1465.6825049647325,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 31.645569620253166,
@@ -2966,17 +2993,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 57.999068442106406,
+          "score": 58.26546870850667,
           "tier": "B",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 40.79766927868194,
+          "score": 41.04186952288218,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 50.73481116584564,
+          "score": 51.027851458885934,
           "tier": "B",
           "confidence": 0.68
         }
@@ -2998,9 +3025,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 74.60317460317461,
-          "value": 1479.4272470568092,
-          "date": "2026-10-15"
+          "percentile": 78.2051282051282,
+          "value": 1479.455716821703,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 32.91139240506329,
@@ -3025,17 +3052,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 48.94240780316729,
+          "score": 49.92475878551828,
           "tier": "C",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 43.33433795459112,
+          "score": 44.23482635507952,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 44.277504105090316,
+          "score": 45.35809018567639,
           "tier": "C",
           "confidence": 0.68
         }
@@ -3058,8 +3085,8 @@
         },
         "lmarena-agent": {
           "percentile": 21.428571428571427,
-          "value": -0.03895532972367305,
-          "date": "2026-10-19"
+          "value": -0.03694397314844581,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 24.137931034482758,
@@ -3067,9 +3094,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 76.19047619047619,
-          "value": 1480.1516865475448,
-          "date": "2026-10-15"
+          "percentile": 80.76923076923077,
+          "value": 1480.065736470125,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 34.177215189873415,
@@ -3084,17 +3111,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 53.90959430328663,
+          "score": 55.05428294797528,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 44.68053044002411,
+          "score": 45.82521908471276,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 46.446164672765654,
+          "score": 48.408488063660485,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -3121,9 +3148,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 77.77777777777779,
-          "value": 1482.0166701667843,
-          "date": "2026-10-15"
+          "percentile": 82.05128205128204,
+          "value": 1481.983653833525,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 44.303797468354425,
@@ -3138,17 +3165,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 59.938258361343536,
+          "score": 61.0066344297196,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 52.672292545710256,
+          "score": 53.740668614086324,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 60.919540229885065,
+          "score": 62.75104206138689,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -3170,9 +3197,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 30.158730158730158,
-          "value": 1434.5162611299957,
-          "date": "2026-10-15"
+          "percentile": 37.17948717948718,
+          "value": 1434.9936059575664,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 25.31645569620253,
@@ -3187,17 +3214,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 25.432838514795172,
+          "score": 27.18802776998443,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 26.527024311834435,
+          "score": 28.282213567023692,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 30.158730158730158,
+          "score": 37.17948717948718,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -3218,6 +3245,11 @@
           "value": 69.2,
           "date": "2026-10-21"
         },
+        "lmarena-text": {
+          "percentile": 79.48717948717949,
+          "value": 1479.5345782302822,
+          "date": "2026-10-20"
+        },
         "lmarena-webdev": {
           "percentile": 56.9620253164557,
           "value": 1538.0531671297133,
@@ -3231,19 +3263,19 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 60.270805025149585,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 65.07489864065705,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 56.96202531645571,
+          "score": 62.59331385913665,
           "tier": "B",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 79.48717948717949,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -3264,13 +3296,13 @@
         },
         "lmarena-agent": {
           "percentile": 30.952380952380953,
-          "value": -0.010592739444460863,
-          "date": "2026-10-19"
+          "value": -0.009650135329381674,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 84.12698412698413,
-          "value": 1487.3039513740575,
-          "date": "2026-10-15"
+          "percentile": 87.17948717948718,
+          "value": 1488.5288907740603,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 70.88607594936708,
@@ -3285,17 +3317,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 79.94614208409529,
+          "score": 80.70926784722106,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 74.19630299377134,
+          "score": 74.9594287568971,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 84.12698412698413,
+          "score": 87.17948717948718,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -3318,13 +3350,13 @@
         },
         "lmarena-agent": {
           "percentile": 69.04761904761905,
-          "value": 0.03689319198131275,
-          "date": "2026-10-19"
+          "value": 0.03574878859294555,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 92.06349206349206,
-          "value": 1498.8823435102179,
-          "date": "2026-10-15"
+          "percentile": 93.58974358974359,
+          "value": 1498.882028339407,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 67.08860759493672,
@@ -3339,17 +3371,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 80.91296233862205,
+          "score": 81.29452522018495,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 73.33232871207554,
+          "score": 73.71389159363844,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 92.06349206349206,
+          "score": 93.58974358974359,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -3367,13 +3399,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 88.09523809523809,
-          "value": 0.12122835715651165,
-          "date": "2026-10-19"
+          "value": 0.1202745694445483,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
           "percentile": 100,
-          "value": 1532.3375436695164,
-          "date": "2026-10-15"
+          "value": 1532.3049251071352,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 92.40506329113924,
@@ -3420,9 +3452,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 39.682539682539684,
-          "value": 1439.9166325391427,
-          "date": "2026-10-15"
+          "percentile": 44.871794871794876,
+          "value": 1440.0113716257406,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 7.59493670886076,
@@ -3442,17 +3474,17 @@
           "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 17.66212714077979,
+          "score": 18.69997817863083,
           "tier": "D",
           "confidence": 0.6300000000000001
         },
         "frontend": {
-          "score": 15.616837452280489,
+          "score": 16.91415124959429,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 25.396825396825395,
+          "score": 27.991452991452995,
           "tier": "C",
           "confidence": 0.36
         }
@@ -3474,9 +3506,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 31.746031746031743,
-          "value": 1435.4043769505327,
-          "date": "2026-10-15"
+          "percentile": 38.46153846153847,
+          "value": 1435.335642772779,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 26.582278481012654,
@@ -3491,17 +3523,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 24.379688942014617,
-          "tier": "D",
+          "score": 26.058565620891297,
+          "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 27.87321679726742,
+          "score": 29.552093476144105,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 31.74603174603174,
+          "score": 38.46153846153847,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -3551,9 +3583,9 @@
       "modelKey": "opencode/glm-5",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 47.61904761904761,
-          "value": 1445.9283654823557,
-          "date": "2026-10-15"
+          "percentile": 51.28205128205128,
+          "value": 1446.0172766697494,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 27.848101265822784,
@@ -3578,17 +3610,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 45.342210532083946,
+          "score": 46.341211531084944,
           "tier": "C",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 32.79083785412899,
+          "score": 33.70658876987991,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 59.92063492063492,
+          "score": 61.75213675213674,
           "tier": "B",
           "confidence": 0.36
         }
@@ -3643,9 +3675,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 65.07936507936508,
-          "value": 1462.4039016755132,
-          "date": "2026-10-15"
+          "percentile": 65.38461538461539,
+          "value": 1462.6839120348402,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 46.835443037974684,
@@ -3660,17 +3692,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 48.21398773340417,
+          "score": 48.29030030971674,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 51.396423548322275,
+          "score": 51.472736124634864,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 65.07936507936508,
+          "score": 65.38461538461539,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -3693,8 +3725,13 @@
         },
         "lmarena-agent": {
           "percentile": 54.761904761904766,
-          "value": 0.02131556893203753,
-          "date": "2026-10-19"
+          "value": 0.0211111360739428,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 71.7948717948718,
+          "value": 1470.3641370966138,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 72.15189873417721,
@@ -3709,19 +3746,19 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 67.57968008772556,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 68.63347801451211,
+          "tier": "B",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 72.15189873417721,
+          "score": 72.06264199935084,
           "tier": "B",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 71.7948717948718,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -3742,8 +3779,13 @@
         },
         "lmarena-agent": {
           "percentile": 45.23809523809524,
-          "value": 0.013121506624966382,
-          "date": "2026-10-19"
+          "value": 0.014138757122147471,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 75.64102564102564,
+          "value": 1473.6920460876765,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 78.48101265822784,
@@ -3758,19 +3800,19 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 81.26534601539964,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 79.85926592180613,
+          "tier": "A",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 78.48101265822784,
+          "score": 77.77101590392728,
           "tier": "A",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 75.64102564102564,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -3790,14 +3832,14 @@
           "date": "2026-10-21"
         },
         "lmarena-agent": {
-          "percentile": 28.57142857142857,
-          "value": -0.015404132709249854,
-          "date": "2026-10-19"
+          "percentile": 26.190476190476193,
+          "value": -0.015736131451080337,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 71.42857142857143,
-          "value": 1470.5296626495826,
-          "date": "2026-10-15"
+          "percentile": 73.07692307692307,
+          "value": 1471.3570741044848,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 73.41772151898735,
@@ -3807,22 +3849,22 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 53.63196125907991,
+          "score": 52.67958030669895,
           "tier": "B",
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 71.89418784033674,
+          "score": 72.30627575242464,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 72.92043399638335,
+          "score": 73.33252190847126,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 71.42857142857143,
+          "score": 73.07692307692307,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -3881,6 +3923,11 @@
           "value": 37.8,
           "date": "2026-10-21"
         },
+        "lmarena-text": {
+          "percentile": 16.666666666666664,
+          "value": 1406.1896566185533,
+          "date": "2026-10-20"
+        },
         "lmarena-webdev": {
           "percentile": 22.78481012658228,
           "value": 1417.5545917447607,
@@ -3899,19 +3946,19 @@
           "confidence": 0.38
         },
         "everyday-edits": {
-          "score": 43.407961768702336,
+          "score": 39.39676750339699,
           "tier": "C",
-          "confidence": 0.53
+          "confidence": 0.68
         },
         "frontend": {
-          "score": 42.08860759493671,
+          "score": 37.0042194092827,
           "tier": "C",
-          "confidence": 0.64
+          "confidence": 0.8400000000000001
         },
         "long-context": {
-          "score": 27.777777777777782,
-          "tier": "unrated",
-          "confidence": 0.06
+          "score": 22.22222222222222,
+          "tier": "D",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -3958,6 +4005,11 @@
     {
       "modelKey": "opencode/gpt-5-nano",
       "benchmarks": {
+        "lmarena-text": {
+          "percentile": 1.282051282051282,
+          "value": 1319.7920379748032,
+          "date": "2026-10-20"
+        },
         "swe-bench-verified": {
           "percentile": 0,
           "value": 34.8,
@@ -3971,19 +4023,19 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 0,
+          "score": 0.641025641025641,
           "tier": "unrated",
-          "confidence": 0.03
+          "confidence": 0.18
         },
         "frontend": {
-          "score": null,
+          "score": 1.282051282051282,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.2
         },
         "long-context": {
-          "score": 0,
-          "tier": "unrated",
-          "confidence": 0.06
+          "score": 0.641025641025641,
+          "tier": "D",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -4008,9 +4060,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 17.46031746031746,
-          "value": 1422.278615791595,
-          "date": "2026-10-15"
+          "percentile": 25.64102564102564,
+          "value": 1422.157042313897,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 8.860759493670885,
@@ -4030,17 +4082,17 @@
           "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 19.99555582799522,
+          "score": 21.631697464136852,
           "tier": "D",
           "confidence": 0.6300000000000001
         },
         "frontend": {
-          "score": 11.010648985332526,
+          "score": 13.055826030509573,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 17.450738916256157,
+          "score": 19.90495137046861,
           "tier": "D",
           "confidence": 0.68
         }
@@ -4178,9 +4230,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 12.698412698412698,
-          "value": 1412.1424220440667,
-          "date": "2026-10-15"
+          "percentile": 20.51282051282051,
+          "value": 1412.1916113887642,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 21.518987341772153,
@@ -4205,17 +4257,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 32.94153104279687,
+          "score": 35.072733173999,
           "tier": "C",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 19.313843680932287,
+          "score": 21.267445634534237,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 25.476190476190474,
+          "score": 27.820512820512818,
           "tier": "C",
           "confidence": 0.68
         }
@@ -4364,8 +4416,8 @@
         },
         "lmarena-agent": {
           "percentile": 42.857142857142854,
-          "value": 0.012517363878850902,
-          "date": "2026-10-19"
+          "value": 0.01359757877358846,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 68.96551724137932,
@@ -4373,9 +4425,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 14.285714285714285,
-          "value": 1417.3453188776168,
-          "date": "2026-10-15"
+          "percentile": 21.794871794871796,
+          "value": 1417.4006251727283,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 17.72151898734177,
@@ -4390,17 +4442,17 @@
           "confidence": 0.52
         },
         "everyday-edits": {
-          "score": 31.038304615989283,
+          "score": 32.36345005878178,
           "tier": "C",
           "confidence": 0.65
         },
         "frontend": {
-          "score": 18.490054249547917,
+          "score": 19.99188575137942,
           "tier": "D",
           "confidence": 0.8400000000000001
         },
         "long-context": {
-          "score": 45.53131597466574,
+          "score": 48.74952633573324,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -4421,6 +4473,11 @@
           "value": 56.1,
           "date": "2026-10-21"
         },
+        "lmarena-text": {
+          "percentile": 19.230769230769234,
+          "value": 1411.594766571372,
+          "date": "2026-10-20"
+        },
         "lmarena-webdev": {
           "percentile": 15.18987341772152,
           "value": 1397.4411041391807,
@@ -4434,19 +4491,19 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 26.894562444873536,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 24.978614141347457,
+          "tier": "D",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 15.18987341772152,
+          "score": 16.200097370983446,
           "tier": "D",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 19.230769230769234,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -4464,6 +4521,11 @@
           "percentile": 41.52542372881356,
           "value": 56.1,
           "date": "2026-10-21"
+        },
+        "lmarena-text": {
+          "percentile": 7.6923076923076925,
+          "value": 1371.9997760467822,
+          "date": "2026-10-20"
         }
       },
       "useCases": {
@@ -4473,19 +4535,19 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 41.52542372881355,
+          "score": 27.025516856025327,
+          "tier": "unrated",
+          "confidence": 0.35
+        },
+        "frontend": {
+          "score": 7.6923076923076925,
           "tier": "unrated",
           "confidence": 0.2
         },
-        "frontend": {
-          "score": null,
-          "tier": "unrated",
-          "confidence": 0
-        },
         "long-context": {
-          "score": null,
+          "score": 7.692307692307692,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -4539,8 +4601,8 @@
         },
         "lmarena-agent": {
           "percentile": 33.33333333333333,
-          "value": -0.004046420414744665,
-          "date": "2026-10-19"
+          "value": -0.005077094474821081,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 82.75862068965517,
@@ -4548,9 +4610,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 69.84126984126983,
-          "value": 1466.8011531857173,
-          "date": "2026-10-15"
+          "percentile": 70.51282051282051,
+          "value": 1466.7080324156648,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 36.708860759493675,
@@ -4565,17 +4627,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 57.049461420840935,
+          "score": 57.21734908872861,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 44.991963029937715,
+          "score": 45.15985069782538,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 77.22261318320432,
+          "score": 77.5104206138689,
           "tier": "A",
           "confidence": 0.6200000000000001
         }
@@ -4631,8 +4693,8 @@
         },
         "lmarena-agent": {
           "percentile": 23.809523809523807,
-          "value": -0.022316366500655736,
-          "date": "2026-10-19"
+          "value": -0.023322547362270542,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 44.827586206896555,
@@ -4640,9 +4702,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 25.396825396825395,
-          "value": 1430.6557406021043,
-          "date": "2026-10-15"
+          "percentile": 32.05128205128205,
+          "value": 1430.528898420856,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 49.36708860759494,
@@ -4657,17 +4719,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 46.1278661503935,
+          "score": 47.791480314007664,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 43.37452280490255,
+          "score": 45.03813696851671,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 36.50011728829463,
+          "score": 39.35202728306177,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -4690,8 +4752,8 @@
         },
         "lmarena-agent": {
           "percentile": 78.57142857142857,
-          "value": 0.06592673675081524,
-          "date": "2026-10-19"
+          "value": 0.06589992111207546,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 79.3103448275862,
@@ -4699,9 +4761,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 61.904761904761905,
-          "value": 1457.0630136388463,
-          "date": "2026-10-15"
+          "percentile": 62.82051282051282,
+          "value": 1456.72532831342,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 74.68354430379746,
@@ -4716,17 +4778,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 79.36269551802698,
+          "score": 79.5916332469647,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 71.48884870403857,
+          "score": 71.7177864329763,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 71.85080928923294,
+          "score": 72.24327396741191,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -4749,8 +4811,8 @@
         },
         "lmarena-agent": {
           "percentile": 38.095238095238095,
-          "value": 0.0028361567129749606,
-          "date": "2026-10-19"
+          "value": 0.0046700175547326655,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 72.41379310344827,
@@ -4758,9 +4820,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 49.2063492063492,
-          "value": 1447.3914205209428,
-          "date": "2026-10-15"
+          "percentile": 53.84615384615385,
+          "value": 1448.0702026084807,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 50.63291139240506,
@@ -4775,17 +4837,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 53.17264501452443,
+          "score": 54.33259617447559,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 50.2762708458911,
+          "score": 51.436222005842254,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 62.46774571897725,
+          "score": 64.45623342175067,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -4808,8 +4870,8 @@
         },
         "lmarena-agent": {
           "percentile": 97.61904761904762,
-          "value": 0.15149788635710656,
-          "date": "2026-10-19"
+          "value": 0.1469659422787175,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 62.06896551724138,
@@ -4817,9 +4879,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 44.44444444444444,
-          "value": 1442.6942201249342,
-          "date": "2026-10-15"
+          "percentile": 47.43589743589743,
+          "value": 1440.97967006192,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 98.73417721518987,
@@ -4834,17 +4896,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 84.45374144794869,
+          "score": 85.20160469581194,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 85.16174402250351,
+          "score": 85.90960727036675,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 54.51559934318555,
+          "score": 55.797650625236834,
           "tier": "B",
           "confidence": 0.6200000000000001
         }
@@ -4862,8 +4924,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 14.285714285714285,
-          "value": -0.04801033363373171,
-          "date": "2026-10-19"
+          "value": -0.04592779459506731,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 8.974358974358974,
+          "value": 1389.3743969603784,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 64.55696202531645,
@@ -4878,19 +4945,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 64.55696202531645,
+          "score": 43.7134858812074,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 64.55696202531645,
+          "score": 50.66131126257707,
           "tier": "B",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 8.974358974358974,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -4906,8 +4973,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 85.71428571428571,
-          "value": 0.09330596874143016,
-          "date": "2026-10-19"
+          "value": 0.0935684625078399,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 12.82051282051282,
+          "value": 1398.1158649410277,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 93.67088607594937,
@@ -4922,19 +4994,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 93.67088607594937,
+          "score": 63.35199610516066,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 93.67088607594937,
-          "tier": "S",
-          "confidence": 0.6
+          "score": 73.45829276209022,
+          "tier": "B",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 12.82051282051282,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -4950,8 +5022,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 92.85714285714286,
-          "value": 0.1372457940008474,
-          "date": "2026-10-19"
+          "value": 0.13547264096101108,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 50,
+          "value": 1443.40746839841,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 97.46835443037975,
@@ -4966,19 +5043,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 97.46835443037975,
+          "score": 79.66772151898734,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 97.46835443037975,
-          "tier": "S",
-          "confidence": 0.6
+          "score": 85.60126582278481,
+          "tier": "A",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 50,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -5003,9 +5080,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 50.79365079365079,
-          "value": 1447.9704091358738,
-          "date": "2026-10-15"
+          "percentile": 52.56410256410257,
+          "value": 1447.6545203968349,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 60.75949367088608,
@@ -5020,17 +5097,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 64.5685407109994,
+          "score": 65.01115365361234,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 58.268032951577254,
+          "score": 58.71064589419021,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 43.44358433028384,
+          "score": 44.20234937476317,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -5053,8 +5130,8 @@
         },
         "lmarena-agent": {
           "percentile": 40.476190476190474,
-          "value": 0.009056292245352149,
-          "date": "2026-10-19"
+          "value": 0.0073856660459570836,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 41.37931034482759,
@@ -5062,9 +5139,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 22.22222222222222,
-          "value": 1427.7652036468833,
-          "date": "2026-10-15"
+          "percentile": 30.76923076923077,
+          "value": 1428.5191559435914,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 75.9493670886076,
@@ -5079,17 +5156,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 68.83954325490475,
+          "score": 70.97629539165689,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 62.51758087201125,
+          "score": 64.65433300876339,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 33.16912972085387,
+          "score": 36.832133383857524,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -5107,8 +5184,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 64.28571428571429,
-          "value": 0.033021715840900565,
-          "date": "2026-10-19"
+          "value": 0.03177250366860225,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 14.102564102564102,
+          "value": 1399.0031143536319,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 84.81012658227847,
@@ -5123,19 +5205,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 84.81012658227847,
+          "score": 58.294790652385586,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 84.81012658227847,
-          "tier": "A",
-          "confidence": 0.6
+          "score": 67.13323596234987,
+          "tier": "B",
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 14.102564102564104,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -5228,8 +5310,13 @@
         },
         "lmarena-agent": {
           "percentile": 11.904761904761903,
-          "value": -0.06271565932746859,
-          "date": "2026-10-19"
+          "value": -0.06173348837397774,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 42.30769230769231,
+          "value": 1438.0671332571378,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 45.56962025316456,
@@ -5244,19 +5331,19 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 47.162030084149805,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 45.94844564003542,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 45.56962025316456,
+          "score": 44.754138266796495,
           "tier": "C",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
           "score": null,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -5374,6 +5461,11 @@
           "value": 59.1,
           "date": "2025-07-17"
         },
+        "lmarena-text": {
+          "percentile": 6.41025641025641,
+          "value": 1370.7259186161562,
+          "date": "2026-10-20"
+        },
         "swe-bench-verified": {
           "percentile": 5.555555555555555,
           "value": 43.8,
@@ -5387,19 +5479,19 @@
           "confidence": 0.08
         },
         "everyday-edits": {
-          "score": 33.333333333333336,
+          "score": 25.99067599067599,
           "tier": "unrated",
-          "confidence": 0.08
+          "confidence": 0.22999999999999998
         },
         "frontend": {
-          "score": 50,
+          "score": 28.2051282051282,
           "tier": "unrated",
-          "confidence": 0.04000000000000001
+          "confidence": 0.24000000000000002
         },
         "long-context": {
-          "score": 5.555555555555555,
-          "tier": "unrated",
-          "confidence": 0.06
+          "score": 5.982905982905983,
+          "tier": "D",
+          "confidence": 0.36
         }
       },
       "cost": {
@@ -5463,9 +5555,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 46.03174603174603,
-          "value": 1445.0155279264052,
-          "date": "2026-10-15"
+          "percentile": 24.358974358974358,
+          "value": 1420.1311678126242,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 18.9873417721519,
@@ -5490,17 +5582,17 @@
           "confidence": 0.36
         },
         "everyday-edits": {
-          "score": 32.070303055070276,
+          "score": 27.73574872051594,
           "tier": "C",
           "confidence": 0.6300000000000001
         },
         "frontend": {
-          "score": 25.74844283705043,
-          "tier": "C",
+          "score": 20.330249918857515,
+          "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 35.993431855500816,
+          "score": 29.49160035366932,
           "tier": "C",
           "confidence": 0.68
         }
@@ -5560,9 +5652,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 60.317460317460316,
-          "value": 1455.42205541913,
-          "date": "2026-10-15"
+          "percentile": 61.53846153846154,
+          "value": 1455.465643908377,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 48.10126582278481,
@@ -5577,17 +5669,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 53.200655217389816,
+          "score": 53.50590552264012,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 51.15531444645368,
+          "score": 51.460564751703984,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 45.554773633591374,
+          "score": 46.078059871163326,
           "tier": "C",
           "confidence": 0.6200000000000001
         }
@@ -5654,13 +5746,13 @@
         },
         "lmarena-agent": {
           "percentile": 52.38095238095239,
-          "value": 0.018872832067527066,
-          "date": "2026-10-19"
+          "value": 0.01767081320690437,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 73.01587301587301,
-          "value": 1474.6645918511683,
-          "date": "2026-10-15"
+          "percentile": 76.92307692307693,
+          "value": 1475.7102938150656,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 87.34177215189874,
@@ -5675,17 +5767,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 80.0701021308187,
+          "score": 81.04690310761968,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 83.7602973678923,
+          "score": 84.73709834469328,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 73.01587301587301,
+          "score": 76.92307692307693,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6034,9 +6126,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 11.11111111111111,
-          "value": 1410.9853460654392,
-          "date": "2026-10-15"
+          "percentile": 17.94871794871795,
+          "value": 1410.8844642145239,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 2.5316455696202533,
@@ -6051,17 +6143,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 12.307206369639323,
+          "score": 14.016608079041033,
           "tier": "D",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 4.676511954992968,
+          "score": 6.3859136643946774,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 11.11111111111111,
+          "score": 17.94871794871795,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6078,9 +6170,9 @@
       "modelKey": "opencode/mimo-v2-omni-free",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 19.047619047619047,
-          "value": 1423.2771219229405,
-          "date": "2026-10-15"
+          "percentile": 26.923076923076923,
+          "value": 1423.0210312801664,
+          "date": "2026-10-20"
         }
       },
       "useCases": {
@@ -6090,17 +6182,17 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 19.047619047619047,
+          "score": 26.923076923076923,
           "tier": "unrated",
           "confidence": 0.15
         },
         "frontend": {
-          "score": 19.047619047619047,
+          "score": 26.923076923076923,
           "tier": "unrated",
           "confidence": 0.2
         },
         "long-context": {
-          "score": 19.047619047619047,
+          "score": 26.923076923076923,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6117,9 +6209,9 @@
       "modelKey": "opencode/mimo-v2-pro-free",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 33.33333333333333,
-          "value": 1436.1246360357568,
-          "date": "2026-10-15"
+          "percentile": 39.743589743589745,
+          "value": 1436.1020744019274,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 24.050632911392405,
@@ -6134,17 +6226,17 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 27.53164556962025,
+          "score": 29.935491723466406,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 26.37130801687763,
+          "score": 27.973872119441737,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 33.33333333333333,
+          "score": 39.743589743589745,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6165,6 +6257,11 @@
           "value": 56.8,
           "date": "2026-10-21"
         },
+        "lmarena-text": {
+          "percentile": 29.48717948717949,
+          "value": 1427.8679137073595,
+          "date": "2026-10-20"
+        },
         "lmarena-webdev": {
           "percentile": 30.37974683544304,
           "value": 1438.3183333245383,
@@ -6178,19 +6275,19 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 36.46332451309924,
-          "tier": "unrated",
-          "confidence": 0.45
+          "score": 34.71928825661929,
+          "tier": "C",
+          "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 30.37974683544304,
+          "score": 30.15660499837715,
           "tier": "C",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 29.48717948717949,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -6206,8 +6303,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 59.523809523809526,
-          "value": 0.02543602811889009,
-          "date": "2026-10-19"
+          "value": 0.025229139475039117,
+          "date": "2026-10-20"
+        },
+        "lmarena-text": {
+          "percentile": 57.692307692307686,
+          "value": 1452.7184290889252,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 83.54430379746836,
@@ -6222,19 +6324,19 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 83.54430379746836,
+          "score": 73.8498052580331,
           "tier": "unrated",
-          "confidence": 0.25
+          "confidence": 0.4
         },
         "frontend": {
-          "score": 83.54430379746836,
+          "score": 77.0813047711782,
           "tier": "A",
-          "confidence": 0.6
+          "confidence": 0.8
         },
         "long-context": {
-          "score": null,
+          "score": 57.69230769230769,
           "tier": "unrated",
-          "confidence": 0
+          "confidence": 0.3
         }
       },
       "cost": {
@@ -6249,9 +6351,9 @@
       "modelKey": "opencode/minimax-m2.1",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 6.349206349206349,
-          "value": 1391.904129402532,
-          "date": "2026-10-15"
+          "percentile": 10.256410256410255,
+          "value": 1391.8594625522517,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 10.126582278481013,
@@ -6266,17 +6368,17 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 8.710066305003014,
+          "score": 10.175267770204478,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 9.182238296162346,
+          "score": 10.159039272963323,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 6.349206349206349,
+          "score": 10.256410256410255,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6326,9 +6428,9 @@
       "modelKey": "opencode/minimax-m2.5",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 4.761904761904762,
-          "value": 1359.1239335465827,
-          "date": "2026-10-15"
+          "percentile": 5.128205128205128,
+          "value": 1359.2221819612637,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 12.658227848101266,
@@ -6353,17 +6455,17 @@
           "confidence": 0.06
         },
         "everyday-edits": {
-          "score": 32.05244122965642,
+          "score": 32.15234132955651,
           "tier": "C",
           "confidence": 0.43000000000000005
         },
         "frontend": {
-          "score": 10.684147076552138,
+          "score": 10.77572216812723,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 48.21428571428571,
+          "score": 48.39743589743589,
           "tier": "C",
           "confidence": 0.36
         }
@@ -6418,9 +6520,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 9.523809523809524,
-          "value": 1404.8321223235982,
-          "date": "2026-10-15"
+          "percentile": 15.384615384615385,
+          "value": 1404.6847290524665,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 16.455696202531644,
@@ -6435,17 +6537,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 19.97195574217672,
+          "score": 21.437157207378185,
           "tier": "D",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 14.722724532851114,
+          "score": 16.187925998052577,
           "tier": "D",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 9.523809523809524,
+          "score": 15.384615384615383,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6468,8 +6570,8 @@
         },
         "lmarena-agent": {
           "percentile": 2.380952380952381,
-          "value": -0.09491071150273762,
-          "date": "2026-10-19"
+          "value": -0.09631520210472189,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 20.689655172413794,
@@ -6477,9 +6579,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 28.57142857142857,
-          "value": 1433.3266154552236,
-          "date": "2026-10-15"
+          "percentile": 35.8974358974359,
+          "value": 1432.6284761390891,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 43.037974683544306,
@@ -6494,18 +6596,18 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 40.32958388246952,
+          "score": 42.16108571397135,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 39.42133815551537,
+          "score": 41.2528399870172,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 24.067558057705842,
-          "tier": "D",
+          "score": 27.207275483137554,
+          "tier": "C",
           "confidence": 0.6200000000000001
         }
       },
@@ -6593,14 +6695,14 @@
       "modelKey": "opencode/mistral-large-4",
       "benchmarks": {
         "lmarena-agent": {
-          "percentile": 19.047619047619047,
-          "value": -0.04455983506137758,
-          "date": "2026-10-19"
+          "percentile": 16.666666666666664,
+          "value": -0.04551203207826911,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 23.809523809523807,
-          "value": 1429.9946133933556,
-          "date": "2026-10-15"
+          "percentile": 33.33333333333333,
+          "value": 1430.779096950918,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 59.49367088607595,
@@ -6610,22 +6712,22 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 19.047619047619047,
+          "score": 16.666666666666664,
           "tier": "unrated",
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 46.112115732368885,
+          "score": 49.68354430379746,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 50.572634116937905,
+          "score": 52.953586497890285,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 23.809523809523807,
+          "score": 33.33333333333333,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6648,13 +6750,13 @@
         },
         "lmarena-agent": {
           "percentile": 7.142857142857142,
-          "value": -0.06734265730958347,
-          "date": "2026-10-19"
+          "value": -0.06750599264185214,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 82.53968253968253,
-          "value": 1483.6337562562753,
-          "date": "2026-10-15"
+          "percentile": 83.33333333333334,
+          "value": 1482.3582636672334,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 53.16455696202531,
@@ -6669,17 +6771,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 68.77551993406958,
+          "score": 68.9739326324823,
           "tier": "B",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 60.50833835643961,
+          "score": 60.706751054852305,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 82.53968253968253,
+          "score": 83.33333333333334,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6735,8 +6837,8 @@
         },
         "lmarena-agent": {
           "percentile": 66.66666666666666,
-          "value": 0.03327017894944396,
-          "date": "2026-10-19"
+          "value": 0.03448215438177892,
+          "date": "2026-10-20"
         },
         "lmarena-document": {
           "percentile": 65.51724137931035,
@@ -6744,9 +6846,9 @@
           "date": "2026-09-13"
         },
         "lmarena-text": {
-          "percentile": 85.71428571428571,
-          "value": 1489.9962469201294,
-          "date": "2026-10-15"
+          "percentile": 88.46153846153845,
+          "value": 1490.4580287328113,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 89.87341772151899,
@@ -6761,18 +6863,18 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 87.68938813457156,
+          "score": 88.37620132138474,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 88.83363471971067,
+          "score": 89.52044790652384,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 74.17311752287122,
-          "tier": "B",
+          "score": 75.35051155740811,
+          "tier": "A",
           "confidence": 0.6200000000000001
         }
       },
@@ -6822,13 +6924,13 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 73.80952380952381,
-          "value": 0.0377252602241092,
-          "date": "2026-10-19"
+          "value": 0.0374648690190007,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 93.65079365079364,
-          "value": 1500.9554786587114,
-          "date": "2026-10-15"
+          "percentile": 94.87179487179486,
+          "value": 1501.6949006218686,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 86.07594936708861,
@@ -6843,17 +6945,17 @@
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 88.91651597347798,
+          "score": 89.37439143135344,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 87.96966043801486,
+          "score": 88.27491074326517,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 93.65079365079364,
+          "score": 94.87179487179486,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -6904,8 +7006,8 @@
       "benchmarks": {
         "lmarena-agent": {
           "percentile": 0,
-          "value": -0.10825980354346064,
-          "date": "2026-10-19"
+          "value": -0.12265778221070545,
+          "date": "2026-10-20"
         }
       },
       "useCases": {
@@ -7124,9 +7226,9 @@
           "date": "2026-10-21"
         },
         "lmarena-text": {
-          "percentile": 34.92063492063492,
-          "value": 1436.363981628608,
-          "date": "2026-10-15"
+          "percentile": 41.02564102564102,
+          "value": 1436.3075246226429,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 37.9746835443038,
@@ -7141,17 +7243,17 @@
           "confidence": 0.3
         },
         "everyday-edits": {
-          "score": 35.852378568533894,
+          "score": 37.37863009478542,
           "tier": "C",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 37.211171388386575,
+          "score": 38.7374229146381,
           "tier": "C",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 34.92063492063492,
+          "score": 41.02564102564102,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -7240,13 +7342,13 @@
         },
         "lmarena-agent": {
           "percentile": 50,
-          "value": 0.01627611687268126,
-          "date": "2026-10-19"
+          "value": 0.016143300343487665,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 79.36507936507937,
-          "value": 1482.8772252478664,
-          "date": "2026-10-15"
+          "percentile": 85.8974358974359,
+          "value": 1483.1832870808096,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 91.13924050632912,
@@ -7261,17 +7363,17 @@
           "confidence": 0.5
         },
         "everyday-edits": {
-          "score": 82.67471044772053,
+          "score": 84.30779958080966,
           "tier": "A",
           "confidence": 0.6000000000000001
         },
         "frontend": {
-          "score": 88.19570022101668,
+          "score": 89.8287893541058,
           "tier": "A",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 79.36507936507937,
+          "score": 85.8974358974359,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -7360,14 +7462,14 @@
       "modelKey": "opencode/step-5-preview-free",
       "benchmarks": {
         "lmarena-agent": {
-          "percentile": 26.190476190476193,
-          "value": -0.018389835030261585,
-          "date": "2026-10-19"
+          "percentile": 28.57142857142857,
+          "value": -0.014717978422220678,
+          "date": "2026-10-20"
         },
         "lmarena-text": {
-          "percentile": 41.269841269841265,
-          "value": 1441.3906418931479,
-          "date": "2026-10-15"
+          "percentile": 46.15384615384615,
+          "value": 1440.3232927002698,
+          "date": "2026-10-20"
         },
         "lmarena-webdev": {
           "percentile": 63.29113924050633,
@@ -7377,22 +7479,22 @@
       },
       "useCases": {
         "agentic-coding": {
-          "score": 26.190476190476193,
+          "score": 28.57142857142857,
           "tier": "unrated",
           "confidence": 0.2
         },
         "everyday-edits": {
-          "score": 55.03315250150693,
+          "score": 56.86465433300876,
           "tier": "unrated",
           "confidence": 0.4
         },
         "frontend": {
-          "score": 57.785814747840064,
+          "score": 59.00681596884129,
           "tier": "B",
           "confidence": 0.8
         },
         "long-context": {
-          "score": 41.269841269841265,
+          "score": 46.15384615384615,
           "tier": "unrated",
           "confidence": 0.3
         }
@@ -7409,9 +7511,9 @@
       "modelKey": "opencode/trinity-large-preview-free",
       "benchmarks": {
         "lmarena-text": {
-          "percentile": 1.5873015873015872,
-          "value": 1338.7745014227426,
-          "date": "2026-10-15"
+          "percentile": 2.564102564102564,
+          "value": 1338.6714894996305,
+          "date": "2026-10-20"
         }
       },
       "useCases": {
@@ -7421,12 +7523,12 @@
           "confidence": 0
         },
         "everyday-edits": {
-          "score": 1.5873015873015872,
+          "score": 2.564102564102564,
           "tier": "unrated",
           "confidence": 0.15
         },
         "frontend": {
-          "score": 1.5873015873015872,
+          "score": 2.564102564102564,
           "tier": "unrated",
           "confidence": 0.2
         },
