@@ -471,10 +471,62 @@ confidence = Σ(weight × freshness(benchmark date))`}</code></pre>
       </div>
     </section>
 
+    <section class="mt-14 border-t border-line pt-8" aria-labelledby="evals-title" id="evals">
+      <div class="grid gap-8 lg:grid-cols-[14rem_1fr]">
+        <div>
+          <p class="eyebrow">04 · Experimental evals</p>
+          <h2 class="mt-2 font-display text-3xl tracking-tight" id="evals-title">
+            Local eval, kept separate
+          </h2>
+        </div>
+        <div class="min-w-0 max-w-3xl space-y-5 text-sm leading-7 text-muted">
+          <p>
+            The guide also publishes a first-party local eval of free models. It
+            runs a fixed 12-task corpus — 6 TypeScript or JavaScript, 3 Python,
+            and 3 Go — through the real OpenCode agent loop or a direct-patch
+            adapter, then checks the result with hidden tests. Hidden tests and
+            reference solutions stay host-side. Results are committed in{" "}
+            <code>data/evals.json</code>.
+          </p>
+          <p>
+            This is explicitly <strong class="text-ink">not part of the composite</strong>.
+            Eval results do not change use-case weights, benchmark percentiles,
+            tiers, confidence, home-page top picks, or free-lane eligibility. No
+            single overall eval score is produced. The public surface reports
+            per-task outcomes, pass rate over completed hidden tests, coverage,
+            tokens per solved task, median duration, and run provenance.
+          </p>
+          <div class="border-l-2 border-warn pl-4">
+            <p class="font-semibold text-ink">Not a public benchmark</p>
+            <p class="mt-1">
+              The corpus is small, fixed, and first-party. The first official run
+              uses one repeat and only live Console free models. A pass rate from
+              this run is directional evidence about these tasks, not a population
+              sample, a leaderboard, or a number comparable to the benchmark
+              composite. “Not run” is not a failure; missing token usage stays
+              missing rather than becoming zero.
+            </p>
+          </div>
+          <p>
+            The agent runs in a disposable container with a size-capped workspace
+            and allowlisted inference egress. The inference key lives only in the
+            proxy. Direct-patch results are reported separately; the two modes are
+            not interchangeable. When a model’s current access differs from the
+            run, the model page says so.
+          </p>
+          <p>
+            <a class="font-semibold underline decoration-line underline-offset-4 hover:decoration-accent" href={url("/evals")}>
+              See the experimental eval results →
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="mt-14 border-t border-line pt-8" aria-labelledby="sources-title" id="sources">
       <div class="grid gap-8 lg:grid-cols-[14rem_1fr]">
         <div>
-          <p class="eyebrow">04 · Sources</p>
+          <p class="eyebrow">05 · Sources</p>
           <h2 class="mt-2 font-display text-3xl tracking-tight" id="sources-title">
             What we read
           </h2>
@@ -566,7 +618,7 @@ confidence = Σ(weight × freshness(benchmark date))`}</code></pre>
     <section class="mt-14 border-t border-line pt-8" aria-labelledby="limits-title" id="limitations">
       <div class="grid gap-8 lg:grid-cols-[14rem_1fr]">
         <div>
-          <p class="eyebrow">05 · Limits</p>
+          <p class="eyebrow">06 · Limits</p>
           <h2 class="mt-2 font-display text-3xl tracking-tight" id="limits-title">
             What this cannot tell you
           </h2>
@@ -611,7 +663,7 @@ confidence = Σ(weight × freshness(benchmark date))`}</code></pre>
     <section class="mt-14 border-t border-line pt-8" aria-labelledby="version-title" id="version">
       <div class="grid gap-8 lg:grid-cols-[14rem_1fr]">
         <div>
-          <p class="eyebrow">06 · Version</p>
+          <p class="eyebrow">07 · Version</p>
           <h2 class="mt-2 font-display text-3xl tracking-tight" id="version-title">
             Changes to the method
           </h2>

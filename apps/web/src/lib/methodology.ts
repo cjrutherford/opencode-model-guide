@@ -1,6 +1,11 @@
-export const METHODOLOGY_VERSION = "1.1";
+export const METHODOLOGY_VERSION = "1.2";
 
 export const METHODOLOGY_CHANGELOG = [
+  {
+    version: "1.2",
+    date: "2026-10-22",
+    note: "Added the experimental local eval surface; composite scoring is unchanged.",
+  },
   {
     version: "1.1",
     date: "2026-10-20",

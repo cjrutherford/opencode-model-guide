@@ -36,7 +36,7 @@ independently pickable unit of work. Pick one up, read its file, claim it here, 
 | S11 | [Docs, accessibility, launch](./S11-docs-a11y-launch.md) | all | `done` | CJ Rutherford | `slice/S11-docs-a11y-launch` | [#13](https://github.com/cjrutherford/opencode-model-guide/pull/13) | Merged `0283123`; live Lighthouse 100/100/100/100; 280 tests; v1 complete |
 | S12 | [Agentic coverage calibration](./S12-agentic-coverage.md) | S06, S11 | `done` | CJ Rutherford | `slice/S12-agentic-coverage` | [#14](https://github.com/cjrutherford/opencode-model-guide/pull/14) | Merged `766803a`; agentic 41, everyday 57; 283 tests; post-v1 methodology 1.1 |
 | S13 | [Access-level top picks](./S13-access-level-top-picks.md) | S08, S12 | `done` | CJ Rutherford | `slice/S13-access-picks` | [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) | Merged `b2855e9`; three access lanes per use case; 286 tests; 3,073 links, 0 broken |
-| S14 | [Free-model eval harness](./S14-free-eval-harness.md) | S13 | `in-progress` | CJ Rutherford | `slice/S14-free-eval-harness` | — | Approved 2026-10-21; 12-task corpus verified; official runs need `OPENCODE_API_KEY` |
+| S14 | [Free-model eval harness](./S14-free-eval-harness.md) | S13 | `in-progress` | CJ Rutherford | `slice/S14-free-eval-harness` | — | Approved 2026-10-21; harness, 12-task corpus, `/evals`, and model badges complete; official runs need `OPENCODE_API_KEY` |
 
 ## Critical path
 
@@ -92,11 +92,11 @@ minimal and note it in the PR.
 | `data/notify-state.json` | S10 | Generated |
 | `apps/web/src/layouts/**`, `components/shell/**`, `styles/**`, `pages/index.astro` | S07 | — |
 | `apps/web/src/pages/models/**`, `pages/compare.astro`, `components/ModelTable.tsx` | S08 | — |
-| `apps/web/src/pages/changes.astro`, `methodology.astro`, `health.astro`, `pages/feed.xml.ts`, `lib/feed.ts` | S09 | — |
+| `apps/web/src/pages/changes.astro`, `methodology.astro`, `health.astro`, `pages/feed.xml.ts`, `lib/feed.ts` | S09 | S14 adds the `#evals` section; composite content stays with S09 |
 | `packages/shared/src/evals.ts`, `packages/eval/**`, `data/evals.json` | S14 | Eval contracts, harness, corpus, generated runs |
 | `apps/web/src/pages/evals.astro`, `lib/evals.ts`, `components/Eval*` | S14 | Experimental public surface |
 | `.github/workflows/eval.yml` | S14 | Manual eval only; no schedule |
-| `README.md`, `CONTRIBUTING.md`, `docs/sources.md`, `docs/launch-checklist.md` | S11 | S14 adds the eval link and source note |
+| `README.md`, `CONTRIBUTING.md`, `docs/sources.md`, `docs/launch-checklist.md` | S11 | S14 adds the eval link and source boundary; other docs stay with S11 |
 | `docs/setup-secrets.md` | S10 | Owner setup; S14 adds `OPENCODE_API_KEY` |
 
 ## Schema freeze
@@ -161,6 +161,8 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
+| 2026-10-22 | S14 | Public surface complete: `/evals`, model-page eval badges, methodology 1.2, and source/README boundaries. Empty-data build, 66 web tests, `astro check`, 3,432-link check, and `validate:data` pass. Official runs remain blocked on a dedicated `OPENCODE_API_KEY`. |
+| 2026-10-22 | S14 | Harness complete through the empty public surface: shared eval contract, 10 free-model selector, 12 verified corpus tasks, disposable sandbox, proxy-only inference key, agent and direct-patch adapters, resumable CLI, validation/CI, and timeout-resume fix. |
 | 2026-10-21 | S14 | Design and slice drafted: free-only 10-model/12-task harness, disposable agent container, egress proxy, `/evals` + model badges, direct-patch second. Awaiting approval. |
 | 2026-10-20 | S13 | Deployed via run 39530467953; live home returns 200 and shows all three access lanes. Tag `v1.2.0`. |
 | 2026-10-20 | S13 | Merged via PR [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) (`b2855e9`). Home top picks split each use case into Free now, Included in Go, and Pay as you go; 286 tests; typecheck, data validation, build, and 3,073-link check pass. |
@@ -213,5 +215,5 @@ Append newest first. Keep it short.
 
 | Date | Version | Change | PR |
 |---|---|---|---|
-| 2026-10-21 | 1 (new `data/evals.json`) | Added separate `EvalsFile` v1 (`EvalRun`, `EvalAttempt`, `EvalModelSummary`); existing snapshot/benchmark/score/event schemas unchanged | pending |
+| 2026-10-21 | 1 (new `data/evals.json`) | Added separate `EvalsFile` v1 (`EvalRun`, `EvalAttempt`, `EvalModelSummary`); existing snapshot/benchmark/score/event schemas unchanged | `slice/S14-free-eval-harness` |
 | 2026-10-19 | 1 | Initial v1 schema: `Snapshot`, `BenchmarksFile`, `ScoresFile`, `ChangeEvent`, and `SourceStatus` (`id`, `url`, `ok`, `status`, `fetchedAt`, `durationMs?`, `itemCount?`, `error?`, `reason?`, `required?`) | [#2](https://github.com/cjrutherford/opencode-model-guide/pull/2) |

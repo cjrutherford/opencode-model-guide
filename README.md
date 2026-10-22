@@ -15,6 +15,8 @@
   ·
   <a href="https://cjrutherford.github.io/opencode-model-guide/methodology">Methodology</a>
   ·
+  <a href="https://cjrutherford.github.io/opencode-model-guide/evals">Experimental evals</a>
+  ·
   <a href="https://cjrutherford.github.io/opencode-model-guide/health">Data health</a>
 </p>
 
@@ -28,7 +30,9 @@ are normalized into committed JSON snapshots, an append-only event log records c
 builds the site and RSS feed. There is no database, server, analytics, or client-side data fetching.
 
 The site never collapses every signal into one opaque score. Free labels, quality tiers, modeled
-costs, provenance, and confidence stay separate.
+costs, provenance, and confidence stay separate. A separate [experimental
+eval](https://cjrutherford.github.io/opencode-model-guide/evals) runs a fixed coding corpus against
+free models and reports the results without feeding the composite.
 
 ## What it tracks
 
@@ -41,9 +45,24 @@ costs, provenance, and confidence stay separate.
 - **Access-level top picks** for free, Go-included, and pay-as-you-go models in each use case.
 - **Change events:** model additions, free offers starting or ending, price changes, deprecations,
   and required-source failures.
+- **Experimental local eval:** a fixed 12-task coding corpus, hidden tests, token and latency capture,
+  and honest coverage. It is separate from every composite and tier.
 
 Every displayed value carries a source and a date. The [methodology](https://cjrutherford.github.io/opencode-model-guide/methodology)
 page documents the formulas, weights, tiers, and limitations.
+
+## Experimental evals
+
+The [`/evals`](https://cjrutherford.github.io/opencode-model-guide/evals) page publishes a first-party
+local eval of free models. Twelve fixed tasks (6 TypeScript/JavaScript, 3 Python, 3 Go) run through
+the real OpenCode agent loop or a direct-patch adapter, then hidden tests decide pass or fail. Results
+include pass rate over completed tests, coverage, tokens per solved task, median duration, and run
+provenance.
+
+This is **not a public benchmark** and it does **not** affect composite scores, use-case tiers,
+confidence, home-page top picks, or free-lane eligibility. The first official run is limited to live
+Console free models, with one repeat. The page shows an honest empty state until a run exists. See
+[`packages/eval/README.md`](packages/eval/README.md) for the harness, sandbox, and run commands.
 
 ## Data sources
 
@@ -57,6 +76,8 @@ The full inventory — URLs, fields, cadence, authority, failure policy, and leg
 - The Artificial Analysis Coding Index contributes to the agentic and everyday composites; its
   agentic and intelligence indices remain supplemental.
 - Terminal-Bench is listed but skipped in v1 because it has no stable machine-readable leaderboard.
+- A first-party local eval corpus, run manually against free models. It is experimental, separate
+  from the composite, and not a public benchmark or external source.
 
 ## Local development
 
@@ -101,16 +122,20 @@ setup](docs/setup-secrets.md) for generation, verification, and rotation.
 | `pnpm typecheck` | Run TypeScript and `astro check`. |
 | `pnpm test` | Run unit tests. No network. |
 | `pnpm test:watch` | Run tests in watch mode. |
-| `pnpm validate:data` | Validate committed snapshot, benchmark, score, and event data. |
+| `pnpm validate:data` | Validate committed snapshot, benchmark, score, eval, and event data. |
 | `pnpm ingest` | Fetch catalog and docs sources, classify free terms, write snapshot/history/events. |
 | `pnpm score` | Fetch benchmark sources, resolve names, compute modeled costs and tiers. |
 | `pnpm notify` | Send one ntfy summary for unsent events. Use `--dry-run` to print only. |
+| `pnpm eval` | Run the experimental local eval. Requires Docker and `OPENCODE_API_KEY` for real attempts. |
+| `pnpm eval:build-image` | Build the sandbox image used by the eval harness. |
+| `pnpm eval:verify-corpus` | Verify all corpus tasks, hidden tests, and reference solutions. |
 | `pnpm tsx scripts/check-links.ts` | Check every internal link in `apps/web/dist`. |
 
 `pnpm notify` skips sending when `NTFY_TOPIC` is missing; the site can still build and deploy.
 `AA_API_KEY` is optional. If it is absent, Artificial Analysis is marked skipped, its rows are
 missing, and agentic/everyday confidence is lower. The affected models stay unrated rather than
-receiving substitute scores.
+receiving substitute scores. Eval runs are manual and free-only by default; `OPENCODE_API_KEY` is
+proxy-only and must never be passed to an agent or test container.
 
 The full quality gate:
 
@@ -134,11 +159,16 @@ AA (opt.) ──┘                     │
                            Astro static build
                           ├─ site (GitHub Pages)
                           ├─ /feed.xml
+                          ├─ /evals
                           └─ ntfy summary
 ```
 
+A separate manual path writes eval results: `free Console models → eval (agent or direct-patch) →
+data/evals.json → /evals`. It does not write snapshot, scores, history, events, or notify state.
+
 Generated data files are committed so the site is reproducible and the pipeline is inspectable.
-`data/aliases.json` is the one hand-edited data file. The full design is in
+`data/evals.json` is generated only by a real eval run; the committed empty snapshot is the honest
+no-run state. `data/aliases.json` is the one hand-edited data file. The full design is in
 [`docs/plans/2026-10-19-opencode-model-guide-design.md`](docs/plans/2026-10-19-opencode-model-guide-design.md).
 
 ## Deployment
@@ -160,6 +190,11 @@ Scheduled runs skip the build and deploy when no data changed. A manual dispatch
 If a required source fails, the run stops before deploy and sends a high-priority failure alert.
 If notification fails after deploy, the site remains live and the run fails visibly so the next run
 can retry.
+
+A separate [`.github/workflows/eval.yml`](.github/workflows/eval.yml) is manual-only. It builds the
+sandbox, verifies the corpus, runs the selected eval mode, validates `data/evals.json`, commits the
+result, and uploads run logs. It never receives `OPENCODE_API_KEY` outside the eval step and does not
+deploy on its own.
 
 For a fresh clone or fork, follow [`docs/launch-checklist.md`](docs/launch-checklist.md) and
 [`docs/setup-secrets.md`](docs/setup-secrets.md). Never commit `NTFY_TOPIC`, `AA_API_KEY`,
@@ -199,8 +234,8 @@ pnpm install
 pnpm typecheck && pnpm test && pnpm validate:data && pnpm build
 ```
 
-Do not hand-edit `data/snapshot.json`, `data/benchmarks.json`, `data/scores.json`, or
-`data/events.jsonl`. Schema changes require a tracker note and a version bump.
+Do not hand-edit `data/snapshot.json`, `data/benchmarks.json`, `data/scores.json`,
+`data/evals.json`, or `data/events.jsonl`. Schema changes require a tracker note and a version bump.
 
 ## Disclaimer
 

@@ -6,7 +6,9 @@ apply. The rendered evidence for a specific model is on its detail page; source 
 run is at [`/health`](https://cjrutherford.github.io/opencode-model-guide/health).
 
 The pipeline is intentionally narrow: OpenCode Console, OpenCode Go / Go Plus, and public benchmark
-sources. It does not scrape arbitrary gateways, run its own evaluations, or collect local telemetry.
+sources. It does not scrape arbitrary gateways or collect local telemetry. A separate first-party
+local eval harness is documented below; it is manual, experimental, and not a public benchmark or a
+composite input.
 
 ## Priority when sources overlap
 
@@ -115,6 +117,38 @@ not merged back automatically; the source status and date make the gap visible.
   `skipped` status with the reason instead of fabricating rows.
 - Adding an adapter is a v2 candidate and needs its own design note.
 
+## Local eval (first-party, not a public benchmark)
+
+S14 adds a separate local eval harness in `packages/eval`. It is not an ingestion source, does not
+feed `data/scores.json`, and is never part of a composite, tier, confidence score, top pick, or
+free-lane eligibility decision.
+
+| Item | Value |
+|---|---|
+| Corpus | 12 fixed tasks: 6 TypeScript/JavaScript, 3 Python, 3 Go |
+| Modes | `agent` (OpenCode agent loop with shell/read/edit), then `direct-patch` (one unified diff) |
+| Pass/fail | Hidden tests, applied after the attempt is captured; the model's self-report is not evidence |
+| First official run | Live Console free models only, one repeat |
+| Output | `data/evals.json` (schema v1), validated and committed |
+| Cadence | Manual only via the eval workflow or local CLI; no daily schedule |
+| Public surface | `/evals`, plus an experimental badge and local-eval section on model pages |
+
+- Hidden tests, reference solutions, and task metadata stay host-side. They are overlaid only in the
+  post-attempt test stage and are never present in the agent workspace.
+- The agent runs in a disposable container with a size-capped tmpfs workspace and no arbitrary
+  internet. It reaches an allowlisted inference proxy with a dummy key; the real
+  `OPENCODE_API_KEY` is injected only by the proxy.
+- The test container runs with no network and no secrets. The agent and test containers never receive
+  the repository's `.secrets` or the inference key.
+- A run can be `complete`, `partial`, or `failed`. Missing attempts are shown as “Not run,” not as
+  failures or zero tokens. Unknown usage stays `null`.
+- `data/evals.json` keeps the model's free label at run time. If current access differs, the model
+  page shows the run-time label and the current access separately.
+- The first run is one repeat. The task-level Wilson interval is directional, not a run-to-run
+  confidence interval. Do not present a local pass rate as a public leaderboard result.
+- Do not publish transcripts, captured patches, hidden tests, reference solutions, or the raw run
+  directory. Only the validated aggregate record belongs in git.
+
 ## HTTP, rate limits, and User-Agent
 
 The shared HTTP helper in `packages/ingest/src/http.ts`:
@@ -155,6 +189,9 @@ availability, and modeled costs remain per listing.
 - **OpenCode docs** — the authoritative source for free terms and privacy. Quote only short phrases,
   link to the page, and do not copy full tables into the repository.
 - **Terminal-Bench** — public leaderboard; cited but not ingested in v1.
+- **Local eval corpus** — first-party prompts, fixtures, and hidden tests. Do not republish captured
+  patches, transcripts, hidden tests, or reference solutions. Local eval results are not a public
+  benchmark and must not be attributed to a third-party publisher.
 
 The project is not affiliated with OpenCode or Anomaly. Prices and offers change; always show the
 source date and the `unconfirmed` state when sources disagree.

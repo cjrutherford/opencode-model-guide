@@ -1,6 +1,6 @@
 # S14 — Free-model eval harness
 
-> **Status:** todo · **Depends on:** S13 · **Blocks:** S15 · **Effort:** ~6–9 days
+> **Status:** in-progress · **Depends on:** S13 · **Blocks:** S15 · **Effort:** ~6–9 days
 > **Owner:** CJ Rutherford · **Branch:** `slice/S14-free-eval-harness`
 >
 > Read the [design](../plans/2026-10-21-s14-free-eval-harness-design.md) first. This file is
