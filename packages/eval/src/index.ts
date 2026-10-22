@@ -3,5 +3,8 @@ export * from "./models";
 export * from "./patch";
 export * from "./process";
 export * from "./prompt";
+export * from "./sandbox/agentContainer";
+export * from "./sandbox/docker";
+export * from "./sandbox/testContainer";
 export * from "./testRunner";
 export * from "./verifyCorpus";
