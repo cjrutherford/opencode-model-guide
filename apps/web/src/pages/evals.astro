@@ -1,0 +1,296 @@
+---
+import Base from "../layouts/Base.astro";
+import EvalModeSection from "../components/EvalModeSection.astro";
+import { loadData } from "../lib/data";
+import {
+  EVAL_MODE_LABELS,
+  EVAL_MODE_ORDER,
+  EVAL_RUN_STATUS_LABELS,
+  evalRunTotals,
+  latestRunByMode,
+} from "../lib/evals";
+import {
+  formatCount,
+  formatDate,
+  formatDateTime,
+  formatPassRate,
+} from "../lib/format";
+import { latestUpdatedAt } from "../lib/home";
+import { url } from "../lib/url";
+
+const data = loadData();
+const agent = latestRunByMode(data.evals, "agent");
+const patch = latestRunByMode(data.evals, "direct-patch");
+const runs = data.evals.runs;
+const hasRuns = runs.length > 0;
+const updatedAt = hasRuns
+  ? data.evals.generatedAt
+  : latestUpdatedAt(data.snapshot, data.scores, data.benchmarks);
+const detailedRunIds = new Set(
+  [agent?.id, patch?.id].filter((id): id is string => Boolean(id)),
+);
+
+const statusTone: Record<string, string> = {
+  complete: "border-good/35 bg-good/5 text-good",
+  partial: "border-warn/35 bg-warn/5 text-warn",
+  failed: "border-accent/35 bg-accent/5 text-accent",
+};
+---
+
+<Base
+  title="Free model evals — experimental local coding results"
+  description="Fixed coding tasks, real agent loops, hidden tests, tokens, latency, and cost for free OpenCode models. Experimental and separate from the composite."
+  updatedAt={updatedAt}
+>
+  <div class="mx-auto max-w-[1120px] px-5 py-10 sm:px-8 sm:py-12">
+    <nav class="text-xs text-muted" aria-label="Breadcrumb">
+      <a href={url("/")}>Home</a>
+      <span aria-hidden="true"> / </span>
+      <span>Evals</span>
+    </nav>
+
+    <header class="mt-6 max-w-3xl">
+      <p class="eyebrow flex items-center gap-3">
+        <span class="h-px w-8 bg-accent" aria-hidden="true"></span>
+        Experimental · local eval
+      </p>
+      <h1 class="mt-5 font-display text-4xl leading-[0.98] tracking-[-0.035em] sm:text-6xl">
+        Free model evals
+      </h1>
+      <p class="mt-5 text-lg leading-8 text-muted">
+        Fixed coding tasks, real agent loops, hidden tests, tokens, latency, and
+        cost. These are first-party task results for free models — useful
+        evidence, not a universal ranking.
+      </p>
+
+      <div class="mt-6 border-l-2 border-warn bg-[color-mix(in_srgb,var(--color-warn)_7%,transparent)] p-4">
+        <p class="text-sm font-semibold">Not part of the composite</p>
+        <p class="mt-1 text-sm leading-6 text-muted">
+          Eval results do not change composite scores, tiers, home-page top
+          picks, confidence, or free-lane eligibility. No eval badge is styled
+          as a tier. Read the{" "}
+          <a href={url("/methodology#evals")}>method and limitations</a>.
+        </p>
+      </div>
+    </header>
+
+    {
+      hasRuns ? (
+        <>
+          <nav
+            class="mt-8 flex flex-wrap gap-2"
+            aria-label="Jump to eval mode"
+          >
+            {EVAL_MODE_ORDER.map((mode) => (
+              <a class="filter-chip" href={`#${mode}`}>
+                {EVAL_MODE_LABELS[mode]}
+              </a>
+            ))}
+          </nav>
+
+          <div class="mt-12 space-y-16">
+            {EVAL_MODE_ORDER.map((mode) => (
+              <EvalModeSection
+                mode={mode}
+                run={mode === "agent" ? agent : patch}
+                snapshot={data.snapshot}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="mt-10 border border-dashed border-line p-6">
+          <p class="text-sm font-semibold">No eval runs have been published yet.</p>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            The harness and corpus are ready; the first official free-only run is
+            pending. This page will show real attempts, not placeholder scores.
+            Until then, use the public benchmark and modeled-cost views with
+            their stated confidence.
+          </p>
+          <a
+            class="mt-4 inline-block text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
+            href={url("/models")}
+          >
+            Browse models →
+          </a>
+        </div>
+      )
+    }
+
+    {
+      hasRuns && (
+        <section
+          id="history"
+          class="mt-16 border-t border-line pt-10"
+          aria-labelledby="history-title"
+        >
+          <p class="eyebrow">History</p>
+          <h2
+            id="history-title"
+            class="mt-2 font-display text-3xl tracking-tight"
+          >
+            Previous runs
+          </h2>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            The latest run for each mode is detailed above. Older runs remain in
+            the committed snapshot with their original coverage and status. A
+            historical result keeps the free terms it ran under.
+          </p>
+
+          <div class="mt-6 overflow-x-auto border border-line">
+            <table class="data-table min-w-[820px]">
+              <caption>
+                All committed eval runs, newest first. Coverage is recorded ÷
+                planned attempts; pass rate uses completed hidden-test outcomes.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Mode</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Coverage</th>
+                  <th scope="col">Passed / completed</th>
+                  <th scope="col">Pass rate</th>
+                  <th scope="col">Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {runs.map((run) => {
+                  const totals = evalRunTotals(run);
+                  const detailed = detailedRunIds.has(run.id);
+                  return (
+                    <tr>
+                      <td>
+                        <time datetime={run.startedAt}>
+                          {formatDate(run.startedAt)}
+                        </time>
+                      </td>
+                      <td>{EVAL_MODE_LABELS[run.mode]}</td>
+                      <td>
+                        <span class:list={["badge", statusTone[run.status]]}>
+                          {EVAL_RUN_STATUS_LABELS[run.status]}
+                        </span>
+                      </td>
+                      <td class="num">
+                        {formatCount(totals.recorded)} /{" "}
+                        {formatCount(totals.planned)}
+                      </td>
+                      <td class="num">
+                        {formatCount(totals.passed)} /{" "}
+                        {formatCount(totals.completed)}
+                      </td>
+                      <td class="num">{formatPassRate(totals.passRate)}</td>
+                      <td>
+                        {detailed ? (
+                          <a href={`#${run.mode}`}>Latest →</a>
+                        ) : (
+                          <span class="text-muted">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )
+    }
+
+    <section
+      id="method"
+      class="mt-16 border-t border-line pt-10"
+      aria-labelledby="method-title"
+    >
+      <p class="eyebrow">Method</p>
+      <h2 id="method-title" class="mt-2 font-display text-3xl tracking-tight">
+        What this measures
+      </h2>
+      <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">
+        The corpus is fixed and versioned: 12 small coding tasks — 6 TypeScript
+        or JavaScript, 3 Python, and 3 Go. Every task starts from a clean
+        repository. Hidden tests decide pass or fail; the model's own report
+        never does.
+      </p>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <div class="card p-5">
+          <h3 class="font-display text-xl tracking-tight">Agent loop</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            The model runs in a disposable container with shell, read, and edit
+            tools. It reaches only an allowlisted egress proxy for inference.
+            Hidden tests and the reference solution live host-side and are
+            overlaid only after the attempt is captured.
+          </p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-display text-xl tracking-tight">Direct patch</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            The model gets the same prompt and returns one unified diff. The
+            patch is validated and applied host-side, then tested in a fresh
+            network-isolated container. This is a cheaper baseline, not the same
+            signal as the agent loop.
+          </p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-display text-xl tracking-tight">Free at run time</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            The first official run uses only live Console free models. Cost is
+            reported as $0 when usage is known, but free terms can change.
+            Tokens and wall-clock time are the meaningful resource measures.
+          </p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-display text-xl tracking-tight">One repeat</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">
+            The first run uses one repeat per model/task pair. The Wilson
+            interval is task-level, not run-to-run. Treat differences as
+            directional until repeated runs and promotion rules exist.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="mt-8 font-display text-2xl tracking-tight">Limitations</h3>
+      <ul class="mt-3 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+        <li>
+          A 12-task corpus is small and intentionally focused; it is not a
+          population sample of coding work.
+        </li>
+        <li>
+          One repeat cannot separate model variance from task difficulty. Models
+          can also change behind an unchanged name.
+        </li>
+        <li>
+          Provider rate limits, timeouts, missing usage, and patch-format errors
+          are reported separately and never converted to passes or zero tokens.
+        </li>
+        <li>
+          Agent and direct-patch results are not interchangeable. The page shows
+          them separately.
+        </li>
+        <li>
+          Docker is a disposable convenience boundary, not a hardened
+          multi-tenant sandbox. Official runs use an ephemeral runner.
+        </li>
+        <li>
+          Historical runs keep their original free label. The current model page
+          says when access has changed since the run.
+        </li>
+      </ul>
+
+      <p class="mt-6 text-sm leading-6 text-muted">
+        Full scoring and eval rules:{" "}
+        <a href={url("/methodology#evals")}>methodology →</a>. The committed raw
+        data and validation rules are in the repository.
+      </p>
+
+      <p class="mt-6 text-xs text-muted">
+        Snapshot generated{" "}
+        <time datetime={data.evals.generatedAt}>
+          {formatDateTime(data.evals.generatedAt)}
+        </time>
+        . Runs in file: <span class="num">{formatCount(runs.length)}</span>.
+      </p>
+    </section>
+  </div>
+</Base>

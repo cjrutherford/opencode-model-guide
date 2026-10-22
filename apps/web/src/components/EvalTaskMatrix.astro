@@ -1,0 +1,142 @@
+---
+import type { EvalLanguage, EvalModel, EvalRun } from "@omg/shared";
+
+import {
+  EVAL_CELL_LABELS,
+  buildEvalTaskMatrix,
+  sortRunModels,
+  type EvalTone,
+} from "../lib/evals";
+import { formatCount, formatDuration } from "../lib/format";
+
+interface Props {
+  run: EvalRun;
+  models?: EvalModel[];
+}
+
+const { run } = Astro.props;
+const models = Astro.props.models ?? sortRunModels(run).map((entry) => entry.model);
+const rows = buildEvalTaskMatrix(run, models);
+const modelNames = new Map(models.map((model) => [model.modelKey, model.name]));
+
+const languageLabels: Record<EvalLanguage, string> = {
+  ts: "TypeScript",
+  js: "JavaScript",
+  python: "Python",
+  go: "Go",
+};
+
+const toneClasses: Record<EvalTone, string> = {
+  good: "border-good/35 bg-good/5 text-good",
+  bad: "border-accent/35 bg-accent/5 text-accent",
+  warn: "border-warn/35 bg-warn/5 text-warn",
+  muted: "border-line text-muted",
+};
+---
+
+<div class="mt-6 overflow-x-auto border border-line">
+  <table class="data-table min-w-[860px]">
+    <caption class="px-4 pt-4">
+      Task outcomes for this run. Each cell is labeled; the count is in the
+      accessible title. “Not run” is not a failure.
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Task</th>
+        {
+          models.map((model) => (
+            <th scope="col" class="min-w-[8rem]">
+              <span class="block max-w-[10rem] whitespace-normal">{model.name}</span>
+              <span class="mt-1 block text-[0.65rem] font-normal normal-case tracking-normal text-muted">
+                {model.provider === "opencode" ? "Console" : "Go"}
+              </span>
+            </th>
+          ))
+        }
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            <th scope="row" class="min-w-[9rem]">
+              <span class="block font-mono text-xs font-semibold">{row.task.id}</span>
+              <span class="mt-1 block text-[0.65rem] font-normal normal-case tracking-normal text-muted">
+                {languageLabels[row.task.language]}
+              </span>
+            </th>
+            {row.cells.map((cell) => (
+              <td>
+                <span
+                  class:list={[
+                    "badge inline-flex min-w-[4.6rem] justify-center",
+                    toneClasses[cell.tone],
+                  ]}
+                  title={cell.title}
+                  aria-label={`${modelNames.get(cell.modelKey) ?? cell.modelKey}, ${row.task.id}: ${cell.label}. ${cell.title}`}
+                >
+                  {cell.label}
+                </span>
+              </td>
+            ))}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted" aria-label="Task status legend">
+  {
+    (["passed", "failed", "patch_failed", "error", "timeout", "skipped", "not_run"] as const).map(
+      (status) => (
+        <span class="inline-flex items-center gap-1.5">
+          <span
+            class:list={[
+              "inline-block h-2 w-2 rounded-full",
+              status === "passed" && "bg-good",
+              status === "failed" && "bg-accent",
+              status === "patch_failed" && "bg-accent",
+              status === "error" && "bg-warn",
+              status === "timeout" && "bg-warn",
+              status === "skipped" && "bg-muted",
+              status === "not_run" && "border border-line",
+            ]}
+            aria-hidden="true"
+          />
+          {EVAL_CELL_LABELS[status]}
+        </span>
+      ),
+    )
+  }
+  <span class="text-muted">
+    Colors repeat the text labels. Hover a cell for its counts.
+  </span>
+</div>
+
+<div class="mt-6 border-t border-line">
+  {
+    rows.map((row) => (
+      <details class="border-b border-line py-3">
+        <summary class="cursor-pointer text-sm font-semibold">
+          <span class="font-mono text-xs">{row.task.id}</span>
+          <span class="font-normal text-muted">
+            {" "}
+            · {languageLabels[row.task.language]} ·{" "}
+            {row.attemptCount === 0
+              ? "not run"
+              : `${formatCount(row.passed)}/${formatCount(row.attemptCount)} passed`}
+          </span>
+        </summary>
+        <div class="mt-3 max-w-3xl space-y-2 text-sm leading-6 text-muted">
+          <p class="whitespace-pre-wrap text-ink">{row.task.prompt}</p>
+          <p>
+            Task timeout: <span class="num">{formatDuration(row.task.timeoutMs)}</span>
+            {" · "}
+            Corpus version: <span class="num">{row.task.version}</span>
+          </p>
+        </div>
+      </details>
+    ))
+  }
+</div>

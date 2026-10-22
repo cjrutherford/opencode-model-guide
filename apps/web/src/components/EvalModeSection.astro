@@ -1,0 +1,334 @@
+---
+import type { EvalMode, EvalRun, Snapshot } from "@omg/shared";
+
+import EvalTaskMatrix from "./EvalTaskMatrix.astro";
+import {
+  EVAL_MODE_LABELS,
+  EVAL_RUN_STATUS_LABELS,
+  evalRunTotals,
+  sortRunModels,
+} from "../lib/evals";
+import {
+  formatCount,
+  formatDateTime,
+  formatDuration,
+  formatFreeKind,
+  formatPassRate,
+  formatProvider,
+  formatTokens,
+  formatUsd,
+} from "../lib/format";
+import { modelHref } from "../lib/models";
+
+interface Props {
+  mode: EvalMode;
+  run: EvalRun | null;
+  snapshot: Snapshot;
+}
+
+const { mode, run, snapshot } = Astro.props;
+const modeLabel = EVAL_MODE_LABELS[mode];
+const title = mode === "agent" ? "Agent loop" : "Direct patch";
+const totals = run ? evalRunTotals(run) : null;
+const ordered = run ? sortRunModels(run) : [];
+
+const statusTone =
+  run?.status === "complete"
+    ? "border-good/35 bg-good/5 text-good"
+    : run?.status === "partial"
+      ? "border-warn/35 bg-warn/5 text-warn"
+      : "border-accent/35 bg-accent/5 text-accent";
+
+const nonPassCount = totals
+  ? totals.patchFailed + totals.errored + totals.timedOut + totals.skipped
+  : 0;
+
+function currentModelFor(evalModel: { modelKey: string; id: string }) {
+  return (
+    snapshot.models.find((model) => model.key === evalModel.modelKey) ??
+    snapshot.models.find((model) => model.id === evalModel.id)
+  );
+}
+
+function intervalLabel(interval: [number, number] | null): string {
+  if (!interval) return "—";
+  return `${formatPassRate(interval[0])}–${formatPassRate(interval[1])}`;
+}
+
+function nonPassLabel(summary: {
+  patchFailed: number;
+  errored: number;
+  timedOut: number;
+  skipped: number;
+}): string {
+  const parts: string[] = [];
+  if (summary.patchFailed > 0) {
+    parts.push(`${formatCount(summary.patchFailed)} patch`);
+  }
+  if (summary.errored > 0) parts.push(`${formatCount(summary.errored)} error`);
+  if (summary.timedOut > 0) parts.push(`${formatCount(summary.timedOut)} timeout`);
+  if (summary.skipped > 0) parts.push(`${formatCount(summary.skipped)} skipped`);
+  return parts.length > 0 ? parts.join(" · ") : "—";
+}
+---
+
+<section id={mode} class="scroll-mt-24" aria-labelledby={`${mode}-title`}>
+  {
+    run && totals ? (
+      <>
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p class="eyebrow">{modeLabel} mode</p>
+            <h2
+              id={`${mode}-title`}
+              class="mt-2 font-display text-3xl tracking-tight"
+            >
+              {title}
+            </h2>
+          </div>
+          <span class:list={["badge", statusTone]}>
+            {EVAL_RUN_STATUS_LABELS[run.status]}
+          </span>
+        </div>
+
+        <p class="mt-3 max-w-3xl text-sm leading-6 text-muted">
+          <span class="font-mono text-xs text-ink">{run.id}</span>
+          {" · "}
+          <time datetime={run.startedAt}>{formatDateTime(run.startedAt)}</time>
+          {" · "}
+          {formatCount(run.models.length)} models × {formatCount(run.tasks.length)}{" "}
+          tasks × {formatCount(run.repeats)} repeat
+          {run.repeats === 1 ? "" : "s"} = {formatCount(run.plannedAttempts)}{" "}
+          planned attempts.
+        </p>
+
+        {
+          run.status !== "complete" && (
+            <div class="mt-5 border-l-2 border-warn bg-[color-mix(in_srgb,var(--color-warn)_7%,transparent)] p-4">
+              <p class="text-sm font-semibold">
+                {run.status === "partial" ? "Partial run" : "Failed run"}
+              </p>
+              <p class="mt-1 text-sm leading-6 text-muted">
+                {formatCount(totals.recorded)} of{" "}
+                {formatCount(totals.planned)} planned attempts were recorded.
+                "Not run" cells are not failures. {run.notes ?? ""}
+              </p>
+            </div>
+          )
+        }
+
+        <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="card p-4">
+            <p class="eyebrow">Recorded</p>
+            <p class="num mt-2 font-display text-3xl tracking-tight">
+              {formatCount(totals.recorded)}
+              <span class="text-sm font-normal text-muted">
+                / {formatCount(totals.planned)}
+              </span>
+            </p>
+            <p class="mt-1 text-xs text-muted">attempts</p>
+          </div>
+          <div class="card p-4">
+            <p class="eyebrow">Passed</p>
+            <p class="num mt-2 font-display text-3xl tracking-tight">
+              {formatCount(totals.passed)}
+              <span class="text-sm font-normal text-muted">
+                / {formatCount(totals.completed)}
+              </span>
+            </p>
+            <p class="mt-1 text-xs text-muted">completed hidden-test outcomes</p>
+          </div>
+          <div class="card p-4">
+            <p class="eyebrow">Pass rate</p>
+            <p class="num mt-2 font-display text-3xl tracking-tight">
+              {formatPassRate(totals.passRate)}
+            </p>
+            <p class="mt-1 text-xs text-muted">
+              of completed outcomes, not all planned tasks
+            </p>
+          </div>
+          <div class="card p-4">
+            <p class="eyebrow">Non-pass</p>
+            <p class="num mt-2 font-display text-3xl tracking-tight">
+              {formatCount(nonPassCount)}
+            </p>
+            <p class="mt-1 text-xs text-muted">patch, error, timeout, or skipped</p>
+          </div>
+        </div>
+
+        <h3 class="mt-10 font-display text-2xl tracking-tight">
+          Model results
+        </h3>
+        <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">
+          Sorted by completed attempts, then pass rate, then tokens per solved
+          task. Coverage keeps a one-task model from looking like a 100% model.
+          Cost is per solved task and was $0 at run time for these free models.
+        </p>
+
+        <div class="mt-6 overflow-x-auto border border-line">
+          <table class="data-table min-w-[1040px]">
+            <caption>
+              Model results for {run.id}. Pass rate uses completed hidden-test
+              outcomes; coverage uses all planned attempts.
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Passed / completed</th>
+                <th scope="col">Coverage</th>
+                <th scope="col">Pass rate</th>
+                <th scope="col">95% interval</th>
+                <th scope="col">Non-pass</th>
+                <th scope="col">Tokens / solved</th>
+                <th scope="col">Median</th>
+                <th scope="col">Cost / solved</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ordered.map(({ model, summary }) => {
+                const current = currentModelFor(model);
+                const total = run.tasks.length * run.repeats;
+                return (
+                  <tr>
+                    <th scope="row" class="min-w-[12rem]">
+                      <span class="block">
+                        {current ? (
+                          <a class="font-semibold" href={modelHref(current)}>
+                            {model.name}
+                          </a>
+                        ) : (
+                          <span class="font-semibold">{model.name}</span>
+                        )}
+                      </span>
+                      <span class="mt-1 block text-[0.65rem] font-normal normal-case tracking-normal text-muted">
+                        {formatProvider(model.provider)} ·{" "}
+                        {formatFreeKind(model.freeKind)}
+                      </span>
+                    </th>
+                    <td class="num">
+                      {formatCount(summary.passed)} /{" "}
+                      {formatCount(summary.completed)}
+                    </td>
+                    <td class="num">
+                      {formatCount(summary.completed)} / {formatCount(total)}
+                    </td>
+                    <td class="num">{formatPassRate(summary.passRate)}</td>
+                    <td class="num">
+                      {intervalLabel(summary.passRateWilson95)}
+                    </td>
+                    <td>{nonPassLabel(summary)}</td>
+                    <td class="num">
+                      {summary.tokensPerSolvedTask === null
+                        ? "—"
+                        : formatTokens(summary.tokensPerSolvedTask)}
+                    </td>
+                    <td class="num">
+                      {formatDuration(summary.medianDurationMs)}
+                    </td>
+                    <td class="num">
+                      {summary.costPerSolvedTaskUsd === null
+                        ? "—"
+                        : formatUsd(summary.costPerSolvedTaskUsd)}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs leading-5 text-muted">
+          The 95% interval is task-level (Wilson), not a run-to-run confidence
+          interval. With one repeat it is directional. Missing token usage stays
+          “—” rather than zero.
+        </p>
+
+        <h3 class="mt-10 font-display text-2xl tracking-tight">Task matrix</h3>
+        <EvalTaskMatrix run={run} models={ordered.map((entry) => entry.model)} />
+
+        <details class="mt-6 border border-line p-4">
+          <summary class="cursor-pointer text-sm font-semibold">
+            Run provenance and limits
+          </summary>
+          <dl class="mt-4 grid gap-4 text-sm sm:grid-cols-2">
+            <div>
+              <dt class="eyebrow">Started</dt>
+              <dd class="mt-1">
+                <time datetime={run.startedAt}>
+                  {formatDateTime(run.startedAt)}
+                </time>
+              </dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Finished</dt>
+              <dd class="mt-1">
+                {run.finishedAt ? (
+                  <time datetime={run.finishedAt}>
+                    {formatDateTime(run.finishedAt)}
+                  </time>
+                ) : (
+                  "—"
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Corpus version</dt>
+              <dd class="num mt-1">{run.corpusVersion}</dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Harness / OpenCode</dt>
+              <dd class="num mt-1">
+                {run.harnessVersion} / {run.opencodeVersion}
+              </dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Snapshot</dt>
+              <dd class="mt-1">
+                <time datetime={run.snapshotGeneratedAt}>
+                  {formatDateTime(run.snapshotGeneratedAt)}
+                </time>
+              </dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Sandbox</dt>
+              <dd class="mt-1 break-all text-xs">
+                {run.sandbox.image} · {run.sandbox.platform} ·{" "}
+                {run.sandbox.digest}
+              </dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Attempt / run timeouts</dt>
+              <dd class="num mt-1">
+                {formatDuration(run.limits.attemptTimeoutMs)} /{" "}
+                {formatDuration(run.limits.runTimeoutMs)}
+              </dd>
+            </div>
+            <div>
+              <dt class="eyebrow">Snapshot hash</dt>
+              <dd class="mt-1 break-all font-mono text-xs">
+                {run.snapshotSha256}
+              </dd>
+            </div>
+          </dl>
+        </details>
+      </>
+    ) : (
+      <>
+        <p class="eyebrow">{modeLabel} mode</p>
+        <h2 id={`${mode}-title`} class="mt-2 font-display text-3xl tracking-tight">
+          {title}
+        </h2>
+        <div class="mt-6 card p-6">
+          <p class="text-sm font-semibold">
+            No {modeLabel.toLowerCase()} eval run has been published yet.
+          </p>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            {mode === "agent"
+              ? "The first official free-only agent run is pending. It will cover the live free Console models on the fixed corpus."
+              : "The direct-patch run follows the agent run and uses the same corpus and result contract."}{" "}
+            There is no placeholder score here.
+          </p>
+        </div>
+      </>
+    )
+  }
+</section>

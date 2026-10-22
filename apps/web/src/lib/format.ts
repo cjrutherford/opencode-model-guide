@@ -133,6 +133,28 @@ export function formatScore(value: number): string {
   return value.toFixed(1);
 }
 
+export function formatPassRate(value: number | null): string {
+  if (value === null || !Number.isFinite(value)) return "—";
+  return `${Math.round(value * 100)}%`;
+}
+
+export function formatDuration(value: number | null): string {
+  if (value === null || !Number.isFinite(value) || value < 0) return "—";
+  if (value < 1_000) return `${Math.round(value)} ms`;
+  if (value < 60_000) return `${(value / 1_000).toFixed(1)} s`;
+
+  const minutes = Math.floor(value / 60_000);
+  const seconds = Math.round((value % 60_000) / 1_000);
+  return `${minutes}m ${String(seconds).padStart(2, "0")}s`;
+}
+
+const countFormatter = new Intl.NumberFormat("en-US");
+
+export function formatCount(value: number | null): string {
+  if (value === null || !Number.isFinite(value)) return "—";
+  return countFormatter.format(value);
+}
+
 export function formatFreeKind(kind: FreeKind): string {
   return FREE_KIND_LABELS[kind];
 }

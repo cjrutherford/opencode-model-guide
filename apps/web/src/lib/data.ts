@@ -1,14 +1,17 @@
 import benchmarksJson from "@data/benchmarks.json";
+import evalsJson from "@data/evals.json";
 import eventsRaw from "@data/events.jsonl?raw";
 import scoresJson from "@data/scores.json";
 import snapshotJson from "@data/snapshot.json";
 import {
   BenchmarksFileSchema,
   ChangeEventSchema,
+  EvalsFileSchema,
   ScoresFileSchema,
   SnapshotSchema,
   type BenchmarksFile,
   type ChangeEvent,
+  type EvalsFile,
   type ScoresFile,
   type Snapshot,
 } from "@omg/shared";
@@ -17,6 +20,7 @@ export interface SiteData {
   snapshot: Snapshot;
   scores: ScoresFile;
   benchmarks: BenchmarksFile;
+  evals: EvalsFile;
   events: ChangeEvent[];
 }
 
@@ -89,8 +93,9 @@ export function loadData(): SiteData {
     BenchmarksFileSchema,
     benchmarksJson,
   );
+  const evals = parseFile("evals.json", EvalsFileSchema, evalsJson);
   const events = parseEvents(eventsRaw);
 
-  cachedData = { snapshot, scores, benchmarks, events };
+  cachedData = { snapshot, scores, benchmarks, evals, events };
   return cachedData;
 }
