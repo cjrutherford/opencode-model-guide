@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T13:21:12.109Z",
+  "generatedAt": "2026-10-22T13:20:18.536Z",
   "scores": [
     {
       "modelKey": "opencode-go/beam-free",
@@ -139,7 +139,7 @@
         "artificial-analysis": {
           "percentile": 47.45762711864407,
           "value": 58.7,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 35.714285714285715,
@@ -290,7 +290,7 @@
         "artificial-analysis": {
           "percentile": 61.86440677966102,
           "value": 68.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 54.761904761904766,
@@ -349,7 +349,7 @@
         "artificial-analysis": {
           "percentile": 84.7457627118644,
           "value": 74.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 45.23809523809524,
@@ -408,7 +408,7 @@
         "artificial-analysis": {
           "percentile": 70.33898305084746,
           "value": 71.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 26.190476190476193,
@@ -467,7 +467,7 @@
         "artificial-analysis": {
           "percentile": 57.6271186440678,
           "value": 63.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 23.809523809523807,
@@ -726,7 +726,7 @@
         "artificial-analysis": {
           "percentile": 52.54237288135594,
           "value": 60.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-webdev": {
           "percentile": 40.50632911392405,
@@ -775,7 +775,7 @@
         "artificial-analysis": {
           "percentile": 76.27118644067797,
           "value": 72,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 52.38095238095239,
@@ -943,7 +943,7 @@
         "artificial-analysis": {
           "percentile": 50.847457627118644,
           "value": 60.2,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 4.761904761904762,
@@ -1094,7 +1094,7 @@
         "artificial-analysis": {
           "percentile": 32.20338983050847,
           "value": 52.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 15.384615384615385,
@@ -1143,7 +1143,7 @@
         "artificial-analysis": {
           "percentile": 45.76271186440678,
           "value": 58.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 2.380952380952381,
@@ -1322,7 +1322,7 @@
         "artificial-analysis": {
           "percentile": 38.983050847457626,
           "value": 55.9,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 9.523809523809524,
@@ -1419,7 +1419,7 @@
         "artificial-analysis": {
           "percentile": 74.57627118644068,
           "value": 71.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 50,
@@ -1718,7 +1718,7 @@
         "artificial-analysis": {
           "percentile": 0,
           "value": 15.9,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 0,
@@ -1762,7 +1762,7 @@
         "artificial-analysis": {
           "percentile": 92.37288135593221,
           "value": 76.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 83.33333333333334,
@@ -1821,7 +1821,7 @@
         "artificial-analysis": {
           "percentile": 100,
           "value": 79.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 95.23809523809523,
@@ -1880,7 +1880,7 @@
         "artificial-analysis": {
           "percentile": 13.559322033898304,
           "value": 43.9,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 10.344827586206897,
@@ -2150,7 +2150,7 @@
         "artificial-analysis": {
           "percentile": 81.35593220338984,
           "value": 73.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 86.20689655172413,
@@ -2204,7 +2204,7 @@
         "artificial-analysis": {
           "percentile": 83.05084745762711,
           "value": 74.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 55.172413793103445,
@@ -2258,7 +2258,7 @@
         "artificial-analysis": {
           "percentile": 92.37288135593221,
           "value": 76.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 80.95238095238095,
@@ -2371,7 +2371,7 @@
         "artificial-analysis": {
           "percentile": 8.47457627118644,
           "value": 37.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 3.8461538461538463,
@@ -2420,7 +2420,7 @@
         "artificial-analysis": {
           "percentile": 30.508474576271187,
           "value": 52.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 31.03448275862069,
@@ -2484,7 +2484,7 @@
         "artificial-analysis": {
           "percentile": 55.932203389830505,
           "value": 63,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 75.86206896551724,
@@ -2538,7 +2538,7 @@
         "artificial-analysis": {
           "percentile": 70.33898305084746,
           "value": 71.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 76.19047619047619,
@@ -2646,7 +2646,7 @@
         "artificial-analysis": {
           "percentile": 28.8135593220339,
           "value": 52,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 34.61538461538461,
@@ -2761,7 +2761,7 @@
         "artificial-analysis": {
           "percentile": 47.45762711864407,
           "value": 58.7,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 35.714285714285715,
@@ -2803,9 +2803,9 @@
       },
       "cost": {
         "profiles": {
-          "quick-edit": 0.01388,
-          "agentic-pr": 0.09597,
-          "long-context": 0.32029
+          "quick-edit": 0.01334,
+          "agentic-pr": 0.09309,
+          "long-context": 0.31813
         }
       }
     },
@@ -2926,6 +2926,39 @@
     },
     {
       "modelKey": "opencode/fledge-alpha-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/flint-40b-free",
       "benchmarks": {},
       "useCases": {
         "agentic-coding": {
@@ -3081,7 +3114,7 @@
         "artificial-analysis": {
           "percentile": 61.86440677966102,
           "value": 68.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 21.428571428571427,
@@ -3140,7 +3173,7 @@
         "artificial-analysis": {
           "percentile": 66.10169491525424,
           "value": 70.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 48.275862068965516,
@@ -3194,7 +3227,7 @@
         "artificial-analysis": {
           "percentile": 22.033898305084744,
           "value": 49.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 37.17948717948718,
@@ -3243,7 +3276,7 @@
         "artificial-analysis": {
           "percentile": 64.40677966101694,
           "value": 69.2,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 79.48717948717949,
@@ -3292,7 +3325,7 @@
         "artificial-analysis": {
           "percentile": 88.13559322033898,
           "value": 76.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 30.952380952380953,
@@ -3346,7 +3379,7 @@
         "artificial-analysis": {
           "percentile": 89.83050847457628,
           "value": 76.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 69.04761904761905,
@@ -3449,7 +3482,7 @@
         "artificial-analysis": {
           "percentile": 18.64406779661017,
           "value": 45.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 44.871794871794876,
@@ -3503,7 +3536,7 @@
         "artificial-analysis": {
           "percentile": 16.101694915254235,
           "value": 45.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 38.46153846153847,
@@ -3672,7 +3705,7 @@
         "artificial-analysis": {
           "percentile": 37.28813559322034,
           "value": 55.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 65.38461538461539,
@@ -3721,7 +3754,7 @@
         "artificial-analysis": {
           "percentile": 61.86440677966102,
           "value": 68.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 54.761904761904766,
@@ -3775,7 +3808,7 @@
         "artificial-analysis": {
           "percentile": 84.7457627118644,
           "value": 74.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 45.23809523809524,
@@ -3829,7 +3862,7 @@
         "artificial-analysis": {
           "percentile": 70.33898305084746,
           "value": 71.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 26.190476190476193,
@@ -3921,7 +3954,7 @@
         "artificial-analysis": {
           "percentile": 10.16949152542373,
           "value": 37.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 16.666666666666664,
@@ -4052,7 +4085,7 @@
         "artificial-analysis": {
           "percentile": 23.728813559322035,
           "value": 49.4,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 3.4482758620689653,
@@ -4412,7 +4445,7 @@
         "artificial-analysis": {
           "percentile": 67.79661016949152,
           "value": 71.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 42.857142857142854,
@@ -4471,7 +4504,7 @@
         "artificial-analysis": {
           "percentile": 41.52542372881356,
           "value": 56.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 19.230769230769234,
@@ -4520,7 +4553,7 @@
         "artificial-analysis": {
           "percentile": 41.52542372881356,
           "value": 56.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 7.6923076923076925,
@@ -4597,7 +4630,7 @@
         "artificial-analysis": {
           "percentile": 72.88135593220339,
           "value": 71.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 33.33333333333333,
@@ -4689,7 +4722,7 @@
         "artificial-analysis": {
           "percentile": 57.6271186440678,
           "value": 63.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 23.809523809523807,
@@ -4748,7 +4781,7 @@
         "artificial-analysis": {
           "percentile": 98.30508474576271,
           "value": 77.2,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 78.57142857142857,
@@ -4807,7 +4840,7 @@
         "artificial-analysis": {
           "percentile": 59.32203389830508,
           "value": 67.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 38.095238095238095,
@@ -4854,9 +4887,9 @@
       },
       "cost": {
         "profiles": {
-          "quick-edit": 0.0345,
-          "agentic-pr": 0.2175,
-          "long-context": 1.01
+          "quick-edit": 0.0276,
+          "agentic-pr": 0.174,
+          "long-context": 0.808
         }
       }
     },
@@ -4866,7 +4899,7 @@
         "artificial-analysis": {
           "percentile": 96.61016949152543,
           "value": 77.1,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 97.61904761904762,
@@ -5072,7 +5105,7 @@
         "artificial-analysis": {
           "percentile": 79.66101694915254,
           "value": 72.4,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 37.93103448275862,
@@ -5126,7 +5159,7 @@
         "artificial-analysis": {
           "percentile": 94.91525423728814,
           "value": 76.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 40.476190476190474,
@@ -5306,7 +5339,7 @@
         "artificial-analysis": {
           "percentile": 49.152542372881356,
           "value": 58.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 11.904761904761903,
@@ -5547,7 +5580,7 @@
         "artificial-analysis": {
           "percentile": 20.33898305084746,
           "value": 46.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 13.793103448275861,
@@ -5599,9 +5632,9 @@
       },
       "cost": {
         "profiles": {
-          "quick-edit": 0.00754,
-          "agentic-pr": 0.0492,
-          "long-context": 0.128
+          "quick-edit": 0.0077,
+          "agentic-pr": 0.051,
+          "long-context": 0.133
         }
       }
     },
@@ -5644,7 +5677,7 @@
         "artificial-analysis": {
           "percentile": 54.23728813559322,
           "value": 61.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-document": {
           "percentile": 34.48275862068966,
@@ -5698,7 +5731,7 @@
         "artificial-analysis": {
           "percentile": 52.54237288135594,
           "value": 60.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-webdev": {
           "percentile": 40.50632911392405,
@@ -5742,7 +5775,7 @@
         "artificial-analysis": {
           "percentile": 76.27118644067797,
           "value": 72,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 52.38095238095239,
@@ -5829,7 +5862,7 @@
         "artificial-analysis": {
           "percentile": 1.694915254237288,
           "value": 25.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -5868,7 +5901,7 @@
         "artificial-analysis": {
           "percentile": 35.59322033898305,
           "value": 55.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -5907,7 +5940,7 @@
         "artificial-analysis": {
           "percentile": 27.11864406779661,
           "value": 50.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -5946,7 +5979,7 @@
         "artificial-analysis": {
           "percentile": 3.389830508474576,
           "value": 26.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -6051,7 +6084,7 @@
         "artificial-analysis": {
           "percentile": 16.101694915254235,
           "value": 45.3,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -6123,7 +6156,7 @@
         "artificial-analysis": {
           "percentile": 25.423728813559322,
           "value": 49.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 17.94871794871795,
@@ -6255,7 +6288,7 @@
         "artificial-analysis": {
           "percentile": 44.06779661016949,
           "value": 56.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 29.48717948717949,
@@ -6517,7 +6550,7 @@
         "artificial-analysis": {
           "percentile": 32.20338983050847,
           "value": 52.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 15.384615384615385,
@@ -6566,7 +6599,7 @@
         "artificial-analysis": {
           "percentile": 45.76271186440678,
           "value": 58.6,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 2.380952380952381,
@@ -6746,7 +6779,7 @@
         "artificial-analysis": {
           "percentile": 77.96610169491525,
           "value": 72.2,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 7.142857142857142,
@@ -6833,7 +6866,7 @@
         "artificial-analysis": {
           "percentile": 86.4406779661017,
           "value": 75.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 66.66666666666666,
@@ -7046,7 +7079,7 @@
         "artificial-analysis": {
           "percentile": 5.084745762711865,
           "value": 26.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -7118,7 +7151,7 @@
         "artificial-analysis": {
           "percentile": 6.779661016949152,
           "value": 36.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
@@ -7223,7 +7256,7 @@
         "artificial-analysis": {
           "percentile": 33.89830508474576,
           "value": 54.5,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-text": {
           "percentile": 41.02564102564102,
@@ -7338,7 +7371,7 @@
         "artificial-analysis": {
           "percentile": 74.57627118644068,
           "value": 71.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         },
         "lmarena-agent": {
           "percentile": 50,
@@ -7392,7 +7425,7 @@
         "artificial-analysis": {
           "percentile": 11.864406779661017,
           "value": 42.8,
-          "date": "2026-10-21"
+          "date": "2026-10-22"
         }
       },
       "useCases": {
