@@ -472,6 +472,49 @@ describe("executePlannedRun", () => {
     ).toBe(true);
   });
 
+  it("keeps a timed-out run partial when every remaining attempt is already skipped", async () => {
+    const root = await tempRoot();
+    const tasks = [makeTask("one"), makeTask("two")];
+    const models = [makeModel("a")];
+    const store = await RunStore.create(
+      makeSkeleton(
+        "run-timeout-resume",
+        models,
+        tasks,
+        1,
+        new Date("2026-10-20T00:00:00.000Z"),
+        1,
+      ),
+      root,
+    );
+    const plans = planAttempts(models, tasks, 1);
+
+    const first = await executePlannedRun({
+      store,
+      plans,
+      executor: async () => makeExecution("passed"),
+      commit: false,
+      retries: 0,
+    });
+    expect(first.run.status).toBe("partial");
+
+    let called = 0;
+    const second = await executePlannedRun({
+      store,
+      plans,
+      executor: async () => {
+        called += 1;
+        return makeExecution("passed");
+      },
+      commit: false,
+      retries: 0,
+    });
+
+    expect(called).toBe(0);
+    expect(second.run.status).toBe("partial");
+    expect(second.run.attempts).toHaveLength(2);
+  });
+
   it("aborts and does not commit on authentication failure", async () => {
     const root = await tempRoot();
     const dataPath = join(root, "data", "evals.json");

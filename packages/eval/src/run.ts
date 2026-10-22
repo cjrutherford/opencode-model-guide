@@ -408,7 +408,9 @@ export async function executePlannedRun(
   );
 
   const runStartedAtMs = new Date(options.store.run.startedAt).getTime();
-  let runTimedOut = false;
+  let runTimedOut = options.store.run.attempts.some(
+    (attempt) => attempt.status === "skipped" && attempt.error === "run_timeout",
+  );
 
   for (let index = 0; index < options.plans.length; index += 1) {
     const plan = options.plans[index]!;
