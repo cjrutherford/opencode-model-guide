@@ -24,6 +24,10 @@ import {
   startTestContainer,
   type TestContainerHandle,
 } from "../src/sandbox/testContainer";
+import {
+  startProxyContainer,
+  type ProxyContainerHandle,
+} from "../src/sandbox/proxyContainer";
 import { runTestStage } from "../src/testRunner";
 
 const IMAGE = process.env.OMG_EVAL_IMAGE ?? "omg-eval-sandbox:local";
@@ -36,6 +40,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
   let workspace = "";
   let agent: AgentContainerHandle | null = null;
   let testContainer: TestContainerHandle | null = null;
+  let proxy: ProxyContainerHandle | null = null;
   let egress: string | null = null;
   const containerPrefix = "omg-eval-it-";
 
@@ -104,6 +109,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
   afterAll(async () => {
     await agent?.stop();
     await testContainer?.stop();
+    await proxy?.stop();
     if (egress) await removeContainer(egress);
     await removeNetwork(network);
     await removeNetwork(controlNetwork);
@@ -181,7 +187,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
         "--network",
         network,
         "--network-alias",
-        "egress",
+        "egress-placeholder",
         "--entrypoint",
         "/bin/sleep",
         IMAGE,
@@ -194,7 +200,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     const resolved = await agent!.exec([
       "python3",
       "-c",
-      "import socket; print(socket.gethostbyname('egress'))",
+      "import socket; print(socket.gethostbyname('egress-placeholder'))",
     ]);
     expect(resolved.exitCode).toBe(0);
     expect(resolved.stdout.trim()).toMatch(/^\d+\.\d+\.\d+\.\d+$/);
@@ -218,6 +224,33 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     );
     expect(response.status).toBe(200);
     await response.text();
+  });
+
+  it("starts the egress proxy on the internal network", async () => {
+    proxy = await startProxyContainer({
+      image: IMAGE,
+      name: uniqueName("omg-eval-it-proxy"),
+      network,
+      controlNetwork,
+      apiKey: "test-proxy-key",
+    });
+
+    const health = await agent!.exec([
+      "curl",
+      "-fsS",
+      "http://egress:8787/health",
+    ]);
+    expect(health.exitCode).toBe(0);
+    expect(health.stdout).toContain('"ok":true');
+
+    const outbound = await agent!.exec(
+      ["curl", "-sS", "--max-time", "2", "https://example.com"],
+      { timeoutMs: 10_000 },
+    );
+    expect(outbound.exitCode).not.toBe(0);
+
+    const stats = await proxy.stats();
+    expect(stats.rejected).toBeGreaterThanOrEqual(0);
   });
 
   it("starts a no-network test container with no key and no docker socket", async () => {
@@ -283,9 +316,11 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
   it("cleans up its containers and network", async () => {
     await agent?.stop();
     await testContainer?.stop();
+    await proxy?.stop();
     if (egress) await removeContainer(egress);
     agent = null;
     testContainer = null;
+    proxy = null;
     egress = null;
     await removeNetwork(network);
     await removeNetwork(controlNetwork);
