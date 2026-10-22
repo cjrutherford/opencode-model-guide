@@ -1,3 +1,5 @@
+export * from "./adapters/agent";
+export * from "./adapters/agentConfig";
 export * from "./corpus";
 export * from "./models";
 export * from "./patch";
@@ -9,4 +11,5 @@ export * from "./sandbox/docker";
 export * from "./sandbox/proxyContainer";
 export * from "./sandbox/testContainer";
 export * from "./testRunner";
+export * from "./usage";
 export * from "./verifyCorpus";
