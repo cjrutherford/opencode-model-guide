@@ -1,17 +1,20 @@
 import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   BenchmarksFileSchema,
   ChangeEventSchema,
+  EvalsFileSchema,
   ScoresFileSchema,
   SnapshotSchema,
   type BenchmarksFile,
   type ChangeEvent,
+  type EvalsFile,
   type Snapshot,
 } from "@omg/shared";
 
-const DATA_DIR = "data";
+const DATA_DIR = process.env.OMG_DATA_DIR ?? "data";
 
 function fail(message: string): never {
   console.error(`data validation failed: ${message}`);
@@ -40,13 +43,16 @@ function readText(name: string): string {
   return readFileSync(join(DATA_DIR, name), "utf8");
 }
 
-function parseJson<T>(name: string, schema: { parse: (value: unknown) => T }): T {
-  let raw: unknown;
+function parseRaw(name: string): unknown {
   try {
-    raw = JSON.parse(readText(name));
+    return JSON.parse(readText(name));
   } catch (error) {
     fail(`${name}: ${describeError(error)}`);
   }
+}
+
+function parseJson<T>(name: string, schema: { parse: (value: unknown) => T }): T {
+  const raw = parseRaw(name);
   try {
     return schema.parse(raw);
   } catch (error) {
@@ -54,8 +60,43 @@ function parseJson<T>(name: string, schema: { parse: (value: unknown) => T }): T
   }
 }
 
+/**
+ * Validate the eval file and return non-fatal warnings. The shared schema
+ * enforces unique IDs, references, status consistency, non-negative numbers,
+ * and exact summary recomputation. This wrapper adds the historical-model
+ * warning that depends on the current snapshot.
+ */
+export function validateEvals(
+  raw: unknown,
+  snapshot: Snapshot | null,
+): { file: EvalsFile; warnings: string[] } {
+  const file = EvalsFileSchema.parse(raw);
+  const warnings: string[] = [];
+
+  if (snapshot) {
+    const currentModels = new Set(snapshot.models.map((model) => model.key));
+    for (const run of file.runs) {
+      for (const model of run.models) {
+        if (!currentModels.has(model.modelKey)) {
+          warnings.push(
+            `eval run ${run.id} references a model absent from the current snapshot: ${model.modelKey}`,
+          );
+        }
+      }
+    }
+  }
+
+  return { file, warnings };
+}
+
 function main(): void {
-  const names = ["snapshot.json", "benchmarks.json", "scores.json", "events.jsonl"];
+  const names = [
+    "snapshot.json",
+    "benchmarks.json",
+    "scores.json",
+    "events.jsonl",
+    "evals.json",
+  ];
   const present = names.filter((name) => existsSync(join(DATA_DIR, name)));
 
   if (present.length === 0) {
@@ -94,6 +135,22 @@ function main(): void {
         }
       }
     }
+  }
+
+  if (present.includes("evals.json")) {
+    let result: ReturnType<typeof validateEvals>;
+    try {
+      result = validateEvals(parseRaw("evals.json"), snapshot);
+    } catch (error) {
+      fail(`evals.json: ${describeError(error)}`);
+    }
+    console.log(
+      `evals.json: ${result.file.runs.length} runs, ${result.file.runs.reduce(
+        (count, run) => count + run.attempts.length,
+        0,
+      )} attempts`,
+    );
+    for (const warning of result.warnings) console.warn(`warning: ${warning}`);
   }
 
   let events: ChangeEvent[] = [];
@@ -152,4 +209,7 @@ function main(): void {
   console.log("data valid");
 }
 
-main();
+const invokedPath = process.argv[1] ? resolve(process.argv[1]) : null;
+const modulePath = fileURLToPath(import.meta.url);
+
+if (invokedPath === modulePath) main();

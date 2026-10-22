@@ -1,0 +1,101 @@
+name: eval
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Attempt adapter
+        type: choice
+        options:
+          - agent
+          - direct-patch
+        default: agent
+      models:
+        description: "Free model selection: all-free or comma-separated keys"
+        type: string
+        default: all-free
+      tasks:
+        description: "Task selection: all or comma-separated task ids"
+        type: string
+        default: all
+      repeats:
+        description: Repeats per model/task
+        type: string
+        default: "1"
+      resume_run_id:
+        description: Optional run id to resume
+        type: string
+        default: ""
+      commit:
+        description: Write data/evals.json and commit it
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eval
+  cancel-in-progress: false
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.26.x"
+          cache: false
+      - run: pnpm install --frozen-lockfile
+      - name: Build sandbox image
+        run: pnpm eval:build-image
+      - name: Verify corpus
+        run: pnpm eval:verify-corpus
+      - name: Run eval
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          MODE: ${{ inputs.mode }}
+          MODELS: ${{ inputs.models }}
+          TASKS: ${{ inputs.tasks }}
+          REPEATS: ${{ inputs.repeats }}
+          RESUME_RUN_ID: ${{ inputs.resume_run_id }}
+          COMMIT: ${{ inputs.commit }}
+        run: |
+          ARGS=(--access free --mode "$MODE" --models "$MODELS" --tasks "$TASKS" --repeats "$REPEATS" --commit="$COMMIT")
+          if [ -n "$RESUME_RUN_ID" ]; then
+            ARGS+=(--resume "$RESUME_RUN_ID")
+          fi
+          pnpm eval -- "${ARGS[@]}"
+      - name: Validate data
+        run: pnpm validate:data
+      - name: Commit eval data
+        if: ${{ inputs.commit }}
+        run: |
+          if [ -z "$(git status --porcelain data/evals.json)" ]; then
+            echo "no eval data changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/evals.json
+          git commit -m "chore(eval): add ${MODE} run [skip ci]"
+          git push
+        env:
+          MODE: ${{ inputs.mode }}
+      - name: Upload run artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-run-${{ github.run_id }}
+          path: packages/eval/.runs/
+          if-no-files-found: ignore
+          retention-days: 7
