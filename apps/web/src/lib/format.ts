@@ -142,10 +142,15 @@ export function formatDuration(value: number | null): string {
   if (value === null || !Number.isFinite(value) || value < 0) return "—";
   if (value < 1_000) return `${Math.round(value)} ms`;
   if (value < 60_000) return `${(value / 1_000).toFixed(1)} s`;
+  if (value < 3_600_000) {
+    const minutes = Math.floor(value / 60_000);
+    const seconds = Math.round((value % 60_000) / 1_000);
+    return `${minutes}m ${String(seconds).padStart(2, "0")}s`;
+  }
 
-  const minutes = Math.floor(value / 60_000);
-  const seconds = Math.round((value % 60_000) / 1_000);
-  return `${minutes}m ${String(seconds).padStart(2, "0")}s`;
+  const hours = Math.floor(value / 3_600_000);
+  const minutes = Math.round((value % 3_600_000) / 60_000);
+  return `${hours}h ${String(minutes).padStart(2, "0")}m`;
 }
 
 const countFormatter = new Intl.NumberFormat("en-US");

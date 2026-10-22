@@ -377,6 +377,8 @@ describe("eval formatters", () => {
     expect(formatDuration(500)).toBe("500 ms");
     expect(formatDuration(1_500)).toBe("1.5 s");
     expect(formatDuration(90_000)).toBe("1m 30s");
+    expect(formatDuration(3_600_000)).toBe("1h 00m");
+    expect(formatDuration(18_000_000)).toBe("5h 00m");
     expect(formatCount(null)).toBe("—");
     expect(formatCount(1_200)).toBe("1,200");
   });

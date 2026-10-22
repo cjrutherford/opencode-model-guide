@@ -189,8 +189,10 @@ export function primaryModelEvalBadge(
   model: EvalModelRef,
 ): ModelEvalBadge | null {
   const [result] = modelEvalResults(evals, model);
-  if (!result) return null;
+  return result ? toModelEvalBadge(result) : null;
+}
 
+export function toModelEvalBadge(result: ModelEvalResult): ModelEvalBadge {
   const totalAttempts = result.run.tasks.length * result.run.repeats;
   const label = `${EVAL_MODE_SHORT_LABELS[result.run.mode]} ${result.summary.passed}/${totalAttempts}`;
 

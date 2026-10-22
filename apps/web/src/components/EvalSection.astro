@@ -1,0 +1,171 @@
+---
+import type { ModelRecord } from "@omg/shared";
+
+import {
+  EVAL_MODE_LABELS,
+  EVAL_RUN_STATUS_LABELS,
+  type ModelEvalResult,
+} from "../lib/evals";
+import {
+  formatAvailability,
+  formatCount,
+  formatDate,
+  formatDuration,
+  formatFreeKind,
+  formatPassRate,
+  formatTokens,
+  formatUsd,
+} from "../lib/format";
+import { url } from "../lib/url";
+
+interface Props {
+  model: ModelRecord;
+  results: ModelEvalResult[];
+}
+
+const { model, results } = Astro.props;
+
+const statusTone: Record<string, string> = {
+  complete: "border-good/35 bg-good/5 text-good",
+  partial: "border-warn/35 bg-warn/5 text-warn",
+  failed: "border-accent/35 bg-accent/5 text-accent",
+};
+---
+
+<section class="mt-16" aria-labelledby="local-eval-title">
+  <div class="flex flex-wrap items-end justify-between gap-3">
+    <div>
+      <p class="eyebrow">Experimental</p>
+      <h2
+        id="local-eval-title"
+        class="mt-2 font-display text-3xl tracking-tight"
+      >
+        Local eval
+      </h2>
+    </div>
+    <a
+      class="text-sm font-semibold underline decoration-line underline-offset-4 hover:decoration-accent"
+      href={url("/evals")}
+    >
+      All evals →
+    </a>
+  </div>
+  <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">
+    Fixed coding tasks run through the real agent loop or a direct patch, then
+    checked by hidden tests. This is separate from the composite score and is
+    not a purchase recommendation.
+  </p>
+
+  <div class="mt-6 grid gap-3 sm:grid-cols-2">
+    {
+      results.map((result) => {
+        const totalAttempts = result.run.tasks.length * result.run.repeats;
+        const currentAccessChanged =
+          result.model.freeKind !== model.free.kind ||
+          model.availability !== "live";
+        return (
+          <article class="card p-5">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p class="eyebrow">{EVAL_MODE_LABELS[result.run.mode]} mode</p>
+                <p class="mt-1 text-sm font-semibold">
+                  <a href={url(`/evals#${result.run.mode}`)}>
+                    {EVAL_MODE_LABELS[result.run.mode]} run
+                  </a>
+                </p>
+              </div>
+              <span
+                class:list={[
+                  "badge",
+                  statusTone[result.run.status],
+                ]}
+              >
+                {EVAL_RUN_STATUS_LABELS[result.run.status]}
+              </span>
+            </div>
+
+            <dl class="mt-5 grid grid-cols-2 gap-x-5 gap-y-4">
+              <div>
+                <dt class="eyebrow">Passed / total</dt>
+                <dd class="num mt-1 text-lg">
+                  {formatCount(result.summary.passed)} /{" "}
+                  {formatCount(totalAttempts)}
+                </dd>
+              </div>
+              <div>
+                <dt class="eyebrow">Completed</dt>
+                <dd class="num mt-1 text-lg">
+                  {formatCount(result.summary.completed)} /{" "}
+                  {formatCount(totalAttempts)}
+                </dd>
+              </div>
+              <div>
+                <dt class="eyebrow">Pass rate</dt>
+                <dd class="num mt-1 text-lg">
+                  {formatPassRate(result.summary.passRate)}
+                </dd>
+              </div>
+              <div>
+                <dt class="eyebrow">Tokens / solved</dt>
+                <dd class="num mt-1 text-lg">
+                  {result.summary.tokensPerSolvedTask === null
+                    ? "—"
+                    : formatTokens(result.summary.tokensPerSolvedTask)}
+                </dd>
+              </div>
+              <div>
+                <dt class="eyebrow">Median time</dt>
+                <dd class="num mt-1 text-lg">
+                  {formatDuration(result.summary.medianDurationMs)}
+                </dd>
+              </div>
+              <div>
+                <dt class="eyebrow">Cost / solved</dt>
+                <dd class="num mt-1 text-lg">
+                  {result.summary.costPerSolvedTaskUsd === null
+                    ? "—"
+                    : formatUsd(result.summary.costPerSolvedTaskUsd)}
+                </dd>
+              </div>
+            </dl>
+
+            <p class="mt-4 border-t border-line pt-3 text-xs leading-5 text-muted">
+              Run{" "}
+              <time datetime={result.run.startedAt}>
+                {formatDate(result.run.startedAt)}
+              </time>{" "}
+              · corpus {result.run.corpusVersion} ·{" "}
+              {formatCount(result.run.tasks.length)}{" "}
+              tasks
+              {result.run.repeats === 1
+                ? ""
+                : ` × ${formatCount(result.run.repeats)} repeats`}
+              .
+            </p>
+            <p class="mt-1 text-xs leading-5 text-muted">
+              Free at run time: {formatFreeKind(result.model.freeKind)}.
+              {currentAccessChanged
+                ? ` Current access: ${formatFreeKind(model.free.kind)}${model.availability === "live" ? "" : ` (${formatAvailability(model.availability).toLowerCase()})`}.`
+                : ""}
+            </p>
+
+            {result.run.status !== "complete" && (
+              <p class="mt-2 text-xs leading-5 text-warn">
+                {result.run.status === "partial"
+                  ? "Partial result: coverage is incomplete. Missing attempts are not failures."
+                  : "Failed run: treat this result as incomplete."}
+              </p>
+            )}
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <p class="mt-4 max-w-3xl text-xs leading-5 text-muted">
+    Experimental and not in the composite: eval results do not change the
+    model’s tier, price, free-lane eligibility, or home-page rank. Single-run
+    pass rates are directional.{" "}
+    <a href={url("/methodology#evals")}>Method and limitations →</a>
+  </p>
+</section>

@@ -1,0 +1,21 @@
+---
+import type { ModelEvalBadge } from "../lib/evals";
+import { EVAL_MODE_LABELS } from "../lib/evals";
+import { url } from "../lib/url";
+
+interface Props {
+  badge: ModelEvalBadge;
+}
+
+const { badge } = Astro.props;
+---
+
+<a
+  class="badge badge--eval no-underline hover:border-accent hover:text-accent"
+  href={url(`/evals#${badge.mode}`)}
+  aria-label={`${EVAL_MODE_LABELS[badge.mode]} local eval: ${badge.label}; ${badge.passed} passed of ${badge.totalAttempts} planned tasks; experimental and not in the composite`}
+  title="Experimental local eval; not in the composite"
+>
+  <span class="badge-dot" aria-hidden="true"></span>
+  {badge.label}
+</a>

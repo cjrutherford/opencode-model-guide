@@ -162,11 +162,12 @@ function nonPassLabel(summary: {
         <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">
           Sorted by completed attempts, then pass rate, then tokens per solved
           task. Coverage keeps a one-task model from looking like a 100% model.
-          Cost is per solved task and was $0 at run time for these free models.
+          Cost is per solved task when reported; these models were free at run
+          time.
         </p>
 
         <div class="mt-6 overflow-x-auto border border-line">
-          <table class="data-table min-w-[1040px]">
+          <table class="data-table min-w-[920px]">
             <caption>
               Model results for {run.id}. Pass rate uses completed hidden-test
               outcomes; coverage uses all planned attempts.
@@ -176,8 +177,7 @@ function nonPassLabel(summary: {
                 <th scope="col">Model</th>
                 <th scope="col">Passed / completed</th>
                 <th scope="col">Coverage</th>
-                <th scope="col">Pass rate</th>
-                <th scope="col">95% interval</th>
+                <th scope="col">Pass rate (95%)</th>
                 <th scope="col">Non-pass</th>
                 <th scope="col">Tokens / solved</th>
                 <th scope="col">Median</th>
@@ -212,9 +212,11 @@ function nonPassLabel(summary: {
                     <td class="num">
                       {formatCount(summary.completed)} / {formatCount(total)}
                     </td>
-                    <td class="num">{formatPassRate(summary.passRate)}</td>
                     <td class="num">
-                      {intervalLabel(summary.passRateWilson95)}
+                      {formatPassRate(summary.passRate)}
+                      <span class="block text-[0.65rem] font-normal text-muted">
+                        {intervalLabel(summary.passRateWilson95)}
+                      </span>
                     </td>
                     <td>{nonPassLabel(summary)}</td>
                     <td class="num">

@@ -41,6 +41,7 @@ for (const required of [
   "apps/web/dist/compare/index.html",
   "apps/web/dist/changes/index.html",
   "apps/web/dist/methodology/index.html",
+  "apps/web/dist/evals/index.html",
   "apps/web/dist/health/index.html",
   "apps/web/dist/feed.xml",
   "apps/web/dist/robots.txt",
@@ -78,5 +79,5 @@ for (const file of htmlFiles) {
 }
 
 console.log(
-  `model page check: ${actual.size} detail pages, ${htmlFiles.length} HTML files; directory, compare, changes, methodology, health, feed, and robots present`,
+  `model page check: ${actual.size} detail pages, ${htmlFiles.length} HTML files; directory, compare, changes, evals, methodology, health, feed, and robots present`,
 );
