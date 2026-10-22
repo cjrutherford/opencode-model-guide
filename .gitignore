@@ -37,3 +37,6 @@ test-results/
 
 # Agent checkpoints
 .agent/
+
+# Local eval run workspaces and artifacts
+packages/eval/.runs/
