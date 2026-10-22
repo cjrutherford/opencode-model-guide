@@ -81,7 +81,7 @@ BASE_PATH=/opencode-model-guide pnpm tsx scripts/check-links.ts
 
 ### Local secrets
 
-Live ingestion, scoring, and notification read `.secrets` automatically through Node’s
+Live ingestion, scoring, notification, and eval read `.secrets` automatically through Node’s
 `--env-file-if-exists=.secrets`. Copy the tracked example:
 
 ```bash
@@ -162,8 +162,8 @@ If notification fails after deploy, the site remains live and the run fails visi
 can retry.
 
 For a fresh clone or fork, follow [`docs/launch-checklist.md`](docs/launch-checklist.md) and
-[`docs/setup-secrets.md`](docs/setup-secrets.md). Never commit `NTFY_TOPIC`, `AA_API_KEY`, or
-`.secrets`.
+[`docs/setup-secrets.md`](docs/setup-secrets.md). Never commit `NTFY_TOPIC`, `AA_API_KEY`,
+`OPENCODE_API_KEY`, or `.secrets`.
 
 ## Freshness
 
