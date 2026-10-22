@@ -5,6 +5,17 @@ const mode = process.env.FAKE_MODE ?? "edit";
 const delayMs = Number(process.env.FAKE_DELAY_MS ?? 0);
 const model = "eval-model";
 
+const FIX_PATCH = [
+  "diff --git a/src/value.js b/src/value.js",
+  "index 1111111..2222222 100644",
+  "--- a/src/value.js",
+  "+++ b/src/value.js",
+  "@@ -1 +1 @@",
+  "-export const value = 1;",
+  "+export const value = 2;",
+  "",
+].join("\n");
+
 function writeUsage(res, usage, extra = {}) {
   res.write(
     `data: ${JSON.stringify({
@@ -138,6 +149,54 @@ function toolCallResponse(payload) {
   };
 }
 
+function diffResponse(payload) {
+  const content =
+    mode === "diff_fenced"
+      ? `\`\`\`diff\n${FIX_PATCH}\`\`\``
+      : mode === "diff_prose"
+        ? `Here is the patch:\n\n${FIX_PATCH}`
+        : FIX_PATCH;
+  const usage =
+    mode === "diff_no_usage"
+      ? undefined
+      : { prompt_tokens: 900, completion_tokens: 80, total_tokens: 980 };
+
+  if (payload.stream === false) {
+    return {
+      id: "chatcmpl-fake",
+      object: "chat.completion",
+      created: Math.floor(Date.now() / 1000),
+      model,
+      choices: [
+        {
+          index: 0,
+          message: { role: "assistant", content },
+          finish_reason: "stop",
+        },
+      ],
+      ...(usage ? { usage } : {}),
+    };
+  }
+
+  return {
+    chunks: [
+      {
+        choices: [
+          {
+            index: 0,
+            delta: { role: "assistant", content },
+            finish_reason: null,
+          },
+        ],
+      },
+      {
+        choices: [{ index: 0, delta: {}, finish_reason: "stop" }],
+      },
+    ],
+    usage,
+  };
+}
+
 function sendJson(res, status, body) {
   const data = JSON.stringify(body);
   res.writeHead(status, {
@@ -242,9 +301,12 @@ const server = http.createServer((req, res) => {
       const hasTools = toolNames.length > 0;
       const hasToolResult = roles.some((role) => role === "tool");
       const toolMode = mode === "edit" && hasTools && !hasToolResult;
-      const result = toolMode
-        ? toolCallResponse(payload)
-        : textResponse(payload, mode !== "no_usage");
+      const diffMode = mode.startsWith("diff");
+      const result = diffMode
+        ? diffResponse(payload)
+        : toolMode
+          ? toolCallResponse(payload)
+          : textResponse(payload, mode !== "no_usage");
 
       if (payload.stream === false) {
         sendJson(res, 200, result);

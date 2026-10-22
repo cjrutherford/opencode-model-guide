@@ -19,7 +19,11 @@ export type FakeOpenAIMode =
   | "forbidden"
   | "model_not_found"
   | "timeout"
-  | "error";
+  | "error"
+  | "diff"
+  | "diff_no_usage"
+  | "diff_fenced"
+  | "diff_prose";
 
 export interface FakeOpenAIOptions {
   image?: string;

@@ -1,5 +1,6 @@
 export * from "./adapters/agent";
 export * from "./adapters/agentConfig";
+export * from "./adapters/directPatch";
 export * from "./corpus";
 export * from "./models";
 export * from "./patch";

@@ -108,3 +108,61 @@ export function emptyUsage(): NormalizedUsage {
     toolCalls: null,
   };
 }
+
+function nonnegativeNumber(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0
+    ? value
+    : null;
+}
+
+function record(value: unknown): Record<string, unknown> | null {
+  return typeof value === "object" && value !== null
+    ? (value as Record<string, unknown>)
+    : null;
+}
+
+/**
+ * Normalize the usage block from an OpenAI-compatible chat completion. A
+ * missing or all-zero usage block is unknown, not zero.
+ */
+export function normalizeOpenAIUsage(
+  usage: unknown,
+  turns = 1,
+): NormalizedUsage {
+  const source = record(usage);
+  if (!source) {
+    return { ...emptyUsage(), turns, toolCalls: 0 };
+  }
+
+  const inputTokens = nonnegativeNumber(
+    source.prompt_tokens ?? source.input_tokens,
+  );
+  const outputTokens = nonnegativeNumber(
+    source.completion_tokens ?? source.output_tokens,
+  );
+  if (inputTokens === null || outputTokens === null) {
+    return { ...emptyUsage(), turns, toolCalls: 0 };
+  }
+  if (inputTokens === 0 && outputTokens === 0) {
+    return { ...emptyUsage(), turns, toolCalls: 0 };
+  }
+
+  const promptDetails = record(source.prompt_tokens_details);
+  const completionDetails = record(source.completion_tokens_details);
+  const cachedInputTokens =
+    nonnegativeNumber(promptDetails?.cached_tokens) ?? 0;
+  const reasoningTokens =
+    nonnegativeNumber(completionDetails?.reasoning_tokens) ?? 0;
+  const reportedCost =
+    nonnegativeNumber(source.cost) ?? nonnegativeNumber(source.total_cost);
+
+  return {
+    inputTokens,
+    outputTokens,
+    cachedInputTokens,
+    reasoningTokens,
+    costUsd: reportedCost ?? 0,
+    turns,
+    toolCalls: 0,
+  };
+}

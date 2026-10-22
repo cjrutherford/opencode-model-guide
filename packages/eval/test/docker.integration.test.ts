@@ -243,6 +243,10 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     expect(health.exitCode).toBe(0);
     expect(health.stdout).toContain('"ok":true');
 
+    const hostHealth = await fetch(`${proxy.hostDataUrl}/health`);
+    expect(hostHealth.status).toBe(200);
+    await hostHealth.text();
+
     const outbound = await agent!.exec(
       ["curl", "-sS", "--max-time", "2", "https://example.com"],
       { timeoutMs: 10_000 },

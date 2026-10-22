@@ -5,11 +5,16 @@ import { fileURLToPath } from "node:url";
 
 import type { EvalProxyStats } from "../proxy";
 import {
+  startPortForwarder,
+  type PortForwarderHandle,
+} from "./agentContainer";
+import {
   containerExists,
   copyIntoContainer,
   docker,
   dockerText,
   removeContainer,
+  uniqueName,
 } from "./docker";
 
 const PROXY_SOURCE = fileURLToPath(new URL("../proxy.ts", import.meta.url));
@@ -25,6 +30,7 @@ export interface ProxyContainerOptions {
   upstreamBaseUrl?: string;
   proxyPort?: number;
   adminPort?: number;
+  dataForwarderName?: string;
   maxBodyBytes?: number;
   maxConcurrent?: number;
   requestTimeoutMs?: number;
@@ -35,6 +41,8 @@ export interface ProxyContainerOptions {
 export interface ProxyContainerHandle {
   name: string;
   dataUrl: string;
+  /** Host-accessible URL for direct-patch, which does not run in a container. */
+  hostDataUrl: string;
   adminUrl: string;
   stats(): Promise<EvalProxyStats>;
   logs(): Promise<string>;
@@ -132,6 +140,7 @@ export async function startProxyContainer(
   }
 
   const tempDir = await mkdtemp(join(tmpdir(), "omg-eval-proxy-"));
+  let forwarder: PortForwarderHandle | null = null;
   try {
     await copyFile(PROXY_SOURCE, join(tempDir, "proxy.ts"));
 
@@ -179,10 +188,24 @@ export async function startProxyContainer(
         { timeoutMs: 15_000 },
       );
       if (health.exitCode === 0) {
+        // The data plane is bound to the internal network. A second forwarder
+        // makes the same proxy reachable from the host for direct-patch.
+        forwarder = await startPortForwarder({
+          image: options.image,
+          name:
+            options.dataForwarderName ??
+            uniqueName("omg-eval-proxy-forward"),
+          network: options.network,
+          controlNetwork: options.controlNetwork,
+          targetHost: "egress",
+          targetPort: proxyPort,
+        });
+
         const host = "egress";
         return {
           name: options.name,
           dataUrl: `http://${host}:${proxyPort}`,
+          hostDataUrl: `http://${forwarder.host}:${forwarder.port}`,
           adminUrl: `http://127.0.0.1:${adminPort}`,
           async stats(): Promise<EvalProxyStats> {
             const payload = await dockerText([
@@ -200,6 +223,7 @@ export async function startProxyContainer(
             });
           },
           async stop(): Promise<void> {
+            await forwarder?.stop();
             await removeContainer(options.name);
           },
         };
@@ -210,6 +234,7 @@ export async function startProxyContainer(
 
     throw new Error("proxy container did not become healthy");
   } catch (error) {
+    await forwarder?.stop();
     await removeContainer(options.name);
     throw error;
   } finally {

@@ -1,7 +1,7 @@
 import type { AssistantMessage, Message, Part } from "@opencode-ai/sdk";
 import { describe, expect, it } from "vitest";
 
-import { normalizeUsage, type SessionMessage } from "../src/usage";
+import { normalizeOpenAIUsage, normalizeUsage, type SessionMessage } from "../src/usage";
 
 function assistant(
   tokens: AssistantMessage["tokens"] = {
@@ -113,5 +113,42 @@ describe("normalizeUsage", () => {
       turns: 0,
       toolCalls: 0,
     });
+  });
+});
+
+describe("normalizeOpenAIUsage", () => {
+  it("normalizes a chat completion usage block", () => {
+    expect(
+      normalizeOpenAIUsage({
+        prompt_tokens: 120,
+        completion_tokens: 30,
+        prompt_tokens_details: { cached_tokens: 20 },
+        completion_tokens_details: { reasoning_tokens: 5 },
+      }),
+    ).toEqual({
+      inputTokens: 120,
+      outputTokens: 30,
+      cachedInputTokens: 20,
+      reasoningTokens: 5,
+      costUsd: 0,
+      turns: 1,
+      toolCalls: 0,
+    });
+  });
+
+  it("keeps a missing or all-zero usage block null", () => {
+    const missing = {
+      inputTokens: null,
+      outputTokens: null,
+      cachedInputTokens: null,
+      reasoningTokens: null,
+      costUsd: null,
+      turns: 1,
+      toolCalls: 0,
+    };
+    expect(normalizeOpenAIUsage(undefined)).toEqual(missing);
+    expect(
+      normalizeOpenAIUsage({ prompt_tokens: 0, completion_tokens: 0 }),
+    ).toEqual(missing);
   });
 });
