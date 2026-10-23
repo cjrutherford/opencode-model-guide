@@ -4,6 +4,10 @@
     "deprecated:opencode/longcat-2.5-preview-free:2026-10-22",
     "free_ended:opencode-go/longcat-2.5-preview-free:2026-10-22",
     "free_ended:opencode/longcat-2.5-preview-free:2026-10-22",
-    "model_added:opencode/flint-40b-free:2026-10-22"
+    "model_added:opencode/flint-40b-free:2026-10-22",
+    "deprecated:opencode-go/minimax-m3.1-flash-free:2026-10-23",
+    "deprecated:opencode/minimax-m3.1-flash-free:2026-10-23",
+    "free_ended:opencode-go/minimax-m3.1-flash-free:2026-10-23",
+    "free_ended:opencode/minimax-m3.1-flash-free:2026-10-23"
   ]
 }
