@@ -134,8 +134,9 @@ setup](docs/setup-secrets.md) for generation, verification, and rotation.
 `pnpm notify` skips sending when `NTFY_TOPIC` is missing; the site can still build and deploy.
 `AA_API_KEY` is optional. If it is absent, Artificial Analysis is marked skipped, its rows are
 missing, and agentic/everyday confidence is lower. The affected models stay unrated rather than
-receiving substitute scores. Eval runs are manual and free-only by default; `OPENCODE_API_KEY` is
-proxy-only and must never be passed to an agent or test container.
+receiving substitute scores. Eval runs are manual and free-only by default. The dedicated
+`OPENCODE_API_KEY` is passed only to the disposable agent container so native OpenCode can satisfy
+the free-tier client gate; the test container and network tunnel never receive it.
 
 The full quality gate:
 

@@ -4,10 +4,14 @@ This package runs the S14 local coding eval for free OpenCode models. It is deli
 from the production composite score: eval results do not change composite scores, tiers, top picks,
 confidence, or free-lane eligibility.
 
-An attempt gets a clean repository, a fixed task prompt, and either:
+An attempt gets a clean repository and a fixed task prompt:
 
-- **agent**: a disposable container with shell/edit/read tools and access only to the egress proxy;
-- **direct-patch**: one model response containing a unified diff, applied host-side.
+- **agent**: a disposable container with shell/edit/read tools, native OpenCode, and HTTPS access
+  only through an allowlisted CONNECT tunnel to `opencode.ai`.
+
+The direct-patch adapter and its fixtures remain in the package, but free-tier direct-patch is
+deferred. A raw chat-completion request is rejected by OpenCode's client gate even with a valid key,
+so the CLI fails fast for `--mode direct-patch`. A one-shot OpenCode adapter is a follow-up.
 
 Pass/fail comes from hidden tests, not the model's self-report. The committed result is
 `data/evals.json`; local run workspaces are under `packages/eval/.runs/` and are gitignored.
@@ -17,8 +21,10 @@ Pass/fail comes from hidden tests, not the model's self-report. The committed re
 - Docker with Linux containers.
 - Node **22.22+** and pnpm **10.33.2** (this checkout uses `corepack pnpm`).
 - A dedicated `OPENCODE_API_KEY` in `.secrets` for real attempts, even though every selected model
-  is free. The key is injected by the proxy; it is never passed to the agent or test container.
-  See `../../docs/setup-secrets.md`.
+  is free. The key is passed only to the disposable agent container, which uses the native
+  `opencode` provider. Its HTTPS traffic goes through an allowlisted CONNECT tunnel that permits
+  only `opencode.ai` and the `models.opencode.ai` metadata host on port 443; the tunnel and the
+  test container never receive the key. See `../../docs/setup-secrets.md`.
 
 Build and corpus checks do not need the key. They do need the host toolchains used by
 `pnpm eval:verify-corpus`: Node/`tsx`, Python 3, Go, and `patch`.
@@ -69,19 +75,8 @@ corepack pnpm eval -- \
   --commit=false
 ```
 
-Direct-patch uses the same result contract:
-
-```bash
-corepack pnpm eval -- \
-  --access free \
-  --mode direct-patch \
-  --models opencode/mimo-v2.6-flash-free \
-  --tasks ts-debounce \
-  --repeats 1 \
-  --retries 0 \
-  --run-id smoke-patch-01 \
-  --commit=false
-```
+Direct-patch is not part of the first publication. Do not run `--mode direct-patch` against free
+models yet; the CLI exits with an explanation before starting a container.
 
 Inspect `packages/eval/.runs/<run-id>/run.json`, `attempts/`, and `artifacts/`. A valid attempt
 records status, tokens/latency (or explicit nulls when the provider did not report them), patch hash,
@@ -102,16 +97,8 @@ corepack pnpm eval -- \
 
 At the current snapshot that is **10 unique Console free models × 12 tasks × 1 repeat = 120 planned
 attempts**. `--commit` defaults to `true`, so a completed or partial run is merged into
-`data/evals.json` newest-first. Run direct-patch as a separate mode and publish it separately:
-
-```bash
-corepack pnpm eval -- \
-  --access free \
-  --mode direct-patch \
-  --models all-free \
-  --tasks all \
-  --repeats 1
-```
+`data/evals.json` newest-first. Direct-patch will be published separately after the one-shot adapter
+lands; the current CLI rejects it for free-tier models.
 
 `--models all-free` selects live Console free models from the committed snapshot and deduplicates Go
 twins. It never adds a paid model. `--tasks all` selects the full 12-task corpus. Use explicit
@@ -190,11 +177,15 @@ corepack pnpm validate:data
 ## Security boundary
 
 - The agent container is disposable, non-root, read-only at the root, size-capped tmpfs at
-  `/workspace`, no Docker socket, no `.secrets`, and no route to the internet.
-- It reaches only the dual-homed proxy, which injects the real key into allowlisted inference
-  requests and logs no prompts, completions, bodies, or keys.
+  `/workspace`, no Docker socket, no `.secrets`, and no arbitrary route to the internet.
+- It receives the dedicated `OPENCODE_API_KEY` in its environment so native OpenCode can satisfy
+  the free-tier client gate. The key stays inside that disposable container.
+- Its HTTPS traffic reaches only a dual-homed CONNECT tunnel that permits `opencode.ai` and its
+  `models.opencode.ai` metadata host on port 443. The tunnel holds no key and sees only the target
+  host and port, not TLS bodies or headers.
 - The test container is a fresh `--network none` container with no secrets.
-- The harness refuses secret-looking environment variable names for the agent container.
+- The harness refuses secret-looking environment variable names for the agent container except
+  `OPENCODE_API_KEY`.
 - Docker is a convenience boundary, not a hardened multi-tenant sandbox. Official runs happen on an
   ephemeral GitHub Actions VM; local runs are on a machine you are willing to expose to disposable
   containers.

@@ -88,6 +88,27 @@ describe("buildAgentConfig", () => {
     });
   });
 
+  it("uses the native opencode provider and an env placeholder in production", () => {
+    const config = buildAgentConfig({
+      model: MODEL,
+      metadata: { output: 32_000, reasoning: true, toolCall: true },
+    });
+
+    expect(config).toMatchObject({
+      enabled_providers: ["opencode"],
+      model: "opencode/test-free",
+      small_model: "opencode/test-free",
+      provider: {
+        opencode: {
+          options: {
+            apiKey: "{env:OPENCODE_API_KEY}",
+          },
+        },
+      },
+    });
+    expect(config).not.toHaveProperty("provider.eval");
+  });
+
   it("falls back for a zero context and caps output", () => {
     const config = buildAgentConfig({
       model: { ...MODEL, context: 0 },

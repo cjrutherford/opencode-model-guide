@@ -25,6 +25,10 @@ import {
   type TestContainerHandle,
 } from "../src/sandbox/testContainer";
 import {
+  startEgressTunnelContainer,
+  type EgressTunnelContainerHandle,
+} from "../src/sandbox/egressTunnelContainer";
+import {
   startProxyContainer,
   type ProxyContainerHandle,
 } from "../src/sandbox/proxyContainer";
@@ -41,6 +45,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
   let agent: AgentContainerHandle | null = null;
   let testContainer: TestContainerHandle | null = null;
   let proxy: ProxyContainerHandle | null = null;
+  let tunnel: EgressTunnelContainerHandle | null = null;
   let egress: string | null = null;
   const containerPrefix = "omg-eval-it-";
 
@@ -110,6 +115,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     await agent?.stop();
     await testContainer?.stop();
     await proxy?.stop();
+    await tunnel?.stop();
     if (egress) await removeContainer(egress);
     await removeNetwork(network);
     await removeNetwork(controlNetwork);
@@ -123,6 +129,8 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
       controlNetwork,
       name: uniqueName(containerPrefix),
       workspaceDir: workspace,
+      env: { OPENCODE_API_KEY: "test-eval-key" },
+      secretEnvAllowlist: ["OPENCODE_API_KEY"],
     });
 
     expect(agent.host.length).toBeGreaterThan(0);
@@ -155,10 +163,11 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     );
   });
 
-  it("keeps secrets, the docker socket, and the network out of the agent", async () => {
+  it("keeps only the dedicated eval key in the agent and blocks other secrets and the network", async () => {
     expect(agent).not.toBeNull();
     const env = await agent!.exec(["bash", "-c", "env"]);
-    expect(env.output).not.toContain("OPENCODE_API_KEY");
+    expect(env.output).toContain("OPENCODE_API_KEY=test-eval-key");
+    expect(env.output).not.toContain("NTFY_TOPIC");
     expect(
       (
         await agent!.exec([
@@ -174,6 +183,19 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
       { timeoutMs: 10_000 },
     );
     expect(outbound.exitCode).not.toBe(0);
+  });
+
+  it("rejects a secret-looking env var unless it is explicitly allowlisted", async () => {
+    await expect(
+      startAgentContainer({
+        image: IMAGE,
+        network,
+        controlNetwork,
+        name: uniqueName(containerPrefix),
+        workspaceDir: workspace,
+        env: { OTHER_API_KEY: "not-allowed" },
+      }),
+    ).rejects.toThrow(/secret-looking env var/);
   });
 
   it("resolves an egress alias on the internal network", async () => {
@@ -257,6 +279,41 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     expect(stats.rejected).toBeGreaterThanOrEqual(0);
   });
 
+  it("starts the allowlisted CONNECT tunnel on the internal network", async () => {
+    await proxy?.stop();
+    proxy = null;
+
+    tunnel = await startEgressTunnelContainer({
+      image: IMAGE,
+      name: uniqueName("omg-eval-it-tunnel"),
+      network,
+      controlNetwork,
+    });
+
+    const health = await agent!.exec([
+      "curl",
+      "-fsS",
+      "http://egress:8787/health",
+    ]);
+    expect(health.exitCode).toBe(0);
+    expect(health.stdout).toContain('"opencode.ai"');
+    expect(health.stdout).toContain('"models.opencode.ai"');
+
+    const denied = await agent!.exec(
+      [
+        "curl",
+        "-sS",
+        "--max-time",
+        "3",
+        "-x",
+        "http://egress:8787",
+        "https://example.com",
+      ],
+      { timeoutMs: 10_000 },
+    );
+    expect(denied.exitCode).not.toBe(0);
+  });
+
   it("starts a no-network test container with no key and no docker socket", async () => {
     testContainer = await startTestContainer({
       image: IMAGE,
@@ -321,10 +378,12 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     await agent?.stop();
     await testContainer?.stop();
     await proxy?.stop();
+    await tunnel?.stop();
     if (egress) await removeContainer(egress);
     agent = null;
     testContainer = null;
     proxy = null;
+    tunnel = null;
     egress = null;
     await removeNetwork(network);
     await removeNetwork(controlNetwork);

@@ -25,6 +25,12 @@ export interface AgentContainerOptions {
   name: string;
   workspaceDir: string;
   env?: Record<string, string>;
+  /**
+   * Secret-looking environment variables that may be passed deliberately.
+   * The eval key is the only production use: it stays inside the disposable
+   * agent container so native OpenCode can satisfy the free-tier gate.
+   */
+  secretEnvAllowlist?: string[];
   workspaceBytes?: number;
   tmpBytes?: number;
   homeBytes?: number;
@@ -71,10 +77,13 @@ export interface AgentContainerHandle {
   stop(): Promise<void>;
 }
 
-function envFlags(env: Record<string, string> | undefined): string[] {
+function envFlags(
+  env: Record<string, string> | undefined,
+  allowlist: readonly string[] = [],
+): string[] {
   if (!env) return [];
   for (const key of Object.keys(env)) {
-    if (SECRET_ENV_PATTERN.test(key)) {
+    if (SECRET_ENV_PATTERN.test(key) && !allowlist.includes(key)) {
       throw new Error(
         `refusing to put a secret-looking env var in the agent container: ${key}`,
       );
@@ -84,6 +93,18 @@ function envFlags(env: Record<string, string> | undefined): string[] {
     "--env",
     `${key}=${value}`,
   ]);
+}
+
+function redactEnvValues(
+  message: string,
+  env: Record<string, string> | undefined,
+): string {
+  if (!env) return message;
+  let redacted = message;
+  for (const value of Object.values(env)) {
+    if (value.length >= 8) redacted = redacted.split(value).join("[REDACTED]");
+  }
+  return redacted;
 }
 
 function tmpfs(path: string, bytes: number): string {
@@ -219,7 +240,7 @@ export async function startAgentContainer(
     "omg-eval=1",
     "--label",
     "omg-eval-role=agent",
-    ...envFlags(options.env),
+    ...envFlags(options.env, options.secretEnvAllowlist),
   ];
 
   args.push(options.image);
@@ -227,7 +248,10 @@ export async function startAgentContainer(
   const runResult = await docker(args, { timeoutMs: 120_000 });
   if (runResult.exitCode !== 0) {
     throw new Error(
-      `could not start agent container: ${runResult.output.slice(-2_000)}`,
+      `could not start agent container: ${redactEnvValues(
+        runResult.output.slice(-2_000),
+        options.env,
+      )}`,
     );
   }
 

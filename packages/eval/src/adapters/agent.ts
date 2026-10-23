@@ -32,8 +32,12 @@ export interface AgentAttemptOptions {
   network: string;
   controlNetwork: string;
   timeoutMs: number;
+  /** Test-only custom provider URL. Production uses the built-in provider. */
   providerBaseUrl?: string;
+  /** Dedicated eval key, passed only to the disposable agent container. */
   apiKey?: string;
+  /** Allowlisted CONNECT proxy for OpenCode's HTTPS traffic. */
+  egressProxyUrl?: string;
   modelMetadata?: AgentModelMetadata;
   workspaceBytes?: number;
   containerName?: string;
@@ -68,6 +72,11 @@ interface FailureClassification {
 
 function truncate(value: string, limit: number): string {
   return value.length <= limit ? value : `${value.slice(0, limit)}...`;
+}
+
+function redactSecret(value: string, secret: string | undefined): string {
+  if (!secret || secret.length < 8) return value;
+  return value.split(secret).join("[REDACTED]");
 }
 
 function errorText(error: unknown): string {
@@ -156,9 +165,9 @@ function isAbortError(error: unknown): boolean {
 /**
  * Run one real OpenCode agent attempt in a disposable sandbox.
  *
- * The model can only reach the host-side egress proxy (or a test fake provider)
- * on the internal network. Hidden tests and reference solutions are never
- * mounted into this container. The workspace is copied out before the
+ * The model can only reach the allowlisted CONNECT tunnel (or a test fake
+ * provider) on the internal network. Hidden tests and reference solutions are
+ * never mounted into this container. The workspace is copied out before the
  * container is removed, including on timeout, so the caller can run the
  * separate host-side test stage.
  */
@@ -175,8 +184,10 @@ export async function runAgentAttempt(
   const config = buildAgentConfig({
     model: options.model,
     metadata: options.modelMetadata,
-    providerBaseUrl: options.providerBaseUrl ?? "http://egress:8787/v1",
-    apiKey: options.apiKey ?? DEFAULT_API_KEY,
+    providerBaseUrl: options.providerBaseUrl,
+    apiKey: options.providerBaseUrl
+      ? (options.apiKey ?? DEFAULT_API_KEY)
+      : undefined,
   });
   await writeFile(
     join(configDir, "opencode.json"),
@@ -202,7 +213,9 @@ export async function runAgentAttempt(
       status,
       skipReason: details.skipReason ?? null,
       usage: details.usage ?? usage,
-      error: details.error ?? null,
+      error: details.error
+        ? redactSecret(details.error, options.apiKey)
+        : null,
       logs,
       capturedWorkspace: captureDir,
       startedAt,
@@ -221,6 +234,28 @@ export async function runAgentAttempt(
     }
   };
 
+  let agentEnv: Record<string, string> = {
+    // Keep the config outside the task workspace so it never appears in the
+    // captured patch.
+    OPENCODE_CONFIG: "/home/eval/opencode.json",
+  };
+  if (options.egressProxyUrl) {
+    agentEnv = {
+      ...agentEnv,
+      HTTP_PROXY: options.egressProxyUrl,
+      HTTPS_PROXY: options.egressProxyUrl,
+      http_proxy: options.egressProxyUrl,
+      https_proxy: options.egressProxyUrl,
+      NO_PROXY: "127.0.0.1,localhost,::1",
+      no_proxy: "127.0.0.1,localhost,::1",
+    };
+  }
+  if (options.apiKey) {
+    // Deliberately limited to this one key. The test container and the egress
+    // tunnel never receive it.
+    agentEnv.OPENCODE_API_KEY = options.apiKey;
+  }
+
   try {
     agent = await startAgentContainer({
       image: options.image,
@@ -230,11 +265,8 @@ export async function runAgentAttempt(
       forwarderName: options.forwarderName,
       workspaceDir: options.workspaceDir,
       workspaceBytes: options.workspaceBytes,
-      env: {
-        // Keep the config outside the task workspace so it never appears in
-        // the captured patch.
-        OPENCODE_CONFIG: "/home/eval/opencode.json",
-      },
+      env: agentEnv,
+      secretEnvAllowlist: ["OPENCODE_API_KEY"],
     });
 
     await copyIntoContainer(agent.name, configDir, "/home/eval");
@@ -277,7 +309,10 @@ export async function runAgentAttempt(
       promptResult = await client.session.prompt({
         path: { id: sessionID },
         body: {
-          model: { providerID: "eval", modelID: options.model.id },
+          model: {
+            providerID: options.providerBaseUrl ? "eval" : "opencode",
+            modelID: options.model.id,
+          },
           parts: [{ type: "text", text: options.prompt }],
         },
         signal: controller.signal,
@@ -381,7 +416,10 @@ export async function runAgentAttempt(
   } finally {
     try {
       if (agent) {
-        logs = truncate(await agent.logs(), MAX_LOG_CHARS);
+        logs = truncate(
+          redactSecret(await agent.logs(), options.apiKey),
+          MAX_LOG_CHARS,
+        );
       }
     } catch {
       // Logs are diagnostic only.

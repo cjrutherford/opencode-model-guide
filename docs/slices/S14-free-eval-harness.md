@@ -7,8 +7,25 @@
 > authoritative for this slice's scope and acceptance.
 >
 > **Operational prerequisite:** the official runs require a dedicated `OPENCODE_API_KEY` in
-> `.secrets` and GitHub Actions. The key is used only by the egress proxy. Without it, PR 1 can
-> merge and the empty `/evals` page can ship, but no model result may be published.
+> `.secrets` and GitHub Actions. The key is used only by the disposable agent container. Without it,
+> PR 1 can merge and the empty `/evals` page can ship, but no model result may be published.
+>
+> **Design amendment (2026-10-22): free-tier client gate.** OpenCode's free tier rejects raw
+> chat-completion requests that do not originate from its own client, even with a valid key and the
+> expected headers. The approved option 1 therefore:
+>
+> - passes the dedicated key only to the disposable agent container, never to the test container or
+>   the tunnel;
+> - switches the agent from the custom `eval` provider to the built-in `opencode` provider;
+> - routes the agent's HTTPS traffic through a dual-homed, allowlisted CONNECT tunnel that permits
+>   only `opencode.ai` and its `models.opencode.ai` metadata host on port 443; the tunnel has no key
+>   and sees no TLS bodies or headers;
+> - keeps the existing HTTP inference proxy for the direct-patch tests, but defers a production
+>   free-tier direct-patch run. Raw direct-patch is rejected by the same gate. A one-shot OpenCode
+>   adapter is a follow-up; the CLI fails fast instead of publishing a broken run.
+>
+> This amendment supersedes the proxy-only key statements in the original design and in the
+> step-by-step notes below.
 
 ## Why this slice exists
 
@@ -26,14 +43,14 @@ score.
   passes with a reference patch under hidden tests.
 - The first official agent run covers all 10 unique live Console free models × 12 tasks × 1 repeat
   = 120 planned attempts.
-- A direct-patch adapter follows the agent runner behind the same result contract and test stage.
+- A direct-patch adapter follows the agent runner behind the same result contract and test stage; free-tier direct-patch is deferred by the 2026-10-22 amendment.
 - `data/evals.json` is committed, schema-validated, and summary-validated.
 - `/evals` publishes the latest agent and direct-patch runs with a task matrix, method, and
   limitations.
 - Model pages show an experimental eval badge and result section when a run exists.
 - Eval does not change composite scores, tiers, confidence, or home-page top picks.
-- The agent container never sees the inference key or repository secrets and has no arbitrary
-  internet.
+- The agent container receives only the dedicated inference key, never repository secrets, and
+  has no arbitrary internet beyond the allowlisted CONNECT tunnel.
 
 ## Non-goals
 
@@ -52,7 +69,7 @@ score.
 
 - `data/snapshot.json` and `SnapshotSchema`: live free model inventory, free kind, context, prices.
 - `OPENCODE_API_KEY`: dedicated inference key, loaded from `.secrets` locally and Actions secrets
-  in CI. Never passed to the agent container.
+  in CI. Passed only to the disposable agent container; never to the test container or tunnel.
 - `@opencode-ai/sdk`: pinned package for the host-side OpenCode server client.
 - Docker Engine with the ability to create an internal network, a proxy container, and disposable
   agent/test containers.
@@ -282,7 +299,8 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
    - always clean up in `finally`.
 4. Write integration tests:
    - workspace tmpfs is populated and captured;
-   - agent container has no `OPENCODE_API_KEY`, no `.secrets`, no docker socket;
+   - agent container has no `.secrets` or docker socket; with an explicit allowlist it may have the
+     dedicated `OPENCODE_API_KEY`;
    - arbitrary outbound hosts fail; the proxy host resolves;
    - test container has no network and no key;
    - container cleanup leaves no `omg-eval-*` network/container.
@@ -302,6 +320,8 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
 3. Start the proxy in a container on the internal network plus a bridge; confirm the agent network
    can reach `egress:8787` and cannot reach `https://example.com`.
 4. Commit: `feat(eval): isolate model egress behind proxy`.
+5. Amendment: the production agent does not use this HTTP proxy. It uses the allowlisted CONNECT
+   tunnel in step 8. The HTTP proxy remains for direct-patch fixtures and tests.
 
 #### 8. Agent adapter
 
@@ -315,14 +335,16 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
    - a model-not-found response marks the model's planned attempts skipped.
 2. Implement `packages/eval/src/adapters/agent.ts` and `usage.ts`.
 3. Generate the OpenCode config per attempt:
-   - custom `eval` provider with `baseURL` pointing at `http://egress:8787/v1`;
-   - dummy API key;
+   - built-in `opencode` provider, model `opencode/<snapshot id>`;
+   - `apiKey: "{env:OPENCODE_API_KEY}"`, supplied only in the agent container;
    - `small_model` set to the same model;
    - snapshots/sharing/autoupdate/LSP/webfetch/websearch/task tools disabled;
    - shell/edit/read/glob/grep allowed;
-   - context from the snapshot when known, otherwise a conservative 32k.
-4. Run the fake-server integration test; no real key.
-5. Commit: `feat(eval): run OpenCode agent in sandbox`.
+   - test-only custom `eval` provider for the fake OpenAI server.
+4. Run the agent container with the key in its env, `HTTPS_PROXY` pointing at the CONNECT tunnel,
+   and an allowlist that rejects every other secret-looking variable.
+5. Run the fake-server integration test; no real key.
+6. Commit: `feat(eval): run OpenCode agent in sandbox`.
 
 #### 9. Direct-patch adapter
 
@@ -335,6 +357,9 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
 2. Implement `packages/eval/src/adapters/directPatch.ts` through the proxy.
 3. Run the same test-stage integration test with a known patch.
 4. Commit: `feat(eval): add direct-patch adapter`.
+5. Amendment: production free-tier direct-patch is deferred. The raw request is rejected by the
+   same client gate. The adapter and its fake-provider tests remain; the CLI fails fast until a
+   one-shot OpenCode adapter lands.
 
 #### 10. CLI, run store, resume, and data writer
 
@@ -369,7 +394,7 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
 3. Add a `corpus` job to `.github/workflows/ci.yml`:
    - checkout, install, build image, `pnpm eval:verify-corpus`, upload logs on failure.
    - No `OPENCODE_API_KEY`.
-4. Add `eval.yml` with `workflow_dispatch` inputs and the proxy-only secret; see design §CI.
+4. Add `eval.yml` with `workflow_dispatch` inputs and the dedicated key; see design §CI.
 5. Commit: `ci(eval): validate corpus and publish manual runs`.
 
 #### 12. Secrets and setup docs
@@ -377,7 +402,7 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
 1. Add `OPENCODE_API_KEY=` to `.secrets.example`.
 2. Update `docs/setup-secrets.md`:
    - secret table, local `.secrets`, create/verify/rotate;
-   - low budget; proxy-only; never in the agent container;
+   - low budget; passed only to the disposable agent container;
    - troubleshooting for 401/403, 429, model-not-found, proxy unreachable.
 3. Add `packages/eval/.runs/` to `.gitignore`.
 4. Add `packages/eval/README.md` with local build/verify/smoke/resume commands.
@@ -407,14 +432,14 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
    ```
    Expected: a valid attempt record, token/latency data or explicit nulls, a patch hash, and a
    hidden-test result.
-4. Run one direct-patch attempt on the same task with `--commit=false`.
-5. Verify the agent container had no key:
+4. Direct-patch remains deferred; do not run it against free-tier models yet.
+5. Verify the agent container had only the dedicated key:
    ```bash
    if docker inspect <agent-container> --format '{{json .Config.Env}}' | grep -q OPENCODE_API_KEY; then
-     echo "key leaked into agent container" >&2
-     exit 1
+     echo "dedicated eval key present (expected)"
    else
-     echo "key absent"
+     echo "dedicated eval key missing" >&2
+     exit 1
    fi
    ```
 6. Do not add smoke data to `data/evals.json`. Commit the harness only.
@@ -546,19 +571,24 @@ manageable. Final commit: `feat(eval): add 12-task corpus`.
 - [ ] Free-model selection returns exactly 10 unique live Console free models; Go twins are deduped.
 - [ ] The 12-task corpus passes the verifier: baseline public failure, baseline hidden failure,
       reference solution hidden pass.
-- [ ] The agent container has full shell, no key/secrets, no docker socket, no arbitrary internet,
-      and a size-capped tmpfs workspace.
-- [ ] The proxy allows only inference endpoints, injects the key, and logs no bodies.
+- [ ] The agent container has full shell, only the dedicated eval key, no `.secrets`, no docker
+      socket, no arbitrary internet, and a size-capped tmpfs workspace.
+- [ ] The CONNECT tunnel allows only the OpenCode API and its `models.opencode.ai` metadata host on
+      port 443, holds no key, and logs no bodies. The HTTP
+      proxy used by direct-patch fixtures allows only inference endpoints.
 - [ ] The test container runs hidden tests with `--network none` and no secrets.
 - [ ] Agent and direct-patch adapters share the result contract and status classifier.
-- [ ] A real one-model/one-task agent smoke run and a direct-patch smoke run produce valid records.
+- [ ] A real one-model/one-task agent smoke run produces a valid record. Free-tier direct-patch is
+      explicitly deferred to the one-shot adapter.
 - [ ] `data/evals.json` validates; summaries recompute exactly; unknown usage stays null.
 - [ ] `/evals` shows agent and direct-patch sections, task matrix, method, limitations, history, and
       an honest empty state.
 - [ ] Model pages show the experimental badge/section only when a run exists.
 - [ ] Eval does not change composite scores, tiers, confidence, or home-page top picks.
-- [ ] `OPENCODE_API_KEY` is documented and absent from the agent container and all logs.
-- [ ] The official agent run (120 attempts) and direct-patch run are committed and live.
+- [ ] `OPENCODE_API_KEY` is documented, present only in the agent container and the eval process,
+      and absent from the test container, tunnel, and all logs.
+- [ ] The official agent run (120 attempts) is committed and live; direct-patch is documented as
+      deferred.
 - [ ] `pnpm typecheck`, `pnpm test`, `pnpm eval:verify-corpus`, `pnpm validate:data`, `pnpm build`,
       and the link check pass.
 - [ ] Tracker row, progress log, and handoff notes are updated.
@@ -596,8 +626,10 @@ curl -fsS https://cjrutherford.github.io/opencode-model-guide/methodology | grep
   than excluding it silently.
 - The agent workspace is a tmpfs. Copy it out **before** stopping the container; stopping destroys
   the tmpfs.
-- The proxy is the only egress. The agent gets a dummy key; the real key lives only in the proxy
-  container. Never pass `OPENCODE_API_KEY` to the agent or test container.
+- The agent's only egress is the CONNECT tunnel to the OpenCode API and its metadata host. The dedicated key lives only
+  in the disposable agent container and the eval process. Never pass it to the test container or
+  the tunnel. Free-tier raw direct-patch is blocked by the client gate; use the one-shot OpenCode
+  adapter when it lands.
 - The official runs can take hours and may be rate-limited. Use `--resume`, publish partial runs
   with coverage, and do not fake missing attempts.
 - If the key is delayed, merge the harness and empty `/evals` page, but do not publish results.

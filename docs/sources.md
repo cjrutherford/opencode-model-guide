@@ -136,10 +136,11 @@ free-lane eligibility decision.
 - Hidden tests, reference solutions, and task metadata stay host-side. They are overlaid only in the
   post-attempt test stage and are never present in the agent workspace.
 - The agent runs in a disposable container with a size-capped tmpfs workspace and no arbitrary
-  internet. It reaches an allowlisted inference proxy with a dummy key; the real
-  `OPENCODE_API_KEY` is injected only by the proxy.
-- The test container runs with no network and no secrets. The agent and test containers never receive
-  the repository's `.secrets` or the inference key.
+  internet. It receives the dedicated `OPENCODE_API_KEY` so native OpenCode can satisfy the
+  free-tier client gate, and its HTTPS traffic reaches only `opencode.ai` and its `models.opencode.ai` metadata host on port 443 through an allowlisted
+  CONNECT tunnel. The tunnel holds no key.
+- The test container runs with no network and no secrets. Neither container receives the
+  repository's `.secrets`, and the test container never receives the inference key.
 - A run can be `complete`, `partial`, or `failed`. Missing attempts are shown as “Not run,” not as
   failures or zero tokens. Unknown usage stays `null`.
 - `data/evals.json` keeps the model's free label at run time. If current access differs, the model

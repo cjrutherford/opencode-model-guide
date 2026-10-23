@@ -147,7 +147,7 @@ Every slice must satisfy all of these before `done`:
 | ntfy server | `https://ntfy.sh` | S10 | decided |
 | `NTFY_TOPIC` secret | Random, unguessable; generated at setup | S10 | process decided |
 | Artificial Analysis key | Free-tier API key; optional; stored as `AA_API_KEY` | S05 | process decided |
-| OpenCode eval key | Dedicated low-budget key; proxy-only; stored as `OPENCODE_API_KEY` | S14 | process decided; key not yet created |
+| OpenCode eval key | Dedicated low-budget key; agent-container-only; stored as `OPENCODE_API_KEY` | S14 | process decided; key created |
 | Daily run time | 13:00 UTC | S10 | decided |
 | Custom domain | None | S11 | decided |
 
@@ -161,8 +161,10 @@ Append newest first. Keep it short.
 
 | Date | Slice | Note |
 |---|---|---|
-| 2026-10-22 | S14 | Public surface complete: `/evals`, model-page eval badges, methodology 1.2, and source/README boundaries. Empty-data build, 66 web tests, `astro check`, 3,432-link check, and `validate:data` pass. Official runs remain blocked on a dedicated `OPENCODE_API_KEY`. |
-| 2026-10-22 | S14 | Harness complete through the empty public surface: shared eval contract, 10 free-model selector, 12 verified corpus tasks, disposable sandbox, proxy-only inference key, agent and direct-patch adapters, resumable CLI, validation/CI, and timeout-resume fix. |
+| 2026-10-22 | S14 | Native-provider egress amendment implemented in `fa7a961`. A fake-key probe confirms the built-in `opencode` provider reaches the upstream gate; invalid keys abort without a publishable attempt. Official runs remain blocked until the dedicated eval key is rotated. |
+| 2026-10-22 | S14 | Public surface complete: `/evals`, model-page eval badges, methodology 1.2, and source/README boundaries. Empty-data build, 66 web tests, `astro check`, 3,432-link check, and `validate:data` pass. |
+| 2026-10-22 | S14 | Design amendment after the free-tier probe: the dedicated key moves into the disposable agent container, the agent uses the built-in `opencode` provider, and egress is an allowlisted CONNECT tunnel to the OpenCode API and its metadata host on port 443. Free-tier direct-patch is deferred. |
+| 2026-10-22 | S14 | Harness complete through the empty public surface: shared eval contract, 10 free-model selector, 12 verified corpus tasks, disposable sandbox, egress isolation, agent and direct-patch adapters, resumable CLI, validation/CI, and timeout-resume fix. |
 | 2026-10-21 | S14 | Design and slice drafted: free-only 10-model/12-task harness, disposable agent container, egress proxy, `/evals` + model badges, direct-patch second. Awaiting approval. |
 | 2026-10-20 | S13 | Deployed via run 39530467953; live home returns 200 and shows all three access lanes. Tag `v1.2.0`. |
 | 2026-10-20 | S13 | Merged via PR [#15](https://github.com/cjrutherford/opencode-model-guide/pull/15) (`b2855e9`). Home top picks split each use case into Free now, Included in Go, and Pay as you go; 286 tests; typecheck, data validation, build, and 3,073-link check pass. |

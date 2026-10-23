@@ -53,9 +53,9 @@ import {
   uniqueName,
 } from "./sandbox/docker";
 import {
-  startProxyContainer,
-  type ProxyContainerHandle,
-} from "./sandbox/proxyContainer";
+  startEgressTunnelContainer,
+  type EgressTunnelContainerHandle,
+} from "./sandbox/egressTunnelContainer";
 import { runTestStage, type TestCommandExecutor } from "./testRunner";
 import { emptyUsage, type NormalizedUsage } from "./usage";
 import {
@@ -577,8 +577,9 @@ export interface LiveExecutorOptions {
   image: string;
   network: string;
   controlNetwork: string;
-  agentProxyUrl: string;
-  directProxyUrl: string;
+  agentEgressUrl?: string;
+  directProxyUrl?: string;
+  apiKey: string;
   testExecutor: TestCommandExecutor;
   modelRecords: Map<string, ModelRecord>;
   log?: OnProgress;
@@ -626,6 +627,9 @@ export function createLiveAttemptExecutor(
 ): AttemptExecutor {
   return async (plan) => {
     if (options.mode === "direct-patch") {
+      if (!options.directProxyUrl) {
+        throw new Error("direct-patch mode requires the inference proxy");
+      }
       const result: DirectPatchAttemptResult = await runDirectPatchAttempt({
         attemptId: plan.id,
         model: plan.model,
@@ -692,7 +696,8 @@ export function createLiveAttemptExecutor(
         network: options.network,
         controlNetwork: options.controlNetwork,
         timeoutMs: plan.task.manifest.timeoutMs,
-        providerBaseUrl: options.agentProxyUrl,
+        apiKey: options.apiKey,
+        egressProxyUrl: options.agentEgressUrl,
         modelMetadata: record
           ? {
               output: record.limits.output,
@@ -899,6 +904,11 @@ async function main(): Promise<void> {
   }
 
   const args = parseArgs(argv);
+  if (args.mode === "direct-patch") {
+    throw new Error(
+      "direct-patch mode is not supported with free-tier models: raw chat-completion requests are rejected by OpenCode's client gate. Use --mode agent. A one-shot OpenCode direct-patch adapter is pending.",
+    );
+  }
   const now = new Date();
   const runsRoot = process.env.OMG_EVAL_RUNS_ROOT ?? DEFAULT_RUNS_ROOT;
   const dataPath = process.env.OMG_EVAL_DATA_PATH ?? DEFAULT_EVALS_PATH;
@@ -994,7 +1004,7 @@ async function main(): Promise<void> {
   const apiKey = process.env.OPENCODE_API_KEY;
   if (!apiKey) {
     throw new Error(
-      "OPENCODE_API_KEY is missing. Add it to .secrets or the environment; the key stays in the proxy.",
+      "OPENCODE_API_KEY is missing. Add it to .secrets or the environment; agent attempts receive it only inside the disposable container.",
     );
   }
 
@@ -1003,15 +1013,13 @@ async function main(): Promise<void> {
   await ensureNetwork(network);
   await ensureControlNetwork(controlNetwork);
 
-  let proxy: ProxyContainerHandle | null = null;
+  let tunnel: EgressTunnelContainerHandle | null = null;
   try {
-    proxy = await startProxyContainer({
+    tunnel = await startEgressTunnelContainer({
       image,
-      name: uniqueName("omg-eval-proxy"),
+      name: uniqueName("omg-eval-tunnel"),
       network,
       controlNetwork,
-      apiKey,
-      maxRequestsPerAttempt: 500,
     });
 
     const modelRecords = new Map(
@@ -1023,8 +1031,8 @@ async function main(): Promise<void> {
       image,
       network,
       controlNetwork,
-      agentProxyUrl: proxy.dataUrl,
-      directProxyUrl: `${proxy.hostDataUrl}/v1`,
+      agentEgressUrl: tunnel.url,
+      apiKey,
       testExecutor: createDockerTestExecutor({
         image,
         namePrefix: "omg-eval-test",
@@ -1054,7 +1062,7 @@ async function main(): Promise<void> {
       `run ${result.run.id}: ${result.run.status} (${result.run.attempts.length}/${result.run.plannedAttempts} attempts, ${result.committed ? "committed" : "not committed"})`,
     );
   } finally {
-    await proxy?.stop();
+    await tunnel?.stop();
     await removeNetwork(network);
     await removeNetwork(controlNetwork);
   }

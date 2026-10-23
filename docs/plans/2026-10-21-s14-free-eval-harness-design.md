@@ -3,6 +3,12 @@
 > **Status:** design · **Date:** 2026-10-21 · **Depends on:** S13 · **Blocks:** S15
 > **Branch:** `slice/S14-free-eval-harness`
 >
+> **Amendment 2026-10-22:** OpenCode's free tier rejects raw inference requests that do not come
+> from its own client. The approved implementation passes the dedicated key only to the disposable
+> agent container, uses the built-in `opencode` provider, and restricts egress to an allowlisted
+> CONNECT tunnel for `opencode.ai` and its `models.opencode.ai` metadata host on port 443. Free-tier direct-patch is deferred pending a one-shot
+> OpenCode adapter. The slice document records the authoritative amendment.
+>
 > This design defines the first local, test-verified evaluation of free OpenCode models. It is
 > deliberately separate from the public-benchmark composite. S14 ships the harness, a committed
 > result snapshot, a public `/evals` page, and experimental eval badges on model pages.

@@ -4,11 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Attempt adapter
+        description: Attempt adapter (direct-patch is pending free-tier support)
         type: choice
         options:
           - agent
-          - direct-patch
         default: agent
       models:
         description: "Free model selection: all-free or comma-separated keys"

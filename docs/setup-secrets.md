@@ -7,7 +7,7 @@ three GitHub Actions secrets the project uses:
 |---|---|---|---|
 | `NTFY_TOPIC` | Yes, for notifications | `pnpm notify` | Random ntfy.sh topic for push notifications |
 | `AA_API_KEY` | Optional | `pnpm score` (Artificial Analysis adapter) | Free-tier Artificial Analysis API key |
-| `OPENCODE_API_KEY` | Yes, for eval runs | `pnpm eval` (manual `eval.yml` workflow) | Dedicated low-budget OpenCode inference key; proxy-only |
+| `OPENCODE_API_KEY` | Yes, for eval runs | `pnpm eval` (manual `eval.yml` workflow) | Dedicated low-budget OpenCode inference key; agent-container-only |
 
 Everything else is derived at runtime: `SITE_URL` and `BASE_PATH` come from
 `actions/configure-pages`, and `GITHUB_TOKEN` is provided by Actions.
@@ -204,21 +204,27 @@ editor: revoking the eval key must not sign you out, and the eval key must have 
    stop if free terms change or a retry follows an unexpected path.
 4. Copy the key immediately. Treat it as a password; do not paste it into an issue, chat, or commit.
 
-### 5.2 Verify the key locally
+### 5.2 Verify the key with an agent smoke
 
-Use `read` so the key is not echoed or saved in shell history:
+Do **not** validate a free-tier key with raw `curl` or another proxy. The free tier rejects raw
+chat-completion requests with `403 FreeTierError` even when the key is valid; the request must come
+from OpenCode itself. Verify through the harness instead, after the key is in `.secrets`:
 
 ```bash
-read -rs OPENCODE_API_KEY
-curl -sS https://opencode.ai/inference/v1/models \
-  -H "Authorization: Bearer $OPENCODE_API_KEY" \
-  | head -c 400
-unset OPENCODE_API_KEY
+pnpm eval -- \
+  --access free \
+  --mode agent \
+  --models opencode/mimo-v2.6-flash-free \
+  --tasks ts-debounce \
+  --repeats 1 \
+  --retries 0 \
+  --run-id smoke-agent-01 \
+  --commit=false
 ```
 
-Expected: a JSON list containing live model IDs, including the current free models. A `401` means
-the key is missing, wrong, or revoked. A `403` means the key is valid but lacks access to the
-endpoint or account. A `429` means you are rate limited.
+A valid key produces a normal attempt record and an `agent.log` under
+`packages/eval/.runs/smoke-agent-01/`. An invalid or revoked key aborts the run on an authentication
+error. A `429` means you are rate limited; wait before retrying. Do not publish a smoke run.
 
 ### 5.3 Add it to local `.secrets`
 
@@ -260,10 +266,14 @@ Or use the browser: **Settings → Secrets and variables → Actions → New rep
     OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
 ```
 
-The host runner gives it to the egress proxy. The proxy strips the agent's dummy authorization,
-injects the real key, and forwards only the allowed inference endpoints. The agent and hidden-test
-containers never receive it. The test container has no network; the agent container has no route to
-the internet except the proxy.
+The host runner passes it only to the disposable agent container. The agent uses OpenCode's native
+`opencode` provider, which reads `OPENCODE_API_KEY` and calls `https://opencode.ai` directly through
+an allowlisted CONNECT tunnel. The tunnel permits only `opencode.ai` and its `models.opencode.ai` metadata host on port 443, and has no key. This is
+deliberate: OpenCode's free tier rejects raw chat-completion requests that do not originate from its
+own client, even when the key is valid.
+
+The hidden-test container never receives the key and has no network. The agent container has no
+arbitrary internet route; its only egress is the CONNECT tunnel.
 
 The key is **not** used by the daily ingest pipeline. If it is absent, `pnpm eval` stops before
 starting a model attempt. `pnpm eval:build-image` and `pnpm eval:verify-corpus` do not need it.
@@ -290,16 +300,17 @@ Expected: a valid attempt record with tokens/latency or explicit nulls, a patch 
 hidden-test result. The run directory is under `packages/eval/.runs/`; smoke data is not added to
 `data/evals.json`.
 
-The Docker integration tests assert that the agent and test containers have no
-`OPENCODE_API_KEY`, no `.secrets`, and no Docker socket:
+The Docker integration tests assert that the test container has no `OPENCODE_API_KEY`, no
+`.secrets`, and no Docker socket. The agent container intentionally has only the dedicated eval key;
+it still has no `.secrets` and no Docker socket:
 
 ```bash
 corepack pnpm exec vitest run packages/eval/test/docker.integration.test.ts
 ```
 
-The harness also refuses to start an agent container with a secret-looking environment variable. If
-you want to inspect a live attempt, run the smoke in one terminal and inspect the container before
-it exits:
+The harness also refuses to start an agent container with any secret-looking environment variable
+other than the explicitly allowlisted `OPENCODE_API_KEY`. If you want to inspect a live attempt, run
+the smoke in one terminal and inspect the container before it exits:
 
 ```bash
 docker inspect \
@@ -307,7 +318,9 @@ docker inspect \
   --format '{{json .Config.Env}}'
 ```
 
-The output must not contain `OPENCODE_API_KEY` or any other secret value.
+The output may contain `OPENCODE_API_KEY` (the dedicated eval key) but must not contain
+`NTFY_TOPIC`, `AA_API_KEY`, a GitHub token, or any other secret value. Do not paste the output into
+chat or an issue.
 
 ## 6. Verify the setup
 
@@ -387,8 +400,9 @@ affect the other workflows.
 - Do not put any secret in `README.md`, `docs/`, a workflow file, or a commit.
 - Do not use repository variables for secrets.
 - Do not print a key in a debug step; mask it if you must reference it (`::add-mask::`).
-- Do not pass `OPENCODE_API_KEY` to the agent container, test container, Docker build arguments, or
-  the browser. Only the proxy needs it.
+- Pass `OPENCODE_API_KEY` only to the disposable agent container and the eval process that starts
+  it. Never pass it to the test container, the CONNECT tunnel, Docker build arguments, or the
+  browser.
 - Do not use paid models or raise the eval budget to make a failing free-model run pass.
 - Do not call the Artificial Analysis API from client-side code.
 - Do not commit a `.env` or `.secrets` file. `.gitignore` excludes both; use the local `.secrets`
