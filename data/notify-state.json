@@ -8,6 +8,7 @@
     "deprecated:opencode-go/minimax-m3.1-flash-free:2026-10-23",
     "deprecated:opencode/minimax-m3.1-flash-free:2026-10-23",
     "free_ended:opencode-go/minimax-m3.1-flash-free:2026-10-23",
-    "free_ended:opencode/minimax-m3.1-flash-free:2026-10-23"
+    "free_ended:opencode/minimax-m3.1-flash-free:2026-10-23",
+    "model_added:opencode-go/iceman-contributor-free:2026-10-25"
   ]
 }
