@@ -12,7 +12,7 @@ import {
   containerExists,
   copyIntoContainer,
   docker,
-  dockerText,
+  dockerLogs,
   removeContainer,
 } from "./docker";
 
@@ -164,9 +164,7 @@ export async function startEgressTunnelContainer(
           name: options.name,
           url: `http://egress:${port}`,
           async logs(): Promise<string> {
-            return dockerText(["logs", "--tail", "200", options.name], {
-              timeoutMs: 30_000,
-            });
+            return dockerLogs(options.name);
           },
           async stop(): Promise<void> {
             await removeContainer(options.name);

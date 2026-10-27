@@ -199,6 +199,9 @@ export async function runAgentAttempt(
   let captured = false;
   let logs = "";
   let usage = emptyUsage();
+  const resultHolder: { current: AgentAttemptResult | null } = {
+    current: null,
+  };
 
   const finish = (
     status: AgentAttemptStatus,
@@ -209,7 +212,7 @@ export async function runAgentAttempt(
     } = {},
   ): AgentAttemptResult => {
     const finished = Date.now();
-    return {
+    const result: AgentAttemptResult = {
       status,
       skipReason: details.skipReason ?? null,
       usage: details.usage ?? usage,
@@ -222,6 +225,8 @@ export async function runAgentAttempt(
       finishedAt: new Date(finished).toISOString(),
       durationMs: finished - started,
     };
+    resultHolder.current = result;
+    return result;
   };
 
   const captureWorkspace = async (): Promise<void> => {
@@ -425,6 +430,7 @@ export async function runAgentAttempt(
       // Logs are diagnostic only.
     }
     await captureWorkspace();
+    if (resultHolder.current) resultHolder.current.logs = logs;
     await agent?.stop().catch(() => {});
     await rm(configDir, { recursive: true, force: true }).catch(() => {});
   }

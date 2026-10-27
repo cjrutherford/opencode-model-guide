@@ -246,6 +246,7 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     );
     expect(response.status).toBe(200);
     await response.text();
+    expect(await agent!.logs()).toContain("opencode server listening");
   });
 
   it("starts the egress proxy on the internal network", async () => {

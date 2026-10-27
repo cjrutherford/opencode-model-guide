@@ -203,6 +203,7 @@ describe.skipIf(!imageAvailable)("agent adapter", { timeout: 30_000 }, () => {
     expect(result.usage.turns).toBeGreaterThan(0);
     expect(result.usage.toolCalls).toBe(0);
     expect(result.durationMs).toBeGreaterThan(0);
+    expect(result.logs).toContain("opencode server listening");
     expect(
       await readFile(join(captureDir, "src/value.js"), "utf8"),
     ).toBe("export const value = 1;\n");

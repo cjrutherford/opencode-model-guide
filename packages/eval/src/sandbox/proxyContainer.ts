@@ -12,6 +12,7 @@ import {
   containerExists,
   copyIntoContainer,
   docker,
+  dockerLogs,
   dockerText,
   removeContainer,
   uniqueName,
@@ -218,9 +219,7 @@ export async function startProxyContainer(
             return JSON.parse(payload) as EvalProxyStats;
           },
           async logs(): Promise<string> {
-            return dockerText(["logs", "--tail", "200", options.name], {
-              timeoutMs: 30_000,
-            });
+            return dockerLogs(options.name);
           },
           async stop(): Promise<void> {
             await forwarder?.stop();

@@ -36,6 +36,23 @@ export async function dockerText(
 export function uniqueName(prefix: string): string {
   return `${prefix}-${randomUUID().slice(0, 12)}`;
 }
+export async function dockerLogs(
+  container: string,
+  tail = 200,
+  timeoutMs = 30_000,
+): Promise<string> {
+  const result = await docker(["logs", "--tail", String(tail), container], {
+    timeoutMs,
+    maxOutputChars: 128_000,
+  });
+  if (result.exitCode !== 0) {
+    throw new Error(
+      `docker logs ${container} failed: ${result.output.slice(-2_000)}`,
+    );
+  }
+  return result.output.trim();
+}
+
 
 function shellQuote(value: string): string {
   return `'${value.replaceAll("'", "'\\''")}'`;

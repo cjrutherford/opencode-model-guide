@@ -6,7 +6,7 @@ import {
   copyIntoContainer,
   copyOutOfContainer,
   docker,
-  dockerText,
+  dockerLogs,
   getContainerIp,
   getPublishedPort,
   removeContainer,
@@ -355,9 +355,7 @@ export async function startAgentContainer(
     },
 
     async logs(): Promise<string> {
-      return dockerText(["logs", "--tail", "200", options.name], {
-        timeoutMs: 30_000,
-      });
+      return dockerLogs(options.name);
     },
 
     async stop(): Promise<void> {
