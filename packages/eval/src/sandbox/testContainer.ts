@@ -10,9 +10,10 @@ import {
   removeContainer,
   uniqueName,
 } from "./docker";
+import { tmpfs } from "./tmpfs";
 
 const DEFAULT_WORKSPACE_BYTES = 512 * 1024 * 1024;
-const DEFAULT_TMP_BYTES = 256 * 1024 * 1024;
+const DEFAULT_TMP_BYTES = 512 * 1024 * 1024;
 const DEFAULT_HOME_BYTES = 64 * 1024 * 1024;
 const SECRET_ENV_PATTERN = /(?:KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL)/i;
 
@@ -53,10 +54,6 @@ function envFlags(env: Record<string, string> | undefined): string[] {
   ]);
 }
 
-function tmpfs(path: string, bytes: number): string {
-  return `${path}:rw,size=${bytes},mode=1777`;
-}
-
 export async function startTestContainer(
   options: TestContainerOptions,
 ): Promise<TestContainerHandle> {
@@ -87,7 +84,9 @@ export async function startTestContainer(
       "--tmpfs",
       tmpfs("/tmp", options.tmpBytes ?? DEFAULT_TMP_BYTES),
       "--tmpfs",
-      tmpfs("/home/eval", options.homeBytes ?? DEFAULT_HOME_BYTES),
+      tmpfs("/home/eval", options.homeBytes ?? DEFAULT_HOME_BYTES, {
+        exec: false,
+      }),
       "--label",
       "omg-eval=1",
       "--label",

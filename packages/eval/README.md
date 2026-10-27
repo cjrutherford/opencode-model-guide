@@ -178,6 +178,10 @@ corepack pnpm validate:data
 
 - The agent container is disposable, non-root, read-only at the root, size-capped tmpfs at
   `/workspace`, no Docker socket, no `.secrets`, and no arbitrary route to the internet.
+- `/workspace` and `/tmp` are mounted `exec`, because Go builds a test binary and runs it from
+  scratch. `/home/eval` stays `noexec` and only holds config, session state, and logs. The Go
+  caches live in `/tmp` so a task cannot fill the small home tmpfs and break OpenCode's state
+  writes mid-attempt.
 - It receives the dedicated `OPENCODE_API_KEY` in its environment so native OpenCode can satisfy
   the free-tier client gate. The key stays inside that disposable container.
 - Its HTTPS traffic reaches only a dual-homed CONNECT tunnel that permits `opencode.ai` and its

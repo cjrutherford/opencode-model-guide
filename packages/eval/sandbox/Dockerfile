@@ -68,9 +68,13 @@ RUN chmod 0755 /usr/local/bin/eval-entrypoint
 
 ENV HOME=/home/eval
 ENV PATH="/usr/local/go/bin:/usr/local/bin:/home/eval/.local/bin:${PATH}"
-ENV GOPATH=/home/eval/go
-ENV GOCACHE=/home/eval/.cache/go-build
-ENV GOMODCACHE=/home/eval/go/pkg/mod
+# Keep the Go toolchain caches on the scratch mount. `/home/eval` is a small
+# noexec tmpfs; compiling the stdlib a task needs is far larger than it, and
+# `go test` must execute the test binary it builds.
+ENV GOPATH=/tmp/go
+ENV GOCACHE=/tmp/go-build
+ENV GOMODCACHE=/tmp/go/pkg/mod
+ENV GOTMPDIR=/tmp
 
 WORKDIR /workspace
 USER eval

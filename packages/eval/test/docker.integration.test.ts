@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 import {
+  copyIntoContainer,
   docker,
   ensureControlNetwork,
   ensureNetwork,
@@ -33,6 +34,7 @@ import {
   type ProxyContainerHandle,
 } from "../src/sandbox/proxyContainer";
 import { runTestStage } from "../src/testRunner";
+import { loadCorpus } from "../src/corpus";
 
 const IMAGE = process.env.OMG_EVAL_IMAGE ?? "omg-eval-sandbox:local";
 const imageAvailable = (await inspectImage(IMAGE)) !== null;
@@ -249,6 +251,25 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     expect(await agent!.logs()).toContain("opencode server listening");
   });
 
+  it("runs a Go test binary inside the agent container", async () => {
+    const task = loadCorpus().tasks.find((t) => t.manifest.id === "go-workerpool");
+    expect(task).toBeDefined();
+    await agent!.exec(["mkdir", "-p", "/workspace/go-check"]);
+    await copyIntoContainer(agent!.name, task!.repoDir, "/workspace/go-check");
+
+    const result = await agent!.exec(
+      ["bash", "-lc", 'cd /workspace/go-check && go test ./... 2>&1; echo "go-exit=$?"'],
+      { timeoutMs: 300_000 },
+    );
+
+    // The compiled test binary must execute from the scratch mounts, and the Go
+    // build cache must fit without filling the small home tmpfs.
+    expect(result.output).not.toMatch(/permission denied/i);
+    expect(result.output).not.toMatch(/no space left on device/i);
+    expect(result.output).toContain("worker pool behavior is incomplete");
+    expect(result.output).toContain("go-exit=1");
+  }, 300_000);
+
   it("starts the egress proxy on the internal network", async () => {
     proxy = await startProxyContainer({
       image: IMAGE,
@@ -374,6 +395,24 @@ describe.skipIf(!imageAvailable)("docker sandbox", () => {
     expect(result.testExitCode).toBe(0);
     expect(result.patchApplied).toBe(true);
   });
+
+  it("passes the Go corpus with the reference solution", async () => {
+    const task = loadCorpus().tasks.find((t) => t.manifest.id === "go-workerpool");
+    expect(task).toBeDefined();
+    const patch = await readFile(task!.solutionPath, "utf8");
+
+    const result = await runTestStage({
+      repoDir: task!.repoDir,
+      hiddenDir: task!.hiddenDir,
+      patch,
+      hiddenTestCommand: task!.manifest.hiddenTestCommand,
+      timeoutMs: 300_000,
+      executor: createDockerTestExecutor({ image: IMAGE }),
+    });
+
+    expect(result.status).toBe("passed");
+    expect(result.testExitCode).toBe(0);
+  }, 300_000);
 
   it("cleans up its containers and network", async () => {
     await agent?.stop();
