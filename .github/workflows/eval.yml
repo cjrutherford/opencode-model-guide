@@ -1,6 +1,12 @@
 name: eval
 
 on:
+  # Temporary one-shot trigger for the S14 official run. Remove after the run.
+  push:
+    branches:
+      - slice/S14-free-eval-harness
+    paths:
+      - .github/eval-trigger
   workflow_dispatch:
     inputs:
       mode:
