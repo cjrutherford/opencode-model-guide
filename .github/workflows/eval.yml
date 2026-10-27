@@ -68,12 +68,13 @@ jobs:
       - name: Run eval
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          MODE: ${{ inputs.mode }}
-          MODELS: ${{ inputs.models }}
-          TASKS: ${{ inputs.tasks }}
-          REPEATS: ${{ inputs.repeats }}
+          # The temporary push trigger has no workflow_dispatch inputs.
+          MODE: ${{ inputs.mode || 'agent' }}
+          MODELS: ${{ inputs.models || 'all-free' }}
+          TASKS: ${{ inputs.tasks || 'all' }}
+          REPEATS: ${{ inputs.repeats || '1' }}
           RESUME_RUN_ID: ${{ inputs.resume_run_id }}
-          COMMIT: ${{ inputs.commit }}
+          COMMIT: ${{ github.event_name == 'push' && 'true' || (inputs.commit && 'true' || 'false') }}
         run: |
           ARGS=(--access free --mode "$MODE" --models "$MODELS" --tasks "$TASKS" --repeats "$REPEATS" --commit="$COMMIT")
           if [ -n "$RESUME_RUN_ID" ]; then
