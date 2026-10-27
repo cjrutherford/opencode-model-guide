@@ -110,6 +110,7 @@ export interface ExecuteRunOptions {
   commit: boolean;
   dataPath?: string;
   retries?: number;
+  retryDelayMs?: number;
   runTimeoutMs?: number;
   now?: () => Date;
   log?: OnProgress;
@@ -368,6 +369,9 @@ export async function executePlannedRun(
   const now = options.now ?? (() => new Date());
   const log = options.log ?? (() => undefined);
   const retries = options.retries ?? 0;
+  // Free-tier capacity errors and upstream 5xx responses are transient, so
+  // space retries out instead of hammering the same endpoint immediately.
+  const retryDelayMs = options.retryDelayMs ?? 5_000;
   const runTimeoutMs =
     options.runTimeoutMs ?? options.store.run.limits.runTimeoutMs;
   const dataPath = options.dataPath ?? DEFAULT_EVALS_PATH;
@@ -467,9 +471,13 @@ export async function executePlannedRun(
       }
 
       if (execution.status !== "error" || round === retries) break;
+      const waitMs = retryDelayMs * 2 ** round;
       log(
-        `retry ${plan.id} after error: ${execution.error ?? "unknown error"}`,
+        `retry ${plan.id} after error: ${execution.error ?? "unknown error"} (waiting ${waitMs}ms)`,
       );
+      if (waitMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, waitMs));
+      }
     }
 
     if (!execution) {

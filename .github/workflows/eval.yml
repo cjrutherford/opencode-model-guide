@@ -65,6 +65,14 @@ jobs:
         run: pnpm eval:build-image
       - name: Verify corpus
         run: pnpm eval:verify-corpus
+      - name: Check eval secret
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+        run: |
+          if [ -z "$OPENCODE_API_KEY" ]; then
+            echo "::error::OPENCODE_API_KEY is not set in repository secrets"
+            exit 1
+          fi
       - name: Run eval
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
@@ -73,10 +81,12 @@ jobs:
           MODELS: ${{ inputs.models || 'all-free' }}
           TASKS: ${{ inputs.tasks || 'all' }}
           REPEATS: ${{ inputs.repeats || '1' }}
+          # Upstream free-tier requests occasionally fail transiently.
+          RETRIES: ${{ inputs.retries || '2' }}
           RESUME_RUN_ID: ${{ inputs.resume_run_id }}
           COMMIT: ${{ github.event_name == 'push' && 'true' || (inputs.commit && 'true' || 'false') }}
         run: |
-          ARGS=(--access free --mode "$MODE" --models "$MODELS" --tasks "$TASKS" --repeats "$REPEATS" --commit="$COMMIT")
+          ARGS=(--access free --mode "$MODE" --models "$MODELS" --tasks "$TASKS" --repeats "$REPEATS" --retries "$RETRIES" --commit="$COMMIT")
           if [ -n "$RESUME_RUN_ID" ]; then
             ARGS+=(--resume "$RESUME_RUN_ID")
           fi
@@ -84,7 +94,7 @@ jobs:
       - name: Validate data
         run: pnpm validate:data
       - name: Commit eval data
-        if: ${{ inputs.commit }}
+        if: ${{ github.event_name == 'push' || inputs.commit }}
         run: |
           if [ -z "$(git status --porcelain data/evals.json)" ]; then
             echo "no eval data changes"
@@ -96,12 +106,14 @@ jobs:
           git commit -m "chore(eval): add ${MODE} run [skip ci]"
           git push
         env:
-          MODE: ${{ inputs.mode }}
+          MODE: ${{ inputs.mode || 'agent' }}
       - name: Upload run artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: eval-run-${{ github.run_id }}
           path: packages/eval/.runs/
+          # Runs and artifacts live under the hidden `.runs` directory.
+          include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 7

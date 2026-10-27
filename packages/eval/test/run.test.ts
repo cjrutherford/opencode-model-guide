@@ -370,6 +370,39 @@ describe("executePlannedRun", () => {
     expect(existsSync(dataPath)).toBe(false);
   });
 
+  it("retries a transient error before recording the attempt", async () => {
+    const root = await tempRoot();
+    const tasks = [makeTask("one")];
+    const models = [makeModel("a")];
+    const store = await RunStore.create(
+      makeSkeleton("retry", models, tasks),
+      root,
+    );
+    const plans = planAttempts(models, tasks, 1);
+
+    const logs: string[] = [];
+    let calls = 0;
+    const result = await executePlannedRun({
+      store,
+      plans,
+      executor: async () => {
+        calls += 1;
+        if (calls === 1) throw new Error("fetch failed");
+        return makeExecution("passed");
+      },
+      commit: false,
+      retries: 1,
+      retryDelayMs: 0,
+      log: (message) => logs.push(message),
+    });
+
+    expect(calls).toBe(2);
+    expect(result.run.status).toBe("complete");
+    expect(result.run.attempts).toHaveLength(1);
+    expect(result.run.attempts[0]?.status).toBe("passed");
+    expect(logs.join("\n")).toContain("retry opencode/a:one:1");
+  });
+
   it("resumes by skipping terminal attempts and completing the rest", async () => {
     const root = await tempRoot();
     const tasks = [makeTask("one"), makeTask("two")];
