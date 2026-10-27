@@ -108,6 +108,35 @@ describe("egress tunnel", () => {
     expect(JSON.stringify(logs)).not.toContain("test-secret");
   });
 
+  it("keeps an established tunnel open past the connect timeout", async () => {
+    echo = createServer((socket) => {
+      socket.on("data", (chunk) => socket.write(chunk));
+    });
+    const echoPort = await listen(echo);
+    tunnel = await startEgressTunnel({
+      port: 0,
+      allowedHosts: ["127.0.0.1"],
+      allowedPort: echoPort,
+      connectTimeoutMs: 150,
+    });
+
+    const { socket, response } = await connectRequest(
+      tunnel.port,
+      `127.0.0.1:${echoPort}`,
+    );
+    expect(response).toContain("200 Connection Established");
+
+    // A model that thinks for a while streams nothing; the established tunnel
+    // must survive that quiet period.
+    await new Promise((resolve) => setTimeout(resolve, 400));
+    expect(socket.destroyed).toBe(false);
+
+    socket.write("pong");
+    await expect(readUntil(socket, "pong")).resolves.toContain("pong");
+    socket.end();
+    expect(tunnel.stats().upstreamErrors).toBe(0);
+  }, 10_000);
+
   it("rejects plain HTTP data requests", async () => {
     tunnel = await startEgressTunnel({ port: 0 });
 

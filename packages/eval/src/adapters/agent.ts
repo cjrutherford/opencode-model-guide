@@ -421,8 +421,10 @@ export async function runAgentAttempt(
   } finally {
     try {
       if (agent) {
+        const containerLogs = await agent.logs().catch(() => "");
+        const serverLog = await readAgentServerLog(agent);
         logs = truncate(
-          redactSecret(await agent.logs(), options.apiKey),
+          redactSecret([containerLogs, serverLog].filter(Boolean).join("\n\n"), options.apiKey),
           MAX_LOG_CHARS,
         );
       }
@@ -433,5 +435,27 @@ export async function runAgentAttempt(
     if (resultHolder.current) resultHolder.current.logs = logs;
     await agent?.stop().catch(() => {});
     await rm(configDir, { recursive: true, force: true }).catch(() => {});
+  }
+}
+
+/**
+ * OpenCode writes the failure detail (upstream error, aborted stream) to its own
+ * log file rather than to the container's stdout, so keep that with the attempt.
+ */
+async function readAgentServerLog(
+  agent: AgentContainerHandle,
+): Promise<string> {
+  try {
+    const result = await agent.exec(
+      [
+        "bash",
+        "-c",
+        "tail -n 400 /home/eval/.local/share/opencode/log/opencode.log 2>/dev/null || true",
+      ],
+      { timeoutMs: 20_000 },
+    );
+    return result.output.trim();
+  } catch {
+    return "";
   }
 }

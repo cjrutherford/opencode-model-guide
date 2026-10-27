@@ -209,6 +209,10 @@ export async function startEgressTunnel(
       upstream.destroy(new Error("upstream connect timed out"));
     });
     upstream.once("connect", () => {
+      // The timeout only guards connection setup. Leaving it armed also makes
+      // it an idle timeout, which kills long model turns that stream no bytes
+      // while the upstream thinks.
+      upstream.setTimeout(0);
       if (!socket.writable) {
         upstream.destroy();
         return;
