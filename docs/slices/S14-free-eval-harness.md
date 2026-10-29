@@ -249,6 +249,12 @@ Task table:
 Commit after the loader and the first three tasks; commit in batches of tasks to keep reviews
 manageable. Final commit: `feat(eval): add 12-task corpus`.
 
+Amendment (2026-10-29, corpus `2026-10-29.1`): `ts-semver` v2 states the `-1/0/1` return
+convention in the prompt and pins a numeric prerelease comparison in the public tests. The first
+partial official run showed all four models returning a raw numeric difference (`-8`) where the
+hidden test expected `-1`; the requirement was not discoverable from the task. No other task
+changed.
+
 #### 4. Corpus verifier
 
 1. Write failing tests in `packages/eval/test/verifyCorpus.test.ts` using a tiny fixture:

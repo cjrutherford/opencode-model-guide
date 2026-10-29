@@ -10,3 +10,11 @@ test("orders prereleases before the release", () => {
     "semver behavior is incomplete: prerelease was not ordered before release",
   );
 });
+
+test("compares numeric prerelease identifiers numerically", () => {
+  assert.equal(
+    compareVersions("1.0.0-alpha.2", "1.0.0-alpha.10"),
+    -1,
+    "semver behavior is incomplete: numeric prerelease comparison",
+  );
+});

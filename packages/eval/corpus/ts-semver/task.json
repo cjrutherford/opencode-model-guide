@@ -1,8 +1,8 @@
 {
   "id": "ts-semver",
   "language": "ts",
-  "version": 1,
-  "prompt": "Fix compareVersions in src/semver.ts so it follows SemVer precedence: numeric core comparison, prerelease identifiers ordered before the release, numeric prerelease identifiers compared numerically, and build metadata ignored.",
+  "version": 2,
+  "prompt": "Fix compareVersions in src/semver.ts so it follows SemVer precedence: numeric core comparison, prerelease identifiers ordered before the release, numeric prerelease identifiers compared numerically, and build metadata ignored. Return -1, 0, or 1.",
   "publicTestCommand": "tsx --test test/public/*.test.ts",
   "hiddenTestCommand": "tsx --test test/hidden/*.test.ts",
   "timeoutMs": 480000,
