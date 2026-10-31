@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T13:17:15.923Z",
+  "generatedAt": "2026-10-31T13:13:48.683Z",
   "scores": [
     {
       "modelKey": "opencode-go/beam-free",
@@ -240,9 +240,9 @@
           "long-context": 0.02685
         },
         "goEffective": {
-          "quick-edit": 0.000381,
-          "agentic-pr": 0.0023925,
-          "long-context": 0.006712499999999999
+          "quick-edit": 0.0003048,
+          "agentic-pr": 0.0019140000000000001,
+          "long-context": 0.005369999999999999
         }
       }
     },
