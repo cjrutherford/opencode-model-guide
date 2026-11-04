@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-03T13:15:29.753Z",
+  "generatedAt": "2026-11-04T13:14:36.596Z",
   "scores": [
     {
       "modelKey": "opencode-go/beam-free",
@@ -2706,6 +2706,39 @@
           "quick-edit": 0.0246,
           "agentic-pr": 0.158,
           "long-context": 0.41
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/crouton-alpha-free",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0,
+          "agentic-pr": 0,
+          "long-context": 0
         }
       }
     },
