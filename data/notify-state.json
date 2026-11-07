@@ -14,6 +14,10 @@
     "free_ended:opencode/nemotron-3-ultra-free:2026-10-29",
     "model_added:opencode/pulse-alpha-free:2026-11-03",
     "model_added:opencode/crouton-alpha-free:2026-11-04",
-    "model_added:opencode-go/crouton-alpha-free:2026-11-06"
+    "model_added:opencode-go/crouton-alpha-free:2026-11-06",
+    "deprecated:opencode/pulse-alpha-free:2026-11-07",
+    "free_ended:opencode/pulse-alpha-free:2026-11-07",
+    "model_added:opencode/iceman-free:2026-11-07",
+    "model_added:opencode/inkling-2-small-free:2026-11-07"
   ]
 }
