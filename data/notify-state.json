@@ -18,6 +18,8 @@
     "deprecated:opencode/pulse-alpha-free:2026-11-07",
     "free_ended:opencode/pulse-alpha-free:2026-11-07",
     "model_added:opencode/iceman-free:2026-11-07",
-    "model_added:opencode/inkling-2-small-free:2026-11-07"
+    "model_added:opencode/inkling-2-small-free:2026-11-07",
+    "model_added:opencode-go/longcat-2.5-free:2026-11-09",
+    "model_added:opencode/longcat-2.5-free:2026-11-09"
   ]
 }
