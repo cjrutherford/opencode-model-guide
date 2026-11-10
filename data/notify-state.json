@@ -20,6 +20,10 @@
     "model_added:opencode/iceman-free:2026-11-07",
     "model_added:opencode/inkling-2-small-free:2026-11-07",
     "model_added:opencode-go/longcat-2.5-free:2026-11-09",
-    "model_added:opencode/longcat-2.5-free:2026-11-09"
+    "model_added:opencode/longcat-2.5-free:2026-11-09",
+    "deprecated:opencode-go/crouton-alpha-free:2026-11-10",
+    "deprecated:opencode/crouton-alpha-free:2026-11-10",
+    "free_ended:opencode-go/crouton-alpha-free:2026-11-10",
+    "free_ended:opencode/crouton-alpha-free:2026-11-10"
   ]
 }
