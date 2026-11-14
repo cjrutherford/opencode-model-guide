@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T13:08:27.706Z",
+  "generatedAt": "2026-11-14T13:07:41.729Z",
   "results": [
     {
       "benchmark": "aider-polyglot",
@@ -4640,8 +4640,8 @@
       "url": "https://www.swebench.com/",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-13T13:08:27.707Z",
-      "durationMs": 291,
+      "fetchedAt": "2026-11-14T13:07:41.729Z",
+      "durationMs": 207,
       "itemCount": 55,
       "required": true
     },
@@ -4650,8 +4650,8 @@
       "url": "https://lmarena.ai/leaderboard",
       "ok": false,
       "status": "failed",
-      "fetchedAt": "2026-11-13T13:08:27.720Z",
-      "durationMs": 6902,
+      "fetchedAt": "2026-11-14T13:07:41.739Z",
+      "durationMs": 8042,
       "error": "text: page at offset 0: [lmarena] HTTP 501 Not Implemented for https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=0&length=100",
       "required": true,
       "itemCount": 261
@@ -4661,8 +4661,8 @@
       "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-13T13:08:27.721Z",
-      "durationMs": 238,
+      "fetchedAt": "2026-11-14T13:07:41.740Z",
+      "durationMs": 161,
       "itemCount": 68,
       "required": true
     },
@@ -4671,7 +4671,7 @@
       "url": "https://www.tbench.ai/leaderboard",
       "ok": false,
       "status": "skipped",
-      "fetchedAt": "2026-11-13T13:08:27.706Z",
+      "fetchedAt": "2026-11-14T13:07:41.729Z",
       "itemCount": 0,
       "reason": "no stable machine-readable leaderboard in v1",
       "required": false
@@ -4681,8 +4681,8 @@
       "url": "https://artificialanalysis.ai/api/v2/language/models/free",
       "ok": false,
       "status": "failed",
-      "fetchedAt": "2026-11-13T13:08:27.706Z",
-      "durationMs": 1027,
+      "fetchedAt": "2026-11-14T13:07:41.729Z",
+      "durationMs": 725,
       "error": "no models with a coding index",
       "required": false
     }
