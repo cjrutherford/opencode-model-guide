@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T13:07:41.729Z",
+  "generatedAt": "2026-11-15T13:07:19.735Z",
   "results": [
     {
       "benchmark": "aider-polyglot",
@@ -4640,8 +4640,8 @@
       "url": "https://www.swebench.com/",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-14T13:07:41.729Z",
-      "durationMs": 207,
+      "fetchedAt": "2026-11-15T13:07:19.735Z",
+      "durationMs": 356,
       "itemCount": 55,
       "required": true
     },
@@ -4650,9 +4650,9 @@
       "url": "https://lmarena.ai/leaderboard",
       "ok": false,
       "status": "failed",
-      "fetchedAt": "2026-11-14T13:07:41.739Z",
-      "durationMs": 8042,
-      "error": "text: page at offset 0: [lmarena] HTTP 501 Not Implemented for https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=0&length=100",
+      "fetchedAt": "2026-11-15T13:07:19.747Z",
+      "durationMs": 49369,
+      "error": "text: page at offset 0: [lmarena] HTTP 502 Bad Gateway for https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=latest&offset=0&length=100",
       "required": true,
       "itemCount": 261
     },
@@ -4661,8 +4661,8 @@
       "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-14T13:07:41.740Z",
-      "durationMs": 161,
+      "fetchedAt": "2026-11-15T13:07:19.749Z",
+      "durationMs": 284,
       "itemCount": 68,
       "required": true
     },
@@ -4671,7 +4671,7 @@
       "url": "https://www.tbench.ai/leaderboard",
       "ok": false,
       "status": "skipped",
-      "fetchedAt": "2026-11-14T13:07:41.729Z",
+      "fetchedAt": "2026-11-15T13:07:19.735Z",
       "itemCount": 0,
       "reason": "no stable machine-readable leaderboard in v1",
       "required": false
@@ -4681,8 +4681,8 @@
       "url": "https://artificialanalysis.ai/api/v2/language/models/free",
       "ok": false,
       "status": "failed",
-      "fetchedAt": "2026-11-14T13:07:41.729Z",
-      "durationMs": 725,
+      "fetchedAt": "2026-11-15T13:07:19.735Z",
+      "durationMs": 609,
       "error": "no models with a coding index",
       "required": false
     }
