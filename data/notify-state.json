@@ -24,6 +24,8 @@
     "deprecated:opencode-go/crouton-alpha-free:2026-11-10",
     "deprecated:opencode/crouton-alpha-free:2026-11-10",
     "free_ended:opencode-go/crouton-alpha-free:2026-11-10",
-    "free_ended:opencode/crouton-alpha-free:2026-11-10"
+    "free_ended:opencode/crouton-alpha-free:2026-11-10",
+    "model_added:opencode-go/hy4-flash-free:2026-11-16",
+    "model_added:opencode/hy4-flash-free:2026-11-16"
   ]
 }
