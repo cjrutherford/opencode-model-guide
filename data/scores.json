@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T13:15:02.937Z",
+  "generatedAt": "2026-11-18T13:15:10.316Z",
   "scores": [
     {
       "modelKey": "opencode-go/beam-free",
@@ -5389,6 +5389,72 @@
           "score": 49.39759036144578,
           "tier": "unrated",
           "confidence": 0.3
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0238,
+          "agentic-pr": 0.149,
+          "long-context": 0.74
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-6.2-astra",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        }
+      },
+      "cost": {
+        "profiles": {
+          "quick-edit": 0.0952,
+          "agentic-pr": 0.596,
+          "long-context": 2.96
+        }
+      }
+    },
+    {
+      "modelKey": "opencode/gpt-6.2-sol",
+      "benchmarks": {},
+      "useCases": {
+        "agentic-coding": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "everyday-edits": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "frontend": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
+        },
+        "long-context": {
+          "score": null,
+          "tier": "unrated",
+          "confidence": 0
         }
       },
       "cost": {
