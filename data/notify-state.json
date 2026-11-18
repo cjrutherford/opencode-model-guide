@@ -28,6 +28,8 @@
     "model_added:opencode-go/hy4-flash-free:2026-11-16",
     "model_added:opencode/hy4-flash-free:2026-11-16",
     "deprecated:opencode/minimax-m3.1-flash-free:2026-11-17",
-    "free_ended:opencode/minimax-m3.1-flash-free:2026-11-17"
+    "free_ended:opencode/minimax-m3.1-flash-free:2026-11-17",
+    "deprecated:opencode/glm-5.3-flash-free:2026-11-18",
+    "free_ended:opencode/glm-5.3-flash-free:2026-11-18"
   ]
 }
