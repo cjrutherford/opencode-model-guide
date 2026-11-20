@@ -32,6 +32,8 @@
     "deprecated:opencode/glm-5.3-flash-free:2026-11-18",
     "free_ended:opencode/glm-5.3-flash-free:2026-11-18",
     "model_added:opencode/jev-1.13-free:2026-11-19",
-    "model_added:opencode/tidepool-alpha-free:2026-11-19"
+    "model_added:opencode/tidepool-alpha-free:2026-11-19",
+    "deprecated:opencode/inkling-2-small-free:2026-11-20",
+    "free_ended:opencode/inkling-2-small-free:2026-11-20"
   ]
 }
