@@ -34,6 +34,11 @@
     "model_added:opencode/jev-1.13-free:2026-11-19",
     "model_added:opencode/tidepool-alpha-free:2026-11-19",
     "deprecated:opencode/inkling-2-small-free:2026-11-20",
-    "free_ended:opencode/inkling-2-small-free:2026-11-20"
+    "free_ended:opencode/inkling-2-small-free:2026-11-20",
+    "deprecated:opencode-go/longcat-2.5-free:2026-11-23",
+    "deprecated:opencode/longcat-2.5-free:2026-11-23",
+    "free_ended:opencode-go/longcat-2.5-free:2026-11-23",
+    "free_ended:opencode/longcat-2.5-free:2026-11-23",
+    "model_added:opencode/qwen4-max-free:2026-11-23"
   ]
 }
