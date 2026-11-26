@@ -39,6 +39,10 @@
     "deprecated:opencode/longcat-2.5-free:2026-11-23",
     "free_ended:opencode-go/longcat-2.5-free:2026-11-23",
     "free_ended:opencode/longcat-2.5-free:2026-11-23",
-    "model_added:opencode/qwen4-max-free:2026-11-23"
+    "model_added:opencode/qwen4-max-free:2026-11-23",
+    "deprecated:opencode/qwen4-max-free:2026-11-24",
+    "free_ended:opencode/qwen4-max-free:2026-11-24",
+    "model_added:opencode-go/hungerg-free:2026-11-24",
+    "model_added:opencode/seaglass-alpha-free:2026-11-26"
   ]
 }
