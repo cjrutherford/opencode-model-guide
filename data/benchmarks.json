@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T13:08:28.225Z",
+  "generatedAt": "2026-11-28T13:07:38.319Z",
   "results": [
     {
       "benchmark": "aider-polyglot",
@@ -9914,8 +9914,8 @@
       "url": "https://www.swebench.com/",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-27T13:08:28.225Z",
-      "durationMs": 224,
+      "fetchedAt": "2026-11-28T13:07:38.319Z",
+      "durationMs": 234,
       "itemCount": 55,
       "required": true
     },
@@ -9924,8 +9924,8 @@
       "url": "https://lmarena.ai/leaderboard",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-27T13:08:28.234Z",
-      "durationMs": 368778,
+      "fetchedAt": "2026-11-28T13:07:38.329Z",
+      "durationMs": 370105,
       "itemCount": 704,
       "required": true
     },
@@ -9934,8 +9934,8 @@
       "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml",
       "ok": true,
       "status": "ok",
-      "fetchedAt": "2026-11-27T13:08:28.236Z",
-      "durationMs": 195,
+      "fetchedAt": "2026-11-28T13:07:38.330Z",
+      "durationMs": 190,
       "itemCount": 68,
       "required": true
     },
@@ -9944,7 +9944,7 @@
       "url": "https://www.tbench.ai/leaderboard",
       "ok": false,
       "status": "skipped",
-      "fetchedAt": "2026-11-27T13:08:28.225Z",
+      "fetchedAt": "2026-11-28T13:07:38.319Z",
       "itemCount": 0,
       "reason": "no stable machine-readable leaderboard in v1",
       "required": false
@@ -9954,8 +9954,8 @@
       "url": "https://artificialanalysis.ai/api/v2/language/models/free",
       "ok": false,
       "status": "failed",
-      "fetchedAt": "2026-11-27T13:08:28.225Z",
-      "durationMs": 591,
+      "fetchedAt": "2026-11-28T13:07:38.319Z",
+      "durationMs": 618,
       "error": "no models with a coding index",
       "required": false
     }
